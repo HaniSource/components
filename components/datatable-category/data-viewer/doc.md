@@ -1,6 +1,7 @@
 ### docs
 first of all we need to setup an example `App\Models\Order` model and configure it to help us interacting the orders table easily
 
+
 ```php
 <?php
 
