@@ -219,6 +219,7 @@ then run `php artisan migrate` to migrate the those migration
  ```
    
 ## Orders/Index Component Class 
+
  `php artisan livewire:make Orders/Index`
 in our cas  the livewire component is pretty straightforward we just need  initiates a query on the `App\Models\Order` model using Eloquent's `query()` method to make it flexible, an then we export an orders variable to the  `livewire.orders.index` view . 
 
