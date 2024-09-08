@@ -1,6 +1,5 @@
 ### docs
-first of all we need to setup an example `App\Models\Order` model and configure it to help us interacting the orders table easily
-
+irst up, let's set up an example model for `App\Models\Order` to interact with the `orders` table more easily:
 
 ```php
 <?php
