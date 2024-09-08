@@ -56,7 +56,7 @@ class Order extends Model
     }
 }
 ```
-as you saw we cast  the status to the status `App\Enums\Class` to make reusable and clean to work with how ever this is how the `status` class look like 
+as you saw we cast  the status to the status `App\Enums\Status` Enums to make reusable and clean to work with how ever this is how the `status` class look like 
 
 ```php
 <?php
