@@ -1,6 +1,5 @@
 ### docs
 irst up, let's set up an example model for `App\Models\Order` to interact with the `orders` table more easily:
-
 ```php
 <?php
 
