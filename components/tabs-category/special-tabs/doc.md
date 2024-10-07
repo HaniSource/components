@@ -93,5 +93,31 @@ This is the backbone of the Tabs Component, managing the state and orchestrating
 - ``isActive(id)``:check if a tab is active.
 - ``getTabIndex(el,parent)``: Determines the tab's index within the list  
 
-the ul dom element has tablist refs and is responsible for the navigation between tab's element it use alpinejs built-in event listeners you can learn more about them [here](https://alpinejs.dev/essentials/events)
+the ul dom element has tablist refs and is responsible for the navigation between tab's element it use alpinejs built-in event listeners you can learn more about them [here](https://alpinejs.dev/essentials/events) in our case we get rid of the scroll bar due to beauty view.
 
+### Tab Item
+
+Represents an individual tab that users can click or navigate to via keyboard to display its corresponding panel. 
+
+```html
+    @props([
+    'activeClasses'=>'bg-white/5'
+])
+<li>
+    <button
+        type="button"
+        x-bind:id="$id('tab', getTabIndex($el.parentElement, $refs.tablist))"
+        x-on:click="activate($el.id)"
+        x-on:focus="activate($el.id)"
+        x-bind:tabindex="isActive($el.id) ? 0 : -1"
+        x-bind:aria-selected="isActive($el.id)"
+        x-bind:class="isActive($el.id) 
+            ? @js($activeClasses) 
+            : 'border-b-transparent'"
+        {{ $attributes->merge(['class'=>'inline-flex items-center px-5 rounded-t-md ']) }}
+        role="tab"
+    >
+        {{ $slot }}
+    </button>
+</li>
+```
