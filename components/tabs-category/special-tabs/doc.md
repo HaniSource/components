@@ -19,6 +19,7 @@ since tabs are not a complex component so the documentation for this blade compo
 - **Keyboard Navigation** : Supports arrow keys, Home, and End for accessibility.
 - **Accessibility** : roper ARIA attributes and tabindex for keyboard navigation.
 - and more
+
 ### Component Structure
 
 1. Main Container (``tabs/index.blade.php``) 
@@ -187,5 +188,4 @@ Displays the content associated with a specific tab. Only the active tab's panel
         </x-tabs.panel>
     </x-slot:panels>
 </x-tabs>
-
 ```
