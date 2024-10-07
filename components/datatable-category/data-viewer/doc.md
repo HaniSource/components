@@ -195,6 +195,7 @@ return new class extends Migration
 then run `php artisan migrate` to migrate the those migration
  you want to also to seed some demo data?
  no problem there is an example, in your `OrderFactory` paste this definition example function 
+ 
  ```php
  public function definition(): array
     {
