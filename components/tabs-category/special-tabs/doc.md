@@ -1,9 +1,10 @@
 ---
-name: 'special tabs'
+name: 'fluxtor tabs'
 files:
     index: resources/views/components/tabs/index.blade.php
     item: resources/views/components/tabs/item.blade.php
     panel: resources/views/components/tabs/panel.blade.php
+    usage: resources/views/components/tabs/usage.blade.php
 ---
 
 ## Documentation 
