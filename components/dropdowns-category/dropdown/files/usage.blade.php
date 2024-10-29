@@ -1,0 +1,19 @@
+<x-dropdown>
+    <x-slot:button class="dark:bg-white/10 bg-white">
+        frameworks
+    </x-slot:button>
+    <x-slot:items>
+        <x-dropdown.item>
+            Tailwind
+        </x-dropdown.item>
+        <x-dropdown.item>
+            AlpineJs
+        </x-dropdown.item>
+        <x-dropdown.item>
+            Laravel
+        </x-dropdown.item>
+        <x-dropdown.item>
+            Livewire
+        </x-dropdown.item>
+    </x-slot:items>
+</x-dropdown>
