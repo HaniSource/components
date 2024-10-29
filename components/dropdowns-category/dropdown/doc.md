@@ -114,3 +114,13 @@ the global container for every dropdown component you want to use, this is the c
 </div>
 ```
 this component accepts the position of the panel as a props according to the alpinejs's anchor [plugin](https://alpinejs.dev/plugins/anchor#positioning) 
+
+secondly you may notice that not you need to write a lot of js like what do we have here you may be able to do that but you well get basic and poor dropdown like this one 
+
+```html
+<div x-data="{ open: false }">
+    <button x-on:click="open = ! open">Toggle</button>
+ 
+    <div x-show="open" x-on:click.outside="open = false">Contents...</div>
+</div>
+```
