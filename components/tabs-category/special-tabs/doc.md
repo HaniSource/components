@@ -9,20 +9,18 @@ files:
 
 ## Documentation 
 
-this a special tabs for us because it's the tabs used to show you the documention and the source code for each component in our website.
-
-since tabs are not a complex component so the documentation for this blade component is going to be easy.
+The *Fluxtor Tabs* component is a custom tab system that powers the documentation and code display for each component on our website. Designed with simplicity in mind, it includes essential features for accessibility and usability.
 
 ##### Key Features
 
-- **State Management** : controls wich tabs is active
-- **Dynamic Activation** : Automatically activates the first tab on page load.
-- **Keyboard Navigation** : Supports arrow keys, Home, and End for accessibility.
-- **Accessibility** : roper ARIA attributes and tabindex for keyboard navigation.
-- and more
+- **State Management** : Manages the active tab state.
+- **Dynamic Activation** : Automatically activates the first tab upon page load.
+- **Keyboard Navigation** : Supports navigation via arrow keys, Home, and End for enhanced accessibility.
+- **Accessibility** : Proper ARIA attributes and tabindex handling ensure optimal accessibility.
+- **Customizable** : Easily adjustable appearance with props and classes.
 
 ### Component Structure
-
+This Tabs component consists of three main parts:
 1. Main Container (``tabs/index.blade.php``) 
 2. Tab Item (``tabs/item.blade.php``) 
 3. Tab Panel (``tabs/panel.blade.php``) 
@@ -190,3 +188,5 @@ Displays the content associated with a specific tab. Only the active tab's panel
     </x-slot:panels>
 </x-tabs>
 ```
+## Notes
+ - Customize ``activeClasses`` for distinct styles on active tabs.
