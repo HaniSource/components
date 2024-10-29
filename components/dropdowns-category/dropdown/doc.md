@@ -124,3 +124,8 @@ secondly you may notice that not you need to write a lot of js like what do we h
     <div x-show="open" x-on:click.outside="open = false">Contents...</div>
 </div>
 ```
+
+but wait we is accesibilty? how about clicking outsite the dropdown to close the drop down? se for that why we have a mid a mid-complex javascript  
+##### explaining javascript : 
+
+for the `close()` function is the resposible for the closing dropdown it has a optional params responsible the 
