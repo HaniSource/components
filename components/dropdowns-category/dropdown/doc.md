@@ -118,14 +118,14 @@ this component accepts the position of the panel as a props according to the alp
 secondly you may notice that not you need to write a lot of js like what do we have here you may be able to do that but you well get basic and poor dropdown like this one 
 
 ```html
-<div x-data="{ open: false }">
-    <button x-on:click="open = ! open">Toggle</button>
- 
-    <div x-show="open" x-on:click.outside="open = false">Contents...</div>
+<div x-data="{ isShown: false }">
+    <button x-on:click="isShown = ! isShown">Toggle</button> 
+    <div x-show="isShown">Contents...</div>
 </div>
 ```
 
-but wait we is accesibilty? how about clicking outsite the dropdown to close the drop down? se for that why we have a mid a mid-complex javascript  
+but wait we is accesibilty? how about clicking outsite the dropdown to close the drop down? se for that why we have a mid a mid-complex javascript 
+
 ##### explaining javascript : 
 
 for the `close()` function is the resposible for the closing dropdown it has a optional params responsible the 
