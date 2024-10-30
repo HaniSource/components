@@ -26,7 +26,9 @@
     </h2>
 
     <div style="display: none" x-show="isVisible" x-collapse>
-        <div class="px-6 pb-4 pt-2">
+        <div 
+            {{ $response->attributes->merge(['class' => 'px-6 pb-4 pt-2']) }}
+        >
             {{ $response }}
         </div>
     </div>
