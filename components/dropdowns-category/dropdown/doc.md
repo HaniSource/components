@@ -197,3 +197,37 @@ The Dropdown Item component is used to represent each item inside the dropdown. 
     @endif
 </div>
 ```
+##### How About Props ?
+1. **``closeOnClick``**: This boolean prop, which defaults to true, determines whether the dropdown should close when an item is clicked. If set to false, clicking the item will not close the dropdown.
+
+**``href``**: If provided, this prop turns the dropdown item into a clickable link, allowing it to navigate to the specified URL. If left empty, the item behaves as a regular menu item.
+
+It Initializes a small Alpine.js component within the dropdown item.
+ - This setup includes:
+1. An *``init``* function that sets up an event listener for clicks on the item, triggering the isClosedAfterClick function.
+2. The *``isClosedAfterClick``* function checks if closeOnClick is true. If so, it calls the global ``close()`` function, closing the dropdown menu.
+
+### Usage Example 
+after you copy paste those two file :
+you can test the component with this basic example 
+```html
+<x-dropdown>
+    <x-slot:button class="dark:bg-white/10 bg-white">
+        frameworks
+    </x-slot:button>
+    <x-slot:items>
+        <x-dropdown.item>
+            Tailwind
+        </x-dropdown.item>
+        <x-dropdown.item>
+            AlpineJs
+        </x-dropdown.item>
+        <x-dropdown.item>
+            Laravel
+        </x-dropdown.item>
+        <x-dropdown.item>
+            Livewire
+        </x-dropdown.item>
+    </x-slot:items>
+</x-dropdown>
+```
