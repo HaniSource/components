@@ -113,8 +113,6 @@ The main container is the global structure for each dropdown instance. Below is 
     </div>
 </div>
 ```
-#### Properties and Attributes
-
 this component accepts the position of the panel as a props according to the alpinejs's anchor [plugin](https://alpinejs.dev/plugins/anchor#positioning) 
 
 secondly you may notice that not you need to write a lot of js like what do we have here you may be able to do that but you well get basic and poor dropdown like this one 
@@ -162,3 +160,40 @@ This helper function makes the final call on whether the dropdown should close b
     - Specifically, we’re looking for a ``DOCUMENT_POSITION_FOLLOWING`` result. This means the last focused element is “after” the button in the DOM’s structure. Essentially, if ``lastFocusedElement`` is after the button in the document, the user has likely left the dropdown, so we should close it.
 
     If both of these checks pass, ``shouldCloseDropdown`` returns ``true``, meaning it’s time to close the dropdown.
+
+#### Dropdown Item
+
+The Dropdown Item component is used to represent each item inside the dropdown. It takes care of handling item clicks, managing focus, and optionally setting up navigation links. Below is the code for setting it up:
+
+
+```html
+@props([
+    'closeOnClick' => true,
+    'href'=>null
+])
+<div 
+    role="menuitem"
+    tabindex="-1"
+    {{ $attributes->merge([
+        'class' => 'dropdown-item cursor-pointer hover:rounded px-2 py-0.5 dark:focus-within:bg-white/5 dark:hover:bg-white/5 hover:bg-white  dark:focus:bg-white/5 focus-within:bg-white hover:bg-white focus:bg-white',
+    ]) }}
+    x-data="{
+        init() {
+            $el.addEventListener('click', () => this.isClosedAfterClick())
+        },
+        isClosedAfterClick() {
+            if (@js($closeOnClick)) {
+                close();
+            }
+        }
+    }" 
+    x-on:keydown.enter.prevent="$el.click()">
+    @if (filled($href))
+        <a href="{{ $href }}" wire:navigate.hover>
+            {{ $slot }}
+        </a>
+    @else
+    {{ $slot }}
+    @endif
+</div>
+```
