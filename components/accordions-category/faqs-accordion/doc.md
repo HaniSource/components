@@ -10,4 +10,5 @@ files:
 ## Documentation
 
 ### Overviewn
-This *Dropdown* component is built using Alpine.js and provides a flexible way to implement dropdowns with full control over opening, closing, focus management, and positioning.
+
+This *Faqs Accordion* component is built using Alpine.js and provides a flexible way to implement dropdowns with full control over opening, closing, focus management, and positioning.
