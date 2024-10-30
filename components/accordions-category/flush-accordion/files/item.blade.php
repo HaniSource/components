@@ -14,7 +14,8 @@
     }"
     {{ $attributes->merge([
         'class' => 'rounded-lg dark:text-gray-400 text-gray-800 ',
-    ]) }}>
+    ]) }}
+>
     <h2>
         <button
             {{ $question->attributes->merge(['class' => 'flex w-full items-center justify-between px-6 py-4 text-xl font-bold']) }}
