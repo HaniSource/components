@@ -244,6 +244,7 @@ The Sub-items part represents the nested dropdown menu for an item. below the co
     {{ $slot }}
 </div>
 ```  
+
 ### Usage Example 
 after you copy paste those two file, you can test the component with this basic example:
 
