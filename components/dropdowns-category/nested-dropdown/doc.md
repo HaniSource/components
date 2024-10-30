@@ -74,17 +74,17 @@ The main container is the global structure for each dropdown instance. Below is 
         class="relative"
     >
         <button
-                x-ref="button"
-                x-on:keydown.tab.prevent.stop="$focus.focus($focus.within($refs.panel).getFirst())"
-                x-on:keydown.down.prevent.stop="$focus.focus($focus.within($refs.panel).getFirst())"
-                x-on:keydown.space.stop.prevent="toggle()"
-                x-on:keydown.enter.stop.prevent="toggle()"
-                x-on:keyup.space.stop.prevent
-                x-on:click="toggle()"
-                x-bind:aria-expanded="open"
-                x-bind:aria-controls="$id('dropdown-button')"
-                type="button"
-                {{ $button->attributes->merge(['class'=>'flex items-center px-2 py-1 rounded-md']) }}
+            x-ref="button"
+            x-on:keydown.tab.prevent.stop="$focus.focus($focus.within($refs.panel).getFirst())"
+            x-on:keydown.down.prevent.stop="$focus.focus($focus.within($refs.panel).getFirst())"
+            x-on:keydown.space.stop.prevent="toggle()"
+            x-on:keydown.enter.stop.prevent="toggle()"
+            x-on:keyup.space.stop.prevent
+            x-on:click="toggle()"
+            x-bind:aria-expanded="open"
+            x-bind:aria-controls="$id('dropdown-button')"
+            type="button"
+            {{ $button->attributes->merge(['class'=>'flex items-center px-2 py-1 rounded-md']) }}
             >
             {{ $button }}
         </button>
@@ -118,7 +118,7 @@ The main container is the global structure for each dropdown instance. Below is 
 ```
 this component accepts the position of the panel as a props according to the alpinejs's anchor [plugin](https://alpinejs.dev/plugins/anchor#positioning) 
 
-secondly you may notice that not you need to write a lot of js like what do we have here you may be able to do that but you well get basic and poor dropdown like this one 
+You may notice that a simple dropdown would require less code, but it would lack essential features like accessibility and closing the dropdown when clicking outside of it. For instance, a basic dropdown can be written like this:
 
 ```html
 <div x-data="{ isShown: false }">
@@ -127,7 +127,7 @@ secondly you may notice that not you need to write a lot of js like what do we h
 </div>
 ```
 
-but wait were is accesibilty? how about clicking outsite the dropdown to close the dropdown? so for that why we have a mid a mid-complex javascript 
+However, this basic implementation does not address accessibility or closing functionality, which is why we use a more complex JavaScript structure.
 
 ##### explaining javascript : 
 
@@ -228,12 +228,6 @@ The Sub-items part represents the nested dropdown menu for an item. below the co
     x-show="show"
     x-ref="subItems"
     x-anchor.{{ $position }}.offset.10 = "$refs.item"
-    x-on:keydown.down.prevent.stop="$focus.next()"
-    x-on:keydown.up.prevent.stop="$focus.prev()"
-    x-on:keydown.home.prevent.stop="$focus.first()"
-    x-on:keydown.page-up.prevent.stop="$focus.first()"
-    x-on:keydown.end.prevent.stop="$focus.last()"
-    x-on:keydown.page-down.prevent.stop="$focus.last()"
     x-transition:enter="transition ease-out duration-200"
     x-transition:enter-start="opacity-0 scale-95"
     x-transition:enter-end="opacity-100 scale-100"
@@ -241,7 +235,7 @@ The Sub-items part represents the nested dropdown menu for an item. below the co
     x-transition:leave-start="opacity-100 scale-100"
     x-transition:leave-end="opacity-0 scale-95"
     x-on:click.away="close($refs.button)"
-    :id="$id('dropdown-subitems')"
+    x-bind:id="$id('dropdown-subitems')"
     style="display: none;"
     {{ $attributes->merge([
         'class'=>"absolute left-0 py-1 px-1 max-w-96 rounded-lg bg-white/5 border borde-white/5 shadow-md"
@@ -251,26 +245,51 @@ The Sub-items part represents the nested dropdown menu for an item. below the co
 </div>
 ```  
 ### Usage Example 
-after you copy paste those two file :
-you can test the component with this basic example 
+after you copy paste those two file, you can test the component with this basic example:
+
 ```html
-<x-dropdown>
+<x-components::dropdown>
     <x-slot:button class="dark:bg-white/10 bg-white">
         frameworks
     </x-slot:button>
     <x-slot:items>
-        <x-dropdown.item>
+        <x-components::dropdown.item>
             Tailwind
-        </x-dropdown.item>
-        <x-dropdown.item>
+        </x-components::dropdown.item>
+        <x-components::dropdown.item>
             AlpineJs
-        </x-dropdown.item>
-        <x-dropdown.item>
+        </x-components::dropdown.item>
+        <x-components::dropdown.item>
             Laravel
-        </x-dropdown.item>
-        <x-dropdown.item>
-            Livewire
-        </x-dropdown.item>
+        </x-components::dropdown.item>
+        <x-components::dropdown.item>
+            livewire 
+            <x-components::dropdown.sub-items>
+                <x-components::dropdown.item>
+                    Full SPA 
+                </x-components::dropdown.item>
+                <x-components::dropdown.item>
+                    easy uploading 
+                </x-components::dropdown.item>
+                <x-components::dropdown.item>
+                    lazy loading
+                </x-components::dropdown.item>
+                </x-components::dropdown.sub-item>
+        </x-components::dropdown.item>
+        <x-components::dropdown.item>
+            inertia 
+            <x-components::dropdown.sub-items>
+                <x-components::dropdown.item>
+                    scroll management
+                </x-components::dropdown.item>
+                <x-components::dropdown.item>
+                    shared data
+                </x-components::dropdown.item>
+                <x-components::dropdown.item>
+                    ssr
+                </x-components::dropdown.item>
+            </x-components::dropdown.sub-item>
+        </x-components::dropdown.item>
     </x-slot:items>
-</x-dropdown>
+</x-components::dropdown>
 ```
