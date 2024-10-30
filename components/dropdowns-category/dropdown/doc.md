@@ -126,17 +126,17 @@ secondly you may notice that not you need to write a lot of js like what do we h
 </div>
 ```
 
-but wait we is accesibilty? how about clicking outsite the dropdown to close the drop down? se for that why we have a mid a mid-complex javascript 
+but wait were is accesibilty? how about clicking outsite the dropdown to close the dropdown? so for that why we have a mid a mid-complex javascript 
 
 ##### explaining javascript : 
 
-here the ``open()`` and ``toggle()`` are completely straightforward the only not clear functions here are ``handleFocusInOut()`` and ``shouldCloseDropdown`` Ok let's go explain it :
+The functions ``open()``, ``toggle()``, and ``close()`` handle basic dropdown actions: opening, closing, and toggling visibility. But to enhance functionality, we add two focus management functions: ``handleFocusInOut()`` and ``shouldCloseDropdown()``.
 
 he goal here is to make sure the dropdown closes automatically if the user clicks or tabs out of it. To make that happen, we need a couple of functions, those are ``handleFocusInOut()`` and ``shouldCloseDropdown`` :
 
 ###### **`handleFocusInOut`** :
 
-This function's job is to monitor focus shifts in and out of the dropdown. Here's how it works step-by-step:
+This function keeps an eye on where the user’s focus is moving to decide if the dropdown should close. Here's how it works step-by-step:
 1. **Get References:**
     We grab references to the dropdown ``panel`` and ``button`` elements. This is because we want to know where the user is focusing in relation to these two elements.
 2. **Check Where Focus Moved:**
@@ -158,5 +158,7 @@ This helper function makes the final call on whether the dropdown should close b
     First, it checks that ``lastFocusedElement`` is not within the button or the panel. This is a signal that the user has clicked or tabbed somewhere outside the dropdown entirely.
 
 2. **Checking Position in the DOM:**
-    - Next, it compares lastFocusedElement to button using button.compareDocumentPosition(lastFocusedElement). This comparison uses a bitmask that tells us where the two elements sit in the DOM tree.
-    - Specifically, we’re looking for a DOCUMENT_POSITION_FOLLOWING result. This means the last focused element is “after” the button in the DOM’s structure. Essentially, if lastFocusedElement is after the button in the document, the user has likely left the dropdown, so we should close it.
+    - Next, it compares ``lastFocusedElement`` to button using ``button.compareDocumentPosition(lastFocusedElement)``. This comparison uses a bitmask that tells us where the two elements sit in the DOM tree [see the docs of compareDocumentPosition() method ](https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition).
+    - Specifically, we’re looking for a ``DOCUMENT_POSITION_FOLLOWING`` result. This means the last focused element is “after” the button in the DOM’s structure. Essentially, if ``lastFocusedElement`` is after the button in the document, the user has likely left the dropdown, so we should close it.
+
+    If both of these checks pass, ``shouldCloseDropdown`` returns ``true``, meaning it’s time to close the dropdown.
