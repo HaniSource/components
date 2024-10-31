@@ -1,10 +1,8 @@
 ---
 name: 'filament tabs'
 files:
-    index: resources/views/components/tabs/index.blade.php
-    item: resources/views/components/tabs/item.blade.php
-    panel: resources/views/components/tabs/panel.blade.php
-    usage: resources/views/components/tabs/usage.blade.php
+    index: resources/views/components/toggles/index.blade.php
+    usage: resources/views/components/toggles/usage.blade.php
 ---
 
 ## Documentation 
@@ -81,7 +79,18 @@ This is the backbone of the Tabs Component, managing the state and orchestrating
 - ``$toggledClasses``: CSS classes applied when the toggle is in the "on" state.
 - ``$notToggledClasses``: CSS classes applied when the toggle is in the "off" state.
 
-the ul dom element has tablist refs and is responsible for the navigation between tab's element it use alpinejs built-in event listeners you can learn more about them [here](https://alpinejs.dev/essentials/events) in our case we get rid of the scroll bar due to beauty view.
+- The component’s interactivity relies on javascript, with state management and key functions to handle toggle behavior. Here’s a breakdown of each function and its purpose:
+
+- ``value``: A boolean property that tracks the toggle's state (``true`` for "on" and ``false`` for "off"), and it reflect the value ``wire:model`` using ``x-modelable`` see
+[alpine.js docs](https://alpinejs.dev/directives/modelable) and [livewire docs](https://livewire.laravel.com/docs/forms#custom-form-controls)for ``x-modelable``
+
+- ``toggle()``: Toggles the value state by reversing its boolean state, switching the component from "on" to "off" or vice versa. The component’s appearance adjusts accordingly based on CSS classes defined in ``toggledClasses`` and ``notToggledClasses``.
+
+- ``isToggled()``: Checks if ``value`` is ``true``, returning ``true`` if the toggle is "on" and ``false`` otherwise. This function is used to dynamically bind classes for each toggle state.
+
+- ``handleClick()``: Simulates a button click by calling ``click()`` and ``focus()`` on the ``btn`` reference. This is especially useful when users click the label, triggering the toggle without directly interacting with the button.
+
+The component also uses ``x-id`` for generating a unique label ID, enabling accessible connections between the toggle button and its label.
 
 ## Example usage 
 
