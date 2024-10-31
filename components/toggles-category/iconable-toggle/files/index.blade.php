@@ -27,7 +27,7 @@
             <label
                 x-on:click="handleClick()"
                 x-bind:id="$id('toggle-label')"
-                {{ $label->attributes->merge(['class'=>'text-gray-900 dark:text-gray-100 font-medium']) }}
+                {{ $label->attributes->merge(['class'=>'text-gray-900 dark:text-gray-100 font-semibold']) }}
             >
                 {{ $label }}
             </label>
