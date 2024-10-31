@@ -11,7 +11,7 @@ files:
 
 ### Overviewn
 
-This *Faqs Accordion* component is designed to present a series of items that can be expanded or collapsed, allowing users to view content in a compact manner.
+This *Flush Accordion* component is inspired by flowbite accordions and is designed to present a series of items that can be expanded or collapsed, allowing users to view content in a compact manner.
 
 ### Component Structure
 The accordion component is composed of two main files: 
