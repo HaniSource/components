@@ -93,6 +93,8 @@ That’s the core idea!
 
 ### Usage Example 
 
+Once you have the core files in place, you’re ready to test and adjust your component. Here’s a quick start example to get you going.
+
 ```html
 <x-accordion>
     <x-accordion.item class="dark:bg-white/5 bg-white  shadow">
