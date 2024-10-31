@@ -257,8 +257,9 @@ Add this code to ``theme-switcher/index.blade.php`` to create a theme dropdown c
 
 ``` 
 #### Preventing Flicker on Page Load 
-When setting the theme mode, a brief flicker may occur on page load, especially if the dark theme is applied. This flicker happens because the theme is applied after the page is initially rendered. To prevent this, add the following script in the <head> section of your app.blade.php file. This script applies the dark theme class (``.dark``) immediately if the theme preference is already set to dark.
+When setting the theme mode, a brief flicker may occur on page load, especially if the dark theme is applied. This flicker happens because the theme is applied after the page is initially rendered. To prevent this, add the following script in the ``<head>`` section of your ``app.blade.php`` file. This script applies the dark theme class (``.dark``) immediately if the theme preference is already set to dark.
 
+Add this code in the ``<head>`` of your ``app.blade.php``:
 ```html
 <script>
     const theme = localStorage.getItem('theme') ?? 'system'
