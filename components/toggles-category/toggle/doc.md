@@ -7,9 +7,7 @@ files:
 
 ## Documentation 
 
-The **Toggle** component provides a customizable switch that users can easily toggle on or off.
-
-##### Key Features
+The **Toggle** component provides a customizable switch that users can easily toggle on or off. 
 
 ### Component Structure
 This Toggle component consists of one main parts:
@@ -17,7 +15,7 @@ This Toggle component consists of one main parts:
 
 #### Main Container (``tabs/index.blade.php``)
 
-This is the backbone of the Tabs Component, managing the state and orchestrating the interaction between Tab Items and Tab Panels.
+This is the core structure of the Toggle component. It includes Alpine.js-based state management and toggle behavior.
 
 ```html
 @props([
@@ -81,8 +79,8 @@ This is the backbone of the Tabs Component, managing the state and orchestrating
 
 - The component’s interactivity relies on javascript, with state management and key functions to handle toggle behavior. Here’s a breakdown of each function and its purpose:
 
-- ``value``: A boolean property that tracks the toggle's state (``true`` for "on" and ``false`` for "off"), and it reflect the value ``wire:model`` using ``x-modelable`` see
-[alpine.js docs](https://alpinejs.dev/directives/modelable) and [livewire docs](https://livewire.laravel.com/docs/forms#custom-form-controls)for ``x-modelable``
+- ``value``: A boolean property that tracks the toggle's state (``true`` for "on" and ``false`` for "off"),  The ``x-modelable`` directive allows this value to reflect changes in ``wire:model``, making it compatible with Livewire. For more on ``x-modelable``see
+[Alpine.js docs](https://alpinejs.dev/directives/modelable) and [Livewire docs](https://livewire.laravel.com/docs/forms#custom-form-controls).
 
 - ``toggle()``: Toggles the value state by reversing its boolean state, switching the component from "on" to "off" or vice versa. The component’s appearance adjusts accordingly based on CSS classes defined in ``toggledClasses`` and ``notToggledClasses``.
 
