@@ -275,3 +275,7 @@ Add this code in the ``<head>`` of your ``app.blade.php``:
     }
 </script>
 ```
+This script runs before the main page content is loaded, It checks the saved theme in ``localStorage``:
+
+- If the theme is set to ``"dark"``, it directly applies the ``dark`` class to ``<html>``.
+- If the theme is set to ``"system"``, it applies the ``dark`` class only if the system’s preferred color scheme is ``dark``.
