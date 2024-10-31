@@ -1,54 +1,53 @@
+@props([
+    'toggledClasses' => null,
+    'notToggledClasses' => null, 
+])
 <div
-    x-data="{
-        activeId: null,
-        init() {
-            // Set the first available tab on the page on page load.
-            this.$nextTick(() => this.activate(this.$id('tab', 1)))
-        },  
-        activate(id) {
-            this.activeId = id
+    x-data="{ 
+        value: false,
+        toggle() {
+            this.value = !this.value;
         },
-        isActive(id) {
-            return this.activeId === id
+        isToggled(){
+            return this.value === true;
         },
-        getTabIndex(el, parent) {
-            return Array.from(parent.children).indexOf(el) + 1
+        handleClick(){
+            btn = this.$refs.btn;
+            btn.click();
+            btn.focus();
         }
     }"
+    x-modelable="value"
+    {{ $attributes->merge(['class'=>'flex items-center justify-center']) }}
+    x-id="['toggle-label']"
+    >
+        @if (filled($label))
+            <label
+                x-on:click="handleClick()"
+                x-bind:id="$id('toggle-label')"
+                {{ $label->attributes->merge(['class'=>'text-gray-900 dark:text-gray-100 font-medium']) }}
+            >
+                {{ $label }}
+            </label>
 
-    x-id="['tab']"
-    {{ $attributes->merge(['class'=>'mx-auto dark:text-white']) }}
->
-    <!-- Tab List -->
-    <ul
-        x-ref="tablist"
-        x-on:keydown.right.prevent.stop="$focus.wrap().next()"
-        x-on:keydown.home.prevent.stop="$focus.first()"
-        x-on:keydown.page-up.prevent.stop="$focus.first()"
-        x-on:keydown.left.prevent.stop="$focus.wrap().prev()"
-        x-on:keydown.end.prevent.stop="$focus.last()"
-        x-on:keydown.page-down.prevent.stop="$focus.last()"
-        role="tablist"
-       {{ $items->attributes->merge(['class'=>'flex items-center overflow-x-auto scroll-smooth scrollbar-hidden'])}}
+        @endif
+        <button
+            x-ref="btn"
+            x-on:click="toggle()"
+            type="button"
+            role="switch"
+            x-bind:aria-checked="value"
+            x-bind:aria-labelledby="$id('toggle-label')"
+            x-bind:class="{
+                '{{ $toggledClasses }}':isToggled(),
+                '{{ $notToggledClasses }}':!isToggled(),
+            }"
+            class="relative ml-4 inline-flex w-14 rounded-full py-1 transition"
         >
-        {{ $items }}
-    </ul>
-
-    <div 
-        role="tabpanels"
-        {{ $panels->attributes }}
-        >
-        {{ $panels }}
-    </div>
+            <span
+                x-bind:class="value ? 'translate-x-7' : 'translate-x-1'"
+                class="bg-gray-200 h-6 w-6 rounded-full flex items-center justify-center transition duration-300 shadow-md"
+                aria-hidden="true"
+            ></span>
+        </button>
 </div>
-
-<style>
-.scrollbar-hidden::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-}
-
-.scrollbar-hidden {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
-</style>
