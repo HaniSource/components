@@ -21,7 +21,7 @@ So Let's go step by step :
 
 #### ***Step 1***:  Initializing the Theme in app.js 
 for initializing the theme in the ``app.js`` we need to follow this sub-steps
-1.  **Setting Up Theme from Local Storage :** 
+1. **Setting Up Theme from Local Storage :** 
 
 The first part grabs the user’s theme preference (if it exists) from ``localStorage``. If it hasn’t been set before, it defaults to ``"system"``—meaning it will match the system’s default setting (light or dark).
 
@@ -79,6 +79,7 @@ Here’s the rundown:
 - Finally, it updates the theme in the Alpine store, which updates the theme across the app.
 
 4.  **Listen for System Theme Changes**(optional):
+
 If the user chose ``"system"`` as their theme, this code listens for system theme changes (for example, if they switch to dark mode on their OS). This keeps the app’s theme in sync with the system.
 
 ```js
