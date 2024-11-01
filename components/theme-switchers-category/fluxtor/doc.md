@@ -54,10 +54,10 @@ If neither condition matches, we default to ``"light"``
 
 3. **Updating Theme with Custom Events:**
 
-This part sets up an event listener for custom theme changes. we will build a dropdown later in this section to  trigger a ``theme-changed`` event to update the theme, which keeps the UI consistent.
+This part sets up an event listener for custom theme changes. we will build a dropdown later in this section to  trigger a ``change-theme`` event to update the theme, which keeps the UI consistent.
 
 ```js
-window.addEventListener("theme-changed", (event) => {
+window.addEventListener("change-theme", (event) => {
     let theme = event.detail;
 
     localStorage.setItem("theme", theme);
@@ -74,7 +74,7 @@ window.addEventListener("theme-changed", (event) => {
 
 Here’s the rundown:
 
-- When a ``theme-changed`` event fires, it updates ``localStorage`` with the new theme.
+- When a ``change-theme`` event fires, it updates ``localStorage`` with the new theme.
 - If the new theme is ``"system"``, it checks the system preference (``dark`` or ``light``) and sets the theme accordingly.
 - Finally, it updates the theme in the Alpine store, which updates the theme across the app.
 
@@ -112,7 +112,7 @@ Whenever the theme in the Alpine store changes, this function runs:
 - If the theme is ``"dark"``, it adds the ``dark`` class to the document’s root element, turning on dark mode.
 - If it’s ``"light"``, it removes the class, switching to ``light`` mode.
 
-oki that's it for the script this is the whole code that you can copy in your ``resources/js/app.js`` 
+oki that's it for the script, this is the whole code that you can copy in your ``resources/js/app.js`` 
 
 ```js
     
@@ -129,7 +129,7 @@ document.addEventListener("alpine:init", () => {
             : "light"
     );
 
-    window.addEventListener("theme-changed", (event) => {
+    window.addEventListener("change-theme", (event) => {
         let theme = event.detail;
 
         localStorage.setItem("theme", theme);
@@ -161,7 +161,7 @@ document.addEventListener("alpine:init", () => {
 });
 ```
 #### ***Step 2***: Create the Theme Toggle Component
-Add this code to ``theme-switcher/index.blade.php`` to create a theme dropdown component. It initializes the theme state from ``localStorage`` and dispatches a ``theme-changed`` event when the user selects a new theme mode.
+Add this code to ``theme-switcher/index.blade.php`` to create a theme dropdown component. It initializes the theme state from ``localStorage`` and dispatches a ``change-theme`` event when the user selects a new theme mode.
 ```html
 <div 
     class='ml-6 flex items-center  pl-6'>
@@ -174,7 +174,7 @@ Add this code to ``theme-switcher/index.blade.php`` to create a theme dropdown c
         init() {
             this.theme = localStorage.getItem('theme')
             this.$watch('theme', () => {
-                $dispatch('theme-changed', this.theme)
+                $dispatch('change-theme', this.theme)
             })
         },
         setTheme(val){
