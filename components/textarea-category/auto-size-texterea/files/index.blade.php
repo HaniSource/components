@@ -54,4 +54,5 @@
         x-on:resize.window="resize()"
         x-on:keydown="resize()"
         x-model="contents"
+        x-modelable="contents"
     ></textarea>
