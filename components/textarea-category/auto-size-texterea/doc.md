@@ -94,3 +94,21 @@ in this part is where we define everything we need for this component. We set up
 - But if the content is less than the initial height, it just keeps the original height. That way, if you delete a bunch of text, it doesn’t shrink too much.
 
 4. **How About The``ResizeObserver``**: The ``ResizeObserver`` is like an automated watcher. It keeps an eye on the textarea for any changes in size. So if the textarea’s content changes—say, you paste a big chunk of text or delete a bunch—the observer will call`` resize()`` again to make sure the height matches the content.
+
+
+
+    hat’s the whole script in action! It’s a smart, lightweight way to make sure your textarea adapts to whatever you type
+
+### Usage Example
+
+```html
+<div>
+    <x-components::inputs.text-area 
+        class="w-full"
+        placeholder="write a comment"
+        rows="4" 
+        name="textarea"
+        wire:model="comment.body" 
+    />
+</div>
+```
