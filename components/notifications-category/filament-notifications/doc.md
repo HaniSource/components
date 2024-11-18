@@ -105,37 +105,7 @@ The Toast Notification Component provides an intuitive and customizable way to d
     </template>
 </div>
 ```
-**It's Important** to put this component in your global layout like in your ``layouts/app.blade.php`` like so in this layout example to make it available everywhere in your app :
 
-```html
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-.....
-</head>
-
-<script>
-    const theme = localStorage.getItem('theme') ?? 'system'
-
-    if (
-        theme === 'dark' ||
-        (theme === 'system' &&
-            window.matchMedia('(prefers-color-scheme: dark)')
-                .matches)
-    ) {
-        document.documentElement.classList.add('dark')
-    }
-</script>
-
-<body>
-        {{ $slot }}
-        @livewireScriptConfig
-        <x-components::toasts/> <------------------------
-</body>
-
-</html>
-```
 
 ##### Scripts Explanation
 
@@ -168,8 +138,30 @@ The Toast Notification Component provides an intuitive and customizable way to d
 each toast in the toasts array has its own seperate alpine component for controlling animations correctly 
 
 
-#### Usage Examples 
-here is a 3 example for the 3 types use case 
+#### How To Use 
+1. **Global Placement** Add the ``<x-components::toasts/>``component to your ``layouts/app.blade.php`` or any global layout to ensure it is available across your application.
+
+```html
+<body>
+    {{ $slot }}
+    <x-components::toasts/> <------------------------
+</body>
+```
+2. **Triggering Notifications** Dispatch a global ``notify`` event with the desired ``type``, ``content``, and ``duration`` from anywhere in your application.
+
+```html
+<button
+    @click="$dispatch('notify', {
+        type: 'success',
+        content: 'This is a success toast!',
+        duration: 3000,
+    })"
+>
+    Show Success Toast
+</button>
+
+```
+Multiple Toast Types examples
 
 ```html
 <div 
