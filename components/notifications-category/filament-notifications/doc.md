@@ -105,6 +105,38 @@ The Toast Notification Component provides an intuitive and customizable way to d
     </template>
 </div>
 ```
+**It's Important** to put this component in your global layout like in your ``layouts/app.blade.php`` like so in this layout example to make it available everywhere in your app :
+
+```html
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+.....
+</head>
+
+<script>
+    const theme = localStorage.getItem('theme') ?? 'system'
+
+    if (
+        theme === 'dark' ||
+        (theme === 'system' &&
+            window.matchMedia('(prefers-color-scheme: dark)')
+                .matches)
+    ) {
+        document.documentElement.classList.add('dark')
+    }
+</script>
+
+<body>
+        {{ $slot }}
+        @livewireScriptConfig
+        <x-components::toasts/> <------------------------
+</body>
+
+</html>
+```
+
 ##### Scripts Explanation
 
 - **typeMap**: Defines styling and content for different notification types (info, success, error).
@@ -131,3 +163,48 @@ The Toast Notification Component provides an intuitive and customizable way to d
 
     - Filters Out the Toast:
         The function uses the ``filter`` method to create a new ``toasts`` array that excludes the toast with the matching ``id``.
+
+
+each toast in the toasts array has its own seperate alpine component for controlling animations correctly 
+
+
+#### Usage Examples 
+here is a 3 example for the 3 types use case 
+
+```html
+<div 
+    x-data 
+    class="flex items-center justify-center gap-1"
+>
+    <button 
+        x-on:click="$dispatch('notify',{
+            type: 'success',
+            content:'this is taost component',
+            duration: 4000
+        })"
+        class="py-2 px-4 bg-white/15 rounded-xl text-white"
+    >
+    success toast
+    </button>
+    <button 
+        x-on:click="$dispatch('notify',{
+            type: 'info',
+            content:'this is taost component',
+            duration: 4000
+        })"
+        class="py-2 px-4 bg-white/15 rounded-xl text-white"
+    >
+    info toast
+    </button>
+    <button 
+        x-on:click="$dispatch('notify',{
+            type: 'error',
+            content:'this is taost component',
+            duration: 4000
+        })"
+        class="py-2 px-4 bg-white/15 rounded-xl text-white"
+    >
+    error toast
+    </button>
+</div>
+```
