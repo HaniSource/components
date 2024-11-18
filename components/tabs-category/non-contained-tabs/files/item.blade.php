@@ -1,6 +1,7 @@
 @props([
     'activeClasses'=>'bg-white/5'
 ])
+
 <li>
     <button
         type="button"

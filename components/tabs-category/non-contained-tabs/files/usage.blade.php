@@ -52,5 +52,4 @@
             </x-tabs.panel>
         </x-slot:panels>
     </x-tabs>
-
 </div>
