@@ -200,3 +200,23 @@ Multiple Toast Types examples
     </button>
 </div>
 ```
+
+you can use livewire to show the toast, here is an example 
+
+```php
+use Livewire\Component;
+ 
+class CreatePost extends Component
+{
+    public function save()
+    {
+        // ...
+ 
+        $this->dispatch('notify',
+            type: 'success',
+            content:'post saved successfully',
+            duration: 4000
+        ); 
+    }
+}
+```
