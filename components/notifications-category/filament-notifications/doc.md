@@ -150,6 +150,8 @@ each toast in the toasts array has its own seperate alpine component for control
 ```
 2. **Triggering Notifications** Dispatch a global ``notify`` event with the desired ``type``, ``content``, and ``duration`` from anywhere in your application.
 
+##### Use With Alpine.js 
+
 ```html
 <button
     @click="$dispatch('notify', {
@@ -162,7 +164,8 @@ each toast in the toasts array has its own seperate alpine component for control
 </button>
 
 ```
-##### Multiple Notification Types:
+###### Multiple Notification Types:
+there is 3 supported types of notifications
 
 ```html
 <div 
@@ -220,4 +223,18 @@ class CreatePost extends Component
         ); 
     }
 }
+```
+
+##### Use Raw Javascript
+
+```js
+window.dispatchEvent(
+    new CustomEvent('notify', {
+        detail: {
+            type: 'success', // or 'info', 'error'
+            content: 'This is a success message!',
+            duration: 3000 // duration in milliseconds
+        }
+    })
+);
 ```
