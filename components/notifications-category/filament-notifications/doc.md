@@ -139,6 +139,7 @@ each toast in the toasts array has its own seperate alpine component for control
 
 
 #### How To Use 
+
 1. **Global Placement** Add the ``<x-components::toasts/>``component to your ``layouts/app.blade.php`` or any global layout to ensure it is available across your application.
 
 ```html
@@ -161,7 +162,7 @@ each toast in the toasts array has its own seperate alpine component for control
 </button>
 
 ```
-Multiple Toast Types examples
+##### Multiple Notification Types:
 
 ```html
 <div 
@@ -200,7 +201,7 @@ Multiple Toast Types examples
     </button>
 </div>
 ```
-
+##### Use With Livewire
 you can use livewire to show the toast, here is an example 
 
 ```php
