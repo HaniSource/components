@@ -334,9 +334,9 @@ class Index extends Component {
 </div>
 ```
 
-but we are not done yet, we need to make our pagination look mode beautiful, to do that publish the pagination using `php artisan livewire:publish --pagination` and in `tailwind.blade.php` copy this code 
+but we are not done yet, we need to make our pagination look more beautiful, to do that publish the pagination using `php artisan livewire:publish --pagination` and in `tailwind.blade.php` copy this code 
 
-```php
+```html
 @if ($paginator->hasPages())
     <nav role="navigation" aria-label="Pagination Navigation" class="flex gap-2 mt-2 mx-2 mb-2">
         <span>
