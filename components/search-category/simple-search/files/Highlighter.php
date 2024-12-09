@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Support;
 
-class Highlighter
+final class Highlighter
 {
     public static function make(?string $text, ?string $pattern, ?string $styles = '', ?string $classes = '')
     {
