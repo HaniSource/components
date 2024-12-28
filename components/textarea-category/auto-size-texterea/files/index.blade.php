@@ -13,14 +13,7 @@
         name:@js($name),
         contents: window.Alpine.$persist('').as(this.name + '-value'),
 
-        init() {
-            
-            {{-- if this inside a livewire component
-             this.$watch('contents', () => {
-                if (this.contents.length > 0) {
-                    this.$wire.$set('form.body', this.contents);
-                }
-            }); --}}
+        init() {    
             this.setInitialHeight();
             this.resize();
             this.setUpResizeObserver();

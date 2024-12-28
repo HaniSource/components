@@ -103,7 +103,7 @@ in this part is where we define everything we need for this component. We set up
 
 ```html
 <div>
-    <x-components::inputs.text-area 
+    <x-inputs.textarea 
         class="w-full"
         placeholder="write a comment"
         rows="4" 
