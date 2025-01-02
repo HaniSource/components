@@ -1,5 +1,5 @@
 ---
-name: 'Autosizing Textarea Component'
+name: 'auto-size-texterea'
 files:
     index: resources/views/components/inputs/textarea.blade.php
     app: resources/views/js/app.js
