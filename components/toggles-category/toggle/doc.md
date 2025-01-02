@@ -1,5 +1,5 @@
 ---
-name: 'filament tabs'
+name: 'toggle'
 files:
     index: resources/views/components/toggles/index.blade.php
     usage: resources/views/components/toggles/usage.blade.php

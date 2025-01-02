@@ -1,5 +1,5 @@
 ---
-name: 'iconable toggle'
+name: 'iconable-toggle'
 files:
     index: resources/views/components/toggles/index.blade.php
     usage: resources/views/components/toggles/usage.blade.php
@@ -13,7 +13,7 @@ The **Toggle** component provides a customizable switch that users can easily to
 This Toggle component consists of one main parts:
 1. Main Container (``toggle/index.blade.php``) 
 
-#### Main Container (``tabs/index.blade.php``)
+#### Main Container (``toggle/index.blade.php``)
 
 This is the core structure of the Toggle component. It includes Alpine.js-based state management and toggle behavior.
 

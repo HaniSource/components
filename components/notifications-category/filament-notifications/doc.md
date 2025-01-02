@@ -1,5 +1,5 @@
 ---
-name: 'Filament Notifications Component'
+name: 'filament-notifications'
 files:
     index: resources/views/components/toasts/index.blade.php
     usage: resources/views/some-usage-file.blade.php
