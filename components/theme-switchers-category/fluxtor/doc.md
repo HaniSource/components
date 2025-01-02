@@ -1,5 +1,5 @@
 ---
-name: 'fluxtor theme switcher'
+name: 'fluxtor-theme-switcher'
 files:
     index: resources/views/components/theme-switcher/index.blade.php
     app: resources/views/js/app.js

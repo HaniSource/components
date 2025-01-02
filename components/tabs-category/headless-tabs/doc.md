@@ -1,5 +1,5 @@
 ---
-name: 'filament tabs'
+name: 'headless-tabs'
 files:
     index: resources/views/components/tabs/index.blade.php
     item: resources/views/components/tabs/item.blade.php

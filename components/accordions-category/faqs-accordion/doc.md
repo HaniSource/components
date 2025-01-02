@@ -1,5 +1,5 @@
 ---
-name: 'Faqs accordion'
+name: 'faqs-accordion'
 files:
     index: resources/views/components/accordion/index.blade.php
     item: resources/views/components/accordion/item.blade.php

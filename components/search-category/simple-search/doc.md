@@ -18,7 +18,7 @@ Hey There! 👋
 Let me walk you through the SimpleSearch component a simple yet powerful search feature that’s built with Livewire. It’s designed to make your life easier by offering real-time search with highlighted results. If you're looking to build something similar, don't worry! I’ve got your back. Let's dive in step by step.
 
 ### Setting Things Up
-First, we need to create a Livewire component. Don’t panic—it’s just one simple Artisan command. Open up your terminal and run this:
+First, we need to create a Livewire component. Don’t panic it’s just one simple Artisan command. Open up your terminal and run this:
 
 ```shell
 php artisan livewire:make Search/Index

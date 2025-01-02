@@ -1,5 +1,5 @@
 ---
-name: 'nested dropdown'
+name: 'nested-dropdown'
 files:
     index: resources/views/components/dropdown/index.blade.php
     item: resources/views/components/dropdown/item.blade.php
