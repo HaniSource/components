@@ -6,21 +6,21 @@
                 textColor: 'text-gray-400',
                 icon: '!',
                 srLabel: 'Information',
-                background:'bg-gray-500/15',
+                background:'dark:bg-gray-500/15 bg-gray-800/15',
                 borderColor:'border-gray-500/55'
             },
             success: {
                 textColor: 'text-green-600',
                 icon: '&check;',
                 srLabel: 'Success',
-                background:'bg-green-500/15',
+                background:'dark:bg-green-500/15 bg-green-500/35',
                 borderColor:'border-green-500/55'
             },
             error: {
                 textColor: 'text-red-600',
                 icon: '&times;',
                 srLabel: 'Error',
-                background:'bg-red-500/15',
+                background:'dark:bg-red-500/15 bg-red-500/35',
                 borderColor:'border-red-500/55'
             }
         },
@@ -29,7 +29,7 @@
                 id: e.timeStamp,
                 type: e.detail.type,
                 content: e.detail.content,
-                duration: e.detail.duration || 2000
+                duration: e.detail.duration || 4000
             })
         },
         remove(toast) {
@@ -46,7 +46,7 @@
         x-for="toast in toasts" 
         x-bind:key="toast.id"
     >
-        <div class="bg-slate-950">
+        <div class="dark:bg-gray-900 bg-white rounded-xl">
             <div
                 x-data="{
                     show: false,
@@ -60,13 +60,13 @@
                     }
                 }"
                 x-show="show"
-                x-transition.duration.500ms
+                x-transition.duration.100ms
                 x-bind:class="[
-                    'pointer-events-auto relative w-full max-w-sm rounded-xl border dark:border-white/15 border-gray-200 py-4 pl-6 pr-4 shadow-lg',
+                    'pointer-events-auto relative  w-full max-w-sm rounded-xl border dark:border-white/15 border-gray-200 py-4 pl-6 pr-4 shadow-lg',
                     typeMap[toast.type].background
                 ]"
             >
-                <div class="flex items-start">
+                <div class="flex items-start ">
                     <div class="flex-shrink-0" x-bind:class="typeMap[toast.type].textColor">
                         <div aria-hidden="true" class="flex size-6 items-center justify-center rounded-full border-2 font-bold text-xl pb-1 leading-none" x-bind:class="typeMap[toast.type].borderColor" x-html="typeMap[toast.type].icon"></div>
                         <span class="sr-only" x-text="typeMap[toast.type].srLabel"></span>
