@@ -143,7 +143,7 @@ The tags input has only one reusable blade component (`resources/views/component
 
 The Tags Input Component's script is at the heart of its functionality. It uses Alpine.js to provide a reactive and intuitive user experience. Let’s break it down step by step:
 - **Component Blueprint**:
-```html
+```js
     x-data="{
         newTag: '',
         tags: [],
@@ -161,7 +161,7 @@ The Tags Input Component's script is at the heart of its functionality. It uses 
 6. ``input``: Contains event bindings for managing user interactions like blur, keydown, and paste.
 - **Creating a Tag**:
 
-```html
+```js
 createTag: function () {
     this.newTag = this.newTag.trim();
 
@@ -182,7 +182,7 @@ createTag: function () {
 2. Prevents empty or duplicate ``tags`` from being added.
 3. Adds the new tag to the ``tags`` array and clears the input.
 - **Deleting a tag**
-```html
+```js
 deleteTag: function (tagToDelete) {
     this.tags = this.tags.filter((tag) => tag !== tagToDelete);
 }
@@ -192,14 +192,14 @@ Removes a specific tag from the ``tags`` array by filtering out the tag to be de
 The ``input`` object defines event bindings to handle user interactions.
     - **Blur Event**
 
-        ```html
+        ```js
             ['x-on:blur']: 'createTag()'
         ```
     
     Creates a tag when the input loses focus (useful for ensuring input is captured).
     - **keydown Event**
 
-        ```html
+        ```js
             ['x-on:keydown'](event) {
                 if (['Enter', ...this.splitKeys].includes(event.key)) {
                     event.preventDefault();
@@ -213,7 +213,7 @@ The ``input`` object defines event bindings to handle user interactions.
     * Prevents default behavior (e.g., submitting a form) and stops propagation.
     - **paste Event**   
 
-    ```html
+    ```js
         ['x-on:paste']() {
             this.$nextTick(() => {
                 if (this.splitKeys.length === 0) {
@@ -238,7 +238,7 @@ Handles pasted content, splitting it into multiple tags using splitKeys.
 Uses a dynamic regular expression to match any of the defined split keys.
 
  - **Dynamic Binding with x-modelable**
- ```html
+ ```js
     x-modelable="tags"
     {{ $attributes->whereStartsWith('wire:model') }}
  ```
