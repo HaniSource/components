@@ -1,41 +1,4 @@
----
-name: "tags-input"
-files:
-  index: resources/views/components/inputs/tags-input.blade.php
-  usage: resources/views/usage.blade.php
----
-
-## Documentation
-
-### Overview
-
-the **tags input component** is lightweight, dynamic UI element, it provides an intuitive way to manage tags in a form or interface, this component is designed for flexibilty, supporting:
-
-- Real-time tag creation and deletion.
-- Customizable split keys for defining tags.
-- Input validation to prevent duplicate or empty tags.
-- Seamless integration with wire:model for Livewire applications.
-
-This guide will walk you through the functionality, configuration options, and customization techniques to get the most out of the Tags Input Component.
-
-### Features
-
-1. **Tag Creation**
-   - Users can create tags by pressing Enter, predefined split keys (e.g., space), or pasting content.
-   - Prevents duplicate or empty tags automatically.
-2. **Tag Deletion**
-   - Includes a clear button to remove individual tags.
-3. **Customizable Split Keys**
-   - Define your preferred delimiters for splitting pasted or inputted content.
-4. **Seamless Livewire Support**
-   - Integrates with `wire:model` to bind the tags array to your backend effortlessly using `x-modelable` api.
-
-### Component Stucture
-
-The tags input has only one reusable blade component (`resources/views/components/inputs/tags-input.blade.php`) that can be used anywhere in your application.
-
-```html
-    <div
+<div
     x-data="{
         newTag: '',
         tags:[],
@@ -102,8 +65,8 @@ The tags input has only one reusable blade component (`resources/views/component
     <div {{ $attributes
         ->whereDoesntStartWith('wire:model')
         ->merge(['class'=>"rounded-lg bg-white/5 shadow-sm ring-1 ring-gray-950/10 transition duration-75 focus-within:ring-2 focus-within:ring-violet-600 dark:ring-white/20 dark:focus-within:ring-violet-500"]) }} >
-        <input
-            type="text"
+        <input 
+            type="text" 
             class="input block w-full border-none outline-none py-1.5 text-base text-gray-950 transition bg-transparent duration-75 placeholder:text-gray-400 focus:ring-0 disabled:text-gray-500  dark:text-white dark:placeholder:text-gray-500"
             x-bind="input"
         >
@@ -138,47 +101,3 @@ The tags input has only one reusable blade component (`resources/views/component
         </div>
     </div>
 </div>
-```
-
-### Usage
-
-The Tags Input Component is versatile and can be used with any form element that accepts array data. This makes it perfect for applications like categorizing posts, managing tags, or capturing a list of hobbies for user profiles.
-#### Livewire Integration Made Easy
-The component is designed to bind seamlessly to any array property in your Livewire class using the ``x-modelable`` feature. This simplifies synchronization between the front end and backend data.
-
-Here’s a basic example:
-
-```html
-<x-inputs.tags-input
-  class="w-full"
-  placeholder="add tags"
-  name="textarea"
-  wire:model.live="tags"
-/>
-```
-
-This assumes that your Livewire class has an array property defined as:
-
-```php
-public array $tags = [];
-```
-With this setup:
-
-- Tags added or removed in the component will immediately reflect in the ``$tags`` property in your Livewire class.
-- Any changes to ``$tags`` in your Livewire methods will also propagate to the front end.
-
-##### Dynamic Initialization
-
-You can dynamically initialize the tags during the component's lifecycle. For instance, you might populate the `$tags` property during the mount lifecycle method based on some existing data, such as retrieving tags from a related model
-
-```php
-
-public array $tags = [];
-
-public function mount(Component $component)
-{
-    // Populate tags array from the database
-    $this->tags = $component->tags()->pluck('name')->toArray();
-}
-
-```

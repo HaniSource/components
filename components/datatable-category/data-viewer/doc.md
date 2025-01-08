@@ -1,3 +1,12 @@
+---
+name:  'faqs-accordion'
+files:
+    index: resources/views/components/accordion/index.blade.php
+    item: resources/views/components/accordion/item.blade.php
+    usage: resources/views/components/accordion/usage.blade.php
+---
+
+
 ### docs
 irst up, let's set up an example model for `App\Models\Order` to interact with the `orders` table more easily:
 
