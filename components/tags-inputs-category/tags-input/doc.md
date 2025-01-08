@@ -139,6 +139,129 @@ The tags input has only one reusable blade component (`resources/views/component
     </div>
 </div>
 ```
+#### Core Component Script Explained
+
+The Tags Input Component's script is at the heart of its functionality. It uses Alpine.js to provide a reactive and intuitive user experience. Let’s break it down step by step:
+- **Component Blueprint**:
+```html
+    x-data="{
+        newTag: '',
+        tags: [],
+        splitKeys: ' ',
+        createTag: function () { ... },
+        deleteTag: function (tagToDelete) { ... },
+        input: { ... },
+    }"
+```
+1. ``newTag``: A temporary variable for the current tag being typed by the user.
+2. ``tags``: The array holding all created tags.
+3. ``splitKeys``: Defines the keys that trigger tag creation (e.g., space or Enter).
+4. ``createTag``: A method to add a new tag to the tags array.
+5. ``deleteTag``: A method to remove a tag from the tags array.
+6. ``input``: Contains event bindings for managing user interactions like blur, keydown, and paste.
+- **Creating a Tag**:
+
+```html
+createTag: function () {
+    this.newTag = this.newTag.trim();
+
+    if (this.newTag === '') {
+        return; // Prevent adding empty tags.
+    }
+
+    if (this.tags.includes(this.newTag)) {
+        this.newTag = '';
+        return; // Prevent duplicate tags.
+    }
+
+    this.tags.push(this.newTag); // Add the new tag.
+    this.newTag = ''; // Reset the input field.
+}
+```
+1. Trims whitespace from ``newTag`` to ensure clean input.
+2. Prevents empty or duplicate ``tags`` from being added.
+3. Adds the new tag to the ``tags`` array and clears the input.
+- **Deleting a tag**
+```html
+deleteTag: function (tagToDelete) {
+    this.tags = this.tags.filter((tag) => tag !== tagToDelete);
+}
+```
+Removes a specific tag from the ``tags`` array by filtering out the tag to be deleted.
+- **Input Bindings**
+The ``input`` object defines event bindings to handle user interactions.
+    - **Blur Event**
+
+        ```html
+            ['x-on:blur']: 'createTag()'
+        ```
+    
+    Creates a tag when the input loses focus (useful for ensuring input is captured).
+    - **keydown Event**
+
+        ```html
+            ['x-on:keydown'](event) {
+                if (['Enter', ...this.splitKeys].includes(event.key)) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    this.createTag(); // Create a tag on pressing Enter or a split key.
+                }
+            }
+        ```  
+    
+    * Listens for Enter or other splitKeys to trigger tag creation.
+    * Prevents default behavior (e.g., submitting a form) and stops propagation.
+    - **paste Event**   
+
+    ```html
+        ['x-on:paste']() {
+            this.$nextTick(() => {
+                if (this.splitKeys.length === 0) {
+                    this.createTag();
+                    return;
+                }
+
+                const pattern = this.splitKeys
+                    .map((key) => key.replace(/[/\-\\^$*+?.()|[\]{}]/g, '\\$&'))
+                    .join('|');
+
+                this.newTag
+                    .split(new RegExp(pattern, 'g')) // Split pasted content by split keys.
+                    .forEach((tag) => {
+                        this.newTag = tag;
+                        this.createTag(); // Add each tag.
+                    });
+            });
+        }
+    ```
+Handles pasted content, splitting it into multiple tags using splitKeys.
+Uses a dynamic regular expression to match any of the defined split keys.
+
+ - **Dynamic Binding with x-modelable**
+ ```html
+    x-modelable="tags"
+    {{ $attributes->whereStartsWith('wire:model') }}
+ ```
+* Enables two-way binding between the ``tags`` array in the component and the backend property defined in the Livewire class.
+* Automatically syncs changes to the ``tags`` array.
+
+- **Displaying Tags**
+
+```html
+<template x-if="tags?.length">
+    <div class="flex w-full flex-wrap gap-1.5 p-2">
+        <template x-for="(tag, index) in tags" :key="`${tag}-${index}`">
+            <div class="bg-violet-500/15 text-violet-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                <span x-text="tag" class="select-none"></span>
+                <button type="button" x-on:click="deleteTag(tag)">&times;</button>
+            </div>
+        </template>
+    </div>
+</template>
+```
+``x-if:`` Ensures the tag list only renders when there are tags.
+``x-for:`` Iterates over the ``tags`` array to display each tag with a unique key.
+Delete Button: Calls the ``deleteTag`` method to remove a tag.
 
 ### Usage
 
