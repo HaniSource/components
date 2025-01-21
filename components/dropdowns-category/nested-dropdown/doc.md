@@ -172,14 +172,15 @@ The Dropdown Item component is used to represent each item inside the dropdown. 
 ```html
 @props([
     'closeOnClick' => true,
-    'href'=>null
+    'href'=>null,
+    'iconable' => false
 ])
 <div role="menuitem" tabindex="-1"
     {{ $attributes->merge([
         'class' => 'dropdown-item cursor-pointer hover:rounded px-2 py-0.5 dark:focus-within:bg-white/5 dark:hover:bg-white/5 hover:bg-white  dark:focus:bg-white/5 focus-within:bg-white hover:bg-white focus:bg-white',
     ]) }}
     x-data="{
-        show: false, // used for nested items
+        show: false,
         init() {
             $el.addEventListener('click', () => this.isClosedAfterClick())
         },
@@ -198,9 +199,17 @@ The Dropdown Item component is used to represent each item inside the dropdown. 
             {{ $slot }}
         </a>
     @else
-    {{ $slot }}
+    <div class="flex items-center justify-between mr-0">
+        {{ $slot }}
+        @if($iconable)
+            <svg class="size-5 text-gray-700 dark:text-gray-400 "  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
+            </svg>
+        @endif
+    </div>
     @endif
 </div>
+    
 ```
 ##### How About Props ?
 1. **``closeOnClick``**: This boolean prop, which defaults to true, determines whether the dropdown should close when an item is clicked. If set to false, clicking the item will not close the dropdown.
@@ -249,48 +258,48 @@ The Sub-items part represents the nested dropdown menu for an item. below the co
 after you copy paste those two file, you can test the component with this basic example:
 
 ```html
-<x-components::dropdown>
+<x-dropdown>
     <x-slot:button class="dark:bg-white/10 bg-white">
         frameworks
     </x-slot:button>
     <x-slot:items>
-        <x-components::dropdown.item>
+        <x-dropdown.item>
             Tailwind
-        </x-components::dropdown.item>
-        <x-components::dropdown.item>
+        </x-dropdown.item>
+        <x-dropdown.item>
             AlpineJs
-        </x-components::dropdown.item>
-        <x-components::dropdown.item>
+        </x-dropdown.item>
+        <x-dropdown.item>
             Laravel
-        </x-components::dropdown.item>
-        <x-components::dropdown.item>
+        </x-dropdown.item>
+        <x-dropdown.item iconable>
             livewire 
-            <x-components::dropdown.sub-items>
-                <x-components::dropdown.item>
+            <x-dropdown.sub-items>
+                <x-dropdown.item>
                     Full SPA 
-                </x-components::dropdown.item>
-                <x-components::dropdown.item>
+                </x-dropdown.item>
+                <x-dropdown.item>
                     easy uploading 
-                </x-components::dropdown.item>
-                <x-components::dropdown.item>
+                </x-dropdown.item>
+                <x-dropdown.item>
                     lazy loading
-                </x-components::dropdown.item>
-                </x-components::dropdown.sub-item>
-        </x-components::dropdown.item>
-        <x-components::dropdown.item>
+                </x-dropdown.item>
+                </x-dropdown.sub-item>
+        </x-dropdown.item>
+        <x-dropdown.item iconable>
             inertia 
-            <x-components::dropdown.sub-items>
-                <x-components::dropdown.item>
+            <x-dropdown.sub-items>
+                <x-dropdown.item>
                     scroll management
-                </x-components::dropdown.item>
-                <x-components::dropdown.item>
+                </x-dropdown.item>
+                <x-dropdown.item>
                     shared data
-                </x-components::dropdown.item>
-                <x-components::dropdown.item>
+                </x-dropdown.item>
+                <x-dropdown.item>
                     ssr
-                </x-components::dropdown.item>
-            </x-components::dropdown.sub-item>
-        </x-components::dropdown.item>
+                </x-dropdown.item>
+            </x-dropdown.sub-item>
+        </x-dropdown.item>
     </x-slot:items>
-</x-components::dropdown>
+    </x-dropdown>
 ```
