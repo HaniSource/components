@@ -12,8 +12,33 @@
         <x-dropdown.item>
             Laravel
         </x-dropdown.item>
-        <x-dropdown.item>
-            Livewire
+        <x-dropdown.item iconable>
+            livewire 
+            <x-dropdown.sub-items>
+                <x-dropdown.item>
+                    Full SPA 
+                </x-dropdown.item>
+                <x-dropdown.item>
+                    easy uploading 
+                </x-dropdown.item>
+                <x-dropdown.item>
+                    lazy loading
+                </x-dropdown.item>
+                </x-dropdown.sub-item>
+        </x-dropdown.item>
+        <x-dropdown.item iconable>
+            inertia 
+            <x-dropdown.sub-items>
+                <x-dropdown.item>
+                    scroll management
+                </x-dropdown.item>
+                <x-dropdown.item>
+                    shared data
+                </x-dropdown.item>
+                <x-dropdown.item>
+                    ssr
+                </x-dropdown.item>
+            </x-dropdown.sub-item>
         </x-dropdown.item>
     </x-slot:items>
-</x-dropdown>
+    </x-dropdown>
