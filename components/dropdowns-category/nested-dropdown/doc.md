@@ -129,13 +129,13 @@ You may notice that a simple dropdown would require less code, but it would lack
 
 However, this basic implementation does not address accessibility or closing functionality, which is why we use a more complex JavaScript structure.
 
-##### explaining javascript : 
+##### explaining javascript 
 
 The functions ``open()``, ``toggle()``, and ``close()`` handle basic dropdown actions: opening, closing, and toggling visibility. But to enhance functionality, we add two focus management functions: ``handleFocusInOut()`` and ``shouldCloseDropdown()``.
 
 he goal here is to make sure the dropdown closes automatically if the user clicks or tabs out of it. To make that happen, we need a couple of functions, those are ``handleFocusInOut()`` and ``shouldCloseDropdown`` :
 
-###### **`handleFocusInOut`** :
+###### **`handleFocusInOut`**
 
 This function keeps an eye on where the user’s focus is moving to decide if the dropdown should close. Here's how it works step-by-step:
 1. **Get References:**

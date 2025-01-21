@@ -1,14 +1,8 @@
 @props([
     'header' => null,
     'footer' => null,
-    'height'=> 75,
-    'scrollable'=>true,
-    'closeEvent' => null,
-    'openEvent'=>null,
 ])
-@php
-    $maxHeight = !$scrollable ? $height - 5 : $height - 10  
-@endphp
+
 <div 
     x-data="{ 
         isOpen: false,
@@ -16,11 +10,9 @@
         currentY: 0,
         moving: false,
         init() {
-            this.$nextTick(()=>{
-                Alpine.effect(() => {
-                  this.$refs.panel.style.transform = `translateY(${this.distance}px)`;
-                });
-            })
+            Alpine.effect(() => {
+              this.$refs.panel.style.transform = `translateY(${this.distance}px)`;
+            });
         },
         close(){
             this.isOpen = false;
@@ -52,14 +44,7 @@
             }
             this.moving = false;
         },
-    }"
-    @if(filled($closeEvent))
-        x-on:{{ $closeEvent }}.window="close()" 
-    @endif
-    @if(filled($openEvent))
-        x-on:{{ $openEvent }}.window="open()" 
-    @endif
-    class="flex justify-center">
+    }" class="flex justify-center">
     @php
         $tag = $trigger->attributes->has('isButton') ? 'button' : 'div' ;
         $atts = $trigger->attributes->has('isButton') ? 'type="button"' : '';
@@ -75,6 +60,7 @@
 
     <!-- The Modal -->
 
+    @teleport('body')
     <div
         x-show="isOpen"
         style="display: none"
@@ -89,7 +75,7 @@
         <div 
             x-show="isOpen"
             x-transition.opacity
-            class="fixed inset-0 dark:bg-black bg-white bg-opacity-60 backdrop-blur-lg"
+            class="fixed inset-x-0 inset-y-0 bg-black bg-opacity-60 backdrop-blur-lg"
         ></div>
 
         <!-- Panel -->
@@ -98,21 +84,21 @@
             x-transition
             x-ref="panel"
             x-on:click="close()"
-            class="relative flex min-h-screen   items-center justify-center p-2 z-30"
+            class="relative flex min-h-screen   items-center justify-center p-2"
         >
-            <div class="h-[{{ $height }}vh] w-full">
+            <div class="h-[75vh] w-full">
                 <div
                     x-on:click.stop
                     x-trap.noscroll.inert="isOpen"
                     @class([
-                    "relative max-w-2xl mx-auto border dark:border-white/5 border-gray-800/15 overflow-y-auto rounded-xl dark:bg-zinc-950 bg-white text-gray-800 dark:text-gray-300 px-4 ",
-                    'pb-4'=>blank($footer),
-                    'pb-2'=>filled($footer),
-                    'pt-4'=>blank($header),
-                    'pt-2'=>filled($header)
+                        "relative max-w-2xl mx-auto border dark:border-white/5 border-gray-800/5 overflow-y-auto rounded-xl dark:bg-slate-950 bg-white text-gray-800 dark:text-gray-300 px-4 ",
+                        'pb-4'=>blank($footer),
+                        'pb-2'=>filled($footer),
+                        'pt-4'=>blank($header),
+                        'pt-2'=>filled($header)
                     ])
                 >
-                {{-- close button --}}
+                 <!-- close button -->
                     <div class="absolute top-2 right-2 dark:bg-white/5 dark:hover:bg-white/10 bg-gray-800/5 hover:bg-gray-800/10 transition-all duration-300  rounded-lg ">
                         <button
                             type="button"
@@ -129,7 +115,7 @@
                             </svg>
                         </button>
                     </div>
-                {{-- swapabble --}}
+                <!-- swapabble -->
                     <div
                         x-on:touchstart="handleMovingStart($event)"
                         x-on:touchmove="handleWhileMoving($event)"
@@ -139,17 +125,16 @@
                             <div class="bg-gray-400 rounded-full w-[10%] h-[5px]"></div>
                         </div>
                     </div>
-                    {{-- contents container --}}
+                    <!-- contents container -->
                     @if(filled($header))
                     <div
                         {{ $header->attributes->merge(['class' => 'modal-header']) }} 
-                        {{-- behave as sticky --}}
                         x-bind:id="$id('modal-header')"
                     >
                             {{ $header }}
                     </div>
                     @endif
-                    <div class="h-full overflow-y-auto w-full max-h-[{{ $maxHeight }}vh]">
+                    <div class="h-full overflow-y-auto w-full max-h-[65vh]">
                         {{ $slot }}
                     </div>
                     @if (filled($footer))
@@ -157,7 +142,7 @@
                             @class([
                                 "z-30 hidden sm:flex  w-full select-none items-center px-2 pt-2 text-center dark:border-gray-700",
                                 'relative',
-                                ])
+                            ])
                             >
                             {{ $footer }}
                         </footer>
@@ -165,4 +150,5 @@
                 </div>
             </div>
         </div>
+    @endteleport
 </div>
