@@ -110,7 +110,7 @@ The Toast Notification Component provides an intuitive and customizable way to d
 ```
 
 
-##### Scripts Explanation
+#### Scripts Explanation
 
 - **typeMap**: Defines styling and content for different notification types (info, success, error).
 
