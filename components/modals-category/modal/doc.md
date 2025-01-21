@@ -345,4 +345,5 @@ function search(){
     $this->dispatch('close-global-search')
 } 
 ```
-and so on 
+
+Honestly, I built this component multiple times, rather than all at once like others, making it suitable for various modals in Fluxtor, including global search, confirmation, and content popups. I hope you find it good as well 
