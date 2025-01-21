@@ -13,7 +13,6 @@
     x-data="{ 
         isOpen: false,
         startY: 0,
-        closeEventCallback: {{ Js::from($closeEventCallback) }},
         currentY: 0,
         moving: false,
         init() {
