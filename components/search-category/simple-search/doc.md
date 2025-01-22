@@ -44,7 +44,8 @@ use App\Support\Highlighter;
 
 class Index extends Component
 {
-
+    const CLASSES = 'text-violet-500 font-semibold';
+    
     public string $search = "";
 
     public function getResults()
@@ -88,19 +89,17 @@ so whenever the search content change (as the user type in real time) the ``getR
         }
 
 
-        $classes = 'text-violet-500 font-semibold';
-
         $results = $this
             ->baseQuery()
             ->select('id', 'name','slug')
             ->where('name', 'like', '%' . $this->search . '%')
             ->get()
-            ->map(function ($component) use ($search, $classes) {
+            ->map(function ($component) use ($search) {
                 $result = new \stdClass();
                 $result->title = Highlighter::make(
                     text: $component->name,
                     pattern: $search,
-                    classes: $classes
+                    classes: self::CLASSES
                 );
                 $result->url = $this->getUrl($component->slug);
                 return $result;
@@ -130,7 +129,7 @@ $results = $this
         'title' => Highlighter::make(
             text: $component->name,
             pattern: $search,
-            classes: $classes
+            classes: self::CLASSES
         ),
         'url' => $this->getUrl($component->slug),
     ]);
