@@ -11,7 +11,13 @@ files:
   footer: resources/views/components/search/footer.blade.php
   search-icon: resources/views/components/icon/search.blade.php
   loading-indicator-icon: resources/views/components/icon/loading-indicator.blade.php
-dependancies: modal
+dependencies: 
+    internal: centred-modal
+    external: 
+        alpine-animation: https://github.com/CharrafiMed/alpine-animation,
+        alpine-animator: https://github.com/CharrafiMed/alpine-animation,
+    
+
 ---
 
 ## Documentation 
@@ -336,6 +342,8 @@ First we check if the search query is empty to render the fallback content to re
 livewire re-render results each time we change the ``$search`` value (as user type ...) so we need to check if the searched query came up with some results from the database if not we render the ``resources/views/components/search/no-results.blade.php`` instead.
 
 we use the ``focus`` plugin provided by alpine to manage accessibity the ``handleKeyUp()`` function is used to check when we are in the first search item, if so we go back to our source of truth the input 
+
+the ``x-animate`` provided by the alpine animation for making the results changes smoothly [alpine animation](https://github.com/CharrafiMed/alpine-animation) I am the author.
 
 if there is results we loop over them and display them using the ``resources/views/components/search/search-item.blade.php`` views wich is simple as:  
 
