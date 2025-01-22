@@ -30,7 +30,7 @@ This command will generate two things for you:
 
 For now, we’ll focus on the backend logic to make the search work.
 
-###  The Backend : Search Logic
+###  The Backend Search Logic
 ```php
 <?php
 
@@ -186,12 +186,66 @@ final class Highlighter
 ```
 the class has ```make()``` static method that accept subject ``$text`` the ``$pattern`` wich is the query term it also accet two optional (but important ) ``styles`` and ``classes`` parameters 
 
-First, the method checks if the pattern is empty and returns the original text early if so. Then it constructs the highlighted HTML using a ````html <span class="..." style="...">$0</span>``` structure, where ``$0`` is a regex placeholder for matched text.
+First, the method checks if the pattern is empty and returns the original text early if so. Then it constructs the highlighted HTML using a ```html <span class="..." style="...">$0</span>``` structure, where ``$0`` is a regex placeholder for matched text.
 
 Finally, ``preg_replace()`` searches the subject for occurrences of the query term and replaces them with the constructed highlighted pattern.
 
 The ``preg_quote()`` function is used to escape special characters in the pattern to ensure safe regex execution.
 
 This regex-based highlighting approach provides flexibility and simplicity compared to algorithmic alternatives.
+
+now we ensure that the returen query is highlited withing a span let's focus now on the fron-end
+
+### The Front-End Logic
+while the design is build in different mind that the mind that read this docs, it ensure to build something beautiful, fully accessible, easy to customize.. so let's start the front end journey 
+
+First we have the entry point. The ``index.blade.php`` livewire component 
+
+```html
+<x-modal
+    openEvent="open-global-search"
+    closeEvent="close-global-search"
+>
+    <x-slot:trigger>
+        .... act as the trigger of the modal
+    </x-slot:trigger>
+    <x-slot:header class="border-b border-gray-300 dark:border-gray-800 px-2">
+        .... act as search input
+    </x-slot:header>
+        .... act as results wrapper
+    <x-slot:footer>
+        <x-search.footer/>        
+    </x-slot:footer>
+</x-modal>
+```
+#### the modal trigger 
+I styled a nice button look as a button to open our search modal 
+
+```html
+<x-slot:trigger>
+    <div 
+        class="flex items-center w-60  justify-center" 
+    >
+        <div class="pointer-events-auto  relative bg-white dark:bg-black rounded-lg">
+            <button
+                class="hidden w-full items-center rounded-lg py-1.5 pl-2 pr-3 text-sm leading-6 text-slate-400 shadow-sm ring-2  ring-purple-500/15 hover:ring-purple-500 transition-all duration-300 dark:hover:bg-[#02031C] lg:flex"
+                type="button"
+            >
+            <x-icon.search 
+                size="5"
+                class="mr-3"
+                stroke="3"
+            />Quick search...
+            </button>
+        </div>
+    </div>
+</x-slot:trigger>
+``` 
+make sure to copy the icons from the files tabs.
+
+Alright, since now we have the trigger setup correctly let's build the search itself.
+
+
+
 
 
