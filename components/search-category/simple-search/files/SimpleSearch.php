@@ -2,20 +2,22 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Search;
+namespace Src\Components\Livewire\Search;
 
-use App\Models;
-use App\Support\Highlighter;
-use Illuminate\Support\Collection;
-use Livewire\Attributes\Layout;
-use Livewire\Component;
 use stdClass;
+use App\Models;
+use Livewire\Component;
+use Livewire\Attributes\Layout;
+use Illuminate\Support\Collection;
+use App\Support\Highlighter;
+use Illuminate\Database\Eloquent\Builder;
 
 final class SimpleSearch extends Component
 {
+    const CLASSES = 'text-violet-500 font-semibold';
     public string $search = '';
 
-    public function getResults()
+    public function getResults(): Collection
     {
         $search = trim($this->search);
 
@@ -23,19 +25,18 @@ final class SimpleSearch extends Component
             return new Collection();
         }
 
-        $classes = 'text-violet-500 font-semibold';
 
         $results = $this
             ->baseQuery()
             ->select('id', 'name', 'slug')
-            ->where('name', 'like', '%'.$this->search.'%')
+            ->where('name', 'like', '%' . $search . '%')
             ->get()
-            ->map(function ($component) use ($search, $classes) {
+            ->map(function ($component) use ($search) {
                 $result = new stdClass();
                 $result->title = Highlighter::make(
                     text: $component->name,
                     pattern: $search,
-                    classes: $classes
+                    classes: self::CLASSES
                 );
                 $result->url = $this->getUrl($component->slug);
 
@@ -45,20 +46,19 @@ final class SimpleSearch extends Component
         return $results;
     }
 
-    public function getUrl($slug)
+    public function getUrl($slug): string
     {
         return route('components.show', $slug);
     }
 
-    public function baseQuery()
+    public function baseQuery(): Builder
     {
         return Models\Component::query();
     }
 
-    #[Layout('components::components.layouts.app')]
     public function render()
     {
-        return view('components::livewire.search.simple-search', [
+        return view('livewire.search.index', [
             'results' => $this->getResults(),
         ]);
     }
