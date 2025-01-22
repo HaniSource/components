@@ -241,11 +241,91 @@ I styled a nice button look as a button to open our search modal
     </div>
 </x-slot:trigger>
 ``` 
-make sure to copy the icons from the files tabs.
+> don't forget to copy the icons component from the files tab.
 
 Alright, since now we have the trigger setup correctly let's build the search itself.
 
+#### the search input
 
+we use the header slot and put inside it the form input and bind the `$search` with backend 
 
+```html
+<x-slot:header class="border-b border-gray-300 dark:border-gray-800 px-2">
+    <form 
+        class="relative flex w-full items-center px-1 py-0.5"
+    >
+        <label 
+            class="flex items-center justify-center text-gray-400 dark:text-gray-600"
+            id="search-label" 
+            for="search-input"
+        >
+            <x-icon.search 
+                wire:loading.class="hidden" 
+                size="5"
+                stroke="3"
+            />
+            <div class="hidden" wire:loading.class.remove="hidden">
+                <x-icon.loading-indicator />
+            </div>
+        </label>
+        <x-search.input/> <!-- has the binding for the $search variable -->
+    </form>
+</x-slot:header>
+```
+> don't forget to copy the icons component from the files tab.
 
+#### handling results
 
+this is getting injected to ``{{ $slot }}`` portion
+
+```html
+<div class="py-2">
+    @unless(empty($search))
+        <x-search.results :results="$results"/>
+    @else
+        <div class="w-full global-search-modal">
+            <p class="text-gray-700 p-4 dark:text-gray-200 w-full text-center">Please enter a search term to get started.
+            </p>
+        </div>
+    @endunless  
+</div>
+```
+
+First we check if the search query is empty to render the fallback content to remember the user of starting new search session, if not we need to start handling search results inside the ``resources/views/components/search/results.blade.php`` below :
+
+```html
+<div
+    {{
+        $attributes->class([
+            'flex-1 z-10 w-full mt-1 overflow-y-auto h-full bg-white transition dark:bg-transparent ',
+            '[transform:translateZ(0)]',
+        ])
+    }}
+>
+    @if ($results->isEmpty())
+        <x-search.no-results/>
+    @else
+        <ul 
+            id="search-list"
+            x-data="{
+                handleKeyUp(){
+                    $focus.getFirst() === $focus.focused() ? document.getElementById('search-input').focus() : $focus.previous();
+                },
+            }"
+            x-on:focus-first-element.window="$focus.first()"
+            x-on:keydown.up.stop.prevent="handleKeyUp()"
+            x-on:keydown.down.stop.prevent="$focus.wrap().next()"
+            x-animate
+        >
+            @foreach ($results as $index => $result)            
+                <x-search.search-item
+                    :title="$result->title"
+                    :url="$result->url"
+                    :index="$index"
+                />
+            @endforeach
+        </ul>
+    @endif
+</div>
+```
+we 
