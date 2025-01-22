@@ -1,21 +1,23 @@
 ---
 name: simple-search
 files: 
-  SimpleSearch: App/Livewire/Search/Index
-  index: resources/views/livewire/search/index
-  Highlighter: App/Support/Highlighter
-  input: resources/views/components/search/input
-  results: resources/views/components/search/results
-  no-result: resources/views/components/search/no-result
-  search-item: resources/views/components/search/search-item
-  footer: resources/views/components/search/footer
-  search-icon: resources/views/components/icon/search
-  loading-indicator-icon: resources/views/components/icon/loading-indicator
+  SimpleSearch: App/Livewire/Search/Index.php
+  index: resources/views/livewire/search/index.blade.php
+  Highlighter: App/Support/Highlighter.php
+  input: resources/views/components/search/input.blade.php
+  results: resources/views/components/search/results.blade.php
+  no-result: resources/views/components/search/no-result.blade.php
+  search-item: resources/views/components/search/search-item.blade.php
+  footer: resources/views/components/search/footer.blade.php
+  search-icon: resources/views/components/icon/search.blade.php
+  loading-indicator-icon: resources/views/components/icon/loading-indicator.blade.php
+dependancies: modal
 ---
 
 ## Documentation 
 
 ### Overview 
+
 Hey There! 👋
 
 Let me walk you through the SimpleSearch component a simple yet powerful search feature that’s built with Livewire. It’s designed to make your life easier by offering real-time search with highlighted results. If you're looking to build something similar, don't worry! I’ve got your back. Let's dive in step by step.

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Components\Livewire\Search;
+namespace App\Livewire\Search;
 
 use stdClass;
 use App\Models;
