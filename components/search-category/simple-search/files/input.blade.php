@@ -2,8 +2,7 @@
     id="search-input"
     type="search"
     aria-autocomplete="both"
-    aria-labelledby="search-label"
-    aria-activedescendant="search-item-0"
+
     aria-controls="search-list"
     style="border:none; outline:none"
     wire:model.live.debounce.200ms="search"
