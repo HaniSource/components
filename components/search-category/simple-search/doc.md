@@ -2,12 +2,15 @@
 name: simple-search
 files: 
   SimpleSearch: App/Livewire/Search/Index
+  index: resources/views/livewire/search/index
   Highlighter: App/Support/Highlighter
-  footer: resources/views/components/search/footer
+  input: resources/views/components/search/input
+  results: resources/views/components/search/results
   no-result: resources/views/components/search/no-result
   search-item: resources/views/components/search/search-item
-  results: resources/views/components/search/results
-  input: resources/views/components/search/input
+  footer: resources/views/components/search/footer
+  search-icon: resources/views/components/icon/search
+  loading-indicator-icon: resources/views/components/icon/loading-indicator
 ---
 
 ## Documentation 
@@ -298,7 +301,7 @@ First we check if the search query is empty to render the fallback content to re
     {{
         $attributes->class([
             'flex-1 z-10 w-full mt-1 overflow-y-auto h-full bg-white transition dark:bg-transparent ',
-            '[transform:translateZ(0)]',
+            '[transform:translateZ(0)]', // prevent safari ui bugs
         ])
     }}
 >
@@ -328,4 +331,43 @@ First we check if the search query is empty to render the fallback content to re
     @endif
 </div>
 ```
-we 
+livewire re-render results each time we change the ``$search`` value (as user type ...) so we need to check if the searched query came up with some results from the database if not we render the ``resources/views/components/search/no-results.blade.php`` instead.
+
+we use the ``focus`` plugin provided by alpine to manage accessibity the ``handleKeyUp()`` function is used to check when we are in the first search item, if so we go back to our source of truth the input 
+
+if there is results we loop over them and display them using the ``resources/views/components/search/search-item.blade.php`` views wich is simple as:  
+
+```html
+@props([
+    'title',
+    'url',
+])
+
+<li 
+    role="option"
+>
+    <a 
+        href="{{ $url }}"
+        wire:navigate
+        @class([
+            'block  scroll-mt-9 mx-1 my-1 dark:bg-white/5 group bg-gray-50 py-6 px-3 duration-300 transition-colors rounded-lg focus:bg-gray-100 dark:focus:bg-white/10 focus:border focus-visible:outline-none focus:border-gray-400 dark:focus:border-white/30  hover:bg-gray-100 dark:hover:bg-white/10 flex justify-between items-center',
+            'p-3',
+        ])
+        >
+        <h4 
+            @class([
+            'text-md text-start font-medium text-gray-950 dark:text-white',
+            ])
+        >
+                {{ $title }}
+        </h4>
+    </a>
+</li>
+```
+that's it this our very simple search functionality, if you want to add recent search, favorite them, group search results, suggest something try consulting:
+
+- [copper search](copper-search) for extra recent search. 
+- [bronze search](bronze-search) for extra recent search, favorite them.
+- [silver search](silver-search) for extra recent search, favorite them, grouping results, suggesston.
+
+
