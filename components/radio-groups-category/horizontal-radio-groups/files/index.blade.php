@@ -32,7 +32,7 @@
     x-on:keydown.up.stop.prevent="checkPrevious"
     x-on:keydown.left.stop.prevent="checkPrevious"
     x-modelable="value"
-    {{ $attributes->whereStartsWith('wire:model') }} {{-- for linking the wire:model with x-modelable --}}
+    {{ $attributes->whereStartsWith('wire:model') }} 
     x-bind:aria-labelledby="$id('radio-group-label')"
     x-id="['radio-group-label']"
     role="radiogroup"

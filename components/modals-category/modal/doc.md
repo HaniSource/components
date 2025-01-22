@@ -342,7 +342,7 @@ To Closing it:
 ```php
 function search(){
     // some logic here
-    $this->dispatch('close-global-search')
+    $this->dispatch('open-global-search')
 } 
 ```
 
