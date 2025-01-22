@@ -1,4 +1,5 @@
 ---
+name: simple-search
 files: 
   SimpleSearch: App/Livewire/Search/Index
   Highlighter: App/Support/Highlighter
@@ -7,7 +8,6 @@ files:
   search-item: resources/views/components/search/search-item
   results: resources/views/components/search/results
   input: resources/views/components/search/input
-name: simple search
 ---
 
 ## Documentation 
@@ -49,42 +49,17 @@ class Index extends Component
 
     public function getResults()
     {
-        $search = trim($this->search);
-
-        if (empty($search)) {
-            return  new Collection();
-        }
-
-
-        $classes = 'text-violet-500 font-semibold';
-
-        $results = $this
-            ->baseQuery()
-            ->select('id', 'name','slug')
-            ->where('name', 'like', '%' . $this->search . '%')
-            ->get()
-            ->map(function ($component) use ($search, $classes) {
-                $result = new \stdClass();
-                $result->title = Highlighter::make(
-                    text: $component->name,
-                    pattern: $search,
-                    classes: $classes
-                );
-                $result->url = $this->getUrl($component->slug);
-                return $result;
-            });
-
-        return $results;
+        ....
     }
 
     public function getUrl($slug)
     {
-        return route('components.show', $slug);
+        ....
     }
 
     public function baseQuery()
     {
-        return Models\Component::query();
+        ....
     }
 
     public function render()
@@ -96,6 +71,7 @@ class Index extends Component
 }
 
 ```
+
 we added a ``$search`` property to bind it with the input in the `UI` it consider as the search query.
 
 the ``baseQuery`` function is a just an example of the desired model's table to be searched in this case we use the components table as a use case but be sure to configure it to fit your need.
@@ -141,4 +117,82 @@ first we need to trim the search term to prevent uncessary queries like when the
     }
 ``` 
 to return an empty collection and stop going further. if the search is not empty we need to complete our way to querying the database.
-the ``$classes`` variable is just used to highligh the matching pattern
+
+The ``$classes`` A CSS class is defined for highlighting matched search patterns
+
+```php
+$results = $this
+    ->baseQuery()
+    ->select(['id', 'name', 'slug'])
+    ->where('name', 'like', "%{$this->search}%")
+    ->get()
+    ->map(fn($component) => (object) [
+        'title' => Highlighter::make(
+            text: $component->name,
+            pattern: $search,
+            classes: $classes
+        ),
+        'url' => $this->getUrl($component->slug),
+    ]);
+```
+
+The query selects the ``id``, ``name``, and ``slug`` columns and filters them based on the search term. Each result is highlighted and mapped into an object with a title and URL.
+
+
+```php
+public function getUrl($slug)
+{
+    return route('components.show', $slug);
+}
+```
+The getUrl function generates a link for each search result.
+
+As I said eirlier this is just an example query.
+
+now let's deep dive into the highliter class wich's the core of highliting queries 
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Support;
+
+final class Highlighter
+{
+    public static function make(?string $text, ?string $pattern, ?string $styles = '', ?string $classes = '')
+    {
+
+        if (blank($pattern)) {
+            return $text;
+        }
+
+        $highlightedPattern = '<span';
+
+        if (! empty($classes)) {
+
+            $highlightedPattern .= ' class="'.$classes.'"';
+        }
+
+        if (! empty($styles)) {
+
+            $highlightedPattern .= ' style="'.$styles.'"';
+        }
+
+        $highlightedPattern .= '>$0</span>';
+
+        return preg_replace('/('.preg_quote($pattern, '/').')/i', $highlightedPattern, $text);
+    }
+}
+```
+the class has ```make()``` static method that accept subject ``$text`` the ``$pattern`` wich is the query term it also accet two optional (but important ) ``styles`` and ``classes`` parameters 
+
+First, the method checks if the pattern is empty and returns the original text early if so. Then it constructs the highlighted HTML using a ````html <span class="..." style="...">$0</span>``` structure, where ``$0`` is a regex placeholder for matched text.
+
+Finally, ``preg_replace()`` searches the subject for occurrences of the query term and replaces them with the constructed highlighted pattern.
+
+The ``preg_quote()`` function is used to escape special characters in the pattern to ensure safe regex execution.
+
+This regex-based highlighting approach provides flexibility and simplicity compared to algorithmic alternatives.
+
+
