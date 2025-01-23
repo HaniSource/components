@@ -372,7 +372,7 @@ this is getting injected to ``{{ $slot }}`` portion
     </div>
 ```
 
-First we check if the search query is empty to render the fallback, recent search items (we will deep dive into those in a minute), if not we need to start handling search results inside the ``resources/views/components/search/results.blade.php`` below :
+First we check if the search query is empty to render the fallback, recent search items (we will deep dive into in a minute), if not we need to start handling search results inside the ``resources/views/components/search/results.blade.php`` below :
 
 ```html
 <div
@@ -413,9 +413,12 @@ livewire re-render results each time we change the ``$search`` value (as user ty
 
 we use the ``focus`` plugin provided by alpine to manage accessibity the ``handleKeyUp()`` function is used to check when we are in the first search item, if so we go back to our source of truth the input 
 
-the ``x-animate`` provided by the alpine animation for making the results changes smoothly [alpine animation](https://github.com/CharrafiMed/alpine-animation) I am the author.
+the ``x-animate`` provided by the alpine animation package for making the results changes smoothly [alpine animation](https://github.com/CharrafiMed/alpine-animation) (I am the author).
 
 if there is results we loop over them and display them using the ``resources/views/components/search/search-item.blade.php`` views wich is simple as:  
+##### Search Result Item Structure
+
+Each search result item is represented by the following HTML structure:
 
 ```html
 @props([
@@ -446,7 +449,83 @@ if there is results we loop over them and display them using the ``resources/vie
     </a>
 </li>
 ```
-that's it this our very simple search functionality, if you want to add recent search, favorite them, group search results, suggest something try consulting:
+
+as you saw we added ``addToSearchHistory(@js($rawTitle),@js($url))`` that get exucted in click event that is a function we are going to build in the following section responsible for persist the searched item (getting clicked) in local storage so with that said let's deep into persist our items into the local storage
+
+so if we go back to our resuls handling section se see that we are bind and an alpine component called search, it time to build it 
+```html
+<div class="py-2" x-data="search">
+        @unless (empty($search))
+           ....
+        @else
+            <div
+            x-data="{
+                <!-- used for accessibilty-->
+            }"
+            ....   
+            class="global-search-modal w-full">    
+                ....
+            </div>
+        @endunless
+    </div>
+```
+
+at first we need to go to our resources folder and create ``resources/js/components/search.js`` then build our scripts 
+```js
+export default () => ({
+    search_history: [],
+    maxItemsAllowed: 10,
+    init: function () {
+        this.search_history = JSON.parse(localStorage.getItem("search_history")) || [];
+        this.$watch("search_history", (val) => {
+            localStorage.setItem("search_history", JSON.stringify(val));
+        });
+    },
+
+    addToSearchHistory: function (searchItem,url) {
+        const searchItemObject = { title: searchItem,url };
+
+        let history_data = this.search_history.filter(
+            (el) => el.title !== searchItemObject.title
+        );
+        
+        history_data = [searchItemObject, ...history_data].slice(
+            0,
+            this.maxItemsAllowed
+        );
+        this.search_history = history_data;
+    },
+    deleteFromHistory: function (searchItem) {
+        let index = this.search_history.findIndex(
+            (el) => el.title === searchItem
+        );
+        if (index !== -1) {
+            this.search_history.splice(index, 1);
+        }
+    },
+    deleteAllHistory: function () {
+        this.search_history = [];
+    },
+});
+```
+
+we store our recent search items in ``search_history`` array, that getting filled from the local storage each time the component getting initialized using 
+```js
+ this.search_history = JSON.parse(localStorage.getItem("search_history")) || [];
+```
+we check if there something in the search_history key in local storage, if so we parse it and storing in it into our `search_history` array,if not we give it empty array to make it happy 🙂.
+
+> let's suppose we have somethinge into local storage to play with it 
+
+next we need to watch our `search_history` if there is some items getting added (using ``addToSearchHistory`` function) or getting removed (using ``deleteFromHistory``function ) to update also the local storage, well there is many ways to do that, but the best option I find to prevent some alpinejs reactivity system issues is ``watch`` api like so:
+
+```js
+this.$watch("search_history", (val) => {
+    localStorage.setItem("search_history", JSON.stringify(val));
+});
+```
+is simple as listen for ``search_history`` updates to update local storage 😎. 
+
 
 - [bronze search](bronze-search) for extra favorites features .
 - [silver search](silver-search) for extra favorites features, grouping results, suggesston.
