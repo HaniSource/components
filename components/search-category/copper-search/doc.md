@@ -291,7 +291,7 @@ we use the header slot and put inside it the form input and bind the `$search` w
 
 #### handling results
 
-this is getting injected to ``{{ $slot }}`` portion
+this is getting injected to ``{{ $slot }}`` portion of the modal
 
 ```html
 <div class="py-2" x-data="search">
@@ -525,6 +525,173 @@ this.$watch("search_history", (val) => {
 });
 ```
 is simple as listen for ``search_history`` updates to update local storage 😎. 
+
+then we have 3 functions:
+
+- `addToSearchHistory`: add new item `title`, `url` (used for navigating to the stored item), to local storage.
+- `deleteFromHistory`: delete the desired item from the local storage.
+- `deleteAllHistory`: clear local storage 👀.
+
+now we understand the script let's initialize it:
+
+we need to go to our ``app.js`` and bundle livewire manually
+```js
+import "./bootstrap";   
+import { Livewire } from '../../../../vendor/livewire/livewire/dist/livewire.esm';
+import AlpineAnimate from "@charrafimed/alpine-animation"
+import  search from "./components/search.js";
+
+// plugins 
+Alpine.plugin(AlpineAnimate);
+....
+
+// components 
+Alpine.data("search", search);
+....
+
+Livewire.start();
+
+```
+
+for more info try consulting [livewire docs](https://livewire.laravel.com/docs/installation#manually-bundling-livewire-and-alpine)
+
+no we have the ``x-data="search"`` working correclty, now it's time to explore the recent search area:
+
+```html
+<div class="py-2" x-data="search">
+        @unless (empty($search))
+            .....
+        @else
+            <div
+            x-data="{
+                handleKeyUp(){
+                    focusedEl = $focus.focused()
+                    {{-- $focus.getFirst() === $focus.focused() ? document.getElementById('search-input').focus() : $focus.previous(); --}}
+                    if($focus.getFirst() === $focus.focused()){
+                        document.getElementById('search-input').focus();return
+                    }
+                    if (focusedEl.hasAttribute('data-action')) {
+                        const parentLi = focusedEl.closest('li');
+                        if (parentLi) {
+                            const actions = parentLi.querySelectorAll('[data-action]');
+                            if (Array.from(actions).indexOf(focusedEl) === 0) {
+                                parentLi.focus();
+                                return;
+                            }
+                        }
+                    }
+                    $focus.previous()
+                },
+                handleKeyDown(){
+                    focusedEl = $focus.focused() 
+                    if(focusedEl.tagName == 'LI'){
+                        actions = focusedEl.querySelectorAll('[data-action]');
+                        if(actions.length > 0){
+                            actions[0].focus();
+                             return;
+                        }
+                    }
+                    $focus.wrap().next(); 
+                },
+            }"   
+            x-on:focus-first-element.window="$focus.first()"
+            x-on:keydown.up.stop.prevent="handleKeyUp()"
+            x-on:keydown.down.stop.prevent="handleKeyDown()" 
+             class="global-search-modal w-full">
+                <template x-if="search_history.length <=0">
+                    <p class="dark:text-gray-200 w-full p-4 text-center text-gray-700">Please enter a search term to get
+                        started.
+                    </p>
+                </template>
+                <template x-if="search_history.length > 0">
+                    <div>
+                        <div class="top-0 z-10">
+                            <h3
+                                class="relative flex flex-1 flex-col justify-center overflow-x-hidden text-ellipsis whitespace-nowrap px-4 py-2 text-start text-[0.9em] font-semibold capitalize text-violet-600 dark:text-violet-500   ">
+                                Recent
+                            </h3>
+                        </div>
+                        <ul>
+                            <template x-for="(result,index) in search_history">
+                                <x-search.summary.item
+                                    x-bind:key="index"
+                                    x-on:click="addToSearchHistory(result.title,result.url)"
+                                >
+                                    <span x-html="result.title">
+                                    </span>
+                                    <x-slot:actions>
+                                        <x-search.action-button
+                                            title="delete"
+                                            clickFunction="deleteFromHistory(result.title)"
+                                            icon="x"
+                                        />
+                                    </x-slot:actions>
+                                </x-search.copper.summary.item>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+            </div>
+        @endunless
+    </div>
+```
+when the search query (`$search` property) is empty we have two options 
+
+- if local storage empty, means the ``search_history.length <=0`` is ``true`` so we render just a text said *Please enter a search term to get started*
+- if not we loop over ``search_history`` using `x-for` and pass the `title`, and `url` to the `resources/views/components/search/summary/item.blade.php` and pass delete actions for deleting items from the local storage :
+
+```html
+<template x-for="(result,index) in search_history">
+    <x-search.summary.item
+        x-bind:key="index"
+        x-on:click="addToSearchHistory(result.title,result.url)"
+    >
+        <span x-html="result.title">
+        </span>
+        <x-slot:actions>
+            <x-search.action-button
+                title="delete"
+                clickFunction="deleteFromHistory(result.title)"
+                icon="x"
+            />
+        </x-slot:actions>
+    </x-search.summary.item>
+</template>
+```
+wich is looks like this
+```html
+<li
+    {{ $attributes }}
+    class="fi-global-search-result my-1 mr-1 flex scroll-mt-9 items-center justify-between rounded-lg bg-gray-50 px-3  transition-colors duration-300 focus:bg-gray-100 dark:focus:bg-white/10 focus:border focus-visible:outline-none focus:border-gray-400 dark:focus:border-white/30  hover:bg-gray-100/90 dark:bg-white/5 dark:focus-within:bg-white/5 dark:hover:bg-white/10"
+    tabindex="0"    
+>
+    <a 
+        class="fi-global-search-result-link  outline-none h-full py-6  w-full"
+        wire:navigate
+        tabindex="-1"    
+        x-bind:href="result.url"
+        x-on:click.stop="addToSearchHistory(result.title,result.url);close();"
+        x-on:keydown.enter.stop="close()"
+        >
+        <h4  @class([
+            'text-sm text-start font-semibold text-gray-950 dark:text-gray-300',
+        ])>
+            {{ $slot }}
+        </h4>
+    </a>
+    
+    @if (filled($actions))
+        <span     
+            tabindex="0"    
+            class="actions-wrapper flex items-center focus:bg-gray-100 dark:focus:bg-white/10 focus:border focus-visible:outline-none focus:border-gray-400 dark:focus:border-white/30 ">
+            {{ $actions }}
+        </span>
+    @endif
+</li>
+```
+it just re-add the search items to local storage to update the visited as the last one. and have a nice sections for *actions* (delete,favorites in other components).
+
+
 
 
 - [bronze search](bronze-search) for extra favorites features .
