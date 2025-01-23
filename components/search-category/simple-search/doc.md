@@ -64,17 +64,17 @@ class Index extends Component
         ....
     }
 
-    public function getUrl($slug)
+    public function getUrl(string $slug):string 
     {
         ....
     }
 
-    public function baseQuery()
+    public function baseQuery(): Builder
     {
         ....
     }
 
-    public function render()
+    public function render():View
     {
         return view('livewire.search.index', [
             'results' => $this->getResults(),
@@ -91,7 +91,7 @@ the ``baseQuery`` function is a just an example of the desired model's table to 
 so whenever the search content change (as the user type in real time) the ``getResults`` will run and send the search results to the *UI* via the `results` variable, so let's explore the ``getResults`` function in the following section:
 
 ```php
-    public function getResults()
+    public function getResults():Collection
     {
         $search = trim($this->search);
 
@@ -150,7 +150,7 @@ The query selects the ``id``, ``name``, and ``slug`` columns and filters them ba
 
 
 ```php
-public function getUrl($slug)
+public function getUrl(string $slug): string
 {
     return route('components.show', $slug);
 }
@@ -170,7 +170,7 @@ namespace App\Support;
 
 final class Highlighter
 {
-    public static function make(?string $text, ?string $pattern, ?string $styles = '', ?string $classes = '')
+    public static function make(?string $text, ?string $pattern, ?string $styles = '', ?string $classes = ''): string 
     {
 
         if (blank($pattern)) {
