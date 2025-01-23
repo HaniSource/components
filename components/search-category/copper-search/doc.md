@@ -135,17 +135,21 @@ $results = $this
     ->select(['id', 'name', 'slug'])
     ->where('name', 'like', "%{$this->search}%")
     ->get()
-    ->map(fn($component) => (object) [
-        'title' => Highlighter::make(
+    ->map(function ($component) use ($search, $classes) {
+        $result = new stdClass();
+        $result->rawTitle = $component->name;
+        $result->title = Highlighter::make(
             text: $component->name,
             pattern: $search,
-            classes: self::CLASSES
-        ),
-        'url' => $this->getUrl($component->slug),
-    ]);
+            classes: $classes
+        );
+        $result->url = $this->getUrl($component->slug);
+
+        return $result;
+    });
 ```
 
-The query selects the ``id``, ``name``, and ``slug`` columns and filters them based on the search term. Each result is highlighted and mapped into an object with a title and URL.
+The query selects the ``id``, ``name``, and ``slug`` columns and filters them based on the search term. Each result is highlighted and mapped into an object with a title (highlited) and a raw title (used for storing recent search in local storage) and URL.
 
 
 ```php
@@ -218,12 +222,12 @@ First we have the entry point. The ``index.blade.php`` livewire component
     closeEvent="close-global-search"
 >
     <x-slot:trigger>
-        .... act as the trigger of the modal
+        .... act as the trigger of the modal...
     </x-slot:trigger>
     <x-slot:header class="border-b border-gray-300 dark:border-gray-800 px-2">
-        .... act as search input
+        .... act as search input...
     </x-slot:header>
-        .... act as results wrapper
+        .... act as results and recent searchs wrapper...
     <x-slot:footer>
         <x-search.footer/>        
     </x-slot:footer>
@@ -290,19 +294,85 @@ we use the header slot and put inside it the form input and bind the `$search` w
 this is getting injected to ``{{ $slot }}`` portion
 
 ```html
-<div class="py-2">
-    @unless(empty($search))
-        <x-search.results :results="$results"/>
-    @else
-        <div class="w-full global-search-modal">
-            <p class="text-gray-700 p-4 dark:text-gray-200 w-full text-center">Please enter a search term to get started.
-            </p>
-        </div>
-    @endunless  
-</div>
+<div class="py-2" x-data="search">
+        @unless (empty($search))
+            <x-search.results :results="$results" />
+        @else
+            <div
+            x-data="{
+                handleKeyUp(){
+                    focusedEl = $focus.focused()
+                    {{-- $focus.getFirst() === $focus.focused() ? document.getElementById('search-input').focus() : $focus.previous(); --}}
+                    if($focus.getFirst() === $focus.focused()){
+                        document.getElementById('search-input').focus();return
+                    }
+                    if (focusedEl.hasAttribute('data-action')) {
+                        const parentLi = focusedEl.closest('li');
+                        if (parentLi) {
+                            const actions = parentLi.querySelectorAll('[data-action]');
+                            if (Array.from(actions).indexOf(focusedEl) === 0) {
+                                parentLi.focus();
+                                return;
+                            }
+                        }
+                    }
+                    $focus.previous()
+                },
+                handleKeyDown(){
+                    focusedEl = $focus.focused() 
+                    if(focusedEl.tagName == 'LI'){
+                        actions = focusedEl.querySelectorAll('[data-action]');
+                        if(actions.length > 0){
+                            actions[0].focus();
+                             return;
+                        }
+                    }
+                    $focus.wrap().next(); 
+                },
+            }"   
+            x-on:focus-first-element.window="$focus.first()"
+            x-on:keydown.up.stop.prevent="handleKeyUp()"
+            x-on:keydown.down.stop.prevent="handleKeyDown()" 
+             class="global-search-modal w-full">
+                <template x-if="search_history.length <=0">
+                    <p class="dark:text-gray-200 w-full p-4 text-center text-gray-700">Please enter a search term to get
+                        started.
+                    </p>
+                </template>
+                <template x-if="search_history.length > 0">
+                    <div>
+                        <div class="top-0 z-10">
+                            <h3
+                                class="relative flex flex-1 flex-col justify-center overflow-x-hidden text-ellipsis whitespace-nowrap px-4 py-2 text-start text-[0.9em] font-semibold capitalize text-violet-600 dark:text-violet-500   ">
+                                Recent
+                            </h3>
+                        </div>
+                        <ul>
+                            <template x-for="(result,index) in search_history">
+                                <x-search.summary.item
+                                    x-bind:key="index"
+                                    x-on:click="addToSearchHistory(result.title,result.url)"
+                                >
+                                    <span x-html="result.title">
+                                    </span>
+                                    <x-slot:actions>
+                                        <x-search.action-button
+                                            title="delete"
+                                            clickFunction="deleteFromHistory(result.title)"
+                                            icon="x"
+                                        />
+                                    </x-slot:actions>
+                                </x-search.copper.summary.item>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+            </div>
+        @endunless
+    </div>
 ```
 
-First we check if the search query is empty to render the fallback content to remember the user of starting new search session, if not we need to start handling search results inside the ``resources/views/components/search/results.blade.php`` below :
+First we check if the search query is empty to render the fallback, recent search items (we will deep dive into those in a minute), if not we need to start handling search results inside the ``resources/views/components/search/results.blade.php`` below :
 
 ```html
 <div
@@ -331,8 +401,8 @@ First we check if the search query is empty to render the fallback content to re
             @foreach ($results as $index => $result)            
                 <x-search.search-item
                     :title="$result->title"
+                    :rawTitle="$result->rawTitle"
                     :url="$result->url"
-                    :index="$index"
                 />
             @endforeach
         </ul>
@@ -350,11 +420,13 @@ if there is results we loop over them and display them using the ``resources/vie
 ```html
 @props([
     'title',
+    'rawTitle',
     'url',
 ])
 
 <li 
     role="option"
+    x-on:click="addToSearchHistory(@js($rawTitle),@js($url))"
 >
     <a 
         href="{{ $url }}"
@@ -369,7 +441,7 @@ if there is results we loop over them and display them using the ``resources/vie
             'text-md text-start font-medium text-gray-950 dark:text-white',
             ])
         >
-                {{ $title }}
+                {{ str($title)->sanitizeHtml()->toHtmlString() }}
         </h4>
     </a>
 </li>
