@@ -1,10 +1,12 @@
 @props([
     'title',
+    'rawTitle',
     'url',
 ])
 
 <li 
     role="option"
+    x-on:click="addToSearchHistory(@js($rawTitle),@js($url))"
 >
     <a 
         href="{{ $url }}"
@@ -19,7 +21,7 @@
             'text-md text-start font-medium text-gray-950 dark:text-white',
             ])
         >
-                {{ $title }}
+                {{ str($title)->sanitizeHtml()->toHtmlString() }}
         </h4>
     </a>
 </li>

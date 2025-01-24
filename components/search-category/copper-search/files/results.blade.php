@@ -5,28 +5,32 @@
             '[transform:translateZ(0)]',
         ])
     }}
+    x-data="{
+        handleKeyUp(){
+            $focus.getFirst() === $focus.focused() ? document.getElementById('search-input').focus() : $focus.previous();
+        },
+    }"
 >
     @if ($results->isEmpty())
+      
         <x-components::search.no-results/>
     @else
         <ul 
             id="search-list"
-            x-data="{
-                handleKeyUp(){
-                    $focus.getFirst() === $focus.focused() ? document.getElementById('search-input').focus() : $focus.previous();
-                },
-            }"
             x-on:focus-first-element.window="$focus.first()"
             x-on:keydown.up.stop.prevent="handleKeyUp()"
             x-on:keydown.down.stop.prevent="$focus.wrap().next()"
             x-animate
         >
-            @foreach ($results as $index => $result )            
-                <x-components::search.search-item
-                    :title="$result->title"
-                    :url="$result->url"
-                    :index="$index"
-                />
+            @foreach ($results as $result )
+                <li>
+
+                    <x-components::search.copper.search-item
+                        :title="$result->title"
+                        :rawTitle="$result->rawTitle"
+                        :url="$result->url"
+                    />
+                </li>       
             @endforeach
         </ul>
     @endif

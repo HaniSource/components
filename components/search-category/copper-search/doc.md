@@ -8,6 +8,7 @@ files:
   results: resources/views/components/search/results.blade.php
   no-result: resources/views/components/search/no-result.blade.php
   search-item: resources/views/components/search/search-item.blade.php
+  summary-item: resources/views/components/search/summary/item.blade.php
   footer: resources/views/components/search/footer.blade.php
   search-icon: resources/views/components/icon/search.blade.php
   loading-indicator-icon: resources/views/components/icon/loading-indicator.blade.php
