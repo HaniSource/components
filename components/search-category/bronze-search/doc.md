@@ -1,7 +1,7 @@
 ---
-name: copper-search
+name: bronze-search
 files: 
-  CopperSearch: App/Livewire/Search/Index.php
+  BronzeSearch: App/Livewire/Search/Index.php
   index: resources/views/livewire/search/index.blade.php
   Highlighter: App/Support/Highlighter.php
   input: resources/views/components/search/input.blade.php
@@ -161,7 +161,7 @@ public function getUrl(string $slug): string
 ```
 The getUrl function generates a link for each search result.
 
-As I said eirlier this is just an example query.
+As I said earlier this is just an example query.
 
 now let's deep dive into the highliter class wich's the core of highliting queries 
 

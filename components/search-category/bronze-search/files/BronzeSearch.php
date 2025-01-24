@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace App\Livewire\Search;
+namespace Src\Components\Livewire\Search;
 
-use stdClass;
 use App\Models;
-use Livewire\Component;
-use Livewire\Attributes\Layout;
-use Illuminate\Support\Collection;
 use App\Support\Highlighter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Collection;
+use Livewire\Attributes\Layout;
+use Livewire\Component;
+use stdClass;
 
-final class SimpleSearch extends Component
+final class BronzeSearch extends Component
 {
     const CLASSES = 'text-violet-500 font-semibold';
     public string $search = '';
 
-    public function getResults(): Collection
+    public function getResults():Collection
     {
         $search = trim($this->search);
 
@@ -29,10 +29,11 @@ final class SimpleSearch extends Component
         $results = $this
             ->baseQuery()
             ->select('id', 'name', 'slug')
-            ->where('name', 'like', '%' . $search . '%')
+            ->where('name', 'like', '%'.$search.'%')
             ->get()
             ->map(function ($component) use ($search) {
                 $result = new stdClass();
+                $result->rawTitle = $component->name;
                 $result->title = Highlighter::make(
                     text: $component->name,
                     pattern: $search,
@@ -46,7 +47,7 @@ final class SimpleSearch extends Component
         return $results;
     }
 
-    public function getUrl($slug): string
+    public function getUrl($slug):string 
     {
         return route('components.show', $slug);
     }
@@ -56,9 +57,10 @@ final class SimpleSearch extends Component
         return Models\Component::query();
     }
 
+    #[Layout('components::components.layouts.app')]
     public function render()
     {
-        return view('livewire.search.index', [
+        return view('components::livewire.search.bronze-search', [
             'results' => $this->getResults(),
         ]);
     }

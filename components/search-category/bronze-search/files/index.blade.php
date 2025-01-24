@@ -40,7 +40,7 @@
             <x-search.input />
         </form>
     </x-slot:header>
-    <div class="py-2" x-data="copperSearch">
+    <div class="py-2" x-data="bronzeSearch">
         @unless (empty($search))
             <x-search.copper.results :results="$results" />
         @else
@@ -48,12 +48,14 @@
             x-data="{
                 handleKeyUp(){
                     focusedEl = $focus.focused()
+                    {{-- $focus.getFirst() === $focus.focused() ? document.getElementById('search-input').focus() : $focus.previous(); --}}
                     if($focus.getFirst() === $focus.focused()){
                         document.getElementById('search-input').focus();return
                     }
                     if (focusedEl.hasAttribute('data-action')) {
                         const parentLi = focusedEl.closest('li');
                         if (parentLi) {
+                            // If it's the first action button in the li, jump back to the li itself
                             const actions = parentLi.querySelectorAll('[data-action]');
                             if (Array.from(actions).indexOf(focusedEl) === 0) {
                                 parentLi.focus();
@@ -65,8 +67,10 @@
                 },
                 handleKeyDown(){
                     focusedEl = $focus.focused() 
+                    // get the focused element
                     if(focusedEl.tagName == 'LI'){
                         actions = focusedEl.querySelectorAll('[data-action]');
+                        // so we are now focusin the li we need to focus its first action 
                         if(actions.length > 0){
                             actions[0].focus();
                              return;
@@ -78,8 +82,8 @@
             x-on:focus-first-element.window="$focus.first()"
             x-on:keydown.up.stop.prevent="handleKeyUp()"
             x-on:keydown.down.stop.prevent="handleKeyDown()" 
-             class="global-search-modal w-full">
-                <template x-if="search_history.length <=0">
+            class="global-search-modal w-full" >
+                <template x-if="search_history.length <=0 && favorite_items.length <=0 ">
                     <p class="dark:text-gray-200 w-full p-4 text-center text-gray-700">Please enter a search term to get
                         started.
                     </p>
@@ -92,11 +96,10 @@
                                 Recent
                             </h3>
                         </div>
-                        <ul>
+                        <ul x-animate>
                             <template x-for="(result,index) in search_history">
                                 <x-search.copper.summary.item
                                     x-bind:key="index"
-                                    x-on:click="addToSearchHistory(result.title,result.url)"
                                 >
                                     <span x-html="result.title">
                                     </span>
@@ -106,12 +109,46 @@
                                             clickFunction="deleteFromHistory(result.title)"
                                             icon="x"
                                         />
+                                        <x-search.action-button
+                                            title="favorite this item"
+                                            clickFunction="addToFavorites(result.title,result.url)"
+                                            icon="favorite"
+                                        />
                                     </x-slot:actions>
                                 </x-search.copper.summary.item>
                             </template>
                         </ul>
+                    
+                </div>
+            </template>
+            <template x-if="favorite_items.length > 0">
+                <div>
+                    <div class="top-0 z-10">
+                        <h3
+                            class="relative flex flex-1 flex-col justify-center overflow-x-hidden text-ellipsis whitespace-nowrap px-4 py-2 text-start text-[0.9em] font-semibold capitalize text-violet-600 dark:text-violet-500   ">
+                            Favorites
+                        </h3>
                     </div>
-                </template>
+                    <ul x-animate>
+                        <template x-for="(result,index) in favorite_items">
+                            <x-search.copper.summary.item
+                                x-bind:key="index"
+                                x-on:click="addToSearchHistory(result.title,result.url)"
+                            >
+                                <span x-html="result.title">
+                                </span>
+                                <x-slot:actions>
+                                    <x-search.action-button
+                                    title="delete"
+                                    clickFunction="deleteFromFavorites(result.title,result.url)"
+                                    icon="x"
+                                    />
+                                </x-slot:actions>
+                            </x-search.copper.summary.item>
+                        </template>
+                    </ul>
+            </div>
+        </template>
             </div>
         @endunless
     </div>
