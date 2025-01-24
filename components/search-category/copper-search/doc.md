@@ -15,7 +15,6 @@ dependencies:
     internal: centred-modal
     external: 
         alpine-animation: https://github.com/CharrafiMed/alpine-animation
-    
 
 ---
 
@@ -25,7 +24,7 @@ dependencies:
 
 Hey There! 👋
 
-Let me walk you through the SimpleSearch component a simple yet powerful search feature that’s built with Livewire. It’s designed to make your life easier by offering real-time search with highlighted results. If you're looking to build something similar, don't worry! I’ve got your back. Let's dive in step by step.
+Let me walk you through the Copper Search component a simple yet powerful search feature that’s built with Livewire. It’s designed to make your life easier by offering real-time search with highlighted results. If you're looking to build something similar, don't worry! I’ve got your back. Let's dive in step by step.
 
 ### Setting Things Up
 First, we need to create a Livewire component. Don’t panic it’s just one simple Artisan command. Open up your terminal and run this:
@@ -36,11 +35,11 @@ php artisan livewire:make Search/Index
 This command will generate two things for you:
 
 - **A backend class**: ``App/Livewire/Search/Index``.
-- **A Blade view**: the front-facing part of your search.
+- **A Blade view**: ``resources/views/livewire/search/index.blade.php`` the front-facing part of your search.
 
 For now, we’ll focus on the backend logic to make the search work.
 
-###  The Backend Search Logic
+### The Backend Search Logic
 ```php
 <?php
 
@@ -408,13 +407,13 @@ First we check if the search query is empty to render the fallback, recent searc
     @endif
 </div>
 ```
-livewire re-render results each time we change the ``$search`` value (as user type ...) so we need to check if the searched query came up with some results from the database if not we render the ``resources/views/components/search/no-results.blade.php`` instead.
+Livewire re-renders the search results each time the``$search`` value changes (as the user types). If no results are found, the component``resources/views/components/search/no-results.blade.php`` is rendered.
 
-we use the ``focus`` plugin provided by alpine to manage accessibity the ``handleKeyUp()`` function is used to check when we are in the first search item, if so we go back to our source of truth the input 
+We use Alpine.js's ``focus`` plugin to enhance accessibility. The ``handleKeyUp()`` function ensures that when the first search item is focused, navigation returns to the input field, which acts as the source of truth.
 
-the ``x-animate`` provided by the alpine animation package for making the results changes smoothly [alpine animation](https://github.com/CharrafiMed/alpine-animation) (I am the author).
+the ``x-animate`` directive, provided by the Alpine.js animation package [alpine animation](https://github.com/CharrafiMed/alpine-animation)(authored by me), ensures smooth transitions when search results change.
 
-if there is results we loop over them and display them using the ``resources/views/components/search/search-item.blade.php`` views wich is simple as:  
+If results are found, we iterate over them and render each one using the``resources/views/components/search/search-item.blade.php``component, structured as follows:  
 ##### Search Result Item Structure
 
 Each search result item is represented by the following HTML structure:
@@ -449,7 +448,9 @@ Each search result item is represented by the following HTML structure:
 </li>
 ```
 
-as you saw we added ``addToSearchHistory(@js($rawTitle),@js($url))`` that get exucted in click event that is a function we are going to build in the following section responsible for persist the searched item (getting clicked) in local storage so with that said let's deep into persist our items into the local storage
+as you saw we added ``addToSearchHistory(@js($rawTitle),@js($url))`` function is executed when a search item is clicked. This function persists the clicked item in local storage, allowing recent searches to be stored and displayed later.
+
+#### Recent Search
 
 so if we go back to our resuls handling section se see that we are bind and an alpine component called search, it time to build it 
 ```html
@@ -469,7 +470,8 @@ so if we go back to our resuls handling section se see that we are bind and an a
     </div>
 ```
 
-at first we need to go to our resources folder and create ``resources/js/components/search.js`` then build our scripts 
+First, create the script file ``resources/js/components/search.js`` with the following content:
+
 ```js
 export default () => ({
     search_history: [],
@@ -508,13 +510,15 @@ export default () => ({
 });
 ```
 
-we store our recent search items in ``search_history`` array, that getting filled from the local storage each time the component getting initialized using 
+we store our recent search items in ``search_history`` array stores recent search items, which are loaded from local storage upon component initialization:
 ```js
  this.search_history = JSON.parse(localStorage.getItem("search_history")) || [];
 ```
-we check if there something in the search_history key in local storage, if so we parse it and storing in it into our `search_history` array,if not we give it empty array to make it happy 🙂.
+If the ``search_history`` key exists in local storage, it is parsed and stored in the ``search_history`` array. Otherwise, an empty array is assigned.
 
 > let's suppose we have somethinge into local storage to play with it 
+
+To track updates to ``search_history``, we use Alpine's ``$watch`` API:
 
 next we need to watch our `search_history` if there is some items getting added (using ``addToSearchHistory`` function) or getting removed (using ``deleteFromHistory``function ) to update also the local storage, well there is many ways to do that, but the best option I find to prevent some alpinejs reactivity system issues is ``watch`` api like so:
 
@@ -526,7 +530,7 @@ this.$watch("search_history", (val) => {
 is simple as listen for ``search_history`` updates to update local storage 😎. 
 
 then we have 3 functions:
-
+###### Functions Overview
 - `addToSearchHistory`: add new item `title`, `url` (used for navigating to the stored item), to local storage.
 - `deleteFromHistory`: delete the desired item from the local storage.
 - `deleteAllHistory`: clear local storage 👀.
@@ -534,6 +538,7 @@ then we have 3 functions:
 now we understand the script let's initialize it:
 
 we need to go to our ``app.js`` and bundle livewire manually
+
 ```js
 import "./bootstrap";   
 import { Livewire } from '../../../../vendor/livewire/livewire/dist/livewire.esm';
@@ -593,15 +598,7 @@ no we have the ``x-data="search"`` working correclty, now it's time to explore t
                                     x-bind:key="index"
                                     x-on:click="addToSearchHistory(result.title,result.url)"
                                 >
-                                    <span x-html="result.title">
-                                    </span>
-                                    <x-slot:actions>
-                                        <x-search.action-button
-                                            title="delete"
-                                            clickFunction="deleteFromHistory(result.title)"
-                                            icon="x"
-                                        />
-                                    </x-slot:actions>
+                                ......   
                                 </x-search.copper.summary.item>
                             </template>
                         </ul>
@@ -613,8 +610,8 @@ no we have the ``x-data="search"`` working correclty, now it's time to explore t
 ```
 when the search query (`$search` property) is empty we have two options 
 
-- if local storage empty, means the ``search_history.length <=0`` is ``true`` so we render just a text said *Please enter a search term to get started*
-- if not we loop over ``search_history`` using `x-for` and pass the `title`, and `url` to the `resources/views/components/search/summary/item.blade.php` and pass delete actions for deleting items from the local storage :
+- If local storage empty, means the ``search_history.length <=0`` is ``true`` so we render just a text said *Please enter a search term to get started*
+- If not we loop over ``search_history`` using `x-for` and pass the `title`, and `url` to the `resources/views/components/search/summary/item.blade.php` and pass delete actions for deleting items from the local storage:
 
 ```html
 <template x-for="(result,index) in search_history">
@@ -642,7 +639,7 @@ wich is looks like this
     tabindex="0"    
 >
     <a 
-        class="fi-global-search-result-link  outline-none h-full py-6  w-full"
+        class="outline-none h-full py-6  w-full"
         wire:navigate
         tabindex="-1"    
         x-bind:href="result.url"
@@ -665,7 +662,33 @@ wich is looks like this
     @endif
 </li>
 ```
-it just re-add the search items to local storage to update the visited as the last one. and have a nice sections for *actions* (delete,favorites in other components).
+So it similar to ``search-item`` it funcitonality with is displaying single item  but it has some extra power it add re-add to recent search with like unshift the item to the top as the most recently viewed item, in addition it has nice slot for actions like delete and favorites wich we will discover in other components, we aslo have the action button wich is responsible for front-end actions, and it looks like this:
+
+```html
+@props([
+    'type' => 'button',
+    'icon' => null,
+    'title' => null, // this is just the native button's title (for accessibilty)
+    'clickFunction' => null,
+])
+
+<button 
+    data-action
+    type="{{ $type }}" 
+    title="{{ $title }}"
+    tabindex="1"
+    x-on:click.stop="{{ $clickFunction }}"
+    {{ $attributes->merge(['class' => 'rounded-full cursor-pointer focus-visible:outline-none  focus:bg-gray-100 dark:focus:bg-white/10 border focus:border-gray-400 dark:focus:border-white/30 appearance-none rounded-full border-none bg-none p-1.5 text-gray-400 text-inherit dark:hover:bg-white/5 hover:bg-gray-800/5']) }}
+>
+    <x-dynamic-component :component="'icon.' . $icon" />
+</button>
+```
+the only important props here is the ``$clickFunction`` it actually represent the action like ``deleteFromHistory()``....  and the ``$icon`` wich is used for dynamic icons. 
+
+
+
+
+
 
 
 
