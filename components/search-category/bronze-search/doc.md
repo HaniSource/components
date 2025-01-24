@@ -17,7 +17,12 @@ dependencies:
     internal: centred-modal
     external: 
         alpine-animation: https://github.com/CharrafiMed/alpine-animation
-
+features:
+    - highlight search queries.
+    - keep track of recent search and the ability to remove them, or mark them as favorites. 
+    - keep track of favorites and the ability to remove them. 
+    - full accessibilty support.
+    - smooth transitions when search results change.
 ---
 
 ## Documentation 
@@ -26,7 +31,7 @@ dependencies:
 
 Hey There! 👋
 
-Let me walk you through the Copper Search component a simple yet powerful search feature that’s built with Livewire. It’s designed to make your life easier by offering real-time search with highlighted results. If you're looking to build something similar, don't worry! I’ve got your back. Let's dive in step by step.
+Let me walk you through the Bronze Search component a simple yet powerful search feature that’s built with Livewire. It’s designed to make your life easier by offering real-time search with highlighted results. If you're looking to build something similar, don't worry! I’ve got your back. Let's dive in step by step.
 
 ### Setting Things Up
 First, we need to create a Livewire component. Don’t panic it’s just one simple Artisan command. Open up your terminal and run this:

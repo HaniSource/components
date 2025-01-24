@@ -17,7 +17,11 @@ dependencies:
     internal: centred-modal
     external: 
         alpine-animation: https://github.com/CharrafiMed/alpine-animation
-
+features:
+    - highlight search queries.
+    - keep track of recent search and the ability to remove them 
+    - full accessibilty support.
+    - smooth transitions when search results change.
 ---
 
 ## Documentation 
