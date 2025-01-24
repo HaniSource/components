@@ -12,6 +12,7 @@ files:
   footer: resources/views/components/search/footer.blade.php
   search-icon: resources/views/components/icon/search.blade.php
   loading-indicator-icon: resources/views/components/icon/loading-indicator.blade.php
+  x-icon: resources/views/components/icon/x.blade.php
 dependencies: 
     internal: centred-modal
     external: 
