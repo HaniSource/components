@@ -472,6 +472,8 @@ so if we go back to our resuls handling section se see that we are bind and an a
 
 First, create the script file ``resources/js/components/search.js`` with the following content:
 
+###### Recent Search Js Part
+
 ```js
 export default () => ({
     search_history: [],
@@ -612,8 +614,9 @@ when the search query (`$search` property) is empty we have two options
 
 - If local storage empty, means the ``search_history.length <=0`` is ``true`` so we render just a text said :
 > *Please enter a search term to get started*
-- If not we loop over ``search_history`` using `x-for` and pass the `title`, and `url` to the `resources/views/components/search/summary/item.blade.php` and pass delete actions for deleting items from the local storage:
 
+- If not we loop over ``search_history`` using `x-for` and pass the `title`, and `url` to the `resources/views/components/search/summary/item.blade.php` and pass delete actions for deleting items from the local storage:
+###### Recent Search Items
 ```html
 <template x-for="(result,index) in search_history">
     <x-search.summary.item
@@ -634,6 +637,7 @@ when the search query (`$search` property) is empty we have two options
 ```
 
 wich is looks like this
+###### Recent Search Item
 ```html
 <li
     {{ $attributes }}
@@ -668,7 +672,7 @@ So it similar to ``search-item``, displays a single search result with enhanced 
 
  we aslo have the action button wich is responsible for front-end actions, and it looks like this:
 
-
+###### Action Button
 ```html
 @props([
     'type' => 'button',
