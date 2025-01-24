@@ -1,0 +1,23 @@
+<input
+    id="search-input"
+    type="search"
+    aria-autocomplete="both"
+
+    aria-controls="search-list"
+    style="border:none; outline:none"
+    wire:model.live.debounce.200ms="search"
+    autocomplete="off"
+    autocorrect="off"
+    x-data="{}"
+    x-on:keydown.down.prevent.stop="$dispatch('focus-first-element')"
+    autocapitalize="none"
+    enterkeyhint="go"
+    spellcheck="false"
+    placeholder="Search for anything ..."
+    x-on:keydown.enter.prevent 
+    autofocus="true"
+    maxlength="64"
+    @class([
+      'fi-input block w-full border-none bg-transparent py-1.5 text-base text-gray-950 dark:text-white font-semibold placeholder:font-normal transition duration-75 placeholder:text-gray-400 focus:ring-0 disabled:text-gray-500  sm:text-sm sm:leading-6',
+   ])
+/>
