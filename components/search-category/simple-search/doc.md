@@ -36,8 +36,8 @@ php artisan livewire:make Search/Index
 ```
 This command will generate two things for you:
 
-**A backend class**: ``App/Livewire/Search/Index``.
-**A Blade view**: the front-facing part of your search.
+- **A backend class**: ``App/Livewire/Search/Index``.
+- **A Blade view**: the front-facing part of your search.
 
 For now, we’ll focus on the backend logic to make the search work.
 

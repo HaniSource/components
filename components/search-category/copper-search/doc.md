@@ -35,8 +35,8 @@ php artisan livewire:make Search/Index
 ```
 This command will generate two things for you:
 
-**A backend class**: ``App/Livewire/Search/Index``.
-**A Blade view**: the front-facing part of your search.
+- **A backend class**: ``App/Livewire/Search/Index``.
+- **A Blade view**: the front-facing part of your search.
 
 For now, we’ll focus on the backend logic to make the search work.
 
@@ -58,19 +58,19 @@ class Index extends Component
     
     public string $search = "";
 
-    public function getResults()
+    public function getResults(): Collection
     {
-        ....
+        {~.....~}
     }
 
     public function getUrl(string $slug):string 
     {
-        ....
+        .....
     }
 
     public function baseQuery(): Builder
     {
-        ....
+        .....
     }
 
     public function render():View
@@ -90,7 +90,7 @@ the ``baseQuery`` function is a just an example of the desired model's table to 
 so whenever the search content change (as the user type in real time) the ``getResults`` will run and send the search results to the *UI* via the `results` variable, so let's explore the ``getResults`` function in the following section:
 
 ```php
-    public function getResults():Collection
+    public function getResults(): Collection
     {
         $search = trim($this->search);
 
@@ -118,7 +118,7 @@ so whenever the search content change (as the user type in real time) the ``getR
         return $results;
     }
 ```
-first we need to trim the search term to prevent uncessary queries like when the search term is space ... so we use the ``trim`` function for that, then we check if search is empty 
+first we need to trim the search term to prevent uncessary queries like when the search term is a typical space ... so we use the ``trim()`` function for that, then we check if search is empty 
 
 ```php
     if (empty($search)) {
@@ -302,7 +302,6 @@ this is getting injected to ``{{ $slot }}`` portion of the modal
             x-data="{
                 handleKeyUp(){
                     focusedEl = $focus.focused()
-                    {{-- $focus.getFirst() === $focus.focused() ? document.getElementById('search-input').focus() : $focus.previous(); --}}
                     if($focus.getFirst() === $focus.focused()){
                         document.getElementById('search-input').focus();return
                     }
@@ -553,7 +552,7 @@ Livewire.start();
 
 ```
 
-for more info try consulting [livewire docs](https://livewire.laravel.com/docs/installation#manually-bundling-livewire-and-alpine)
+> for more info try consulting [livewire docs](https://livewire.laravel.com/docs/installation#manually-bundling-livewire-and-alpine)
 
 no we have the ``x-data="search"`` working correclty, now it's time to explore the recent search area:
 
@@ -563,40 +562,17 @@ no we have the ``x-data="search"`` working correclty, now it's time to explore t
             .....
         @else
             <div
-            x-data="{
+           {~ x-data="{
                 handleKeyUp(){
-                    focusedEl = $focus.focused()
-                    {{-- $focus.getFirst() === $focus.focused() ? document.getElementById('search-input').focus() : $focus.previous(); --}}
-                    if($focus.getFirst() === $focus.focused()){
-                        document.getElementById('search-input').focus();return
-                    }
-                    if (focusedEl.hasAttribute('data-action')) {
-                        const parentLi = focusedEl.closest('li');
-                        if (parentLi) {
-                            const actions = parentLi.querySelectorAll('[data-action]');
-                            if (Array.from(actions).indexOf(focusedEl) === 0) {
-                                parentLi.focus();
-                                return;
-                            }
-                        }
-                    }
-                    $focus.previous()
+                    ....
                 },
                 handleKeyDown(){
-                    focusedEl = $focus.focused() 
-                    if(focusedEl.tagName == 'LI'){
-                        actions = focusedEl.querySelectorAll('[data-action]');
-                        if(actions.length > 0){
-                            actions[0].focus();
-                             return;
-                        }
-                    }
-                    $focus.wrap().next(); 
+                    .... 
                 },
             }"   
             x-on:focus-first-element.window="$focus.first()"
             x-on:keydown.up.stop.prevent="handleKeyUp()"
-            x-on:keydown.down.stop.prevent="handleKeyDown()" 
+            x-on:keydown.down.stop.prevent="handleKeyDown()"~}
              class="global-search-modal w-full">
                 <template x-if="search_history.length <=0">
                     <p class="dark:text-gray-200 w-full p-4 text-center text-gray-700">Please enter a search term to get
@@ -696,5 +672,3 @@ it just re-add the search items to local storage to update the visited as the la
 
 - [bronze search](bronze-search) for extra favorites features .
 - [silver search](silver-search) for extra favorites features, grouping results, suggesston.
-
-
