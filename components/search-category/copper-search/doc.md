@@ -557,9 +557,9 @@ Livewire.start();
 
 ```
 
-> for more info try consulting [livewire docs](https://livewire.laravel.com/docs/installation#manually-bundling-livewire-and-alpine)
+> for more details, refer to the  [Livewire Documentation](https://livewire.laravel.com/docs/installation#manually-bundling-livewire-and-alpine)
 
-no we have the ``x-data="search"`` working correclty, now it's time to explore the recent search area:
+now with the ``x-data="search"`` working correclty, now it's time to explore the recent search area:
 
 ```html
 <div class="py-2" x-data="search">
@@ -610,7 +610,8 @@ no we have the ``x-data="search"`` working correclty, now it's time to explore t
 ```
 when the search query (`$search` property) is empty we have two options 
 
-- If local storage empty, means the ``search_history.length <=0`` is ``true`` so we render just a text said *Please enter a search term to get started*
+- If local storage empty, means the ``search_history.length <=0`` is ``true`` so we render just a text said :
+> *Please enter a search term to get started*
 - If not we loop over ``search_history`` using `x-for` and pass the `title`, and `url` to the `resources/views/components/search/summary/item.blade.php` and pass delete actions for deleting items from the local storage:
 
 ```html
@@ -631,6 +632,7 @@ when the search query (`$search` property) is empty we have two options
     </x-search.summary.item>
 </template>
 ```
+
 wich is looks like this
 ```html
 <li
@@ -662,7 +664,10 @@ wich is looks like this
     @endif
 </li>
 ```
-So it similar to ``search-item`` it funcitonality with is displaying single item  but it has some extra power it add re-add to recent search with like unshift the item to the top as the most recently viewed item, in addition it has nice slot for actions like delete and favorites wich we will discover in other components, we aslo have the action button wich is responsible for front-end actions, and it looks like this:
+So it similar to ``search-item``, displays a single search result with enhanced functionality. It not only shows the result but also re-adds it to the recent search list by unshifting the item to the top, making it the most recently viewed item. the component provides a slot for actions such as deleting and favoriteswhich will be explored in other components.
+
+ we aslo have the action button wich is responsible for front-end actions, and it looks like this:
+ 
 
 ```html
 @props([
@@ -683,10 +688,13 @@ So it similar to ``search-item`` it funcitonality with is displaying single item
     <x-dynamic-component :component="'icon.' . $icon" />
 </button>
 ```
-the only important props here is the ``$clickFunction`` it actually represent the action like ``deleteFromHistory()``....  and the ``$icon`` wich is used for dynamic icons. 
 
 
+The `action-button` component is responsible for handling user interactions such as deleting from search history or marking a result as a favorite. 
 
+The most important props in this component are:
+- `$clickFunction`: Represents the action to be executed (e.g., `deleteFromHistory()`).
+- `$icon`: Dynamically specifies the icon to be displayed.
 
 
 
