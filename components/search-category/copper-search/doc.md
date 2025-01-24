@@ -667,7 +667,7 @@ wich is looks like this
 So it similar to ``search-item``, displays a single search result with enhanced functionality. It not only shows the result but also re-adds it to the recent search list by unshifting the item to the top, making it the most recently viewed item. the component provides a slot for actions such as deleting and favoriteswhich will be explored in other components.
 
  we aslo have the action button wich is responsible for front-end actions, and it looks like this:
- 
+
 
 ```html
 @props([
@@ -696,9 +696,48 @@ The most important props in this component are:
 - `$clickFunction`: Represents the action to be executed (e.g., `deleteFromHistory()`).
 - `$icon`: Dynamically specifies the icon to be displayed.
 
+###### Recent Search Accessibility 
+```js
+x-data="{
+    handleKeyUp(){
+        focusedEl = $focus.focused()
+        if($focus.getFirst() === $focus.focused()){
+            document.getElementById('search-input').focus();return
+        }
+        if (focusedEl.hasAttribute('data-action')) {
+            const parentLi = focusedEl.closest('li');
+            if (parentLi) {
+                const actions = parentLi.querySelectorAll('[data-action]');
+                if (Array.from(actions).indexOf(focusedEl) === 0) {
+                    parentLi.focus();
+                    return;
+                }
+            }
+        }
+        $focus.previous()
+    },
+    handleKeyDown(){
+        focusedEl = $focus.focused() 
+        if(focusedEl.tagName == 'LI'){
+            actions = focusedEl.querySelectorAll('[data-action]');
+            if(actions.length > 0){
+                actions[0].focus();
+                    return;
+            }
+        }
+        $focus.wrap().next(); 
+    },
+}"   
+x-on:focus-first-element.window="$focus.first()"
+x-on:keydown.up.stop.prevent="handleKeyUp()"
+x-on:keydown.down.stop.prevent="handleKeyDown()" 
+```  
 
+Got it! Here's a more concise version:
 
+In our search input, pressing the *"down"* arrow key dispatches the *focus-first-element* event, which the script listens for to focus the first element in the recent search list. The script heavily relies on the HTML structure to navigate between actions correctly. For the *"up"* arrow key (keyup), it checks if the focus is at the top of the list—if so, it returns focus to the input when pressed again.
 
+> if you change the html structure I give you may broke the accessibilty, so keep the structure ~~AS IS~~
 
 
 - [bronze search](bronze-search) for extra favorites features .
