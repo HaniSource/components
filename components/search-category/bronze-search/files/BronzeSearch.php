@@ -57,10 +57,9 @@ final class BronzeSearch extends Component
         return Models\Component::query();
     }
 
-    #[Layout('components::components.layouts.app')]
     public function render()
     {
-        return view('components::livewire.search.bronze-search', [
+        return view('livewire.search.index', [
             'results' => $this->getResults(),
         ]);
     }

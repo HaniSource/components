@@ -15,7 +15,6 @@ dependencies:
     internal: centred-modal
     external: 
         alpine-animation: https://github.com/CharrafiMed/alpine-animation,
-        alpine-animator: https://github.com/CharrafiMed/alpine-animation,
 features:
     - highlight search queries.
     - full accessibilty support.
