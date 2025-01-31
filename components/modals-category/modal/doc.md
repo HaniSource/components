@@ -311,7 +311,8 @@ Want a unique look? Easily customize the modal's appearance:
 ```
 
 ---
-
+  
+  
 ## using events
 You may want to show or hide the modal programmatically outside the trigger element. This is an ideal use case for the events feature in the component. You can specify custom event names for opening and closing the modal as shown below:
 
