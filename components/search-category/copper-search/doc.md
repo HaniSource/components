@@ -14,9 +14,9 @@ files:
   loading-indicator-icon: resources/views/components/icon/loading-indicator.blade.php
   x-icon: resources/views/components/icon/x.blade.php
 dependencies: 
-    internal: centred-modal
+    internal: modal
     external: 
-        alpine-animation: https://github.com/CharrafiMed/alpine-animation
+        alpine-animation: [https://github.com/CharrafiMed/alpine-animation, "npm i @charrafimed/alpine-animation"]
 features:
     - highlight search queries.
     - keep track of recent search and the ability to remove them 
