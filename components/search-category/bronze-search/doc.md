@@ -14,7 +14,7 @@ files:
   loading-indicator-icon: resources/views/components/icon/loading-indicator.blade.php
   x-icon: resources/views/components/icon/x.blade.php
 dependencies: 
-    internal: centred-modal
+    internal: modal
     external: 
         alpine-animation: https://github.com/CharrafiMed/alpine-animation
 features:

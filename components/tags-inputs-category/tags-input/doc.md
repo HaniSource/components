@@ -295,7 +295,6 @@ With this setup:
 You can dynamically initialize the tags during the component's lifecycle. For instance, you might populate the `$tags` property during the mount lifecycle method based on some existing data, such as retrieving tags from a related model
 
 ```php
-
 public array $tags = [];
 
 public function mount(Component $component)
@@ -303,5 +302,4 @@ public function mount(Component $component)
     // Populate tags array from the database
     $this->tags = $component->tags()->pluck('name')->toArray();
 }
-
 ```
