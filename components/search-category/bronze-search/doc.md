@@ -1,9 +1,9 @@
 ---
 name: bronze-search
 files: 
-  BronzeSearch: App/Livewire/Search/Index.php
+  BronzeSearch: app/Livewire/Search/Index.php
   index: resources/views/livewire/search/index.blade.php
-  Highlighter: App/Support/Highlighter.php
+  Highlighter: app/Support/Highlighter.php
   input: resources/views/components/search/input.blade.php
   results: resources/views/components/search/results.blade.php
   no-result: resources/views/components/search/no-result.blade.php
@@ -16,7 +16,7 @@ files:
 dependencies: 
     internal: modal
     external: 
-        alpine-animation: https://github.com/CharrafiMed/alpine-animation
+        alpine-animation: [https://github.com/CharrafiMed/alpine-animation, "npm i @charrafimed/alpine-animation"]
 features:
     - highlight search queries.
     - keep track of recent search and the ability to remove them, or mark them as favorites. 
@@ -41,7 +41,7 @@ php artisan livewire:make Search/Index
 ```
 This command will generate two things for you:
 
-- **A backend class**: ``App/Livewire/Search/Index``.
+- **A backend class**: ``app/Livewire/Search/Index``.
 - **A Blade view**: ``resources/views/livewire/search/index.blade.php`` the front-facing part of your search.
 
 For now, we’ll focus on the backend logic to make the search work.
