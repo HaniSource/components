@@ -6,12 +6,12 @@ name: 'input'
 Capture user data with various variants of inputs...
 
 @blade
-    <x-components::input/>
+    <x-components::ui.input/>
 @endblade
 
 generated from this code
 
 ```html
-    <x-components::input/>
+    <x-ui.input/>
 ```
 
