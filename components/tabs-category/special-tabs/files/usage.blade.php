@@ -2,7 +2,7 @@
     <x-slot:items>
         @foreach (['Reads the Docs', 'get the Code'] as $tabItem)
             <x-tabs.item class="py-2.5 font-semibold text-slate-400"
-                activeClasses="bg-white/[0.03]  border-t border-l border-r    border-white/10 border-b border-b-[#02031C]/80 !z-30">
+                activeClasses="bg-white/3  border-t border-l border-r    border-white/10 border-b border-b-[#02031C]/80 z-30!">
                 {{ str()->title($tabItem) }}
             </x-tabs.item>
         @endforeach
@@ -11,7 +11,7 @@
     <x-slot:panels
         x-bind:class="{
             'rounded-tl-lg': !isActive($refs.tablist.firstElementChild.firstElementChild.id),
-            'rounded-tr-lg rounded-bl-lg rounded-br-lg border bg-white/[0.03] border-white/10 text-gray-400': true
+            'rounded-tr-lg rounded-bl-lg rounded-br-lg border bg-white/3 border-white/10 text-gray-400': true
         }">
         <x-tabs.panel>
 

@@ -121,7 +121,7 @@ The tags input has only one reusable blade component (`resources/views/component
                         class="hidden"
                     >
                         <div
-                            class="bg-violet-500/15 text-violet-800 text-xs font-medium  px-2.5 py-0.5 rounded dark:bg-white/5 dark:text-violet-400 border !border-violet-500 dark:border-violet-400"
+                            class="bg-violet-500/15 text-violet-800 text-xs font-medium  px-2.5 py-0.5 rounded dark:bg-white/5 dark:text-violet-400 border border-violet-500! dark:border-violet-400"
                         >
                             <span
                                 x-text="tag"

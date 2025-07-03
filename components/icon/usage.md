@@ -26,12 +26,6 @@ for using phosphor icon you need to install the wuireui's wrapper package
 composer require wireui/phosphoricons
 ```
 
-
-```html
-    <!-- 24px, outline -->
-    <x-components::ui.icon name="ps:airplay"  class="text-white"/> 
-```
-
 > Once installed, you can start using the <x-components::ui.icon /> component seamlessly in your views.
 
 ## Customization 
@@ -52,13 +46,13 @@ Each variant offers different sizes and styles:
 
 ```html
     <!-- 24px, outline -->
-    <x-components::ui.icon name="academic-cap"  class="text-white"/> 
+    <x-ui.icon name="academic-cap"  class="text-white"/> 
     <!-- 24px, solid -->
-    <x-components::ui.icon name="academic-cap" variant="solid" class="text-white"/> 
+    <x-ui.icon name="academic-cap" variant="solid" class="text-white"/> 
     <!-- 20px, solid -->
-    <x-components::ui.icon name="academic-cap" variant="mini" class="text-white"/> 
+    <x-ui.icon name="academic-cap" variant="mini" class="text-white"/> 
      <!-- 16px, solid -->
-    <x-components::ui.icon name="academic-cap" variant="micro" class="text-white"/>
+    <x-ui.icon name="academic-cap" variant="micro" class="text-white"/>
 ```
 
 #### Phosphor icons
@@ -78,17 +72,17 @@ To use Phosphor icons, prefix the name with ps: or phosphor:.
 
 ```html
     <!-- thin variant -->
-    <x-components::ui.icon name="ps:align-top" variant="thin" class="text-white"/>
+    <x-ui.icon name="ps:align-top" variant="thin" class="text-white"/>
     <!-- light variant -->
-    <x-components::ui.icon name="ps:align-top" variant="light" class="text-white"/>
+    <x-ui.icon name="ps:align-top" variant="light" class="text-white"/>
     <!-- regular variant (default) -->
-    <x-components::ui.icon name="ps:align-top"  class="text-white"/> 
+    <x-ui.icon name="ps:align-top"  class="text-white"/> 
     <!-- duotone variant  -->
-    <x-components::ui.icon name="ps:align-top" variant="duotone" class="text-white"/>
+    <x-ui.icon name="ps:align-top" variant="duotone" class="text-white"/>
     <!-- bold variant  -->
-    <x-components::ui.icon name="ps:align-top" variant="bold" class="text-white"/>
+    <x-ui.icon name="ps:align-top" variant="bold" class="text-white"/>
     <!-- fill variant  -->
-    <x-components::ui.icon name="ps:align-top" variant="fill" class="text-white"/>
+    <x-ui.icon name="ps:align-top" variant="fill" class="text-white"/>
 ```
 
 ### Sizes
@@ -102,8 +96,8 @@ To use Phosphor icons, prefix the name with ps: or phosphor:.
 
 ```html
 <x-demo>
-    <x-components::ui.icon name="academic-cap"  class="size-12"/> 
-    <x-components::ui.icon name="academic-cap" variant="solid" class="size-12"/>
+    <x-ui.icon name="academic-cap"  class="size-12"/> 
+    <x-ui.icon name="academic-cap" variant="solid" class="size-12"/>
 </x-demo>
 ```
 
@@ -124,8 +118,8 @@ If you're using **Phosphor icons** and no size is defined, the component applies
 
 ```html
 <x-demo>
-    <x-components::ui.icon name="academic-cap"  class="size-12"/> 
-    <x-components::ui.icon name="academic-cap" variant="solid" class="size-12"/>
+    <x-ui.icon name="academic-cap"  class="size-12"/> 
+    <x-ui.icon name="academic-cap" variant="solid" class="size-12"/>
 </x-demo>
 ```
 

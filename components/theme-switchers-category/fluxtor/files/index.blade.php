@@ -20,7 +20,7 @@
         }  
     }">
         <x-dropdown>
-            <x-slot:button class="bg-purple-500/[0.09]">
+            <x-slot:button class="bg-purple-500/9">
                 <div aria-expanded="false">
                     <span  class="dark:hidden">
                         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
