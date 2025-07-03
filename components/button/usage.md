@@ -8,37 +8,37 @@ the `button` component here to save from creating a big button element each time
 @blade
 <x-demo>
     <x-ui.button>
-        click
+        button
     </x-ui.button>    
     <x-ui.button variant="ghost" >
-        click
+        button
     </x-ui.button>
     <x-ui.button variant="outline">
-        click
+        button
     </x-ui.button>
     <x-ui.button variant="filled">
-        click
+        button
     </x-ui.button>
     <x-ui.button variant="danger">
-        click
+        button
     </x-ui.button>    
 </x-demo>
 @endblade
 ```html
- <x-ui.button>
-        click
+<x-ui.button>
+    button
 </x-ui.button>    
 <x-ui.button variant="ghost" >
-    click
+    button
 </x-ui.button>
 <x-ui.button variant="outline">
-    click
+    button
 </x-ui.button>
 <x-ui.button variant="filled">
-    click
+    button
 </x-ui.button>
 <x-ui.button variant="danger">
-    click
+    button
 </x-ui.button>   
 ```
 ## Customization
@@ -49,40 +49,42 @@ you can customize the size, variant, color... for buttons components
 ### Sizes 
 
 button components uses `md` size as default but you can change that to feet your needs
+
 @blade
 <x-demo>
     <x-ui.button size="lg" >
-        click
+        button
     </x-ui.button>
     <x-ui.button>  
-        click
+        button
     </x-ui.button>    
     <x-ui.button size="sm">
-        click
+        button
     </x-ui.button>
     <x-ui.button size="xs">
-        click
+        button
     </x-ui.button>
 </x-demo>
 @endblade
 
 ```html
 <x-ui.button size="lg" >
-    click
+    button
 </x-ui.button>
 <!-- default `md` -->
 <x-ui.button>
-    click
+    button
 </x-ui.button>    
 <x-ui.button size="sm">
-    click
+    button
 </x-ui.button>
 <x-ui.button size="xs">
-    click
+    button
 </x-ui.button>
 ```
 
 ### Colors
+
 colors are available for primary buttons
 
 @blade
@@ -110,6 +112,8 @@ colors are available for primary buttons
     </div>  
 </x-demo>
 @endblade
+
+
 ```html
 <div class="grid grid-cols-6 gap-4">
     <x-ui.button color="zinc">Zinc</x-ui.button>
