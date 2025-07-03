@@ -4,9 +4,9 @@ name: heading
 
 ## Introduction
 
-The `Heading` component is a **responsive**, **unstyled** heading component designed for content encapsulation. It's built to provide sensible default spacing, consistent border styling, and dark mode support without enforcing layout or design opinion.
+The `Heading` component is a **flexible**, **semantic** heading component designed for consistent typography hierarchy. It provides responsive font sizing, proper semantic HTML structure, and dark mode support while maintaining accessibility standards.
 
-You can drop it in and immediately start composing UIs with clarity and structure—no need to reinvent wrappers every time.
+Perfect for creating clear content hierarchy without the hassle of managing font sizes and semantic levels across your application.
 
 ---
 
@@ -23,24 +23,30 @@ php artisan fluxtor:install heading
 
 @blade
 <x-demo>
-    <div class="w-full">
-        <x-components::ui.heading class="mt-4 mb-4 leading-0 " level="h2" size="sm">
-            Welcome to Fluxtor.
+    <div class="w-full flex flex-col gap-y-1 py-4">
+        <x-components::ui.heading level="h1" size="xl" class="text-gray-900 dark:text-white leading-0 text-2xl mb-0">
+            Main Page Title
         </x-components::ui.heading>
-    </div>
+        <x-components::ui.heading level="h2" size="lg" class="text-gray-800 dark:text-gray-100 leading-0 text-xl">
+            Section Heading
+        </x-components::ui.heading>
+        <x-components::ui.heading level="h3" size="md" class="text-gray-700 dark:text-gray-200 leading-0 text-lg mt-3">
+            Subsection Title
+        </x-components::ui.heading>
+    </div> 
 </x-demo>
 @endblade
 
 ```html
-    <x-ui.heading level="h2" size="sm">
-        Welcome to Fluxtor.
-    </x-ui.heading>
+    <x-ui.heading level="h1" size="xl">Main Page Title</x-ui.heading>
+    <x-ui.heading level="h2" size="lg">Section Heading</x-ui.heading>
+    <x-ui.heading level="h3" size="md">Subsection Title</x-ui.heading>
 ```
 
 ## Customization
 
 #### Size
-The `size` prop controls the sizer of the heading. Default is `sm`.
+The `size` prop controls the visual size of the heading independent of its semantic level. Default is `md`.
 
 @blade
 <x-demo>
@@ -60,6 +66,32 @@ The `size` prop controls the sizer of the heading. Default is `sm`.
 <x-ui.heading size="md">Medium heading</x-ui.heading>
 <x-ui.heading size="lg">Large heading</x-ui.heading>
 <x-ui.heading size="xl">Extra Large heading</x-ui.heading>
+```
+
+
+#### Semantic Levels
+Use the `level` prop to set the appropriate HTML heading tag for proper document structure and accessibility. Default is `h2`.
+
+@blade
+<x-demo>
+    <div class="w-full space-y-3">
+        <x-components::ui.heading level="h1" size="lg" class="text-gray-900 dark:text-white">H1 - Page Title</x-components::ui.heading>
+        <x-components::ui.heading level="h2" size="md" class="text-gray-800 dark:text-gray-100">H2 - Section Title</x-components::ui.heading>
+        <x-components::ui.heading level="h3" size="sm" class="text-gray-700 dark:text-gray-200">H3 - Subsection Title</x-components::ui.heading>
+        <x-components::ui.heading level="h4" size="sm" class="text-gray-600 dark:text-gray-300">H4 - Sub-subsection Title</x-components::ui.heading>
+        <x-components::ui.heading level="h5" size="xs" class="text-gray-600 dark:text-gray-300">H5 - Minor Heading</x-components::ui.heading>
+        <x-components::ui.heading level="h6" size="xs" class="text-gray-500 dark:text-gray-400">H6 - Smallest Heading</x-components::ui.heading>
+    </div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.heading level="h1" size="lg">H1 - Page Title</x-ui.heading>
+<x-ui.heading level="h2" size="md">H2 - Section Title</x-ui.heading>
+<x-ui.heading level="h3" size="sm">H3 - Subsection Title</x-ui.heading>
+<x-ui.heading level="h4" size="sm">H4 - Sub-subsection Title</x-ui.heading>
+<x-ui.heading level="h5" size="xs">H5 - Minor Heading</x-ui.heading>
+<x-ui.heading level="h6" size="xs">H6 - Smallest Heading</x-ui.heading>
 ```
 
 ## Component Props
