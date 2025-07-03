@@ -23,20 +23,35 @@ php artisan fluxtor:install card
 
 @blade
 <x-demo>
-    <x-components::ui.card>
-        <x-components::ui.heading level="h3" size="md">
-            Welcome to Fluxtor.
-        </x-components::ui.heading>
-    </x-components::ui.card>
+    <div class="w-full">
+        <x-components::ui.card size="xl" class="mx-auto">
+            <x-components::ui.heading class="flex items-center justify-between mt-0 mb-4 leading-0 " level="h3" size="sm">
+                <span>Welcome to Fluxtor.</span>
+                <a href="https://fluxtor.dev">
+                    <x-components::ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
+                </a>
+            </x-components::ui.heading>
+            <p>
+                Powered by the TALL stack, our components offer speed, </br> elegance, and accessibility for modern web development. 
+            </p>
+        </x-components::ui.card>
+    </div>
 </x-demo>
 @endblade
 
 ```html
-    <x-ui.card>
-        <x-ui.heading level="h3" size="md">
-            Welcome to Fluxtor.
+    <x-ui.card size="xl" class="mx-auto">
+        <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
+            <span>Welcome to Fluxtor.</span>
+            <a href="https://fluxtor.dev">
+                <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
+            </a>
         </x-ui.heading>
-    </x-ui.card>
+        <p>
+            Powered by the TALL stack, our components offer speed, elegance,
+             and accessibility for modern web development. 
+        </p>
+    </x-components::ui.card>
 ```
 
 ## Customization
@@ -46,7 +61,7 @@ The `size` prop controls the max width of the card and helps enforce layout cons
 
 @blade
 <x-demo>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="w-full space-y-2">
         <x-components::ui.card size="xs">Extra Small Card</x-components::ui.card>
         <x-components::ui.card size="sm">Small Card</x-components::ui.card>
         <x-components::ui.card size="md">Medium Card</x-components::ui.card>
