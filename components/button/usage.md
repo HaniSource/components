@@ -90,25 +90,25 @@ colors are available for primary buttons
 @blade
 <x-demo>
     <div class="grid grid-cols-6 gap-4">
-    {{-- test colors on primary variants --}}
-    <x-ui.button color="zinc">Zinc</x-ui.button>
-    <x-ui.button color="red">Red</x-ui.button>
-    <x-ui.button color="orange">Orange</x-ui.button>
-    <x-ui.button color="amber">Amber</x-ui.button>
-    <x-ui.button color="yellow">Yellow</x-ui.button>
-    <x-ui.button color="lime">Lime</x-ui.button>
-    <x-ui.button color="green">Green</x-ui.button>
-    <x-ui.button color="emerald">Emerald</x-ui.button>
-    <x-ui.button color="teal">Teal</x-ui.button>
-    <x-ui.button color="cyan">Cyan</x-ui.button>
-    <x-ui.button color="sky">Sky</x-ui.button>
-    <x-ui.button color="blue">Blue</x-ui.button>
-    <x-ui.button color="indigo">Indigo</x-ui.button>
-    <x-ui.button color="violet">Violet</x-ui.button>
-    <x-ui.button color="purple">Purple</x-ui.button>
-    <x-ui.button color="fuchsia">Fuchsia</x-ui.button>
-    <x-ui.button color="pink">Pink</x-ui.button>
-    <x-ui.button color="rose">Rose</x-ui.button>
+        <x-ui.button>
+        button
+    </x-ui.button>
+
+    <x-ui.button variant="outline">
+        button
+    </x-ui.button>
+    
+    <x-ui.button variant="ghost" >
+        button
+    </x-ui.button>
+
+    <x-ui.button variant="filled">
+        button
+    </x-ui.button>
+    
+    <x-ui.button variant="danger">
+        button
+    </x-ui.button>
     </div>  
 </x-demo>
 @endblade
@@ -137,6 +137,77 @@ colors are available for primary buttons
 </div>  
 ```
 
-### Variants 
+### Variants
+this components support 6 different variant at this moment:
 
+@blade
+<x-demo>
+    <div class="grid grid-cols-6 gap-4">
+        <x-ui.button>
+            button
+        </x-ui.button>
+        <x-ui.button variant="outline">
+            button
+        </x-ui.button>
+        <x-ui.button variant="ghost" >
+            button
+        </x-ui.button>
+        <x-ui.button variant="filled">
+            button
+        </x-ui.button>
+        <x-ui.button variant="danger">
+            button
+        </x-ui.button>
+        <x-ui.button variant="slate">
+            button
+        </x-ui.button>
+    </div>  
+</x-demo>
+@endblade
+
+```html
+<div class="grid grid-cols-6 gap-4">
+    <x-ui.button>
+        button
+    </x-ui.button>
+    <x-ui.button variant="outline">
+        button
+    </x-ui.button>
+    <x-ui.button variant="ghost" >
+        button
+    </x-ui.button>
+    <x-ui.button variant="filled">
+        button
+    </x-ui.button>
+    <x-ui.button variant="danger">
+        button
+    </x-ui.button>
+    <x-ui.button variant="slat">
+        button
+    </x-ui.button>
+</div>
+```
 ### Icons 
+support for icons in buttons 
+
+@blade
+<x-demo>
+    <div class="flex gap-4">
+        <x-ui.button icon="user">button</x-ui.button>
+        <x-ui.button iconAfter="user" color="red">Red</x-ui.button>
+        <x-ui.button icon="user" iconAfter="user" color="rose">Rose</x-ui.button>
+        <x-ui.button variant="outline" icon="user">button</x-ui.button>
+        <x-ui.button variant="outline" iconAfter="user" color="red">Red</x-ui.button>
+        <x-ui.button variant="outline" icon="user" iconAfter="user" color="rose">Rose</x-ui.button>
+    </div>
+</x-demo>
+@endblade
+
+```html
+<div class="flex gap-4">
+    <x-ui.button icon="user">button</x-ui.button>
+    <x-ui.button iconAfter="user" color="red">Red</x-ui.button>
+    <x-ui.button variant="outline" icon="user">button</x-ui.button>
+    <x-ui.button variant="outline" iconAfter="user" color="red">Red</x-ui.button>
+</div>
+```
