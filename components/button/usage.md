@@ -9,20 +9,14 @@ The `button` component provides a reusable UI element that saves you from creati
 @blade
 <x-demo>
     <x-ui.button>
-        Button
-    </x-ui.button>    
+        Primary
+    </x-ui.button>        
     <x-ui.button variant="ghost">
         Ghost
     </x-ui.button>
     <x-ui.button variant="outline">
         Outline
     </x-ui.button>
-    <x-ui.button variant="filled">
-        Filled
-    </x-ui.button>
-    <x-ui.button variant="danger">
-        Danger
-    </x-ui.button>    
 </x-demo>
 @endblade
 
@@ -36,12 +30,6 @@ The `button` component provides a reusable UI element that saves you from creati
 <x-ui.button variant="outline">
     Outline
 </x-ui.button>
-<x-ui.button variant="filled">
-    Filled
-</x-ui.button>
-<x-ui.button variant="danger">
-    Danger
-</x-ui.button>   
 ```
 
 ## Customization
@@ -141,50 +129,46 @@ The component supports 6 different visual variants:
 
 @blade
 <x-demo>
-    <div class="grid grid-cols-6 gap-4">
-        <x-ui.button>
-            Default
-        </x-ui.button>
-        <x-ui.button variant="outline">
-            Outline
-        </x-ui.button>
-        <x-ui.button variant="ghost">
-            Ghost
-        </x-ui.button>
-        <x-ui.button variant="filled">
-            Filled
-        </x-ui.button>
-        <x-ui.button variant="danger">
-            Danger
-        </x-ui.button>
-        <x-ui.button variant="slate">
-            Slate
-        </x-ui.button>
-    </div>  
-</x-demo>
-@endblade
-
-```html
-<div class="grid grid-cols-6 gap-4">
     <x-ui.button>
-        Default
-    </x-ui.button>
+        Button
+    </x-ui.button>    
+    <x-ui.button variant="danger">
+        Danger
+    </x-ui.button>     
     <x-ui.button variant="outline">
         Outline
+    </x-ui.button>
+    <x-ui.button variant="solid">
+        solid
     </x-ui.button>
     <x-ui.button variant="ghost">
         Ghost
     </x-ui.button>
-    <x-ui.button variant="filled">
-        Filled
+    <x-ui.button variant="soft">
+        soft
     </x-ui.button>
-    <x-ui.button variant="danger">
-        Danger
-    </x-ui.button>
-    <x-ui.button variant="slate">
-        Slate
-    </x-ui.button>
-</div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.button>
+    Button
+</x-ui.button>    
+<x-ui.button variant="ghost">
+    Ghost
+</x-ui.button>
+<x-ui.button variant="outline">
+    Outline
+</x-ui.button>
+<x-ui.button variant="solid">
+    solid
+</x-ui.button>
+<x-ui.button variant="soft">
+    soft
+</x-ui.button>
+<x-ui.button variant="danger">
+    Danger
+</x-ui.button>   
 ```
 
 ### Icons
@@ -238,6 +222,24 @@ When a form is submitted or a targeted method is triggered, the button will auto
 ```
 
 You can disable this behavior by explicitly setting `:loading="false"`.
+
+## `div` vs `a` vs `button`
+
+by default the button is button tag (wooooooooow), you can change it to a link by providing `href` attribtue:
+
+@blade
+<x-demo>
+    <x-ui.button href="https://convergephp.com" iconAfter="arrow-up-right" class="text-lg" target="_blank">
+        convergephp
+    </x-ui.button>
+</x-demo>
+@endblade
+
+```html
+    <x-ui.button href="https://convergephp.com" target="_blank">
+        converge
+    </x-ui.button>
+```
 
 ## Component Props
 
