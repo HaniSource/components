@@ -1,0 +1,3 @@
+files:
+  index: resources/views/components/ui/button/index.blade.php
+  wrapper: resources/views/components/ui/button/wrapper.blade.php

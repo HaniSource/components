@@ -1,1 +1,256 @@
-files
+# Button Component
+
+## Introduction
+
+The `button` component provides a reusable UI element that saves you from creating complex button elements each time you need one. It offers multiple variants, sizes, and customization options to fit your design needs.
+
+## Basic Usage
+
+@blade
+<x-demo>
+    <x-ui.button>
+        Primary
+    </x-ui.button>        
+    <x-ui.button variant="ghost">
+        Ghost
+    </x-ui.button>
+    <x-ui.button variant="outline">
+        Outline
+    </x-ui.button>
+</x-demo>
+@endblade
+
+```html
+<x-ui.button>
+    Button
+</x-ui.button>    
+<x-ui.button variant="ghost">
+    Ghost
+</x-ui.button>
+<x-ui.button variant="outline">
+    Outline
+</x-ui.button>
+```
+
+## Customization
+
+### Sizes
+
+The button component uses `md` size as the default, but you can adjust the size to meet your needs.
+
+@blade
+<x-demo>
+    <x-ui.button size="lg">
+        Large
+    </x-ui.button>
+    <x-ui.button>  
+        Medium (Default)
+    </x-ui.button>    
+    <x-ui.button size="sm">
+        Small
+    </x-ui.button>
+    <x-ui.button size="xs">
+        Extra Small
+    </x-ui.button>
+</x-demo>
+@endblade
+
+```html
+<x-ui.button size="lg">
+    Large
+</x-ui.button>
+<!-- Default size is 'md' -->
+<x-ui.button>
+    Medium (Default)
+</x-ui.button>    
+<x-ui.button size="sm">
+    Small
+</x-ui.button>
+<x-ui.button size="xs">
+    Extra Small
+</x-ui.button>
+```
+
+### Colors
+
+A wide range of colors are available for customizing button appearance.
+
+@blade
+<x-demo>
+    <div class="grid grid-cols-6 gap-4">
+        <x-ui.button color="zinc">Zinc</x-ui.button>
+        <x-ui.button color="red">Red</x-ui.button>
+        <x-ui.button color="orange">Orange</x-ui.button>
+        <x-ui.button color="amber">Amber</x-ui.button>
+        <x-ui.button color="yellow">Yellow</x-ui.button>
+        <x-ui.button color="lime">Lime</x-ui.button>
+        <x-ui.button color="green">Green</x-ui.button>
+        <x-ui.button color="emerald">Emerald</x-ui.button>
+        <x-ui.button color="teal">Teal</x-ui.button>
+        <x-ui.button color="cyan">Cyan</x-ui.button>
+        <x-ui.button color="sky">Sky</x-ui.button>
+        <x-ui.button color="blue">Blue</x-ui.button>
+        <x-ui.button color="indigo">Indigo</x-ui.button>
+        <x-ui.button color="violet">Violet</x-ui.button>
+        <x-ui.button color="purple">Purple</x-ui.button>
+        <x-ui.button color="fuchsia">Fuchsia</x-ui.button>
+        <x-ui.button color="pink">Pink</x-ui.button>
+        <x-ui.button color="rose">Rose</x-ui.button>
+    </div>  
+</x-demo>
+@endblade
+
+```html
+<div class="grid grid-cols-6 gap-4">
+    <x-ui.button color="zinc">Zinc</x-ui.button>
+    <x-ui.button color="red">Red</x-ui.button>
+    <x-ui.button color="orange">Orange</x-ui.button>
+    <x-ui.button color="amber">Amber</x-ui.button>
+    <x-ui.button color="yellow">Yellow</x-ui.button>
+    <x-ui.button color="lime">Lime</x-ui.button>
+    <x-ui.button color="green">Green</x-ui.button>
+    <x-ui.button color="emerald">Emerald</x-ui.button>
+    <x-ui.button color="teal">Teal</x-ui.button>
+    <x-ui.button color="cyan">Cyan</x-ui.button>
+    <x-ui.button color="sky">Sky</x-ui.button>
+    <x-ui.button color="blue">Blue</x-ui.button>
+    <x-ui.button color="indigo">Indigo</x-ui.button>
+    <x-ui.button color="violet">Violet</x-ui.button>
+    <x-ui.button color="purple">Purple</x-ui.button>
+    <x-ui.button color="fuchsia">Fuchsia</x-ui.button>
+    <x-ui.button color="pink">Pink</x-ui.button>
+    <x-ui.button color="rose">Rose</x-ui.button>
+</div>  
+```
+
+### Variants
+
+The component supports 6 different visual variants:
+
+@blade
+<x-demo>
+    <x-ui.button>
+        Button
+    </x-ui.button>    
+    <x-ui.button variant="danger">
+        Danger
+    </x-ui.button>     
+    <x-ui.button variant="outline">
+        Outline
+    </x-ui.button>
+    <x-ui.button variant="solid">
+        solid
+    </x-ui.button>
+    <x-ui.button variant="ghost">
+        Ghost
+    </x-ui.button>
+    <x-ui.button variant="soft">
+        soft
+    </x-ui.button>
+</x-demo>
+@endblade
+
+```html
+<x-ui.button>
+    Button
+</x-ui.button>    
+<x-ui.button variant="ghost">
+    Ghost
+</x-ui.button>
+<x-ui.button variant="outline">
+    Outline
+</x-ui.button>
+<x-ui.button variant="solid">
+    solid
+</x-ui.button>
+<x-ui.button variant="soft">
+    soft
+</x-ui.button>
+<x-ui.button variant="danger">
+    Danger
+</x-ui.button>   
+```
+
+### Icons
+
+The button component supports icons both before and after the text content.
+
+@blade
+<x-demo>
+    <div class="flex items-center my-6 gap-2">    
+        <x-ui.button size="lg" iconAfter="arrows-pointing-out">Full Screen</x-ui.button>
+        <x-ui.button icon="arrow-path">Loading...</x-ui.button>
+        <x-ui.button size="sm" iconAfter="arrow-trending-up"/>
+        <x-ui.button size="xs" icon="ellipsis-horizontal" />
+    </div>
+</x-demo>
+@endblade
+
+```html
+<div class="flex gap-2">    
+    <x-ui.button size="lg" iconAfter="arrows-pointing-out">Full Screen</x-ui.button>
+    <x-ui.button icon="arrow-path">Loading...</x-ui.button>
+    <x-ui.button size="sm" iconAfter="arrow-trending-up"/>
+    <x-ui.button size="xs" icon="ellipsis-horizontal" />
+</div>
+```
+
+## Loading State
+
+When a form is submitted or a targeted method is triggered, the button will automatically show a loading indicator:
+
+@blade
+<x-demo>
+    <x-ui.button size="xs" loading/>
+    <div class="ml-2">
+        <x-ui.button loading/>
+    </div>
+    <div class="ml-4">
+        <x-ui.button loading>Processing...</x-ui.button>
+    </div>
+</x-demo>
+@endblade
+
+```blade
+<x-ui.button size="xs" loading/>
+<div class="ml-2">
+    <x-ui.button loading/>
+</div>
+<div class="ml-4">
+    <x-ui.button loading>Processing...</x-ui.button>
+</div>
+```
+
+You can disable this behavior by explicitly setting `:loading="false"`.
+
+## `div` vs `a` vs `button`
+
+by default the button is button tag (wooooooooow), you can change it to a link by providing `href` attribtue:
+
+@blade
+<x-demo>
+    <x-ui.button href="https://convergephp.com" iconAfter="arrow-up-right" class="text-lg" target="_blank">
+        convergephp
+    </x-ui.button>
+</x-demo>
+@endblade
+
+```html
+    <x-ui.button href="https://convergephp.com" target="_blank">
+        converge
+    </x-ui.button>
+```
+
+## Component Props
+
+| Prop Name | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `variant` | string | `default` | No | Button visual style: `default`, `outline`, `ghost`, `filled`, `danger`, `slate` |
+| `size` | string | `md` | No | Button size: `xs`, `sm`, `md`, `lg` |
+| `color` | string | `blue` | No | Button color theme: `zinc`, `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose` |
+| `icon` | string | `''` | No | Icon name to display before the button text |
+| `iconAfter` | string | `''` | No | Icon name to display after the button text |
+| `loading` | boolean | `false` | No | Whether to show loading indicator |
+| `disabled` | boolean | `false` | No | Whether the button is disabled |
+| `type` | string | `button` | No | HTML button type: `button`, `submit`, `reset` |
+| `class` | string | `''` | No | Additional CSS classes to apply to the button |

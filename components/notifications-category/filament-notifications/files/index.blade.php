@@ -67,14 +67,14 @@
                 ]"
             >
                 <div class="flex items-start ">
-                    <div class="flex-shrink-0" x-bind:class="typeMap[toast.type].textColor">
+                    <div class="shrink-0" x-bind:class="typeMap[toast.type].textColor">
                         <div aria-hidden="true" class="flex size-6 items-center justify-center rounded-full border-2 font-bold text-xl pb-1 leading-none" x-bind:class="typeMap[toast.type].borderColor" x-html="typeMap[toast.type].icon"></div>
                         <span class="sr-only" x-text="typeMap[toast.type].srLabel"></span>
                     </div>
                     <div class="ml-3 w-0 flex-1 pt-0.5">
                         <p x-text="toast.content" class="text-sm font-medium leading-5 text-gray-900 dark:text-white"></p>
                     </div>
-                    <div class="ml-4 flex flex-shrink-0">
+                    <div class="ml-4 flex shrink-0">
                         <button x-on:click="fadeOut()" type="button" class="inline-flex text-gray-400">
                             <svg aria-hidden class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>

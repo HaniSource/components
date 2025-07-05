@@ -5,7 +5,7 @@
             @foreach (['Reads the Docs', 'get the Code','an other tab'] as $tabItem)
                 <x-tabs.item 
                     class=" my-2 rounded-lg group flex items-center gap-x-2  px-3 py-2 text-sm font-semibold outline-none transition duration-75"
-                    activeClasses="dark:bg-white/[0.06] bg-gray-100 dark:text-violet-400 text-violet-500"
+                    activeClasses="dark:bg-white/6 bg-gray-100 dark:text-violet-400 text-violet-500"
                     >
                     {{ str()->title($tabItem) }}
                 </x-tabs.item>

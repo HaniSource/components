@@ -145,11 +145,11 @@ Displays the content associated with a specific tab. Only the active tab's panel
 ```html
 <div class="max-w-2xl mx-auto">
     <x-tabs  class="dark:bg-transparent bg-white dark:ring-white/10 mx-auto max-w-full gap-x-1 overflow-x-auto rounded-xl p-2 shadow-sm">
-        <x-slot:items class="space-x-1 flex-grow bg-gray-100 rounded-lg dark:bg-white/10 p-1">
+        <x-slot:items class="space-x-1 grow bg-gray-100 rounded-lg dark:bg-white/10 p-1">
             @foreach (['Reads the Docs', 'get the Code','an other tab'] as $tabItem)
                 <x-tabs.item 
                     class="w-full  rounded-lg text-sm font-semibold leading-5 outline-none transition duration-75 ring-white/10 ring-offset-1 ring-offset-transparent focus:ring-1  focus:outline-none dark:hover:bg-white/5   px-3 py-2.5" 
-                    activeClasses="dark:bg-white/[0.06]  bg-white text-violet-500"
+                    activeClasses="dark:bg-white/6  bg-white text-violet-500"
                     >
                     {{ str()->title($tabItem) }}
                 </x-tabs.item>
