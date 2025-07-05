@@ -1,2 +1,3 @@
 files:
-  index: resources/views/ui/radio/index.blade.php
+  group: resources/views/components/ui/radio/group.blade.php
+  item: resources/views/components/ui/radio/item.blade.php

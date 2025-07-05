@@ -24,13 +24,13 @@ php artisan fluxtor:install heading
 @blade
 <x-demo>
     <div class="w-full flex flex-col gap-y-1 py-4">
-        <x-components::ui.heading level="h1" size="xl" class="text-gray-900 dark:text-white leading-0 text-2xl mb-0">
+        <x-components::ui.heading level="h1" size="xl" class="text-gray-900 dark:text-white text-2xl">
             Main Page Title
         </x-components::ui.heading>
-        <x-components::ui.heading level="h2" size="lg" class="text-gray-800 dark:text-gray-100 leading-0 text-xl">
+        <x-components::ui.heading level="h2" size="lg" class="text-gray-800 dark:text-gray-100 text-xl">
             Section Heading
         </x-components::ui.heading>
-        <x-components::ui.heading level="h3" size="md" class="text-gray-700 dark:text-gray-200 leading-0 text-lg mt-3">
+        <x-components::ui.heading level="h3" size="md" class="text-gray-700 dark:text-gray-200 text-lg ">
             Subsection Title
         </x-components::ui.heading>
     </div> 
