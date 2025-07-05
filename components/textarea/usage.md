@@ -190,7 +190,7 @@ The textarea automatically adjusts its height to fit the content as you type, pr
 />
 ```
 
-## Value Persistence
+<!-- ## Value Persistence
 
 Keep user input even after page refreshes by enabling persistence.
 
@@ -219,8 +219,8 @@ Keep user input even after page refreshes by enabling persistence.
     wire:model="customKeyContent" 
     placeholder="Custom persistence key"
     persist="my-custom-key"
-/>
-```
+/> -->
+<!-- ``` -->
 
 ## Component Props
 

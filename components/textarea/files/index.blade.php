@@ -4,15 +4,12 @@
     'resize' => 'vertical',
     'name' => $attributes->whereStartsWith('wire:model')->first(),
     'rows' => null,
-    'persist' => null,
     'invalid' => null,
     ])
 @php
     $rows ??= 3;
 
     $initialHeight = (($rows) * 1.5) + 0.75;
-
-    $persist = filled($persistenceKey = $persist && $name ? $name . '-value' : null);
 
     $classes = [
         'block p-2 w-full text-base sm:text-sm text-gray-800 disabled:text-gray-500 placeholder-gray-400 disabled:placeholder-gray-400/70 dark:text-gray-300 dark:disabled:text-gray-400 dark:placeholder-gray-400 dark:disabled:placeholder-gray-500', // texts colors
@@ -38,7 +35,7 @@
         initialHeight: @js($initialHeight) + 'rem',
         height: @js($initialHeight) + 'rem',
         name: @js($name),
-        contents: @js($persist) ? window.Alpine.$persist('').as(@js($persistenceKey)) : '',
+        contents: '',
         resize() {
             if (!this.$el) return;
             this.$el.style.height = 'auto';
