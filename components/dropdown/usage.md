@@ -2,8 +2,6 @@
 name: 'dropdown'
 ---
 
-# Dropdown Component
-
 ## Introduction
 
 The `dropdown` component provides a powerful and accessible dropdown menu system with full keyboard navigation, submenus, grouping, and customizable positioning. It features smooth animations, proper focus management, and comprehensive ARIA support. Perfect for actions menus, navigation, settings, and any hierarchical menu structure.
