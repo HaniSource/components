@@ -82,7 +82,7 @@ Add visual clarity with icons for better user experience.
             <x-ui.dropdown.item icon="pencil">
                 Edit
             </x-ui.dropdown.item>
-            <x-ui.dropdown.item icon="copy">
+            <x-ui.dropdown.item icon="document-duplicate">
                 Duplicate
             </x-ui.dropdown.item>
             <x-ui.dropdown.item icon="archive-box">
@@ -109,7 +109,7 @@ Add visual clarity with icons for better user experience.
             Edit
         </x-ui.dropdown.item>
         
-        <x-ui.dropdown.item icon="copy">
+        <x-ui.dropdown.item icon="document-duplicate">
             Duplicate
         </x-ui.dropdown.item>
         
@@ -136,20 +136,16 @@ Display keyboard shortcuts for power users.
                 File Menu
             </x-ui.button>
         </x-slot:button>
-        
         <x-slot:menu>
             <x-ui.dropdown.item icon="document-plus" shortcut="⌘N">
                 New File
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item icon="folder-open" shortcut="⌘O">
                 Open File
             </x-ui.dropdown.item>
-            
-            <x-ui.dropdown.item icon="floppy-disk" shortcut="⌘S">
+            <x-ui.dropdown.item icon="bookmark" shortcut="⌘S">
                 Save
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item icon="document-duplicate" shortcut="⌘D">
                 Duplicate
             </x-ui.dropdown.item>
@@ -175,7 +171,7 @@ Display keyboard shortcuts for power users.
             Open File
         </x-ui.dropdown.item>
         
-        <x-ui.dropdown.item icon="floppy-disk" shortcut="⌘S">
+        <x-ui.dropdown.item icon="bookmark" shortcut="⌘S">
             Save
         </x-ui.dropdown.item>
         
@@ -198,16 +194,13 @@ Create navigational items that link to other pages.
                 Navigation
             </x-ui.button>
         </x-slot:button>
-        
         <x-slot:menu>
             <x-ui.dropdown.item href="/dashboard" icon="home">
                 Dashboard
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item href="/profile" icon="user">
                 Profile
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item href="/settings" icon="cog">
                 Settings
             </x-ui.dropdown.item>
@@ -252,20 +245,16 @@ Temporarily disable certain actions while keeping them visible.
                 Mixed States
             </x-ui.button>
         </x-slot:button>
-        
         <x-slot:menu>
             <x-ui.dropdown.item icon="pencil">
                 Edit
             </x-ui.dropdown.item>
-            
-            <x-ui.dropdown.item icon="copy">
+            <x-ui.dropdown.item icon="document-duplicate">
                 Duplicate
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item icon="shield-check" disabled>
                 Protected Action
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item icon="trash" variant="danger" disabled>
                 Delete (Restricted)
             </x-ui.dropdown.item>
@@ -287,7 +276,7 @@ Temporarily disable certain actions while keeping them visible.
             Edit
         </x-ui.dropdown.item>
         
-        <x-ui.dropdown.item icon="copy">
+        <x-ui.dropdown.item icon="document-duplicate">
             Duplicate
         </x-ui.dropdown.item>
         
@@ -314,28 +303,21 @@ Use separators to group related items and create visual hierarchy.
                 Grouped Actions
             </x-ui.button>
         </x-slot:button>
-        
         <x-slot:menu>
             <x-ui.dropdown.item icon="pencil">
                 Edit
             </x-ui.dropdown.item>
-            
-            <x-ui.dropdown.item icon="copy">
+            <x-ui.dropdown.item icon="document-duplicate">
                 Duplicate
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.separator />
-            
             <x-ui.dropdown.item icon="eye">
                 View Details
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item icon="share">
                 Share
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.separator />
-            
             <x-ui.dropdown.item icon="trash" variant="danger">
                 Delete
             </x-ui.dropdown.item>
@@ -357,7 +339,7 @@ Use separators to group related items and create visual hierarchy.
             Edit
         </x-ui.dropdown.item>
         
-        <x-ui.dropdown.item icon="copy">
+        <x-ui.dropdown.item icon="document-duplicate">
             Duplicate
         </x-ui.dropdown.item>
         
@@ -392,23 +374,18 @@ Use groups to organize related items with optional labels.
                 Grouped Menu
             </x-ui.button>
         </x-slot:button>
-        
         <x-slot:menu>
             <x-ui.dropdown.item icon="user">
                 Edit Profile
             </x-ui.dropdown.item>
-
             <x-ui.dropdown.separator />
-            
             <x-ui.dropdown.item shortcut="⌘D">
                 Duplicate
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.group label="Operations">
                 <x-ui.dropdown.item icon="archive-box">
                     Archive
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item variant="danger" icon="trash">
                     Delete
                 </x-ui.dropdown.item>
@@ -463,35 +440,30 @@ Control where the dropdown appears relative to the trigger button.
                     Bottom Center
                 </x-ui.button>
             </x-slot:button>
-            
             <x-slot:menu>
                 <x-ui.dropdown.item>Edit</x-ui.dropdown.item>
                 <x-ui.dropdown.item>Copy</x-ui.dropdown.item>
                 <x-ui.dropdown.item>Delete</x-ui.dropdown.item>
             </x-slot:menu>
         </x-ui.dropdown>
-        
         <x-ui.dropdown position="bottom-start">
             <x-slot:button>
                 <x-ui.button variant="outline">
                     Bottom Start
                 </x-ui.button>
             </x-slot:button>
-            
             <x-slot:menu>
                 <x-ui.dropdown.item>Edit</x-ui.dropdown.item>
                 <x-ui.dropdown.item>Copy</x-ui.dropdown.item>
                 <x-ui.dropdown.item>Delete</x-ui.dropdown.item>
             </x-slot:menu>
         </x-ui.dropdown>
-        
         <x-ui.dropdown position="bottom-end">
             <x-slot:button>
                 <x-ui.button variant="outline">
                     Bottom End
                 </x-ui.button>
             </x-slot:button>
-            
             <x-slot:menu>
                 <x-ui.dropdown.item>Edit</x-ui.dropdown.item>
                 <x-ui.dropdown.item>Copy</x-ui.dropdown.item>
@@ -544,52 +516,40 @@ Create hierarchical menus with nested items.
                 File Menu
             </x-ui.button>
         </x-slot:button>
-        
         <x-slot:menu>
             <x-ui.dropdown.item icon="document-plus" shortcut="⌘N">
                 New File
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item icon="folder-open" shortcut="⌘O">
                 Open File
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.submenu label="Recent Files">
                 <x-ui.dropdown.item icon="document">
                     document1.pdf
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item icon="document">
                     project-notes.txt
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item icon="document">
                     spreadsheet.xlsx
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.separator />
-                
                 <x-ui.dropdown.item class="text-gray-500 dark:text-gray-400">
                     Clear Recent
                 </x-ui.dropdown.item>
             </x-ui.dropdown.submenu>
-            
             <x-ui.dropdown.submenu label="Export">
                 <x-ui.dropdown.item icon="document">
                     Export as PDF
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item icon="document">
                     Export as Word
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item icon="document">
                     Export as Excel
                 </x-ui.dropdown.item>
             </x-ui.dropdown.submenu>
-
             <x-ui.dropdown.separator />
-            
             <x-ui.dropdown.item icon="cog">
                 Settings
             </x-ui.dropdown.item>
@@ -670,68 +630,52 @@ Combine all features for sophisticated dropdown menus.
                 Advanced Menu
             </x-ui.button>
         </x-slot:button>
-        
         <x-slot:menu>
             <x-ui.dropdown.group label="File Operations">
                 <x-ui.dropdown.item icon="document-plus" shortcut="⌘N">
                     New File
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item icon="folder-open" shortcut="⌘O">
                     Open File
                 </x-ui.dropdown.item>
-                
-                <x-ui.dropdown.item icon="floppy-disk" shortcut="⌘S">
+                <x-ui.dropdown.item icon="bookmark" shortcut="⌘S">
                     Save
                 </x-ui.dropdown.item>
             </x-ui.dropdown.group>
-            
             <x-ui.dropdown.submenu label="Recent Files">
                 <x-ui.dropdown.item icon="document">
                     Important Document.pdf
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item icon="document">
                     Meeting Notes.txt
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item icon="document">
                     Budget 2024.xlsx
                 </x-ui.dropdown.item>
             </x-ui.dropdown.submenu>
-            
             <x-ui.dropdown.separator />
-            
             <x-ui.dropdown.group label="Actions">
                 <x-ui.dropdown.item icon="pencil">
                     Edit
                 </x-ui.dropdown.item>
-                
-                <x-ui.dropdown.item icon="copy" shortcut="⌘C">
+                <x-ui.dropdown.item icon="document-duplicate" shortcut="⌘C">
                     Copy
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item icon="clipboard" shortcut="⌘V">
                     Paste
                 </x-ui.dropdown.item>
-                
                 <x-ui.dropdown.item icon="share">
                     Share
                 </x-ui.dropdown.item>
             </x-ui.dropdown.group>
-            
             <x-ui.dropdown.separator />
-            
             <x-ui.dropdown.item icon="cog">
                 Settings
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item icon="question-mark-circle">
                 Help
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.separator />
-            
             <x-ui.dropdown.item icon="trash" variant="danger">
                 Delete
             </x-ui.dropdown.item>
@@ -758,7 +702,7 @@ Combine all features for sophisticated dropdown menus.
                 Open File
             </x-ui.dropdown.item>
             
-            <x-ui.dropdown.item icon="floppy-disk" shortcut="⌘S">
+            <x-ui.dropdown.item icon="bookmark" shortcut="⌘S">
                 Save
             </x-ui.dropdown.item>
         </x-ui.dropdown.group>
@@ -784,7 +728,7 @@ Combine all features for sophisticated dropdown menus.
                 Edit
             </x-ui.dropdown.item>
             
-            <x-ui.dropdown.item icon="copy" shortcut="⌘C">
+            <x-ui.dropdown.item icon="document-duplicate" shortcut="⌘C">
                 Copy
             </x-ui.dropdown.item>
             
@@ -815,31 +759,6 @@ Combine all features for sophisticated dropdown menus.
     </x-slot:menu>
 </x-ui.dropdown>
 ```
-
-## Keyboard Navigation
-
-The dropdown component supports comprehensive keyboard navigation:
-
-- **Space/Enter**: Open/close dropdown
-- **Tab**: Move between dropdown trigger and items
-- **Arrow Up/Down**: Navigate through dropdown items
-- **Arrow Right**: Enter submenu (when available)
-- **Arrow Left**: Exit submenu and return to parent
-- **Home/Page Up**: Jump to first item
-- **End/Page Down**: Jump to last item
-- **Escape**: Close dropdown and return focus to trigger
-
-## Accessibility
-
-The dropdown component is fully accessible with:
-
-- ARIA labels and expanded states
-- Proper focus management and keyboard navigation
-- Screen reader announcements for state changes
-- Semantic roles and properties
-- High contrast support
-- Proper tab order and focus indicators
-
 ## Component Props
 
 ### Dropdown (Main Component)
