@@ -31,7 +31,7 @@ php artisan fluxtor:install radio
 @blade
 <x-demo>
     <div class="w-full">
-        <x-components::ui.radio.group label="Roles">
+        <x-components::ui.radio.group label="Roles" >
             <x-components::ui.radio.item name="roles" value="backend" label="Back end" checked />
             <x-components::ui.radio.item name="roles" value="frontend" label="Front end" />
             <x-components::ui.radio.item name="roles" value="devops" label="DevOps" />
@@ -78,7 +78,7 @@ Create a more compact, button-like appearance with the segmented variant.
 @blade
 <x-demo>
     <div class="w-full max-w-md mx-auto">
-        <x-components::ui.radio.group label="View Mode" variant="segmented" direction="horizontal">
+        <x-components::ui.radio.group label="View Mode"  variant="segmented" direction="horizontal">
             <x-components::ui.radio.item
             name="view-mode"
             value="list"
