@@ -1,0 +1,6 @@
+files:
+  index: resources/views/components/ui/dropdown/index.blade.php
+  index: resources/views/components/ui/dropdown/item.blade.php
+  index: resources/views/components/ui/dropdown/submenu.blade.php
+  index: resources/views/components/ui/dropdown/group.blade.php
+  index: resources/views/components/ui/dropdown/separator.blade.php
