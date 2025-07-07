@@ -1,128 +1,177 @@
 ---
-name: radio
+name: card
 ---
 
 ## Introduction
 
-The `Radio` component:
+The `Radio` component is a responsive, accessible form control component designed for single-choice selection. It provides a clean foundation for building radio button groups with consistent styling, multiple variants, and seamless dark mode support.
 
----
-## Installation 
+**Key Features:**
+- Multiple variants: default, segmented
+- Horizontal and vertical layouts
+- Icon support
+- Optional descriptions
+- Dark mode ready
+- Accessible HTML structure with proper ARIA attributes
+- Tailwind CSS integration
 
-```shell
+## Installation
+
+Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `radio` component easily:
+
+```bash
 php artisan fluxtor:install radio
 ```
-> Once installed, you can start using the <x-ui::radio /> component seamlessly in your views.
+
+> Once installed, you can use the <x-ui.radio.group /> and <x-ui.radio.item /> components in any Blade view.
+
+## Usage
+
+### Basic Radio Group
+@blade
+<x-demo>
+    <div class="w-full">
+        <x-components::ui.radio.group label="Roles" >
+            <x-components::ui.radio.item name="roles" value="backend" label="Back end" checked />
+            <x-components::ui.radio.item name="roles" value="frontend" label="Front end" />
+            <x-components::ui.radio.item name="roles" value="devops" label="DevOps" />
+        </x-components::ui.radio.group>
+    </div>
+</x-demo>
+@endblade
 
 ```html
-    <!-- 24px, outline -->
-    <x-ui::radio.group label="Role">
-        <x-ui::radio.item value="backend" label="Front End" checked />
-        <x-ui::radio.item value="designer" label="Designer" />
-        <x-ui::radio.item value="frontend" label="Backed" />
-    </x-ui::radio.group> 
+    <x-ui.radio.group label="Roles">
+        <x-ui.radio.item name="roles" value="backend" label="Back end" checked />
+        <x-ui.radio.item name="roles" value="frontend" label="Front end" />
+        <x-ui.radio.item name="roles" value="devops" label="DevOps" />
+    </x-ui.radio.group>
+```
+
+### Radio with description
+
+Add helpful descriptions to provide additional context for each option.
+
+@blade
+<x-demo>
+    <div class="w-full">
+        <x-components::ui.radio.group label="Permissions">
+            <x-components::ui.radio.item name="permissions" value="administrator" label="Administrator" description="Administrator users can perform any action." checked />
+            <x-components::ui.radio.item name="permissions" value="editor" label="Editor" description="Editor users have the ability to read, create, and update." />
+            <x-components::ui.radio.item name="permissions" value="viewer" label="Viewer" description="Viewer users only have the ability to read. Create, and update are restricted." />
+        </x-components::ui.radio.group>
+    </div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.radio.group label="Permissions">
+    <x-ui.radio.item name="permissions" value="administrator" label="Administrator" description="Administrator users can perform any action." checked />
+    <x-ui.radio.item name="permissions" value="editor" label="Editor" description="Editor users have the ability to read, create, and update." />
+    <x-ui.radio.item name="permissions" value="viewer" label="Viewer" description="Viewer users only have the ability to read. Create, and update are restricted." />
+</x-ui.radio.group>
 ```
 
 
-## Customization 
-
-### Variants
-
-Each variant offers different sizes and styles:
-#### Hero icons
+### Segmented Radio (Horizontal)
+Create a more compact, button-like appearance with the segmented variant.
 @blade
 <x-demo>
-    <x-components::ui.icon name="academic-cap"  class="text-white"/> 
-    <x-components::ui.icon name="academic-cap" variant="solid" class="text-white"/>
-    <x-components::ui.icon name="academic-cap" variant="mini" class="text-white"/>
-    <x-components::ui.icon name="academic-cap" variant="micro" class="text-white"/>
+    <div class="w-full max-w-md mx-auto">
+        <x-components::ui.radio.group label="View Mode"  variant="segmented" direction="horizontal">
+            <x-components::ui.radio.item
+            name="view-mode"
+            value="list"
+            label="List"
+            />
+            <x-components::ui.radio.item
+            name="view-mode"
+            value="grid"
+            label="Grid"
+            />
+            <x-components::ui.radio.item
+            name="view-mode"
+            value="table"
+            label="Table"
+            checked
+            />
+        </x-components::ui.radio.group>
+    </div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.radio.group label="View Mode" variant="segmented" direction="horizontal">
+    <x-ui.radio.item
+    name="view-mode"
+    value="list"
+    label="List"
+    />
+    <x-ui.radio.item
+    name="view-mode"
+    value="grid"
+    label="Grid"
+    checked
+    />
+    <x-ui.radio.item
+    name="view-mode"
+    value="table"
+    label="Table"
+    />
+</x-ui.radio.group>
+```
+
+### Segmented Radio with Icons
+Enhance the segmented variant with icons for better visual communication.
+@blade
+<x-demo>
+    <div class="w-full max-w-md mx-auto">
+        <x-components::ui.radio.group label="Deployment Environment" variant="segmented" direction="horizontal">
+            <x-components::ui.radio.item
+            icon="code-bracket"
+            name="environment"
+            value="development"
+            label="Development"
+            />
+            <x-components::ui.radio.item
+            icon="beaker"
+            name="environment"
+            value="staging"
+            label="Staging"
+            checked
+            />
+            <x-components::ui.radio.item
+            icon="globe-alt"
+            name="environment"
+            value="production"
+            label="Production"
+            />
+        </x-components::ui.radio.group>
+    </div>
 </x-demo>
 @endblade
 
 
 ```html
-    <!-- 24px, outline -->
-    <x-components::ui.icon name="academic-cap"  class="text-white"/> 
-    <!-- 24px, solid -->
-    <x-components::ui.icon name="academic-cap" variant="solid" class="text-white"/> 
-    <!-- 20px, solid -->
-    <x-components::ui.icon name="academic-cap" variant="mini" class="text-white"/> 
-     <!-- 16px, solid -->
-    <x-components::ui.icon name="academic-cap" variant="micro" class="text-white"/>
+<x-ui.radio.group label="Deployment Environment" variant="segmented" direction="horizontal">
+    <x-ui.radio.item
+    icon="code-bracket"
+    name="environment"
+    value="development"
+    label="Development"
+    />
+    <x-ui.radio.item
+    icon="beaker"
+    name="environment"
+    value="staging"
+    label="Staging"
+    checked
+    />
+    <x-ui.radio.item
+    icon="globe-alt"
+    name="environment"
+    value="production"
+    label="Production"
+    />
+</x-ui.radio.group>
 ```
-
-#### Phosphor icons
-
-To use Phosphor icons, prefix the name with ps: or phosphor:.
-@blade
-<x-demo>
-    <x-components::ui.icon name="ps:align-top" variant="thin" class="text-white"/>
-    <x-components::ui.icon name="ps:align-top" variant="light" class="text-white"/>
-    <x-components::ui.icon name="ps:align-top"  class="text-white"/> 
-    <x-components::ui.icon name="ps:align-top" variant="duotone" class="text-white"/>
-    <x-components::ui.icon name="ps:align-top" variant="bold" class="text-white"/>
-    <x-components::ui.icon name="ps:align-top" variant="fill" class="text-white"/>
-</x-demo>
-@endblade
-
-
-```html
-    <!-- thin variant -->
-    <x-components::ui.icon name="ps:align-top" variant="thin" class="text-white"/>
-    <!-- light variant -->
-    <x-components::ui.icon name="ps:align-top" variant="light" class="text-white"/>
-    <!-- regular variant (default) -->
-    <x-components::ui.icon name="ps:align-top"  class="text-white"/> 
-    <!-- duotone variant  -->
-    <x-components::ui.icon name="ps:align-top" variant="duotone" class="text-white"/>
-    <!-- bold variant  -->
-    <x-components::ui.icon name="ps:align-top" variant="bold" class="text-white"/>
-    <!-- fill variant  -->
-    <x-components::ui.icon name="ps:align-top" variant="fill" class="text-white"/>
-```
-
-### Sizes
-
-@blade
-<x-demo>
-    <x-components::ui.icon name="cpu-chip"  class="size-12"/> 
-    <x-components::ui.icon name="cpu-chip" variant="solid" class="size-12"/>
-</x-demo>
-@endblade
-
-```html
-<x-demo>
-    <x-components::ui.icon name="academic-cap"  class="size-12"/> 
-    <x-components::ui.icon name="academic-cap" variant="solid" class="size-12"/>
-</x-demo>
-```
-
-Use Tailwind size utilities or ``size-*`` utilities (required for Phosphor icons).
-
-If you're using **Phosphor icons** and no size is defined, the component applies a default ``size-6``.
-
-> While you’re free to override the icon size, we recommend sticking with the provided variant sizes they’re crafted for optimal balance and clarity.
-
-### Color styles
-
-@blade
-<x-demo>
-    <x-components::ui.icon name="cpu-chip"  class="text-purple-500"/> 
-    <x-components::ui.icon name="cpu-chip" variant="solid" class="bg-purple-300"/>
-</x-demo>
-@endblade
-
-```html
-<x-demo>
-    <x-components::ui.icon name="academic-cap"  class="size-12"/> 
-    <x-components::ui.icon name="academic-cap" variant="solid" class="size-12"/>
-</x-demo>
-```
-
-## Component Props
-
-| Prop Name | Type | Default | Required | Description |
-|-----------|------|---------|----------|-------------|
-| `name` | string | no default | Yes | Icon name. Prefix with ``ps``: or ``phosphor``: for Phosphor Icons |
-| `variant` | string | outline | No |Icon style variant.|
-| `class` | string | `''` | No | Tailwind class string to style the icon (size, color, etc). |
