@@ -1,3 +1,4 @@
 files:
   group: resources/views/components/ui/radio/group.blade.php
   item: resources/views/components/ui/radio/item.blade.php
+  indicator: resources/views/components/ui/radio/indicator.blade.php
