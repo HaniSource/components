@@ -110,6 +110,56 @@ Control the visual appearance of your tags with different shapes.
 />
 ```
 
+### Tag Color
+by default tags input uses the primary color but you can any tailwind color you want:
+
+@blade
+<x-demo>
+    <div class="space-y-6 max-w-2xl w-full mx-auto h-[25rem] overflow-y-auto p-4">
+        @foreach([
+            'red', 'orange', 'amber', 'yellow', 'lime', 'green',
+            'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo',
+            'violet', 'purple', 'fuchsia', 'pink', 'rose',
+        ] as $color)
+                @php
+                    $placeholder = "Add new $color tag ";
+                @endphp
+                <x-ui.tags-input 
+                    wire:model.defer="fake"
+                    :placeholder="$placeholder"
+                    tagVariant="rounded"
+                    class="mb-2"
+                    :initialTags="['convergephp','fluxtor','eigenify']"
+                    :tagColor="$color"
+                />
+        @endforeach
+    </div>
+</x-demo>
+@endblade
+
+```html
+<div class="space-y-6 max-w-2xl w-full mx-auto h-[25rem] overflow-y-auto p-4">
+    @foreach([
+        'red', 'orange', 'amber', 'yellow', 'lime', 'green',
+        'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo',
+        'violet', 'purple', 'fuchsia', 'pink', 'rose',
+    ] as $color)
+            @php
+                $placeholder = "Add new $color tag ";
+            @endphp
+            <x-ui.tags-input 
+                wire:model.defer="fake"
+                :placeholder="$placeholder"
+                tagVariant="rounded"
+                class="mb-2"
+                :initialTags="['convergephp','fluxtor','eigenify']"
+                :tagColor="$color"
+            />
+    @endforeach
+</div>
+```
+
+
 ## Advanced Features
 
 ### Suggestions and Autocomplete
