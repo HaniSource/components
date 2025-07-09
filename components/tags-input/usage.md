@@ -11,23 +11,39 @@ The `tags-input` component provides a powerful and flexible way to handle multip
 ## Basic Usage
 
 @blade
-<x-demo class="w-full">
+<x-demo class="w-full" x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
     <x-ui.tags-input 
         class="max-w-2xl"
-        wire:model="tags" 
+        x-model="tags" 
         placeholder="Add tags..."
-        :initialTags="['convergephp','fluxtor','eigenify']"
     />
 </x-demo>
 @endblade
 
 ```html
 <x-ui.tags-input 
-    wire:model="tags" 
+    wire:model="tags"  
     placeholder="Add tags..."
-    :initialTags="['convergephp','fluxtor','eigenify']"
 />
 ```
+### Bind To livewire
+
+to use with livewire you need to only to use `wire:mode="tags"` to bind your tags state 
+
+### Using it within Blade & Alpine
+you can use it outside livewire and just alpine (with blade):
+
+```html
+<div class="w-full" x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+    <x-ui.tags-input 
+        class="max-w-2xl"
+        x-model="tags" 
+        placeholder="Add tags..."
+    />
+</div>
+```
+because we're making this possible using the `x-modelable` API so you can't use `state` as a name variable because the component use it internally
+
 
 ## Customization
 
@@ -37,19 +53,17 @@ Control the visual appearance of your tags with different shapes.
 
 @blade
 <x-demo>
-    <div class="max-w-2xl w-full !space-y-4">
+    <div class="max-w-2xl w-full !space-y-4" x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
         <x-ui.tags-input 
-            wire:model="roundedTags" 
+            x-model="tags" 
             placeholder="Rounded tags (default)"
             tagVariant="rounded"
             class="mb-4"
-            :initialTags="['convergephp','fluxtor','eigenify']"
         />
         <x-ui.tags-input 
-            wire:model="pillTags" 
+            x-model="tags"  
             placeholder="Pill-shaped tags"
             tagVariant="pill"
-            :initialTags="['convergephp','fluxtor','eigenify']"
         />
     </div>
 </x-demo>
@@ -57,23 +71,24 @@ Control the visual appearance of your tags with different shapes.
 
 ```html
 <x-ui.tags-input 
-    wire:model="roundedTags" 
+    wire:model="tags" 
     placeholder="Rounded tags (default)"
     tagVariant="rounded"
 />
 <x-ui.tags-input 
-    wire:model="pillTags" 
+    wire:model="tags" 
     placeholder="Pill-shaped tags"
     tagVariant="pill"
 />
 ```
+
 
 ### Tag Color
 by default tags input uses the primary color but you can any tailwind color you want:
 
 @blade
 <x-demo>
-    <div class="space-y-6 max-w-2xl w-full mx-auto h-[25rem] overflow-y-auto p-4">
+    <div class="space-y-6 max-w-2xl w-full mx-auto h-[25rem] overflow-y-auto p-4" x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
         @foreach([
             'red', 'orange', 'amber', 'yellow', 'lime', 'green',
             'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo',
@@ -83,11 +98,10 @@ by default tags input uses the primary color but you can any tailwind color you 
                     $placeholder = "Add new $color tag ";
                 @endphp
                 <x-ui.tags-input 
-                    wire:model.defer="fake"
+                    x-model="tags" 
                     :placeholder="$placeholder"
                     tagVariant="rounded"
                     class="mb-2"
-                    :initialTags="['convergephp','fluxtor','eigenify']"
                     :tagColor="$color"
                 />
         @endforeach
@@ -110,13 +124,11 @@ by default tags input uses the primary color but you can any tailwind color you 
                 :placeholder="$placeholder"
                 tagVariant="rounded"
                 class="mb-2"
-                :initialTags="['convergephp','fluxtor','eigenify']"
                 :tagColor="$color"
             />
     @endforeach
 </div>
 ```
-
 
 ## Advanced Features
 
@@ -140,6 +152,29 @@ Provide users with helpful suggestions as they type.
     wire:model="skillTags"
     class="max-w-2xl" 
     placeholder="Type to see suggestions..."
+    :suggestions="['PHP', 'Laravel', 'Vue.js', 'Alpine.js', 'Tailwind CSS', 'JavaScript', 'Python', 'React', 'Node.js']"
+/>
+```
+
+to force of choosing only predifined tags you by setting   ``:allowCustom="false"``
+@blade
+<x-demo>
+    <x-ui.tags-input 
+        wire:model="skillTags" 
+        class="max-w-2xl"
+        :allowCustom="false"
+        placeholder="Type something isn't in the suggestions list"
+        :suggestions="['PHP', 'Laravel', 'Vue.js', 'Alpine.js', 'Tailwind CSS', 'JavaScript']"
+    />
+</x-demo>
+@endblade
+
+```html
+<x-ui.tags-input 
+    wire:model="skillTags"
+    class="max-w-2xl" 
+    :allowCustom="false"
+    placeholder="Type something isn't in the suggestions list"
     :suggestions="['PHP', 'Laravel', 'Vue.js', 'Alpine.js', 'Tailwind CSS', 'JavaScript', 'Python', 'React', 'Node.js']"
 />
 ```
@@ -174,17 +209,21 @@ Set limits and validation rules to ensure data quality.
 />
 ```
 
+
+
 ### Custom Separators
 
 Define which keys should create new tags.
+
+> use can use this feature when you want to paste formated data in specific format 
 
 @blade
 <x-demo>
     <x-ui.tags-input 
         wire:model="customSeparators" 
         class="max-w-2xl"
-        placeholder="Use space, comma, or semicolon to separate"
-        :split-keys="[' ', ',', ';']"
+        placeholder="Use asterik, comma, space or semicolon to separate"
+        :split-keys="['*',' ',',', ';']"
     />
 </x-demo>
 @endblade
@@ -193,23 +232,25 @@ Define which keys should create new tags.
 <x-ui.tags-input 
     wire:model="customSeparators" 
     class="max-w-2xl"
-    placeholder="Use space, comma, or semicolon to separate"
-    :split-keys="[' ', ',', ';']"
+    placeholder="Use asterik, comma, space or semicolon to separate"
+    :split-keys="['*',' ', ',', ';']"
 />
 ```
+
+
 
 ### Bulk Operations
 
 Enable counter display and clear all functionality.
 
 @blade
-<x-demo>
+<x-demo x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
     <x-ui.tags-input 
-        wire:model="bulkTags" 
+        x-model="tags" 
         class="max-w-2xl"
         placeholder="Tags with counter and clear all"
-        :show-counter="true"
-        :show-clear-all="true"
+        :show-counter="false"
+        :show-clear-all="false"
     />
 </x-demo>
 @endblade
@@ -219,8 +260,8 @@ Enable counter display and clear all functionality.
     wire:model="bulkTags" 
     class="max-w-2xl"
     placeholder="Tags with counter and clear all"
-    :show-counter="true"
-    :show-clear-all="true"
+    :show-counter="false"
+    :show-clear-all="false"
 />
 ```
 
@@ -248,6 +289,8 @@ Enable counter display and clear all functionality.
 />
 ```
 
+
+
 ### Character Validation
 
 Restrict input to specific character patterns.
@@ -274,7 +317,7 @@ Restrict input to specific character patterns.
 
 ### Blocked Words
 
-Prevent specific words from being added as tags.
+while you can't use character validation as previsouly but for conveniece you can prevent specific words from being added as tags expecitly.
 
 @blade
 <x-demo>
@@ -296,30 +339,6 @@ Prevent specific words from being added as tags.
 />
 ```
 
-## Value Persistence
-
-Keep user input even after page refreshes by enabling persistence.
-
-@blade
-<x-demo>
-    <x-ui.tags-input 
-        wire:model="persistentTags"
-        class="max-w-2xl" 
-        placeholder="These tags will persist across page reloads"
-        persist="true"
-    />
-</x-demo>
-@endblade
-
-```html
-<x-ui.tags-input 
-    wire:model="persistentTags"
-    class="max-w-2xl" 
-    placeholder="These tags will persist across page reloads"
-    persist="true"
-/>
-```
-
 ## Auto-Sorting
 
 Automatically sort tags alphabetically.
@@ -331,7 +350,6 @@ Automatically sort tags alphabetically.
         class="max-w-2xl" 
         placeholder="Tags will be sorted automatically"
         :sort-tags="true"
-        sort-direction="asc"
     />
 </x-demo>
 @endblade
@@ -342,10 +360,10 @@ Automatically sort tags alphabetically.
     class="max-w-2xl" 
     placeholder="Tags will be sorted automatically"
     :sort-tags="true"
-    sort-direction="asc"
 />
 ```
 
+> you can change the direction using the ``sort-direction="desc"``
 ## Drag and Drop
 
 Users can reorder tags by dragging and dropping them.
@@ -353,22 +371,20 @@ Users can reorder tags by dragging and dropping them.
 > The component includes zero dependency built-in drag-and-drop functionality. Simply drag tags to reorder them.
 
 @blade
-<x-demo>
-    <x-ui.tags-input 
-        wire:model="reorderableTags"
+<x-demo x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+    <x-ui.tags-input
+        x-model="tags" 
         class="max-w-2xl" 
         placeholder="Add tags and drag to reorder"
-        :initial-tags="['First', 'Second', 'Third']"
     />
 </x-demo>
 @endblade
 
 ```html
 <x-ui.tags-input 
-    wire:model="reorderableTags"
+    x-model="tags"
     class="max-w-2xl" 
     placeholder="Add tags and drag to reorder"
-    :initial-tags="['First', 'Second', 'Third']"
 />
 ```
 
@@ -378,8 +394,8 @@ Users can reorder tags by dragging and dropping them.
 |-----------|------|---------|----------|-------------|
 | `wire:model` | string | - | Yes | Livewire property to bind to |
 | `placeholder` | string | `'Add tags...'` | No | Input placeholder text |
-| `initial-tags` | array | `[]` | No | Initial tags to display |
-| `tag-variant` | string | `'rounded'` | No | Shape: `rounded`, `pill` |
+| `tag-variant` | string | `'rounded'` | No | variant: `rounded`, `pill` |
+| `tag-color` | string | `'primary'` | No | colors: `red`.... |
 | `disabled` | boolean | `false` | No | Whether the input is disabled |
 | `max-tags` | integer | `null` | No | Maximum number of tags allowed |
 | `min-tag-length` | integer | `1` | No | Minimum characters per tag |
@@ -395,10 +411,7 @@ Users can reorder tags by dragging and dropping them.
 | `show-clear-all` | boolean | `false` | No | Show clear all button |
 | `sort-tags` | boolean | `false` | No | Auto-sort tags alphabetically |
 | `sort-direction` | string | `'asc'` | No | Sort direction: `asc`, `desc` |
-| `persist` | boolean | `false` | No | Enable value persistence |
-| `persist-key` | string | `null` | No | Custom persistence key |
 | `create-on-blur` | boolean | `true` | No | Create tag when input loses focus |
-| `create-on-enter` | boolean | `true` | No | Create tag on Enter key |
 | `create-on-paste` | boolean | `true` | No | Handle paste with auto-splitting |
 | `aria-label` | string | `'Tags input'` | No | ARIA label for accessibility |
 | `aria-description` | string | `null` | No | ARIA description |
