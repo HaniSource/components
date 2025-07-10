@@ -10,9 +10,10 @@ The `separator` component provides a clean and accessible way to visually separa
 
 ## Basic Usage
 
+
 @blade
-<x-demo class="w-full space-y-6">
-    <div class="p-4 ">
+<x-demo class="max-w-md">
+    <div class="">
         <x-ui.card size="md" class="mx-auto">
             <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
                 <span>Welcome to Fluxtor.</span>
@@ -26,51 +27,6 @@ The `separator` component provides a clean and accessible way to visually separa
             </p>
         </x-ui.card>
         <x-ui.separator class="my-4" />
-        <x-ui.card size="md" class="mx-auto">
-            <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-                <span>Welcome to Converge.</span>
-                <a href="https://convergeghp.com">
-                    <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
-                </a>
-            </x-ui.heading>
-            <p>
-                Advanced documentation management framework for Laravel artisans  
-            </p>
-        </x-ui.card>
-    </div>
-</x-demo>
-@endblade
-
-```html
-<x-ui.separator />
-```
-
-## Orientations
-
-### Horizontal Separator (Default)
-
-The default orientation creates a horizontal line to separate content vertically.
-
-### Vertical Separator
-
-Use vertical orientation to separate content horizontally.
-
-@blade
-<x-demo class="w-full">
-    <div class="flex gap-4">
-        <x-ui.card size="md" class="mx-auto">
-            <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-                <span>Welcome to Fluxtor.</span>
-                <a href="https://fluxtor.dev">
-                    <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
-                </a>
-            </x-ui.heading>
-            <p>
-                Powered by the TALL stack, our components offer speed, elegance,
-                and accessibility for modern web development. 
-            </p>
-        </x-ui.card>
-        <x-ui.separator class="my-2" vertical />
         <x-ui.card size="md" class="mx-auto">
             <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
                 <span>Welcome to Converge.</span>
@@ -113,6 +69,78 @@ Use vertical orientation to separate content horizontally.
         </p>
     </x-ui.card>
 </div>
+```
+
+
+
+## Orientations
+
+### Horizontal Separator (Default)
+
+The default orientation creates a horizontal line to separate content vertically.
+
+### Vertical Separator
+
+Use vertical orientation to separate content horizontally.
+
+@blade
+<x-demo class="w-full">
+    <div class="flex gap-4">
+        <x-ui.card size="md" class="mx-auto flex-1">
+            <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
+                <span>Welcome to Fluxtor.</span>
+                <a href="https://fluxtor.dev">
+                    <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
+                </a>
+            </x-ui.heading>
+            <p>
+                Powered by the TALL stack, our components offer speed, elegance,
+                and accessibility for modern web development. 
+            </p>
+        </x-ui.card>
+        <x-ui.separator class="my-2" vertical />
+        <x-ui.card size="md" class="mx-auto flex-1">
+            <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
+                <span>Welcome to Converge.</span>
+                <a href="https://convergeghp.com">
+                    <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
+                </a>
+            </x-ui.heading>
+            <p>
+                Advanced documentation management framework for Laravel artisans  
+            </p>
+        </x-ui.card>
+    </div>
+</x-demo>
+@endblade
+
+```html
+<div class="flex gap-4">
+        <x-ui.card size="md" class="mx-auto flex-1">
+            <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
+                <span>Welcome to Fluxtor.</span>
+                <a href="https://fluxtor.dev">
+                    <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
+                </a>
+            </x-ui.heading>
+            <p>
+                Powered by the TALL stack, our components offer speed, elegance,
+                and accessibility for modern web development. 
+            </p>
+        </x-ui.card>
+        {+<x-ui.separator class="my-2" vertical />+}
+        <x-ui.card size="md" class="mx-auto flex-1">
+            <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
+                <span>Welcome to Converge.</span>
+                <a href="https://convergeghp.com">
+                    <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
+                </a>
+            </x-ui.heading>
+            <p>
+                Advanced documentation management framework for Laravel artisans  
+            </p>
+        </x-ui.card>
+    </div>
 ```
 > for spaces always use `gap` instead of `space-*`  utilities
 
