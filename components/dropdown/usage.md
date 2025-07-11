@@ -9,8 +9,8 @@ The `dropdown` component provides a powerful and accessible dropdown menu system
 ## Basic Usage
 
 @blade
-<x-demo class="!py-12 ">
-    <x-ui.dropdown >
+<x-demo >
+    <x-ui.dropdown>
         <x-slot:button class="justify-center">
             <x-ui.button variant="outline">
                 Actions
@@ -36,7 +36,7 @@ The `dropdown` component provides a powerful and accessible dropdown menu system
 
 ```html
 <x-ui.dropdown>
-    <x-slot:button>
+    <x-slot:button class="justify-center">
         <x-ui.button variant="outline">
             Actions
         </x-ui.button>
@@ -69,9 +69,9 @@ The `dropdown` component provides a powerful and accessible dropdown menu system
 Add visual clarity with icons for better user experience.
 
 @blade
-<x-demo class="!py-12">
+<x-demo >
     <x-ui.dropdown>
-        <x-slot:button>
+        <x-slot:button class="justify-center">
             <x-ui.button variant="outline">
                 Actions with Icons
             </x-ui.button>
@@ -96,7 +96,7 @@ Add visual clarity with icons for better user experience.
 
 ```html
 <x-ui.dropdown>
-    <x-slot:button>
+    <x-slot:button class="justify-center">
         <x-ui.button variant="outline">
             Actions with Icons
         </x-ui.button>
@@ -127,9 +127,9 @@ Add visual clarity with icons for better user experience.
 Display keyboard shortcuts for power users.
 
 @blade
-<x-demo class="!py-12">
+<x-demo >
     <x-ui.dropdown>
-        <x-slot:button>
+        <x-slot:button class="justify-center">
             <x-ui.button variant="outline">
                 File Menu
             </x-ui.button>
@@ -154,7 +154,7 @@ Display keyboard shortcuts for power users.
 
 ```html
 <x-ui.dropdown>
-    <x-slot:button>
+    <x-slot:button class="justify-center">
         <x-ui.button variant="outline">
             File Menu
         </x-ui.button>
@@ -185,9 +185,9 @@ Display keyboard shortcuts for power users.
 Create navigational items that link to other pages.
 
 @blade
-<x-demo class="!py-12">
+<x-demo >
     <x-ui.dropdown>
-        <x-slot:button>
+        <x-slot:button class="justify-center">
             <x-ui.button variant="outline">
                 Navigation
             </x-ui.button>
@@ -209,7 +209,7 @@ Create navigational items that link to other pages.
 
 ```html
 <x-ui.dropdown>
-    <x-slot:button>
+    <x-slot:button class="justify-center">
         <x-ui.button variant="outline">
             Navigation
         </x-ui.button>
@@ -236,9 +236,9 @@ Create navigational items that link to other pages.
 Temporarily disable certain actions while keeping them visible.
 
 @blade
-<x-demo class="!py-12">
+<x-demo >
     <x-ui.dropdown>
-        <x-slot:button>
+        <x-slot:button class="justify-center">
             <x-ui.button variant="outline">
                 Mixed States
             </x-ui.button>
@@ -263,7 +263,7 @@ Temporarily disable certain actions while keeping them visible.
 
 ```html
 <x-ui.dropdown>
-    <x-slot:button>
+    <x-slot:button class="justify-center">
         <x-ui.button variant="outline">
             Mixed States
         </x-ui.button>
@@ -294,9 +294,9 @@ Temporarily disable certain actions while keeping them visible.
 Use separators to group related items and create visual hierarchy.
 
 @blade
-<x-demo class="!py-12">
+<x-demo >
     <x-ui.dropdown>
-        <x-slot:button>
+        <x-slot:button class="justify-center">
             <x-ui.button variant="outline">
                 Grouped Actions
             </x-ui.button>
@@ -326,7 +326,7 @@ Use separators to group related items and create visual hierarchy.
 
 ```html
 <x-ui.dropdown>
-    <x-slot:button>
+    <x-slot:button class="justify-center">
         <x-ui.button variant="outline">
             Grouped Actions
         </x-ui.button>
@@ -365,9 +365,9 @@ Use separators to group related items and create visual hierarchy.
 Use groups to organize related items with optional labels.
 
 @blade
-<x-demo class="!py-12">
+<x-demo >
     <x-ui.dropdown>
-        <x-slot:button>
+        <x-slot:button class="justify-center">
             <x-ui.button variant="outline">
                 Grouped Menu
             </x-ui.button>
@@ -395,7 +395,7 @@ Use groups to organize related items with optional labels.
 
 ```html
 <x-ui.dropdown>
-    <x-slot:button>
+    <x-slot:button class="justify-center">
         <x-ui.button variant="outline">
             Grouped Menu
         </x-ui.button>
@@ -431,9 +431,9 @@ Control where the dropdown appears relative to the trigger button.
 
 @blade
 <x-demo>
- class="!py-12"    <div class="flex gap-4 flex-wrap">
+     <div class="flex gap-4 flex-wrap">
         <x-ui.dropdown position="bottom-center">
-            <x-slot:button>
+            <x-slot:button class="justify-center">
                 <x-ui.button variant="outline">
                     Bottom Center
                 </x-ui.button>
@@ -474,7 +474,7 @@ Control where the dropdown appears relative to the trigger button.
 
 ```html
 <x-ui.dropdown position="bottom-center">
-    <x-slot:button>
+    <x-slot:button class="justify-center">
         <x-ui.button variant="outline">
             Bottom Center
         </x-ui.button>
@@ -488,7 +488,7 @@ Control where the dropdown appears relative to the trigger button.
 </x-ui.dropdown>
 
 <x-ui.dropdown position="bottom-start">
-    <x-slot:button>
+    <x-slot:button class="justify-center">
         <x-ui.button variant="outline">
             Bottom Start
         </x-ui.button>
@@ -507,7 +507,7 @@ Control where the dropdown appears relative to the trigger button.
 Create hierarchical menus with nested items.
 
 @blade
-<x-demo class="!py-12">
+<x-demo >
     <x-ui.dropdown position="bottom-start">
         <x-slot:button>
             <x-ui.button variant="outline">
@@ -621,7 +621,7 @@ Create hierarchical menus with nested items.
 Combine all features for sophisticated dropdown menus.
 
 @blade
-<x-demo class="!py-12">
+<x-demo >
     <x-ui.dropdown position="bottom-start">
         <x-slot:button>
             <x-ui.button variant="outline">

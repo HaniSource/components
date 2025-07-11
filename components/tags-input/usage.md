@@ -11,7 +11,7 @@ The `tags-input` component provides a powerful and flexible way to handle multip
 ## Basic Usage
 
 @blade
-<x-demo class="max-w-2xl" x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+<x-demo  x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
     <x-ui.tags-input 
         x-model="tags" 
         placeholder="Add tags..."
@@ -50,8 +50,8 @@ because we're making this possible using the `x-modelable` API so you can't use 
 Control the visual appearance of your tags with different shapes.
 
 @blade
-<x-demo class="max-w-2xl" >
-    <div class="max-w-2xl" w-full !space-y-4" x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+<x-demo  >
+    <div   x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
         <x-ui.tags-input 
             x-model="tags" 
             placeholder="Rounded tags (default)"
@@ -85,7 +85,7 @@ Control the visual appearance of your tags with different shapes.
 by default tags input uses the primary color but you can any tailwind color you want:
 
 @blade
-<x-demo class="max-w-2xl" >
+<x-demo  >
     <div class="space-y-6 max-w-2xlw-full mx-auto h-[25rem] overflow-y-auto p-4" x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
         @foreach([
             'red', 'orange', 'amber', 'yellow', 'lime', 'green',
@@ -135,7 +135,7 @@ by default tags input uses the primary color but you can any tailwind color you 
 Provide users with helpful suggestions as they type.
 
 @blade
-<x-demo class="max-w-2xl" >
+<x-demo  >
     <x-ui.tags-input 
         wire:model="skillTags" 
         placeholder="Type to see suggestions..."
@@ -154,7 +154,7 @@ Provide users with helpful suggestions as they type.
 
 to force of choosing only predifined tags you by setting   ``:allowCustom="false"``
 @blade
-<x-demo class="max-w-2xl" >
+<x-demo  >
     <x-ui.tags-input 
         wire:model="skillTags" 
         :allowCustom="false"
@@ -178,7 +178,7 @@ to force of choosing only predifined tags you by setting   ``:allowCustom="false
 Set limits and validation rules to ensure data quality.
 
 @blade
-<x-demo class="max-w-2xl" >
+<x-demo  >
     <x-ui.tags-input 
         wire:model="constrainedTags" 
         placeholder="Max 3 tags, 2-10 characters each"
@@ -210,7 +210,7 @@ Define which keys should create new tags.
 > use can use this feature when you want to paste formated data in specific format 
 
 @blade
-<x-demo class="max-w-2xl" >
+<x-demo  >
     <x-ui.tags-input 
         wire:model="customSeparators" 
         placeholder="Use asterik, comma, space or semicolon to separate"
@@ -234,7 +234,7 @@ Define which keys should create new tags.
 Enable counter display and clear all functionality.
 
 @blade
-<x-demo class="max-w-2xl"  x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+<x-demo   x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
     <x-ui.tags-input 
         x-model="tags" 
         placeholder="Tags with counter and clear all"
@@ -258,7 +258,7 @@ Enable counter display and clear all functionality.
 ### Disabled State
 
 @blade
-<x-demo class="max-w-2xl" >
+<x-demo  >
     <x-ui.tags-input 
         wire:model="disabledTags" 
         placeholder="Disabled tags input"
@@ -282,7 +282,7 @@ Enable counter display and clear all functionality.
 Restrict input to specific character patterns.
 
 @blade
-<x-demo class="max-w-2xl" >
+<x-demo  >
     <x-ui.tags-input 
         wire:model="alphanumericTags" 
         placeholder="Only alphanumeric characters allowed"
@@ -304,7 +304,7 @@ Restrict input to specific character patterns.
 while you can't use character validation as previsouly but for conveniece you can prevent specific words from being added as tags expecitly.
 
 @blade
-<x-demo class="max-w-2xl" >
+<x-demo  >
     <x-ui.tags-input 
         wire:model="filteredTags" 
         placeholder="Try typing 'spam' or 'test'"
@@ -326,7 +326,7 @@ while you can't use character validation as previsouly but for conveniece you ca
 Automatically sort tags alphabetically.
 
 @blade
-<x-demo class="max-w-2xl" >
+<x-demo  >
     <x-ui.tags-input 
         wire:model="sortedTags" 
         placeholder="Tags will be sorted automatically"
@@ -351,7 +351,7 @@ Users can reorder tags by dragging and dropping them.
 > The component includes zero dependency built-in drag-and-drop functionality. Simply drag tags to reorder them.
 
 @blade
-<x-demo class="max-w-2xl"  x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+<x-demo   x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
     <x-ui.tags-input
         x-model="tags"  
         placeholder="Add tags and drag to reorder"
