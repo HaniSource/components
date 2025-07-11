@@ -9,9 +9,9 @@ The `dropdown` component provides a powerful and accessible dropdown menu system
 ## Basic Usage
 
 @blade
-<x-demo class="!py-12">
-    <x-ui.dropdown>
-        <x-slot:button>
+<x-demo class="!py-12 ">
+    <x-ui.dropdown >
+        <x-slot:button class="justify-center">
             <x-ui.button variant="outline">
                 Actions
             </x-ui.button>
