@@ -1,0 +1,3 @@
+files:
+  index: resources/views/components/ui/autocomplete/index.blade.php
+  item: resources/views/components/ui/autocomplete/item.blade.php

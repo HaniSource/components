@@ -1,0 +1,1 @@
+<div data-slot="autocomplete-item">{{ $slot }}</div>
