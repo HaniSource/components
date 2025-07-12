@@ -491,7 +491,7 @@ The tabs component consists of three main parts:
 | Prop Name | Type | Default | Required | Description |
 |-----------|------|---------|----------|-------------|
 | `variant` | string | `'default'` | No | Visual variant inherited from parent |
-| `class` | string | `''` | No | Additional CSS classes |
+| `class` | string | `''` | No | Additional CSS classes use `justify-center, justify-start, justify-end` for alignment control |
 
 ### Tab Index Component (`<x-ui.tab>`)
 
