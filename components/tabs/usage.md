@@ -422,6 +422,13 @@ default tabs called `outlined`, but there is more variants: `non-contained`, `pi
     <x-ui.tab.panel>...</x-ui.tab.panel>
 </x-ui.tabs>
 ```
+## Advanced Features 
+
+## Persisted Tabs 
+persist active tab on the local storage
+
+## Query String Url
+include the active tabs on the query string 
 
 #### Soft
 comming soon 
