@@ -335,3 +335,246 @@ you can also get rid of any `activeTab` prop or any *:model binding, and the fir
     <x-ui.tab.panel>...</x-ui.tab.panel>
 </x-ui.tabs>
 ```
+
+## Customizations
+### Tabs Variants
+default tabs called `outlined`, but there is more variants: `non-contained`, `pills`, `soft`, `ghost`.  
+
+#### Non Contained
+
+@blade
+<x-demo>
+    <x-ui.tabs variant="non-contained">
+        <x-ui.tab.group>
+            <x-ui.tab label="user" icon="user" />
+            <x-ui.tab label="settings" icon="cog-6-tooth" />
+            <x-ui.tab label="clock" icon="clock" />
+        </x-ui.tab.group>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">First Tab</h3>
+            <p>This is the first tab content.</p>
+        </x-ui.tab.panel>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">Second Tab</h3>
+            <p>This is the second tab content.</p>
+        </x-ui.tab.panel>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">Third Tab</h3>
+            <p>This is the third tab content.</p>
+        </x-ui.tab.panel>
+    </x-ui.tabs>
+</x-demo>
+@endblade
+
+```html
+<x-ui.tabs>
+    <x-ui.tab.group>
+         <x-ui.tab label="user" icon="user" />
+        <x-ui.tab label="settings" icon="cog-6-tooth" />
+        <x-ui.tab label="clock" icon="clock" />
+    </x-ui.tab.group>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+</x-ui.tabs>
+```
+#### Pills
+
+@blade
+<x-demo>
+    <x-ui.tabs variant="pills">
+        <x-ui.tab.group>
+            <x-ui.tab label="user" icon="user" />
+            <x-ui.tab label="settings" icon="cog-6-tooth" />
+            <x-ui.tab label="clock" icon="clock" />
+        </x-ui.tab.group>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">First Tab</h3>
+            <p>This is the first tab content.</p>
+        </x-ui.tab.panel>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">Second Tab</h3>
+            <p>This is the second tab content.</p>
+        </x-ui.tab.panel>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">Third Tab</h3>
+            <p>This is the third tab content.</p>
+        </x-ui.tab.panel>
+    </x-ui.tabs>
+</x-demo>
+@endblade
+
+```html
+<x-ui.tabs class="pills">
+    <x-ui.tab.group>
+        <x-ui.tab label="user" icon="user" />
+        <x-ui.tab label="settings" icon="cog-6-tooth" />
+        <x-ui.tab label="clock" icon="clock" />
+    </x-ui.tab.group>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+</x-ui.tabs>
+```
+
+#### Soft
+comming soon 
+#### Ghost
+comming soon
+
+### Tabs Alignment
+by default tabs group are centred, to tweack that you can use `flex` properties to align your `x-ui.tab.group`
+
+to push tabs to start **use `justify-start`**
+@blade
+<x-demo>
+    <x-ui.tabs class="non-contained">
+        <x-ui.tab.group class="justify-start">
+            <x-ui.tab label="user" icon="user" />
+            <x-ui.tab label="settings" icon="cog-6-tooth" />
+            <x-ui.tab label="clock" icon="clock" />
+        </x-ui.tab.group>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">First Tab</h3>
+            <p>This is the first tab content.</p>
+        </x-ui.tab.panel>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">Second Tab</h3>
+            <p>This is the second tab content.</p>
+        </x-ui.tab.panel>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">Third Tab</h3>
+            <p>This is the third tab content.</p>
+        </x-ui.tab.panel>
+    </x-ui.tabs>
+</x-demo>
+@endblade
+
+```html
+<x-ui.tabs>
+    <x-ui.tab.group class="justify-start">
+         <x-ui.tab label="user" icon="user" />
+        <x-ui.tab label="settings" icon="cog-6-tooth" />
+        <x-ui.tab label="clock" icon="clock" />
+    </x-ui.tab.group>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+</x-ui.tabs>
+```
+
+to push tabs to end **use `justify-end`**
+
+@blade
+<x-demo>
+    <x-ui.tabs class="non-contained">
+        <x-ui.tab.group class="justify-end">
+            <x-ui.tab label="user" icon="user" />
+            <x-ui.tab label="settings" icon="cog-6-tooth" />
+            <x-ui.tab label="clock" icon="clock" />
+        </x-ui.tab.group>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">First Tab</h3>
+            <p>This is the first tab content.</p>
+        </x-ui.tab.panel>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">Second Tab</h3>
+            <p>This is the second tab content.</p>
+        </x-ui.tab.panel>
+        <x-ui.tab.panel>
+            <h3 class="text-lg font-semibold mb-2">Third Tab</h3>
+            <p>This is the third tab content.</p>
+        </x-ui.tab.panel>
+    </x-ui.tabs>
+</x-demo>
+@endblade
+
+```html
+<x-ui.tabs>
+    <x-ui.tab.group class="justify-start">
+         <x-ui.tab label="user" icon="user" />
+        <x-ui.tab label="settings" icon="cog-6-tooth" />
+        <x-ui.tab label="clock" icon="clock" />
+    </x-ui.tab.group>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+    
+    <x-ui.tab.panel>...</x-ui.tab.panel>
+</x-ui.tabs>
+```
+
+under the hood we check the presence of `justify-*` class, to handle some edge cases in some variants
+## Accessibility Features
+
+The tabs component includes full accessibility support:
+
+- **Keyboard Navigation**: Use arrow keys, Home, End, Page Up, and Page Down to navigate
+- **ARIA Attributes**: Proper `role="tablist"` and related ARIA attributes
+- **Focus Management**: Automatic focus management when switching tabs
+- **Screen Reader Support**: Proper labeling and state announcements
+
+### Keyboard Shortcuts
+
+- **Right Arrow**: Move to next tab
+- **Left Arrow**: Move to previous tab
+- **Home**: Move to first tab
+- **End**: Move to last tab
+- **Page Up**: Move to first tab
+- **Page Down**: Move to last tab
+
+## Component Structure
+
+The tabs component consists of three main parts:
+
+1. **`<x-ui.tabs>`** - The root container
+2. **`<x-ui.tab.group>`** - Contains the tab buttons
+3. **`<x-ui.tab>`** - Individual tab buttons
+4. **`<x-ui.tab.panel>`** - Tab content panels
+
+## Component Props
+
+### Main Tabs Component (`<x-ui.tabs>`)
+
+| Prop Name | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `variant` | string | `'default'` | No | Visual variant of the tabs |
+| `size` | string | `'default'` | No | Size variant of the tabs |
+| `activeTab` | string/int | `null` | No | Initially active tab (name or index) |
+| `wire:model` | string | - | No | Livewire property to bind to |
+| `x-model` | string | - | No | Alpine.js property to bind to |
+| `class` | string | `''` | No | Additional CSS classes |
+
+### Tab Group Component (`<x-ui.tab.group>`)
+
+| Prop Name | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `variant` | string | `'default'` | No | Visual variant inherited from parent |
+| `class` | string | `''` | No | Additional CSS classes use `justify-center, justify-start, justify-end` for alignment control |
+
+### Tab Index Component (`<x-ui.tab>`)
+
+| Prop Name | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `label` | string | `null` | No | Tab label text (alternative to slot) |
+| `name` | string | `null` | No | Tab identifier (for named tabs) |
+| `variant` | string | `'default'` | No | Visual variant inherited from parent |
+| `class` | string | `''` | No | Additional CSS classes |
+
+### Tab Panel Component (`<x-ui.tab.panel>`)
+
+| Prop Name | Type | Default | Required | Description |
+|-----------|------|---------|----------|-------------|
+| `name` | string | `null` | No | Panel identifier (must match tab name) |
+| `variant` | string | `'default'` | No | Visual variant inherited from parent |
+| `class` | string | `''` | No | Additional CSS classes |
