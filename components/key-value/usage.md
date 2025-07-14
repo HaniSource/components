@@ -12,7 +12,7 @@ The `key-value-input` component provides a powerful and flexible way to handle k
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         class="max-w-2xl"
         wire:model="configurations" 
         label="Configuration Settings"
@@ -21,7 +21,7 @@ The `key-value-input` component provides a powerful and flexible way to handle k
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="configurations" 
     label="Configuration Settings"
 />
@@ -36,7 +36,7 @@ Customize the labels and placeholders for keys and values.
 @blade
 <x-demo>
     <div class="max-w-2xl w-full space-y-6">
-        <x-ui.key-value-input 
+        <x-ui.key-value.ref 
             wire:model="envVars" 
             label="Environment Variables"
             key-label="Variable Name"
@@ -44,7 +44,7 @@ Customize the labels and placeholders for keys and values.
             key-placeholder="e.g., NODE_ENV"
             value-placeholder="e.g., production"
         />
-        <x-ui.key-value-input 
+        <x-ui.key-value.ref 
             wire:model="metadata" 
             label="Application Metadata"
             key-label="Property"
@@ -57,7 +57,7 @@ Customize the labels and placeholders for keys and values.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="envVars" 
     label="Environment Variables"
     key-label="Variable Name"
@@ -74,14 +74,14 @@ Control the minimum and maximum number of rows.
 @blade
 <x-demo>
     <div class="max-w-2xl w-full space-y-6">
-        <x-ui.key-value-input 
+        <x-ui.key-value.ref 
             wire:model="requiredSettings" 
             label="Required Settings (2-5 rows)"
             :min-rows="2"
             :max-rows="5"
             :required="true"
         />
-        <x-ui.key-value-input 
+        <x-ui.key-value.ref 
             wire:model="optionalSettings" 
             label="Optional Settings (0-10 rows)"
             :min-rows="0"
@@ -92,14 +92,14 @@ Control the minimum and maximum number of rows.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="requiredSettings" 
     label="Required Settings (2-5 rows)"
     :min-rows="2"
     :max-rows="5"
     :required="true"
 />
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="optionalSettings" 
     label="Optional Settings (0-10 rows)"
     :min-rows="0"
@@ -115,7 +115,7 @@ Set validation rules and constraints to ensure data quality.
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="validatedConfig" 
         label="Validated Configuration"
         :prevent-duplicate-keys="true"
@@ -126,7 +126,7 @@ Set validation rules and constraints to ensure data quality.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="validatedConfig" 
     label="Validated Configuration"
     :prevent-duplicate-keys="true"
@@ -141,7 +141,7 @@ Enable powerful bulk operations for efficient data management.
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="bulkConfig" 
         label="Configuration with Bulk Operations"
         :show-bulk-actions="true"
@@ -151,7 +151,7 @@ Enable powerful bulk operations for efficient data management.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="bulkConfig" 
     label="Configuration with Bulk Operations"
     :show-bulk-actions="true"
@@ -165,7 +165,7 @@ Control which row management features are available.
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="managedRows" 
         label="Full Row Management"
         :show-reorder="true"
@@ -176,7 +176,7 @@ Control which row management features are available.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="managedRows" 
     label="Full Row Management"
     :show-reorder="true"
@@ -191,7 +191,7 @@ Create a minimal interface by hiding advanced features.
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="simpleConfig" 
         label="Simple Configuration"
         :show-reorder="false"
@@ -202,7 +202,7 @@ Create a minimal interface by hiding advanced features.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="simpleConfig" 
     label="Simple Configuration"
     :show-reorder="false"
@@ -217,7 +217,7 @@ Create a minimal interface by hiding advanced features.
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="disabledConfig" 
         label="Disabled Configuration"
         :disabled="true"
@@ -226,7 +226,7 @@ Create a minimal interface by hiding advanced features.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="disabledConfig" 
     label="Disabled Configuration"
     :disabled="true"
@@ -239,7 +239,7 @@ Apply custom validation rules to ensure data integrity.
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="strictConfig" 
         label="Strict Validation"
         key-validation="required|string|max:50|alpha_dash"
@@ -251,7 +251,7 @@ Apply custom validation rules to ensure data integrity.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="strictConfig" 
     label="Strict Validation"
     key-validation="required|string|max:50|alpha_dash"
@@ -267,7 +267,7 @@ Enable JSON import and export functionality for easy data management.
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="jsonConfig" 
         label="JSON Import/Export Configuration"
         :show-bulk-actions="true"
@@ -276,7 +276,7 @@ Enable JSON import and export functionality for easy data management.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="jsonConfig" 
     label="JSON Import/Export Configuration"
     :show-bulk-actions="true"
@@ -293,7 +293,7 @@ Users can reorder rows by dragging and dropping them when reordering is enabled.
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="reorderableConfig" 
         label="Reorderable Configuration"
         :show-reorder="true"
@@ -302,7 +302,7 @@ Users can reorder rows by dragging and dropping them when reordering is enabled.
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="reorderableConfig" 
     label="Reorderable Configuration"
     :show-reorder="true"
@@ -356,7 +356,7 @@ Apply custom styling with CSS class props:
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="styledConfig" 
         label="Custom Styled Configuration"
         container-class="border-2 border-blue-200"
@@ -368,7 +368,7 @@ Apply custom styling with CSS class props:
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="styledConfig" 
     label="Custom Styled Configuration"
     container-class="border-2 border-blue-200"
@@ -383,7 +383,7 @@ Apply custom styling with CSS class props:
 Customize error message appearance:
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="errorConfig" 
     label="Custom Error Styling"
     error-class="text-red-600 font-medium text-sm mt-2"
@@ -396,7 +396,7 @@ Customize error message appearance:
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="envVariables" 
         label="Environment Variables"
         key-label="Variable Name"
@@ -411,7 +411,7 @@ Customize error message appearance:
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="envVariables" 
     label="Environment Variables"
     key-label="Variable Name"
@@ -428,7 +428,7 @@ Customize error message appearance:
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="httpHeaders" 
         label="HTTP Headers"
         key-label="Header Name"
@@ -443,7 +443,7 @@ Customize error message appearance:
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="httpHeaders" 
     label="HTTP Headers"
     key-label="Header Name"
@@ -460,7 +460,7 @@ Customize error message appearance:
 
 @blade
 <x-demo>
-    <x-ui.key-value-input 
+    <x-ui.key-value.ref 
         wire:model="appMetadata" 
         label="Application Metadata"
         key-label="Property"
@@ -475,7 +475,7 @@ Customize error message appearance:
 @endblade
 
 ```html
-<x-ui.key-value-input 
+<x-ui.key-value.ref 
     wire:model="appMetadata" 
     label="Application Metadata"
     key-label="Property"
