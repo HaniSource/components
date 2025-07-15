@@ -211,7 +211,7 @@ When a form is submitted or a targeted method is triggered, the button will auto
 </x-demo>
 @endblade
 
-```blade
+```html
 <x-ui.button size="xs" loading/>
 <div class="ml-2">
     <x-ui.button loading/>

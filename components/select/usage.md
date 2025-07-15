@@ -29,8 +29,8 @@ php artisan fluxtor:install select
 ### Real-world Example
 @blade
 <x-demo>
-    <div class="grid gap-6 md:grid-cols-2">
-        <x-components::ui.card size="lg">
+    <div class="grid gap-6 md:grid-cols-[1fr_auto_1fr]">
+        <div>
             <x-components::ui.heading level="h3" class="mb-4">User Role Selection</x-components::ui.heading>
             <x-components::ui.select 
                 label="Select Role" 
@@ -44,8 +44,9 @@ php artisan fluxtor:install select
                     <x-ui.select.option value="viewer" icon="eye">Viewer</x-ui.select.option>
                     <x-ui.select.option value="guest" icon="user">Guest</x-ui.select.option>
             </x-components::ui.select>
-        </x-components::ui.card>
-        <x-components::ui.card size="lg">
+        </div>
+        <x-ui.separator vertical label="And"/>
+        <div>
             <x-components::ui.heading level="h3" class="mb-4">Technology Stack</x-components::ui.heading>
             <x-components::ui.select 
                 label="Select Technologies" 
@@ -62,7 +63,7 @@ php artisan fluxtor:install select
                     <x-ui.select.option value="tailwind" icon="paint-brush">Tailwind CSS</x-ui.select.option>
                     <x-ui.select.option value="alpine" icon="variable">Alpine.js</x-ui.select.option>
             </x-components::ui.select>
-        </x-components::ui.card>
+        </div>
     </div>
 </x-demo>
 @endblade
@@ -220,7 +221,7 @@ Allow users to select multiple options with visual feedback.
         <x-ui.select.option value="react" icon="cube">React</x-ui.select.option>
         <x-ui.select.option value="vue" icon="sparkles">Vue.js</x-ui.select.option>
         <x-ui.select.option value="laravel" icon="academic-cap">Laravel</x-ui.select.option>
-</x-ui.select>
+</x-ui.select>reduxui
 ```
 
 ### Searchable Multiple Selection
@@ -371,11 +372,24 @@ The select component supports the following keyboard interactions:
 ## Customization
 
 ### Custom Trigger Classes
+@blade
+<x-demo>
+    <x-ui.select 
+        label="Custom Styled" 
+        triggerClass="bg-blue-300!  border-blue-500! text-gray-800! focus:border-blue-500"
+        placeholder="Choose option..."
+        >
+        <x-ui.select.option value="option1">Option 1</x-ui.select.option>
+        <x-ui.select.option value="option2">Option 2</x-ui.select.option>
+    </x-ui.select>
+
+</x-demo>
+@endblade
 
 ```html
 <x-ui.select 
     label="Custom Styled" 
-    triggerClass="bg-blue-50 border-blue-200 focus:border-blue-500"
+    {+triggerClass="bg-blue-300!  border-blue-500! text-gray-800! focus:border-blue-500"+}
     placeholder="Choose option..."
     wire:model="customValue">
         <x-ui.select.option value="option1">Option 1</x-ui.select.option>
@@ -383,16 +397,31 @@ The select component supports the following keyboard interactions:
 </x-ui.select>
 ```
 
-### Custom Option Icons
+### Custom Option Icons 
+@blade
+<x-demo>
+    <x-ui.select 
+        label="Priority Level" 
+        placeholder="Select priority..."
+        checkIcon="check-badge"
+        wire:model="priority">
+            <x-ui.select.option value="high" icon="exclamation-triangle" >High Priority</x-ui.select.option>
+            <x-ui.select.option value="medium" icon="minus-circle">Medium Priority</x-ui.select.option>
+            <x-ui.select.option value="low" icon="chevron-down">Low Priority</x-ui.select.option>
+    </x-ui.select>
+
+</x-demo>
+@endblade
 
 ```html
 <x-ui.select 
     label="Priority Level" 
     placeholder="Select priority..."
+    {+checkIcon="check-badge"+}
     wire:model="priority">
-        <x-ui.select.option value="high" icon="exclamation-triangle" checkIcon="star">High Priority</x-ui.select.option>
-        <x-ui.select.option value="medium" icon="minus-circle" checkIcon="check">Medium Priority</x-ui.select.option>
-        <x-ui.select.option value="low" icon="chevron-down" checkIcon="check">Low Priority</x-ui.select.option>
+        <x-ui.select.option value="high" icon="exclamation-triangle" >High Priority</x-ui.select.option>
+        <x-ui.select.option value="medium" icon="minus-circle">Medium Priority</x-ui.select.option>
+        <x-ui.select.option value="low" icon="chevron-down">Low Priority</x-ui.select.option>
 </x-ui.select>
 ```
 
@@ -400,24 +429,26 @@ The select component supports the following keyboard interactions:
 
 ### Select Component
 
-| Prop Name       | Type    | Default              | Required | Description                                                          |
-| --------------- | ------- | -------------------- | -------- | -------------------------------------------------------------------- |
-| `name`          | string  | `wire:model`         | No       | Name attribute (auto-detected from wire:model)                      |
-| `label`         | string  | `''`                 | No       | Label text displayed above the select                                |
-| `placeholder`   | string  | `'select...'`        | No       | Placeholder text for the trigger button                             |
-| `description`   | string  | `''`                 | No       | Helper text displayed below the select                               |
-| `variant`       | string  | `'native'`           | No       | Visual variant (currently only `native` supported)                  |
-| `error`         | string  | `''`                 | No       | Error message to display                                             |
-| `searchable`    | boolean | `false`              | No       | Whether to enable search functionality                               |
-| `filter`        | boolean | `false`              | No       | Whether to enable filtering (legacy prop)                           |
-| `multiple`      | boolean | `false`              | No       | Whether to allow multiple selections                                 |
-| `clearable`     | boolean | `false`              | No       | Whether to show a clear button                                       |
-| `disabled`      | boolean | `false`              | No       | Whether the select is disabled                                       |
-| `icon`          | string  | `''`                 | No       | Leading icon name                                                    |
-| `iconTrailing`  | string  | `'chevron-up-down'`  | No       | Trailing icon name                                                   |
-| `invalid`       | boolean | `null`               | No       | Whether to show invalid/error state styling                          |
-| `triggerClass`  | string  | `''`                 | No       | Additional CSS classes for the trigger button                        |
-| `slot`          | mixed   | `''`                 | Yes      | Select options using `<x-ui.select.option>` components              |
+| Prop Name        | Type    | Default              | Required | Description                                                          |
+| ---------------  | ------- | -------------------- | -------- | -------------------------------------------------------------------- |
+| `name`           | string  | `wire:model`         | No       | Name attribute (auto-detected from wire:model)                       |
+| `label`          | string  | `''`                 | No       | Label text displayed above the select                                |
+| `placeholder`    | string  | `'select...'`        | No       | Placeholder text for the trigger button                              |
+| `description`    | string  | `''`                 | No       | Helper text displayed below the select                               |
+| `variant`        | string  | `'native'`           | No       | Visual variant (currently only `native` supported)                   |
+| `error`          | string  | `''`                 | No       | Error message to display                                             |
+| `searchable`     | boolean | `false`              | No       | Whether to enable search functionality                               |
+| `filter`         | boolean | `false`              | No       | Whether to enable filtering (legacy prop)                            |
+| `multiple`       | boolean | `false`              | No       | Whether to allow multiple selections                                 |
+| `clearable`      | boolean | `false`              | No       | Whether to show a clear button                                       |
+| `disabled`       | boolean | `false`              | No       | Whether the select is disabled                                       |
+| `icon`           | string  | `''`                 | No       | Leading icon name                                                    |
+| `checkIcon`      | string  | `check`              | No       | Icon shown when option is selected                                   |
+| `checkIconClass` | string  | `''`                 | No       | Additional CSS classes for the check icon                            |
+| `iconTrailing`   | string  | `'chevron-up-down'`  | No       | Trailing icon name                                                   |
+| `invalid`        | boolean | `null`               | No       | Whether to show invalid/error state styling                          |
+| `triggerClass`   | string  | `''`                 | No       | Additional CSS classes for the trigger button                        |
+| `slot`           | mixed   | `''`                 | Yes      | Select options using `<x-ui.select.option>` components               |
 
 ### Select Option Component
 
@@ -425,8 +456,6 @@ The select component supports the following keyboard interactions:
 | ---------------- | ------ | ------- | -------- | ----------------------------------------------------- |
 | `value`          | string | `''`    | Yes      | Value of the option                                   |
 | `label`          | string | `null`  | No       | Label for the option (defaults to slot content)      |
-| `checkIcon`      | string | `check` | No       | Icon shown when option is selected                    |
-| `checkIconClass` | string | `''`    | No       | Additional CSS classes for the check icon             |
 | `icon`           | string | `''`    | No       | Leading icon for the option                           |
 | `iconClass`      | string | `''`    | No       | Additional CSS classes for the option icon            |
 | `slot`           | mixed  | `''`    | No       | Option content (used as value if no value specified)  |
