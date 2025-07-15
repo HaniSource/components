@@ -41,7 +41,7 @@ Customize the labels and placeholders for keys and values.
             label="Environment Variables"
             key-label="Variable Name"
             value-label="Variable Value"
-            key-placeholder="e.g., NODE_ENV"
+            key-placeholder="e.g., env"
             value-placeholder="e.g., production"
         />
         <x-ui.key-value.ref 
