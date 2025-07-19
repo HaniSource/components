@@ -12,7 +12,7 @@ The `theme-switcher` component provides a fully accessible, responsive, and cust
 ## Basic Usage
 
 @blade 
-<x-demo>
+<x-demo class="flex items-center justify-center">
     <x-ui.theme-switcher variant="dropdown"/> 
 </x-demo>
 @endblade
@@ -30,7 +30,7 @@ The component supports three visual layouts:
 Displays the theme switcher as a dropdown menu with the current theme icon as a button.
 
 @blade 
-<x-demo>
+<x-demo class="flex items-center justify-center">
     <x-ui.theme-switcher variant="dropdown" /> 
 </x-demo>
 @endblade
@@ -44,7 +44,7 @@ Displays the theme switcher as a dropdown menu with the current theme icon as a 
 Displays a toggle button for dark/light themes. Automatically selects based on system preference if the `system` theme is active.
 
 @blade 
-<x-demo>
+<x-demo class="flex items-center justify-center">
     <x-ui.theme-switcher variant="stacked" />
 </x-demo>
 @endblade
@@ -58,7 +58,7 @@ Displays a toggle button for dark/light themes. Automatically selects based on s
 Displays all three theme options as inline buttons.
 
 @blade 
-<x-demo>
+<x-demo class="flex items-center justify-center">
     <x-ui.theme-switcher variant="inline" />
 </x-demo>
 @endblade
@@ -72,14 +72,26 @@ Displays all three theme options as inline buttons.
 ### Icons
 
 You can customize the icons used for each theme:
+@blade 
+<x-demo class="flex items-center justify-center">
+    <x-ui.theme-switcher 
+        variant="stacked"
+        dark-icon="bug-ant"
+        light-icon="light-bulb"
+        system-icon="command-line"
+    />
+</x-demo>
+@endblade
 
 ```html
 <x-ui.theme-switcher
-    dark-icon="moon"
-    light-icon="sun"
-    system-icon="computer-desktop"
+    variant="stacked" 
+    dark-icon="bug-ant"
+    light-icon="light-bulb"
+    system-icon="command-line"
 />
 ```
+>  This features applies to all theme-switcher variants: dropdown, stacked, inline
 
 ### Icon Variants
 
