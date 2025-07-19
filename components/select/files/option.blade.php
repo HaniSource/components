@@ -13,7 +13,7 @@
 
 
 <li class="contents col-span-full" x-show="isItemShow(@js($value))">
-    <button x-on:mouseenter="$el.focus()" x-bind:value="@js($value)" variant="none" x-on:click="select(@js($value))"
+    <button x-on:mouseenter="$el.focus()" x-bind:value="@js($value)" x-on:click="select(@js($value))"
         :class="{
             'bg-gray-100 dark:bg-white/5 [&>[data-slot=icon]]:opacity-100': isSelected(@js($value))
         }"
