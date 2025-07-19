@@ -11,8 +11,10 @@ The `theme-switcher` component provides a fully accessible, responsive, and cust
 
 ## Basic Usage
 
-@blade <x-demo>
-<x-ui.theme-switcher variant="dropdown"/> </x-demo>
+@blade 
+<x-demo>
+    <x-ui.theme-switcher variant="dropdown"/> 
+</x-demo>
 @endblade
 
 ```html
@@ -27,8 +29,10 @@ The component supports three visual layouts:
 
 Displays the theme switcher as a dropdown menu with the current theme icon as a button.
 
-@blade <x-demo>
-<x-ui.theme-switcher variant="dropdown" /> </x-demo>
+@blade 
+<x-demo>
+    <x-ui.theme-switcher variant="dropdown" /> 
+</x-demo>
 @endblade
 
 ```html
@@ -39,8 +43,10 @@ Displays the theme switcher as a dropdown menu with the current theme icon as a 
 
 Displays a toggle button for dark/light themes. Automatically selects based on system preference if the `system` theme is active.
 
-@blade <x-demo>
-<x-ui.theme-switcher variant="stacked" /> </x-demo>
+@blade 
+<x-demo>
+    <x-ui.theme-switcher variant="stacked" />
+</x-demo>
 @endblade
 
 ```html
@@ -51,8 +57,10 @@ Displays a toggle button for dark/light themes. Automatically selects based on s
 
 Displays all three theme options as inline buttons.
 
-@blade <x-demo>
-<x-ui.theme-switcher variant="inline" /> </x-demo>
+@blade 
+<x-demo>
+    <x-ui.theme-switcher variant="inline" />
+</x-demo>
 @endblade
 
 ```html
@@ -83,49 +91,72 @@ Control icon style using the `icon-variant` prop (e.g., `mini`, `outline`, etc.)
 
 ## JavaScript Behavior
 
-this component is cames based 100% with scripts that happens when running 
+This component is fully driven by JavaScript logic, which is automatically wired up when you run using `fluxtor/cli`:
 
 ```shell
 php artisan fluxtor:init
 ```
 
-if some how you want this to work, copy this script into you `resources/js/app.js`
+If you want to manually enable this behavior or integrate it into your existing build pipeline, copy the following snippet into your ``resources/js/app.js`` (or equivalent entry point):
 
 ```js
-// other imports 
+// Other imports...
 import themeSwitcher from "./components/themeSwitcher";
 
-//....
-
+// Initialize Alpine with themeSwitcher on alpine:init event
 document.addEventListener("alpine:init", themeSwitcher);
 ```
 
-this is how ``themeSwitcher`` file should looks like 
+Here’s a canonical example of the ``resources/js/components/themeSwitcher.js`` module implementing the logic used by the component:
+
+```js
+export default () => {
+    
+    const theme = localStorage.getItem("theme") ?? "system";
+
+    window.Alpine.store(
+        "theme",
+        theme === "dark" ||
+            (theme === "system" &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ? "dark"
+            : "light"
+    );
+
+    window.addEventListener("theme-changed", (event) => {
+        let theme = event.detail;
+
+        localStorage.setItem("theme", theme);
+
+        if (theme === "system") {
+            theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+        }
+
+        window.Alpine.store("theme", theme);
+    });
+
+    window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+            if (localStorage.getItem("theme") === "system") {
+                window.Alpine.store("theme", event.matches ? "dark" : "light");
+            }
+        });
+
+    window.Alpine.effect(() => {
+        const theme = window.Alpine.store("theme");
+
+        theme === "dark"
+            ? document.documentElement.classList.add("dark")
+            : document.documentElement.classList.remove("dark");
+    });
+}
+```
 
 The component uses Alpine.js internally and listens to `theme-changed` events. It stores the theme selection in `localStorage` and optionally applies the system preference if `theme == 'system'`.
 
-### Alpine State
-
-```js
-{
-  theme: null,
-  init() {
-    this.theme = localStorage.getItem('theme')
-    this.$watch('theme', () => {
-        $dispatch('theme-changed', this.theme)
-    })
-  },
-  setTheme(val) {
-    this.theme = val
-  },
-  themeIs(mode) {
-    return this.theme === mode
-  },
-  toggleTheme() {
-    this.theme === 'dark' ? this.setTheme('light') : this.setTheme('dark')
-  }
-}
-```
 
 
 ## Component Props
