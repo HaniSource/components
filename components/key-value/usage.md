@@ -421,7 +421,7 @@ The component is fully accessible with:
 | `show-duplicate` | boolean | `true` | No | Show duplicate row button |
 | `show-top-bar` | boolean | `true` | No | Show top toolbar |
 | `add-button-text` | string | `'Add Row'` | No | Text for add button |
-| `key-validation` | string | `'required|string|max:255'` | No | Validation rules for keys |
-| `value-validation` | string | `'nullable|string|max:1000'` | No | Validation rules for values |
+| `key-validation` | string | `'required/string/max:255'` | No | Validation rules for keys |
+| `value-validation` | string | `'nullable/string/max:1000'` | No | Validation rules for values |
 | `container-class` | string | `''` | No | Additional CSS classes for container |
 | `class` | string | `''` | No | Additional CSS classes for root element |
