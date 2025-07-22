@@ -346,6 +346,5 @@ Monitor input changes in real-time with Alpine.js effects.
 ## Technical Notes
 
 - Uses `queueMicrotask()` to prevent race conditions during DOM updates
-- Implements proper cleanup with `unset()` for memory management  
 - Synchronizes external state changes automatically
 - Handles edge cases like partial pastes and invalid character filtering
