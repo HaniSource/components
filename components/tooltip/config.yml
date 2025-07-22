@@ -1,0 +1,3 @@
+files:
+  index: resources/views/components/ui/tooltip/index.blade.php
+  content: resources/views/components/ui/tooltip/content.blade.php
