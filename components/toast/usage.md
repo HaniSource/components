@@ -155,9 +155,9 @@ class CreatePost extends Component
 window.dispatchEvent(
     new CustomEvent('notify', {
         detail: {
-            type: 'success', // or 'info', 'error'
+            type: 'success',
             content: 'This is a success message!',
-            duration: 3000 // duration in milliseconds
+            duration: 3000 
         }
     })
 );
