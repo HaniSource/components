@@ -40,199 +40,9 @@ This component listens to a global `notify` event, enabling toast triggering fro
     Show Success Toast
   </button>
 </div>
-````
-### How To Use 
-
-1. **Global Placement** Add the ``<x-ui.toast/>``component to your ``layouts/app.blade.php`` or any global layout to ensure it is available across your application.
-
-```html
-<body>
-    {{ $slot }}
-    <x-ui.toast/> <------------------------
-</body>
-```
-2. **Triggering Notifications** Dispatch a global ``notify`` event with the desired ``type``, ``content``, and ``duration`` from anywhere in your application.
-
-##### Use With Alpine.js 
-
-```html
-<button
-    @click="$dispatch('notify', {
-        type: 'success',
-        content: 'This is a success toast!',
-        duration: 3000,
-    })"
->
-    Show Success Toast
-</button>
-
-```
-###### Multiple Notification Types:
-there is 3 supported types of notifications
-
-```html
-<div 
-    x-data 
-    class="flex items-center justify-center gap-1"
->
-    <button 
-        x-on:click="$dispatch('notify',{
-            type: 'success',
-            content:'this is taost component',
-            duration: 4000
-        })"
-        class="py-2 px-4 bg-white/15 rounded-xl text-white"
-    >
-    success toast
-    </button>
-    <button 
-        x-on:click="$dispatch('notify',{
-            type: 'info',
-            content:'this is taost component',
-            duration: 4000
-        })"
-        class="py-2 px-4 bg-white/15 rounded-xl text-white"
-    >
-    info toast
-    </button>
-    <button 
-        x-on:click="$dispatch('notify',{
-            type: 'error',
-            content:'this is taost component',
-            duration: 4000
-        })"
-        class="py-2 px-4 bg-white/15 rounded-xl text-white"
-    >
-    error toast
-    </button>
-</div>
-```
-##### Use With Livewire
-you can use livewire to show the toast, here is an example 
-
-```php
-use Livewire\Component;
- 
-class CreatePost extends Component
-{
-    public function save()
-    {
-        // ...
- 
-        $this->dispatch('notify',
-            type: 'success',
-            content:'post saved successfully',
-            duration: 4000
-        ); 
-    }
-}
 ```
 
-##### Use Raw Javascript
-
-```js
-window.dispatchEvent(
-    new CustomEvent('notify', {
-        detail: {
-            type: 'success', // or 'info', 'error'
-            content: 'This is a success message!',
-            duration: 3000 // duration in milliseconds
-        }
-    })
-);
-```
-
-
-Place the toast container somewhere in your page (usually root layout):
-
-```blade
-<x-ui.toast position="bottom-right" maxToasts="5" />
-```
-
----
-
-## Component Props
-
-| Prop Name   | Type    | Default          | Required | Description                                                 |
-| ----------- | ------- | ---------------- | -------- | ----------------------------------------------------------- |
-| `position`  | string  | `'bottom-right'` | No       | Toast container position (`bottom-right`, `top-left`, etc.) |
-| `maxToasts` | integer | `5`              | No       | Maximum number of concurrent visible toasts                 |
-
-## Toast Types and Styling
-
-Supports types:
-
-* `info`
-* `success`
-* `error`
-* `warning`
-
-Each type has its own colors and icons for light and dark modes, using Tailwind and color-mix for theme consistency.
-
-## Customization
-
-### Positioning
-
-Set the toast container position:
-
-```html
-<x-ui.toast position="top-left" />
-```
-
-### Max Toasts
-
-Control maximum visible toasts via `maxToasts` prop:
-
-```blade
-<x-ui.toast maxToasts="3" />
-```
-
-## Features
-
-### Auto Dismiss with Progress Bar
-
-Toasts dismiss automatically after a duration (default 4000ms). Progress bar shows remaining time.
-
-### Hover to Pause
-
-Hover pauses dismissal and progress animation.
-
-### Keyboard Accessible Close Button
-
-Each toast has an accessible close button with ARIA labels.
-
-### Global Event Triggering
-
-Dispatch the `notify` event anywhere:
-
-<!-- @blade
-<script>
-    window.dispatchEvent(new CustomEvent('notify', {
-    detail: {
-        type: 'error',
-        content: 'Failed to save data',
-        duration: 7000,
-        showProgress: true
-    }
-    }));
-</script>
-@endblade -->
-
-```html
-<script>
-window.dispatchEvent(new CustomEvent('notify', {
-  detail: {
-    type: 'error',
-    content: 'Failed to save data',
-    duration: 7000,
-    showProgress: true
-  }
-}));
-</script>
-```
-
-## Example
-
+## Variants
 @blade
 <x-demo>
 <div 
@@ -297,5 +107,109 @@ window.dispatchEvent(new CustomEvent('notify', {
         Warning
     </button>
 </div>
-
 ```
+### How To Use 
+
+Place the toast container somewhere in your page (usually root layout):
+
+```blade
+<x-ui.toast position="bottom-right" maxToasts="5" />
+```
+#### Use With Livewire
+you can use livewire to show the toast, here is an example 
+
+```php
+use Livewire\Component;
+ 
+class CreatePost extends Component
+{
+    public function save()
+    {
+        // ...
+ 
+        $this->dispatch('notify',
+            type: 'success',
+            content:'post saved successfully',
+            duration: 4000
+        ); 
+    }
+}
+```
+#### Use With Alpine.js 
+
+```html
+<button
+    @click="$dispatch('notify', {
+        type: 'success',
+        content: 'This is a success toast!',
+        duration: 3000,
+    })"
+>
+    Show Success Toast
+</button>
+```
+
+#### Use Raw Javascript
+
+```js
+window.dispatchEvent(
+    new CustomEvent('notify', {
+        detail: {
+            type: 'success', // or 'info', 'error'
+            content: 'This is a success message!',
+            duration: 3000 // duration in milliseconds
+        }
+    })
+);
+```
+
+
+
+
+
+## Toast Types and Styling
+
+Supports types:
+
+* `info`
+* `success`
+* `error`
+* `warning`
+
+Each type has its own colors and icons for light and dark modes, using Tailwind and color-mix for theme consistency.
+
+## Customization
+
+### Positioning
+
+Set the toast container position:
+
+```html
+<x-ui.toast position="top-left" />
+```
+
+### Max Toasts
+
+Control maximum visible toasts via `maxToasts` prop:
+
+```blade
+<x-ui.toast maxToasts="3" />
+```
+
+
+
+
+### Notes
+
+Toasts dismiss automatically after a duration (default 4000ms). Progress bar shows remaining time.
+Hover pauses dismissal and progress animation.
+
+
+
+
+## Component Props
+
+| Prop Name   | Type    | Default          | Required | Description                                                 |
+| ----------- | ------- | ---------------- | -------- | ----------------------------------------------------------- |
+| `position`  | string  | `'bottom-right'` | No       | Toast container position (`bottom-right`, `top-left`, etc.) |
+| `maxToasts` | integer | `5`              | No       | Maximum number of concurrent visible toasts                 |
