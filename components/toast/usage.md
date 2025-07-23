@@ -57,7 +57,7 @@ This component listens to a global `notify` event, enabling toast triggering fro
     </button>
     <button 
         x-on:click="$dispatch('notify', { type: 'info', content:'Info toast', duration: 6000 })"
-        class="py-2 px-4 bg-white dark:bg-white/5 cursor-pointer rounded-xl dark:text-white text-gray-500"
+        class="py-2 px-4 bg-gray-300 dark:bg-white/5 cursor-pointer rounded-xl dark:text-white text-gray-500"
     >
         Info
     </button>
