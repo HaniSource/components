@@ -27,14 +27,10 @@ The `otp` component provides a secure and user-friendly way to handle One-Time P
 ### Bind To Livewire
 
 To use with Livewire you need to only use `wire:model="code"` to bind your OTP state:
-
 ```php
-<?php
-use function Livewire\Volt\{layout, state};
-
-layout('components.layouts.workshop');
-state(['verificationCode' => null]);
-?>
+<!--
+    this asume you have $verificationCode in your class component
+-->
 
 <div class="max-w-md mx-auto">
     <x-ui.otp 
@@ -55,7 +51,7 @@ You can use it outside Livewire with just Alpine (with Blade):
 </div>
 ```
 
-Because we're making this possible using the `x-modelable` API, so you can't use `state` as a variable name because the component uses it internally.
+Because we're making this possible using (like) the `x-modelable` API, so you can't use `state` as a variable name because the component uses it internally.
 
 ## Customization
 
@@ -106,6 +102,85 @@ Control the number of input fields with the `length` parameter.
 />
 ```
 
+### Sloted Inputs
+you can pass the individual inputs as a slot and you tweack it as you need 
+
+> note we're using `<x-ui.otp.input>` not the native input 
+ 
+@blade
+<x-demo>
+    <div 
+        x-data="{
+            code: null,
+        }" 
+        class="max-w-md mx-auto">
+        <x-ui.otp x-model="code">
+            <x-ui.otp.input class="rounded-full m-2" />
+            <x-ui.otp.input class="rounded-full m-2"/>
+            <x-ui.otp.input class="rounded-full m-2"/>
+            <x-ui.otp.input class="rounded-full m-2"/>
+            <x-ui.otp.input class="rounded-full m-2"/>
+        </x-ui.otp>    
+    </div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.otp
+    wire:model="code"
+>
+    <x-ui.otp.input class="rounded-full m-2" />
+    <x-ui.otp.input class="rounded-full m-2"/>
+    <x-ui.otp.input class="rounded-full m-2"/>
+    <x-ui.otp.input class="rounded-full m-2"/>
+    <x-ui.otp.input class="rounded-full m-2"/>
+</x-ui.otp>    
+```
+
+
+### Separator 
+
+@blade
+<x-demo>
+    <div 
+        x-data="{
+            code: null,
+        }" 
+        class="max-w-md mx-auto">
+        <x-ui.otp x-model="code">
+            <x-ui.otp.input />
+            <x-ui.otp.input  />
+            <x-ui.otp.separator/>
+            <x-ui.otp.input />
+            <x-ui.otp.input />
+            <x-ui.otp.separator/>
+            <x-ui.otp.input />
+            <x-ui.otp.input />
+        </x-ui.otp>    
+    </div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.otp
+    wire:model="code"
+>
+    <x-ui.otp.input />
+    <x-ui.otp.input/>
+    
+    <x-ui.otp.separator/>
+    
+    <x-ui.otp.input />
+    <x-ui.otp.input />
+    
+    <x-ui.otp.separator/>
+    
+    <x-ui.otp.input />
+    <x-ui.otp.input />
+</x-ui.otp>    
+```
+
+
 ### Input Types and Validation
 
 Control what characters are allowed with different input types and patterns.
@@ -141,6 +216,7 @@ Control what characters are allowed with different input types and patterns.
 </x-demo>
 @endblade
 
+
 ```html
 <x-ui.otp 
     wire:model="numericCode"
@@ -157,30 +233,6 @@ Control what characters are allowed with different input types and patterns.
     type="text"
     allowedPattern="[A-Za-z]"
 />
-```
-
-### Custom Input Design
-
-Provide complete control over individual input styling using slots.
-
-@blade
-<x-demo x-data="{ customCode: null }">
-    <x-ui.otp x-model="customCode">
-        <x-ui.otp.input class="w-12 h-12 text-center border-2 border-blue-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" />
-        <x-ui.otp.input class="w-12 h-12 text-center border-2 border-blue-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" />
-        <x-ui.otp.input class="w-12 h-12 text-center border-2 border-blue-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" />
-        <x-ui.otp.input class="w-12 h-12 text-center border-2 border-blue-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200" />
-    </x-ui.otp>
-</x-demo>
-@endblade
-
-```html
-<x-ui.otp wire:model="customCode">
-    <x-ui.otp.input class="w-12 h-12 text-center border-2 border-blue-300 rounded-lg" />
-    <x-ui.otp.input class="w-12 h-12 text-center border-2 border-blue-300 rounded-lg" />
-    <x-ui.otp.input class="w-12 h-12 text-center border-2 border-blue-300 rounded-lg" />
-    <x-ui.otp.input class="w-12 h-12 text-center border-2 border-blue-300 rounded-lg" />
-</x-ui.otp>
 ```
 
 ## Advanced Features
@@ -230,42 +282,51 @@ Monitor input changes in real-time with Alpine.js effects.
 
 @blade
 <x-demo>
-    <div x-data="{
-        code: null,
-        isValid: false,
-        init() {
+    <div 
+        x-data="{
+            code: null,
+            isValid: false,
+        }"
+        x-init="
             queueMicrotask(() => {
                 Alpine.effect(() => {
-                    this.isValid = this.code && this.code.length === 4;
-                    console.log('Code:', this.code, 'Valid:', this.isValid);
+                   console.log('here')
+                    isValid = code && code.length === 4;
                 });
             });
-        }
-    }">
+        "
+    >
         <label class="block text-sm font-medium mb-2">Enter 4-digit code</label>
         <x-ui.otp x-model="code" />
         <div class="mt-2">
-            <span x-show="isValid" class="text-green-600 text-sm">✓ Valid code entered</span>
-            <span x-show="!isValid" class="text-red-600 text-sm">Please enter a complete 4-digit code</span>
+            <span x-show="isValid" style="display: none;" class="text-green-600 text-sm">✓ Valid code entered</span>
+            <span x-show="!isValid" style="display: none;" class="text-red-600 text-sm">Please enter a complete 4-digit code</span>
         </div>
     </div>
 </x-demo>
 @endblade
 
 ```html
-<div x-data="{
-    code: null,
-    isValid: false,
-    init() {
-        queueMicrotask(() => {
+<div 
+    x-data="{
+        code: null,
+        isValid: false,
+    }"
+    x-init="
+         queueMicrotask(() => {
             Alpine.effect(() => {
-                this.isValid = this.code && this.code.length === 4;
+                console.log('here')
+                isValid = code && code.length === 4;
             });
         });
-    }
-}">
+    "
+>
+    <label class="block text-sm font-medium mb-2">Enter 4-digit code</label>
     <x-ui.otp x-model="code" />
-    <div x-show="isValid" class="text-green-600">✓ Valid code</div>
+    <div class="mt-2">
+        <span x-show="isValid" style="display: none;" class="text-green-600 text-sm">✓ Valid code entered</span>
+        <span x-show="!isValid" style="display: none;" class="text-red-600 text-sm">Please enter a complete 4-digit code</span>
+    </div>
 </div>
 ```
 
@@ -282,26 +343,8 @@ Monitor input changes in real-time with Alpine.js effects.
 
 *Either `wire:model` or `x-model` is required
 
-## Accessibility Features
-
-The component includes comprehensive accessibility support:
-
-- **ARIA Labels**: Each input has a descriptive label like "Digit 1 of 4"
-- **Role Attribution**: Container has `role="group"` with appropriate label
-- **Keyboard Navigation**: Full support for arrow keys, backspace, and tab navigation
-- **Focus Management**: Automatic focus progression and proper focus indicators
-- **Screen Reader Support**: Announces current position and total length
-
-## Browser Compatibility
-
-- **Modern Browsers**: Full support in Chrome, Firefox, Safari, Edge
-- **Mobile**: Optimized for iOS Safari and Chrome Mobile
-- **Keyboard Input**: Full support for physical and virtual keyboards
-- **Paste Support**: Works across all major browsers and mobile devices
-
 ## Technical Notes
 
 - Uses `queueMicrotask()` to prevent race conditions during DOM updates
-- Implements proper cleanup with `unset()` for memory management  
 - Synchronizes external state changes automatically
 - Handles edge cases like partial pastes and invalid character filtering
