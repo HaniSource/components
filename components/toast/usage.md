@@ -165,8 +165,6 @@ window.dispatchEvent(
 
 
 
-
-
 ## Toast Types and Styling
 
 Supports types:
