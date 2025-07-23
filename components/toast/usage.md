@@ -13,17 +13,19 @@ This component listens to a global `notify` event, enabling toast triggering fro
 ## Basic Usage
 
 @blade
-<div x-data>
-  <button
-    x-on:click="$dispatch('notify', {
-      type: 'success',
-      content: 'Operation successful!',
-      duration: 6000
-    })"
-  >
-    Show Success Toast
-  </button>
-</div>
+<x-demo>
+    <div x-data class="flex items-center justify-center">
+    <x-ui.button
+        x-on:click="$dispatch('notify', {
+            type: 'success',
+            content: 'Operation successful!',
+            duration: 6000
+        })"
+    >
+        show notification
+    </x-ui.button>
+    </div>
+</x-demo>
 @endblade
 
 ```html
@@ -39,6 +41,107 @@ This component listens to a global `notify` event, enabling toast triggering fro
   </button>
 </div>
 ````
+### How To Use 
+
+1. **Global Placement** Add the ``<x-ui.toast/>``component to your ``layouts/app.blade.php`` or any global layout to ensure it is available across your application.
+
+```html
+<body>
+    {{ $slot }}
+    <x-ui.toast/> <------------------------
+</body>
+```
+2. **Triggering Notifications** Dispatch a global ``notify`` event with the desired ``type``, ``content``, and ``duration`` from anywhere in your application.
+
+##### Use With Alpine.js 
+
+```html
+<button
+    @click="$dispatch('notify', {
+        type: 'success',
+        content: 'This is a success toast!',
+        duration: 3000,
+    })"
+>
+    Show Success Toast
+</button>
+
+```
+###### Multiple Notification Types:
+there is 3 supported types of notifications
+
+```html
+<div 
+    x-data 
+    class="flex items-center justify-center gap-1"
+>
+    <button 
+        x-on:click="$dispatch('notify',{
+            type: 'success',
+            content:'this is taost component',
+            duration: 4000
+        })"
+        class="py-2 px-4 bg-white/15 rounded-xl text-white"
+    >
+    success toast
+    </button>
+    <button 
+        x-on:click="$dispatch('notify',{
+            type: 'info',
+            content:'this is taost component',
+            duration: 4000
+        })"
+        class="py-2 px-4 bg-white/15 rounded-xl text-white"
+    >
+    info toast
+    </button>
+    <button 
+        x-on:click="$dispatch('notify',{
+            type: 'error',
+            content:'this is taost component',
+            duration: 4000
+        })"
+        class="py-2 px-4 bg-white/15 rounded-xl text-white"
+    >
+    error toast
+    </button>
+</div>
+```
+##### Use With Livewire
+you can use livewire to show the toast, here is an example 
+
+```php
+use Livewire\Component;
+ 
+class CreatePost extends Component
+{
+    public function save()
+    {
+        // ...
+ 
+        $this->dispatch('notify',
+            type: 'success',
+            content:'post saved successfully',
+            duration: 4000
+        ); 
+    }
+}
+```
+
+##### Use Raw Javascript
+
+```js
+window.dispatchEvent(
+    new CustomEvent('notify', {
+        detail: {
+            type: 'success', // or 'info', 'error'
+            content: 'This is a success message!',
+            duration: 3000 // duration in milliseconds
+        }
+    })
+);
+```
+
 
 Place the toast container somewhere in your page (usually root layout):
 
@@ -131,36 +234,37 @@ window.dispatchEvent(new CustomEvent('notify', {
 ## Example
 
 @blade
-
+<x-demo>
 <div 
     x-data
     class="flex items-center justify-center gap-2"
 >
     <button 
         x-on:click="$dispatch('notify', { type: 'success', content:'Success toast', duration: 6000 })"
-        class="py-2 px-4 bg-green-500/15 rounded-xl dark:text-white text-green-500"
+        class="py-2 px-4 bg-green-500/15 cursor-pointer rounded-xl dark:text-white text-green-500"
     >
         Success
     </button>
     <button 
         x-on:click="$dispatch('notify', { type: 'info', content:'Info toast', duration: 6000 })"
-        class="py-2 px-4 bg-white rounded-xl dark:text-white text-gray-500"
+        class="py-2 px-4 bg-white dark:bg-white/5 cursor-pointer rounded-xl dark:text-white text-gray-500"
     >
         Info
     </button>
     <button 
         x-on:click="$dispatch('notify', { type: 'error', content:'Error toast', duration: 6000 })"
-        class="py-2 px-4 bg-red-500/15 rounded-xl dark:text-white text-red-500"
+        class="py-2 px-4 bg-red-500/15 cursor-pointer rounded-xl dark:text-white text-red-500"
     >
         Error
     </button>
     <button 
         x-on:click="$dispatch('notify', { type: 'warning', content:'Warning toast', duration: 6000 })"
-        class="py-2 px-4 bg-yellow-500/15 rounded-xl dark:text-white text-yellow-500"
+        class="py-2 px-4 bg-yellow-500/15 cursor-pointer rounded-xl dark:text-white text-yellow-500"
     >
         Warning
     </button>
 </div>
+</x-demo>
 @endblade
 
 ```html
