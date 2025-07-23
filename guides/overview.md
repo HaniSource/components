@@ -30,18 +30,18 @@ Each Fluxtor component consists of:
 - **Documentation**: Usage examples and API reference
 
 ### Design System
+
 Fluxtor includes a comprehensive theming system that supports:
+
 - Light and dark mode with automatic system preference detection
 - Customizable color palettes and design tokens
 - Consistent spacing, typography, and component variants
-- Seamless Tailwind CSS integration
 
 ### Integration Patterns
+
 Components are designed to work seamlessly with:
-- Laravel's Blade component system
-- Livewire for server-side reactivity
-- Alpine.js stores for global state management
-- Laravel's validation and form handling
+- Laravel's native Blade component system
+- with laravel livewire
 
 ## Getting Started
 
@@ -49,33 +49,35 @@ Components are designed to work seamlessly with:
 Use the Fluxtor CLI to add components to your Laravel project:
 
 ```bash
-npx fluxtor-cli@latest add button
-npx fluxtor-cli@latest add card
-npx fluxtor-cli@latest add form-input
+php artisan fluxtor:add button
+php artisan fluxtor:add tags-input
+php artisan fluxtor:add ...
 ```
+
+> our handy `cli we do it best to do all setup needed for you for every component`
 
 ### Basic Usage
 Once installed, components work like standard Blade components:
 
 ```blade
-<x-fluxtor::button variant="primary" size="lg">
+<x-ui.button variant="primary" size="lg">
     Click me
-</x-fluxtor::button>
+</x-ui.button>
 
-<x-fluxtor::card>
+<x-ui.card>
     <x-slot name="header">
         Card Title
     </x-slot>
     
     Card content goes here
-</x-fluxtor::card>
+</x-ui.card>
 ```
 
 ### Customization
 Since components live in your codebase, you can modify them directly:
 
 ```blade
-{{-- resources/views/components/fluxtor/button.blade.php --}}
+{{-- resources/views/components/ui/button.blade.php --}}
 <button 
     {{ $attributes->merge([
         'class' => 'your-custom-classes ' . $baseClasses
@@ -85,48 +87,17 @@ Since components live in your codebase, you can modify them directly:
 </button>
 ```
 
-## Component Categories
 
-### Form Components
-- Input fields with validation states
-- Select dropdowns and multi-select
-- Checkboxes and radio buttons
-- File upload components
-- Form validation integration
 
-### Navigation
-- Navigation bars and menus
-- Breadcrumbs and pagination
-- Tabs and step indicators
-- Sidebar and mobile navigation
-
-### Data Display
-- Tables with sorting and filtering
-- Cards and media objects
-- Lists and grids
-- Charts and data visualization
-
-### Feedback
-- Alerts and notifications
-- Loading states and skeletons
-- Progress bars and indicators
-- Empty states and error pages
-
-### Overlay
-- Modals and dialogs
-- Tooltips and popovers
-- Dropdown menus
-- Sheet and drawer components
-
-## Best Practices
-
-### Component Organization
+## Component Organization
 
 fluxtor put all blade component inside `resources/views/ui/components`
 
 we choose keeping all component under `ui` namespace
 
-- we make component managment isolated and 
+- we make component managment isolated for future updates
+- that `ui` namespace gives the fealing of chunks in ui ....
+- latestly we like how `shadcn/ui` adapt this pattern
 
 ```
 resources/views/components/ui/
