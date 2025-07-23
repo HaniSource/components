@@ -8,23 +8,22 @@ use App\Models;
 use App\Support\Highlighter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use stdClass;
 
 final class BronzeSearch extends Component
 {
-    const CLASSES = 'text-violet-500 font-semibold';
+    public const CLASSES = 'text-violet-500 font-semibold';
+
     public string $search = '';
 
-    public function getResults():Collection
+    public function getResults(): Collection
     {
         $search = trim($this->search);
 
         if (empty($search)) {
             return new Collection();
         }
-
 
         $results = $this
             ->baseQuery()
@@ -47,7 +46,7 @@ final class BronzeSearch extends Component
         return $results;
     }
 
-    public function getUrl($slug):string 
+    public function getUrl($slug): string
     {
         return route('components.show', $slug);
     }

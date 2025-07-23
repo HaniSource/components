@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace App\Livewire\Search;
 
-use stdClass;
 use App\Models;
-use Livewire\Component;
-use Livewire\Attributes\Layout;
-use Illuminate\Support\Collection;
 use App\Support\Highlighter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Collection;
+use Livewire\Component;
+use stdClass;
 
 final class SimpleSearch extends Component
 {
-    const CLASSES = 'text-violet-500 font-semibold';
+    public const CLASSES = 'text-violet-500 font-semibold';
+
     public string $search = '';
 
     public function getResults(): Collection
@@ -25,11 +25,10 @@ final class SimpleSearch extends Component
             return new Collection();
         }
 
-
         $results = $this
             ->baseQuery()
             ->select('id', 'name', 'slug')
-            ->where('name', 'like', '%' . $search . '%')
+            ->where('name', 'like', '%'.$search.'%')
             ->get()
             ->map(function ($component) use ($search) {
                 $result = new stdClass();
