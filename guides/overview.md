@@ -29,7 +29,6 @@ You own it. You control it. You ship it.
 * Everything is plain Blade, Alpine, and Tailwind—nothing more
 * No build step. No lock-in. No surprises.
 
----
 
 ## Architecture
 
@@ -61,7 +60,6 @@ Fluxtor includes a fully themeable system with:
 * Custom color palettes, spacing, and typography
 * Utility-first design with consistency baked in
 
----
 
 ## Integration Patterns
 
@@ -69,7 +67,6 @@ Fluxtor includes a fully themeable system with:
 * Built with **Alpine** and **Livewire compatibility**
 * No extra config or boilerplate—just copy, use, extend
 
----
 
 ## Getting Started
 
@@ -125,7 +122,6 @@ This ensures:
 * **Scannable structure** as your library grows
 * **A consistent mental model** inspired by `shadcn/ui`
 
----
 
 ## Theming
 
@@ -158,7 +154,6 @@ Since you own every component you install, **you can contribute improvements bac
 * Performance enhancements
 * Real-world use cases
 
----
 
 ## Next Steps
 
@@ -167,7 +162,6 @@ Since you own every component you install, **you can contribute improvements bac
 * [Component Reference](/docs/components) – Browse all available UI blocks
 * [Need Help?](/docs/help) – Get unstuck fast
 
----
 
 ## TL;DR:
 
