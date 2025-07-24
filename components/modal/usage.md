@@ -97,11 +97,11 @@ class CreatePost extends Component
 
 > see a deeper look at [modal store](#contents-deeper-look-at-modal-store) below
 
-### Customization
+
 #### Position
 by default the modal is alignement vertically to top but you can also make it at center or bottom
 
-##### Center
+#### Center
 @blade 
 <x-demo>
     <!-- BOTTOM POSITION TRIGGER -->
@@ -172,9 +172,45 @@ by default the modal is alignement vertically to top but you can also make it at
     <p>Modal content goes here...</p>
 </x-ui.modal> 
 ```
-##### Bottom
+#### Bottom
 
+### Slideover
+you can transform the overlay modal to a slideover using `$slideover` prop
 
+@blade 
+<x-demo>
+    <x-ui.modal.trigger id="slideover-demo" class="my-4">
+        <x-ui.button>
+            Open
+        </x-ui.button>
+    </x-ui.modal.trigger>
+    <x-ui.modal
+        id="slideover-demo"
+        heading="Basic Modal"
+        description="This is a simple modal example"
+        slideover
+    >
+        <p>Modal content goes here...</p>
+    </x-ui.modal> 
+</x-demo>
+@endblade
+
+```blade
+<x-ui.modal.trigger id="basic-modal">
+    <x-ui.button>
+        Open
+    </x-ui.button>
+</x-ui.modal.trigger>
+
+<x-ui.modal 
+    id="basic-modal"
+    heading="Basic Modal"
+    description="This is a simple modal example"
+    slideover
+>
+    <p>Modal content goes here...</p>
+</x-ui.modal>
+```
 
 ### Deeper Look at `$modal` Store
 
