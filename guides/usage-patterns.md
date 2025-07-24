@@ -1,8 +1,8 @@
 ---
-name: usage
+name: usage patterns
 ---
 
-## About Usage
+## About State Binding In livewire and Blade with Alpinejs
 
 We built Fluxtor to work out of the box with typical Laravel apps no big JavaScript frameworks required. Just Blade, Alpine, and optionally Livewire.
 
@@ -118,3 +118,50 @@ So what’s going on?
 - Then anytime `state` changes, we push it back to the external model (`x-model` or `wire:model`) using `set()`
 
 This pattern gives us full control without breaking Livewire or Blade compatibility. It’s how we make components that are truly reusable, reactive, and enjoyable to work with no matter your setup.
+
+## About Design
+
+As a team working on this amazing project, we’ve defined a few essential rules to guide how we design and manage component styles, especially when it comes to handling **variants**.
+
+### Rule #1: Use `data-slot` for Core Elements
+
+Every essential element inside a component gets a `data-slot="..."` attribute. For example:
+
+* `data-slot="tabs-group"`
+* `data-slot="tabs-item"`
+* `data-slot="tabs-panel"`
+
+This pattern was inspired by [Adam Wathan’s talk at Laracon](https://www.youtube.com/watch?v=MrzrSFbxW7M), where he broke down how to build scalable UI libraries.
+
+In our case, this convention has been a game changer—especially for managing *multiple variants* of the same component in a clean, CSS-first way.
+
+For instance, take our [Tabs](/docs/tabs) component. When the tabs group is left- or right-aligned, we want to dynamically remove panel rounding based on whether the active tab is the **first** or **last** item.
+
+Now here’s the catch: we don’t use any JS, no custom props, no extra logic—just pure CSS selectors made possible by the `data-slot` attributes.
+
+Here’s a real example for the `outlined` variant:
+
+```php
+$classes = match($variant){
+    'outlined' => [
+        'dark:text-gray-200 text-gray-800 rounded-3xl',
+
+        // If tabs are left-aligned and the first tab is active, remove top-left rounding from the panels
+        '[&:has(:first-child[data-slot=tabs-group].justify-start_>_:first-child[data-active=true])_[data-slot=tabs-panel]]:rounded-tl-none',
+
+        // Same, but on :focus or :hover
+        '[&:has(:first-child[data-slot=tabs-group].justify-start_>_:first-child:is(:focus,:hover))_[data-slot=tabs-panel]]:rounded-tl-none',
+
+        // If tabs are right-aligned and the last tab is active, remove top-right rounding from the panels
+        '[&:has(:first-child[data-slot=tabs-group].justify-end_>_:last-child[data-active=true])_[data-slot=tabs-panel]]:rounded-tr-none',
+
+        // Same, but on :focus or :hover
+        '[&:has(:first-child[data-slot=tabs-group].justify-end_>_:last-child:is(:focus,:hover))_[data-slot=tabs-panel]]:rounded-tr-none',
+    ],
+    ...
+};
+```
+
+This approach gives us precise visual behavior based on context—without bloating the codebase or adding unnecessary logic.
+
+That’s the power of clean structural patterns and smart selectors. Adam Wathan isn't watching over your shoulder—but this kind of thinking is exactly what he meant.
