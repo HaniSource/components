@@ -216,21 +216,21 @@ by default the modal uses small blur effect as backdrop, in addition you choose 
 
 @blade 
 <x-demo>
-    <!-- BOTTOM POSITION TRIGGER -->
     <div class="flex gap-2 justify-center">
+    <!-- TRANSPARENT BACKDROP TRIGGER -->
     <x-ui.modal.trigger id="transparent-backdrop" class="my-4">
         <x-ui.button>
             transparent backdrop
         </x-ui.button>
     </x-ui.modal.trigger>
-    <!-- BOTTOM POSITION TRIGGER -->
+    <!-- DARK BACKDROP TRIGGER -->
     <x-ui.modal.trigger id="dark-backdrop" class="my-4">
         <x-ui.button>
             dark backdrop
         </x-ui.button>
     </x-ui.modal.trigger>
     </div>
-    <!-- CENTER POSITION MODAL -->
+    <!-- DARK BACKDROP MODAL -->
     <x-ui.modal
         id="transparent-backdrop"
         backdrop="transparent"
@@ -239,7 +239,7 @@ by default the modal uses small blur effect as backdrop, in addition you choose 
     >
         <p>Modal content goes here...</p>
     </x-ui.modal> 
-    <!-- BOTTOM POSITION TRIGGER -->
+    <!-- TRANSPARENT BACKDROP MODAL -->
     <x-ui.modal
         id="dark-backdrop"
         backdrop="dark"
@@ -284,7 +284,7 @@ by default the modal uses small blur effect as backdrop, in addition you choose 
     <p>Modal content goes here...</p>
 </x-ui.modal> 
 ```
-
+need custom backdrop effect, you own the code go tweack for your needs
 
 
 ### Deeper Look at `$modal` Store
