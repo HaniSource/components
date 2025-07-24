@@ -211,6 +211,81 @@ you can transform the overlay modal to a slideover using `$slideover` prop
     <p>Modal content goes here...</p>
 </x-ui.modal>
 ```
+### Backdrop
+by default the modal uses small blur effect as backdrop, in addition you choose between ``transparent``, and ``dark`` variants
+
+@blade 
+<x-demo>
+    <!-- BOTTOM POSITION TRIGGER -->
+    <div class="flex gap-2 justify-center">
+    <x-ui.modal.trigger id="transparent-backdrop" class="my-4">
+        <x-ui.button>
+            transparent backdrop
+        </x-ui.button>
+    </x-ui.modal.trigger>
+    <!-- BOTTOM POSITION TRIGGER -->
+    <x-ui.modal.trigger id="dark-backdrop" class="my-4">
+        <x-ui.button>
+            dark backdrop
+        </x-ui.button>
+    </x-ui.modal.trigger>
+    </div>
+    <!-- CENTER POSITION MODAL -->
+    <x-ui.modal
+        id="transparent-backdrop"
+        backdrop="transparent"
+        heading="Basic Modal"
+        description="This is a simple modal example"
+    >
+        <p>Modal content goes here...</p>
+    </x-ui.modal> 
+    <!-- BOTTOM POSITION TRIGGER -->
+    <x-ui.modal
+        id="dark-backdrop"
+        backdrop="dark"
+        heading="Basic Modal"
+        description="This is a simple modal example"
+    >
+        <p>Modal content goes here...</p>
+    </x-ui.modal> 
+</x-demo>
+@endblade
+
+```blade
+<div class="flex gap-2 justify-center">
+    <x-ui.modal.trigger id="center-position" class="my-4">
+        <x-ui.button>
+            trigger transparent backdrop
+        </x-ui.button>
+    </x-ui.modal.trigger>
+    <!-- BOTTOM POSITION TRIGGER -->
+    <x-ui.modal.trigger id="bottom-position" class="my-4">
+        <x-ui.button>
+            trigger dark backdrop 
+        </x-ui.button>
+    </x-ui.modal.trigger>
+</div>
+    <!-- CENTER POSITION MODAL -->
+<x-ui.modal
+    id="center-position"
+    {+backdrop="transparent"+}
+    heading="Basic Modal"
+    description="This is a simple modal example"
+>
+    <p>Modal content goes here...</p>
+</x-ui.modal> 
+<!-- BOTTOM POSITION TRIGGER -->
+<x-ui.modal
+    id="bottom-position"
+    {+backdrop="dark"+}
+    heading="Basic Modal"
+    description="This is a simple modal example"
+>
+    <p>Modal content goes here...</p>
+</x-ui.modal> 
+```
+
+
 
 ### Deeper Look at `$modal` Store
 
