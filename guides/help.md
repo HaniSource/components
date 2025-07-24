@@ -9,9 +9,9 @@ You're in the right place. Whether you're debugging a component, confused about 
 
 ---
 
-## 🔍 Self-Help Resources
+##  Self-Help Resources
 
-### 📘 Documentation
+###  Documentation
 
 Before anything else, check the official docs:
 
@@ -22,16 +22,7 @@ Before anything else, check the official docs:
 
 Every component includes real Blade examples, slot/prop references, and customization notes.
 
-### 🧪 Troubleshooting Basics
-
-* ✅ Check that your component was added via the CLI
-* ✅ Ensure you’re using `@props()` if you edited the file
-* ✅ Confirm Alpine is loaded globally in your layout
-* ✅ Verify your Tailwind config has the needed classes (especially custom tokens)
-
----
-
-## 💬 Community Support
+##  Community Support
 
 ### Discord (coming soon)
 
@@ -39,7 +30,7 @@ Join our Fluxtor Discord where the core team and contributors hang out. Ask ques
 
 ### GitHub Discussions
 
-Open a thread in [Fluxtor Discussions](https://github.com/fluxtorphp/discussions) if you:
+Open a thread in [Fluxtor Discussions](https://github.com/orgs/fluxtorphp/discussions) if you:
 
 * Want feedback on a new component idea
 * Are unsure how to implement something complex
@@ -47,9 +38,8 @@ Open a thread in [Fluxtor Discussions](https://github.com/fluxtorphp/discussions
 
 > please don't share the code of premium components 
 
----
 
-## 🛠 Reporting Bugs
+##  Reporting Bugs
 
 Found something broken?
 
@@ -59,11 +49,10 @@ Found something broken?
 
 [Submit a bug →](https://github.com/fluxtorphp/issues)
 
-## ❓Still Stuck?
+## Still Stuck?
 
 Shoot us a message on Twitter [@fluxtor_ui](https://twitter.com/fluxtor_ui) or email us at [support@fluxtor.dev](mailto:support@fluxtor.dev). We're builders too and we want you unblocked.
 
----
 
 ## TL;DR
 
