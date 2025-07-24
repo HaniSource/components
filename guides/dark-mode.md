@@ -173,7 +173,7 @@ Test your components in all three theme modes:
 Ensure localStorage is available and not blocked by privacy settings.
 
 ### Flickering on Load
-Make sure the flicker prevention script runs before any content renders.
+Make sure the flicker prevention script runs before any content renders and also leverage using livewire nivation events.
 
 ### System Theme Not Detected
 Verify that the `prefers-color-scheme` media query is supported in your target browsers.

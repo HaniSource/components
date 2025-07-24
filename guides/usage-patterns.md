@@ -133,11 +133,11 @@ Every essential element inside a component gets a `data-slot="..."` attribute. F
 
 This pattern was inspired by [Adam Wathan’s talk at Laracon](https://www.youtube.com/watch?v=MrzrSFbxW7M), where he broke down how to build scalable UI libraries.
 
-In our case, this convention has been a game changer—especially for managing *multiple variants* of the same component in a clean, CSS-first way.
+In our case, this convention has been a game changer especially for managing *multiple variants* of the same component in a clean, CSS-first way.
 
 For instance, take our [Tabs](/docs/tabs) component. When the tabs group is left- or right-aligned, we want to dynamically remove panel rounding based on whether the active tab is the **first** or **last** item.
 
-Now here’s the catch: we don’t use any JS, no custom props, no extra logic—just pure CSS selectors made possible by the `data-slot` attributes.
+Now here’s the catch: we don’t use any JS, no custom props, no extra logic just pure CSS selectors made possible by the `data-slot` attributes.
 
 Here’s a real example for the `outlined` variant:
 
@@ -162,6 +162,10 @@ $classes = match($variant){
 };
 ```
 
-This approach gives us precise visual behavior based on context—without bloating the codebase or adding unnecessary logic.
+that's all driven by css selectors in specific cretarias 
 
-That’s the power of clean structural patterns and smart selectors. Adam Wathan isn't watching over your shoulder—but this kind of thinking is exactly what he meant.
+### Rule #2: Hover States
+
+<!-- @todo -->
+
+### Rule #3: 
