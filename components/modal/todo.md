@@ -12,9 +12,9 @@
 
 ### 2. **Scroll Handling**
 
-* [ ] Body scroll lock (for nested modals too)
-* [ ] Handle iOS-specific quirks with `-webkit-overflow-scrolling`
-* [ ] When modal opens, prevent layout shift (scrollbar compensation)
+* [x] Body scroll lock (for nested modals too)
+* [x] Handle iOS-specific quirks with `-webkit-overflow-scrolling`
+* [x] When modal opens, prevent layout shift (scrollbar compensation)
 
 ---
 
@@ -59,7 +59,7 @@
   * or `query string` (`?modal=contact`)
 * [ ] Restore state on reload if persisted
 
----
+---0
 
 ### 8. **Modals in Modals / Forms in Modals**
 

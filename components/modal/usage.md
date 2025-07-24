@@ -476,7 +476,7 @@ Create modals that cannot be closed by clicking away or pressing escape:
             Open Persistent Modal
         </x-ui.button>
     </x-ui.modal.trigger>
-    
+    <!-- MODAL -->
     <x-ui.modal
         id="persistent-modal"
         persistent
@@ -501,62 +501,6 @@ Create modals that cannot be closed by clicking away or pressing escape:
 ```
 
 ## Custom Headers and Footers
-
-### Custom Header
-
-Replace the default header with your own content:
-
-@blade 
-<x-demo>
-    <x-ui.modal.trigger id="custom-header-modal" class="my-4">
-        <x-ui.button>
-            Custom Header Modal
-        </x-ui.button>
-    </x-ui.modal.trigger>
-    
-    <x-ui.modal id="custom-header-modal">
-        <x-slot name="header">
-            <div class="flex items-center justify-between w-full">
-                <div class="flex items-center space-x-3">
-                    <div class="bg-blue-100 p-2 rounded-full">
-                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold text-gray-900">Custom Header</h3>
-                        <p class="text-sm text-gray-500">With icon and custom styling</p>
-                    </div>
-                </div>
-                <x-ui.button x-on:click="$data.close();" variant="none" icon-after="x-mark" />
-            </div>
-        </x-slot>
-        
-        <p>This modal has a completely custom header with an icon and custom layout.</p>
-    </x-ui.modal>
-</x-demo>
-@endblade
-
-```blade
-<x-ui.modal id="custom-header-modal">
-    <x-slot name="header">
-        <div class="flex items-center justify-between w-full">
-            <div class="flex items-center space-x-3">
-                <div class="bg-blue-100 p-2 rounded-full">
-                    <!-- Your custom icon -->
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold">Custom Header</h3>
-                    <p class="text-sm text-gray-500">With custom styling</p>
-                </div>
-            </div>
-            <x-ui.button x-on:click="$data.close();" variant="none" icon-after="x-mark" />
-        </div>
-    </x-slot>
-    
-    <p>Modal content goes here...</p>
-</x-ui.modal>
-```
 
 ### Custom Footer
 
@@ -687,7 +631,7 @@ Control the text alignment within your modal:
             <x-ui.button size="sm">Right Align</x-ui.button>
         </x-ui.modal.trigger>
     </div>
-    
+    <!--  -->
     <x-ui.modal
         id="left-align-modal"
         alignment="left"
@@ -697,7 +641,7 @@ Control the text alignment within your modal:
         <p>This content is left-aligned (default behavior).</p>
         <p>Great for regular content and reading flow.</p>
     </x-ui.modal>
-    
+    <!--  -->
     <x-ui.modal
         id="center-align-modal"
         alignment="center"
@@ -707,7 +651,7 @@ Control the text alignment within your modal:
         <p>This content is center-aligned.</p>
         <p>Perfect for announcements or symmetric layouts.</p>
     </x-ui.modal>
-    
+    <!--  -->
     <x-ui.modal
         id="right-align-modal"
         alignment="right"
@@ -849,80 +793,6 @@ The modal component includes comprehensive accessibility support:
     heading="Accessible Modal"
 >
     <p>This modal has enhanced accessibility features</p>
-</x-ui.modal>
-```
-
-## Confirmation Modal Example
-
-Here's a complete example of a confirmation modal pattern:
-
-@blade 
-<x-demo>
-    <x-ui.button x-on:click="$modal.open('delete-confirmation')" variant="danger">
-        Delete Item
-    </x-ui.button>
-    
-    <x-ui.modal
-        id="delete-confirmation"
-        width="md"
-        persistent
-        alignment="center"
-    >
-        <div class="text-center">
-            <div class="mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-red-100 mb-4">
-                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                </svg>
-            </div>
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Delete Item</h3>
-            <p class="text-gray-600 mb-6">Are you sure you want to delete this item? This action cannot be undone.</p>
-        </div>
-        
-        <x-slot name="footer">
-            <div class="flex space-x-3 justify-center w-full">
-                <x-ui.button x-on:click="$data.close();" variant="outline" class="flex-1">
-                    Cancel
-                </x-ui.button>
-                <x-ui.button x-on:click="$data.close(); /* Add your delete logic here */" variant="danger" class="flex-1">
-                    Delete
-                </x-ui.button>
-            </div>
-        </x-slot>
-    </x-ui.modal>
-</x-demo>
-@endblade
-
-```blade
-<x-ui.button x-on:click="$modal.open('delete-confirmation')" variant="danger">
-    Delete Item
-</x-ui.button>
-
-<x-ui.modal
-    id="delete-confirmation"
-    width="md"
-    persistent
-    alignment="center"
->
-    <div class="text-center">
-        <div class="mx-auto flex items-center justify-center w-12 h-12 rounded-full bg-red-100 mb-4">
-            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-            </svg>
-        </div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">Delete Item</h3>
-        <p class="text-gray-600 mb-6">Are you sure you want to delete this item? This action cannot be undone.</p>
-    </div>
-    
-    <x-slot name="footer">
-        <div class="flex space-x-3 justify-center w-full">
-            <x-ui.button x-on:click="$data.close();" variant="outline" class="flex-1">
-                Cancel
-            </x-ui.button>
-            <x-ui.button x-on:click="handleDelete()" variant="danger" class="flex-1">
-                Delete
-            </x-ui.button>
-        </div>
-    </x-slot>
 </x-ui.modal>
 ```
 
@@ -1175,20 +1045,5 @@ The `<x-ui.modal.trigger>` component provides a convenient way to create modal t
     Delete
 </x-ui.button>
 ```
-
-## Migration Guide
-
-If you're upgrading from a previous version, here are the key changes:
-
-### Breaking Changes
-- The `icon` and `iconColor` props have been commented out in the current version
-- Event names are now customizable via props
-
-### New Features
-- Sticky headers and footers
-- Custom animation types
-- Enhanced accessibility support
-- Improved backdrop options
-- Better text alignment control
 
 This modal component provides the perfect balance of simplicity and power, making it easy to create beautiful, accessible modals while giving you complete control over behavior and appearance.
