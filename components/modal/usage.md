@@ -97,6 +97,84 @@ class CreatePost extends Component
 
 > see a deeper look at [modal store](#contents-deeper-look-at-modal-store) below
 
+### Customization
+#### Position
+by default the modal is alignement vertically to top but you can also make it at center or bottom
+
+##### Center
+@blade 
+<x-demo>
+    <!-- BOTTOM POSITION TRIGGER -->
+    <div class="flex gap-2 justify-center">
+    <x-ui.modal.trigger id="center-position" class="my-4">
+        <x-ui.button>
+            Center Modal Trigger
+        </x-ui.button>
+    </x-ui.modal.trigger>
+    <!-- BOTTOM POSITION TRIGGER -->
+    <x-ui.modal.trigger id="bottom-position" class="my-4">
+        <x-ui.button>
+            Bottom Modal Trigger
+        </x-ui.button>
+    </x-ui.modal.trigger>
+    </div>
+    <!-- CENTER POSITION MODAL -->
+    <x-ui.modal
+        id="center-position"
+        position="center"
+        heading="Basic Modal"
+        description="This is a simple modal example"
+    >
+        <p>Modal content goes here...</p>
+    </x-ui.modal> 
+    <!-- BOTTOM POSITION TRIGGER -->
+    <x-ui.modal
+        id="bottom-position"
+        position="bottom"
+        heading="Basic Modal"
+        description="This is a simple modal example"
+    >
+        <p>Modal content goes here...</p>
+    </x-ui.modal> 
+</x-demo>
+@endblade
+
+```blade
+<div class="flex gap-2 justify-center">
+    <x-ui.modal.trigger id="center-position" class="my-4">
+        <x-ui.button>
+            Center Modal Trigger
+        </x-ui.button>
+    </x-ui.modal.trigger>
+    <!-- BOTTOM POSITION TRIGGER -->
+    <x-ui.modal.trigger id="bottom-position" class="my-4">
+        <x-ui.button>
+            Bottom Modal Trigger
+        </x-ui.button>
+    </x-ui.modal.trigger>
+</div>
+    <!-- CENTER POSITION MODAL -->
+<x-ui.modal
+    id="center-position"
+    {+position="center"+}
+    heading="Basic Modal"
+    description="This is a simple modal example"
+>
+    <p>Modal content goes here...</p>
+</x-ui.modal> 
+<!-- BOTTOM POSITION TRIGGER -->
+<x-ui.modal
+    id="bottom-position"
+    {+position="bottom"+}
+    heading="Basic Modal"
+    description="This is a simple modal example"
+>
+    <p>Modal content goes here...</p>
+</x-ui.modal> 
+```
+##### Bottom
+
+
 
 ### Deeper Look at `$modal` Store
 
