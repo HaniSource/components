@@ -12,7 +12,7 @@ The `dropdown` component provides a powerful and accessible dropdown menu system
 <x-demo >
     <x-ui.dropdown>
         <x-slot:button class="justify-center">
-            <x-ui.button variant="outline">
+            <x-ui.button >
                 Actions
             </x-ui.button>
         </x-slot:button>
@@ -37,7 +37,7 @@ The `dropdown` component provides a powerful and accessible dropdown menu system
 ```html
 <x-ui.dropdown>
     <x-slot:button class="justify-center">
-        <x-ui.button variant="outline">
+        <x-ui.button >
             Actions
         </x-ui.button>
     </x-slot:button>
@@ -72,7 +72,7 @@ Add visual clarity with icons for better user experience.
 <x-demo >
     <x-ui.dropdown>
         <x-slot:button class="justify-center">
-            <x-ui.button variant="outline">
+            <x-ui.button >
                 Actions with Icons
             </x-ui.button>
         </x-slot:button>
@@ -97,7 +97,7 @@ Add visual clarity with icons for better user experience.
 ```html
 <x-ui.dropdown>
     <x-slot:button class="justify-center">
-        <x-ui.button variant="outline">
+        <x-ui.button >
             Actions with Icons
         </x-ui.button>
     </x-slot:button>
@@ -130,7 +130,7 @@ Display keyboard shortcuts for power users.
 <x-demo >
     <x-ui.dropdown>
         <x-slot:button class="justify-center">
-            <x-ui.button variant="outline">
+            <x-ui.button >
                 File Menu
             </x-ui.button>
         </x-slot:button>
@@ -155,7 +155,7 @@ Display keyboard shortcuts for power users.
 ```html
 <x-ui.dropdown>
     <x-slot:button class="justify-center">
-        <x-ui.button variant="outline">
+        <x-ui.button >
             File Menu
         </x-ui.button>
     </x-slot:button>
@@ -188,7 +188,7 @@ Create navigational items that link to other pages.
 <x-demo >
     <x-ui.dropdown>
         <x-slot:button class="justify-center">
-            <x-ui.button variant="outline">
+            <x-ui.button >
                 Navigation
             </x-ui.button>
         </x-slot:button>
@@ -210,7 +210,7 @@ Create navigational items that link to other pages.
 ```html
 <x-ui.dropdown>
     <x-slot:button class="justify-center">
-        <x-ui.button variant="outline">
+        <x-ui.button >
             Navigation
         </x-ui.button>
     </x-slot:button>
@@ -239,7 +239,7 @@ Temporarily disable certain actions while keeping them visible.
 <x-demo >
     <x-ui.dropdown>
         <x-slot:button class="justify-center">
-            <x-ui.button variant="outline">
+            <x-ui.button >
                 Mixed States
             </x-ui.button>
         </x-slot:button>
@@ -264,7 +264,7 @@ Temporarily disable certain actions while keeping them visible.
 ```html
 <x-ui.dropdown>
     <x-slot:button class="justify-center">
-        <x-ui.button variant="outline">
+        <x-ui.button >
             Mixed States
         </x-ui.button>
     </x-slot:button>
@@ -297,7 +297,7 @@ Use separators to group related items and create visual hierarchy.
 <x-demo >
     <x-ui.dropdown>
         <x-slot:button class="justify-center">
-            <x-ui.button variant="outline">
+            <x-ui.button >
                 Grouped Actions
             </x-ui.button>
         </x-slot:button>
@@ -327,7 +327,7 @@ Use separators to group related items and create visual hierarchy.
 ```html
 <x-ui.dropdown>
     <x-slot:button class="justify-center">
-        <x-ui.button variant="outline">
+        <x-ui.button >
             Grouped Actions
         </x-ui.button>
     </x-slot:button>
@@ -368,7 +368,7 @@ Use groups to organize related items with optional labels.
 <x-demo >
     <x-ui.dropdown>
         <x-slot:button class="justify-center">
-            <x-ui.button variant="outline">
+            <x-ui.button >
                 Grouped Menu
             </x-ui.button>
         </x-slot:button>
@@ -396,7 +396,7 @@ Use groups to organize related items with optional labels.
 ```html
 <x-ui.dropdown>
     <x-slot:button class="justify-center">
-        <x-ui.button variant="outline">
+        <x-ui.button >
             Grouped Menu
         </x-ui.button>
     </x-slot:button>
@@ -434,7 +434,7 @@ Control where the dropdown appears relative to the trigger button.
      <div class="flex gap-4 flex-wrap">
         <x-ui.dropdown position="bottom-center">
             <x-slot:button class="justify-center">
-                <x-ui.button variant="outline">
+                <x-ui.button >
                     Bottom Center
                 </x-ui.button>
             </x-slot:button>
@@ -446,7 +446,7 @@ Control where the dropdown appears relative to the trigger button.
         </x-ui.dropdown>
         <x-ui.dropdown position="bottom-start">
             <x-slot:button>
-                <x-ui.button variant="outline">
+                <x-ui.button >
                     Bottom Start
                 </x-ui.button>
             </x-slot:button>
@@ -458,7 +458,7 @@ Control where the dropdown appears relative to the trigger button.
         </x-ui.dropdown>
         <x-ui.dropdown position="bottom-end">
             <x-slot:button>
-                <x-ui.button variant="outline">
+                <x-ui.button >
                     Bottom End
                 </x-ui.button>
             </x-slot:button>
@@ -475,7 +475,7 @@ Control where the dropdown appears relative to the trigger button.
 ```html
 <x-ui.dropdown position="bottom-center">
     <x-slot:button class="justify-center">
-        <x-ui.button variant="outline">
+        <x-ui.button >
             Bottom Center
         </x-ui.button>
     </x-slot:button>
@@ -489,7 +489,7 @@ Control where the dropdown appears relative to the trigger button.
 
 <x-ui.dropdown position="bottom-start">
     <x-slot:button class="justify-center">
-        <x-ui.button variant="outline">
+        <x-ui.button >
             Bottom Start
         </x-ui.button>
     </x-slot:button>
@@ -510,7 +510,7 @@ Create hierarchical menus with nested items.
 <x-demo >
     <x-ui.dropdown position="bottom-start">
         <x-slot:button>
-            <x-ui.button variant="outline">
+            <x-ui.button >
                 File Menu
             </x-ui.button>
         </x-slot:button>
@@ -559,7 +559,7 @@ Create hierarchical menus with nested items.
 ```html
 <x-ui.dropdown position="bottom-start">
     <x-slot:button>
-        <x-ui.button variant="outline">
+        <x-ui.button >
             File Menu
         </x-ui.button>
     </x-slot:button>
@@ -624,7 +624,7 @@ Combine all features for sophisticated dropdown menus.
 <x-demo >
     <x-ui.dropdown position="bottom-start">
         <x-slot:button>
-            <x-ui.button variant="outline">
+            <x-ui.button >
                 Advanced Menu
             </x-ui.button>
         </x-slot:button>
@@ -685,7 +685,7 @@ Combine all features for sophisticated dropdown menus.
 ```html
 <x-ui.dropdown position="bottom-start">
     <x-slot:button>
-        <x-ui.button variant="outline">
+        <x-ui.button >
             Advanced Menu
         </x-ui.button>
     </x-slot:button>
