@@ -70,15 +70,7 @@ Create fieldsets without visible labels for simple grouping.
 
 ```html
 <x-ui.fieldset>
-    <x-ui.field required>
-        <x-ui.label>Username</x-ui.label>
-        <x-ui.input placeholder="johndoe" />
-    </x-ui.field>
-    
-    <x-ui.field required>
-        <x-ui.label>Password</x-ui.label>
-        <x-ui.input type="password" placeholder="••••••••" />
-    </x-ui.field>
+    <!-- no label prop pass throught -->
 </x-ui.fieldset>
 ```
 
