@@ -694,7 +694,7 @@ Customize or hide the close button:
     
     <x-ui.modal
         id="no-close-button-modal"
-        close-button="false"
+        :close-button="false"
         heading="No Close Button"
         description="Click outside to close"
     >
