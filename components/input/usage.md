@@ -17,6 +17,20 @@ the input component offers various utilities to capture different data from user
     <x-ui.input/>
 ```
 
+## With Forms
+
+## Label
+@blade
+<x-demo class="max-w-sm">
+    <x-components::ui.label/>
+    <x-components::ui.input/>
+</x-demo>
+@endblade
+
+```html
+    <x-ui.input/>
+```
+
 ## States
 
 ### Invalid
