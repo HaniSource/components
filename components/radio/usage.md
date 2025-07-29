@@ -419,7 +419,7 @@ Compact, rounded pill-style options that work well for tags, categories, or filt
 | `label` | `string` | `''` | The label text displayed above the radio group |
 | `required` | `boolean` | `false` | Whether the radio group is required for form submission |
 | `error` | `string` | `''` | Error message to display for validation |
-| `direction` | `string` | `''` | Layout direction. Use `'horizontal'` for horizontal layout, empty for vertical |
+| `direction` | `string` | `'vertical'` | Layout direction. Use `'horizontal'` for horizontal layout, `'vertical'` for vertical |
 | `disabled` | `boolean` | `false` | Whether the entire radio group is disabled |
 | `variant` | `string` | `'default'` | Visual style variant: `'default'`, `'segmented'`, `'cards'`, or `'pills'` |
 | `labelClass` | `string` | `''` | Additional CSS classes for the group label |
