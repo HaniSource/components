@@ -4,7 +4,9 @@ name: 'fieldset'
 
 ## Introduction
 
-The `fieldset` component provides a semantic and visually appealing way to group related form fields. It features automatic spacing management for nested fields, optional labeling with legend support, and consistent styling that works perfectly in both light and dark modes. Perfect for organizing complex forms into logical sections.
+The `fieldset` component provides a semantic and visually appealing way to group related form fields.
+
+> always use it with `field` component, it manage spacing properly.
 
 ## Basic Usage
 
