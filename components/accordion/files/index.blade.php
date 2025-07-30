@@ -1,7 +1,11 @@
+@props([
+    'reverse' => false
+])
+
 <div 
     x-data="{ active: null }" 
     {{ $attributes->merge([
-        'class'=>"w-full min-h-fit space-y-4 rounded-xl pb-4"
+        'class'=>"w-full flex flex-col"
     ]) }}
 >
     {{ $slot }}

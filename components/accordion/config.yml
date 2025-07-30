@@ -1,0 +1,5 @@
+files:
+  index: resources/views/components/ui/accordion/index.blade.php
+  index: resources/views/components/ui/accordion/item/index.blade.php
+  index: resources/views/components/ui/accordion/item/trigger.blade.php
+  index: resources/views/components/ui/accordion/item/content.blade.php
