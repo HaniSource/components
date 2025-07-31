@@ -30,7 +30,7 @@ php artisan fluxtor:install autocomplete
 <x-demo>
     <div class="grid gap-6 md:grid-cols-2">
         <x-components::ui.card size="lg">
-            <x-components::ui.heading level="h3" class="mb-4">User Search</x-components::ui.heading>
+            <x-components::ui.heading level="h3" class="mb-2 text-start">User Search</x-components::ui.heading>
             <x-components::ui.autocomplete 
                 label="Search Users" 
                 placeholder="Type to search users..." 
@@ -45,7 +45,7 @@ php artisan fluxtor:install autocomplete
             </x-components::ui.autocomplete>
         </x-components::ui.card>
         <x-components::ui.card size="lg">
-            <x-components::ui.heading level="h3" class="mb-4">Product Search</x-components::ui.heading>
+            <x-components::ui.heading level="h3" class="mb-2 text-start">Product Search</x-components::ui.heading>
             <x-components::ui.autocomplete 
                 label="Search Products" 
                 placeholder="Find products..." 

@@ -31,7 +31,7 @@ php artisan fluxtor:install select
 <x-demo>
     <div class="grid gap-6 md:grid-cols-[1fr_auto_1fr]">
         <div>
-            <x-components::ui.heading level="h3" class="mb-4">User Role Selection</x-components::ui.heading>
+            <x-components::ui.heading level="h3" class="mb-2 text-start">User Role Selection</x-components::ui.heading>
             <x-components::ui.select 
                 label="Select Role" 
                 placeholder="Choose user role..." 
@@ -47,7 +47,7 @@ php artisan fluxtor:install select
         </div>
         <x-ui.separator vertical label="And"/>
         <div>
-            <x-components::ui.heading level="h3" class="mb-4">Technology Stack</x-components::ui.heading>
+            <x-components::ui.heading level="h3" class="mb-2 text-start">Technology Stack</x-components::ui.heading>
             <x-components::ui.select 
                 label="Select Technologies" 
                 placeholder="Choose technologies..." 
