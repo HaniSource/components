@@ -319,7 +319,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 ### Field Component
 
 The `field` component provides proper spacing and structure for form inputs with labels, descriptions, and errors.
-
+read more about [field component](/field)
 @blade
 <x-demo>
     <x-ui.field required>
@@ -349,6 +349,8 @@ The `field` component provides proper spacing and structure for form inputs with
 
 ### Label Component
 
+read more about [label component](/components/label)
+
 ```html
 <x-ui.label>Email Address</x-ui.label>
 <!-- or -->
@@ -356,6 +358,8 @@ The `field` component provides proper spacing and structure for form inputs with
 ```
 
 ### Description Component
+read more about [description component](/components/error)
+
 intent to be used with inputs 
 @blade
 <x-demo>
@@ -373,6 +377,8 @@ intent to be used with inputs
 
 ### Error Component
 
+read more about [error component](/components/error)
+
 ```html
 <x-ui.error name="email" />
 <!-- or with manual messages -->
@@ -381,7 +387,7 @@ intent to be used with inputs
 
 ## Fieldset Component
 
-Group related form fields together with a fieldset.
+Group related form fields together with a fieldset. read more about [fieldset component](/components/fieldset)
 
 @blade
 <x-demo>
