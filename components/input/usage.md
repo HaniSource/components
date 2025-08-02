@@ -587,7 +587,7 @@ When validation fails, the input automatically shows error styling.
 @blade
 <x-demo>
     <x-ui.field
-                class="max-w-sm mx-auto"
+        class="max-w-sm mx-auto"
     >
         <x-ui.label>Email</x-ui.label>
         <x-ui.input 
