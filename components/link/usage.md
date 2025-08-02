@@ -104,7 +104,7 @@ Soft links have a muted appearance with no underline and Soft hover effects.
 
 ### With primary (Default)
 
-Links with primary use the primary color scheme.
+Links with primary use the primary color scheme (our primary is white).
 
 @blade
 <x-demo>
