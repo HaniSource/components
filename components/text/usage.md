@@ -6,7 +6,7 @@ name: 'text'
 
 ## Introduction
 
-The `text` component provides a simple and consistent way to display text content with proper styling and theme support. It features automatic dark mode support and serves as a foundational text element for consistent typography across your application.
+The `text` component provides a simple and consistent way to display text content with proper styling and theme support, and serves as a foundational text element for consistent typography across your application.
 
 ## Basic Usage
 
