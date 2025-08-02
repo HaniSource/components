@@ -1,6 +1,11 @@
 ---
 name: 'input'
 ---
+<style>
+    .fluxtor-component input{
+        max-width : 40rem
+    }
+</style>
 
 # Input Component
 
@@ -13,6 +18,7 @@ The `input` component provides a powerful and flexible foundation for text input
 @blade
 <x-demo x-data="{ value: 'Hello World' }">
     <x-ui.input 
+        class="max-w-sm mx-auto"
         x-model="value" 
         placeholder="Enter text..."
     />
@@ -60,6 +66,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 <x-demo x-data="{ text: '' }">
     <x-ui.input 
         x-model="text" 
+        class="max-w-sm mx-auto"
         placeholder="Enter text..."
         type="text"
     />
@@ -80,6 +87,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 <x-demo x-data="{ email: '' }">
     <x-ui.input 
         x-model="email" 
+        class="max-w-sm mx-auto"
         placeholder="Enter email..."
         type="email"
     />
@@ -100,6 +108,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 <x-demo x-data="{ password: '' }">
     <x-ui.input 
         x-model="password" 
+        class="max-w-sm mx-auto"
         placeholder="Enter password..."
         type="password"
     />
@@ -120,6 +129,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 <x-demo x-data="{ number: '' }">
     <x-ui.input 
         x-model="number" 
+        class="max-w-sm mx-auto"
         placeholder="Enter number..."
         type="number"
     />
@@ -139,9 +149,10 @@ You can use it outside Livewire with just Alpine (and Blade):
 ### Text Prefix and Suffix
 
 @blade
-<x-demo x-data="{ url: 'mysite' }">
+<x-demo x-data="{ url: 'charrafi' }">
     <x-ui.input 
         x-model="url" 
+        class="max-w-sm mx-auto"
         placeholder="Enter your site name"
     >
         <x-slot name="prefix">
@@ -175,6 +186,7 @@ You can use it outside Livewire with just Alpine (and Blade):
     <x-ui.input 
         x-model="search" 
         placeholder="Search..."
+        class="max-w-sm mx-auto"
         prefixIcon="magnifying-glass"
         suffixIcon="document-duplicate"
     />
@@ -190,39 +202,6 @@ You can use it outside Livewire with just Alpine (and Blade):
 />
 ```
 
-### Mixed Prefix/Suffix with Slots
-
-@blade
-<x-demo x-data="{ amount: '' }">
-    <x-ui.input 
-        x-model="amount" 
-        placeholder="0.00"
-        type="number"
-    >
-        <x-slot name="prefix">
-            $
-        </x-slot>
-        <x-slot name="suffix">
-            <x-ui.icon name="currency-dollar"/>
-        </x-slot>
-    </x-ui.input>
-</x-demo>
-@endblade
-
-```html
-<x-ui.input 
-    wire:model="amount" 
-    placeholder="0.00"
-    type="number"
->
-    <x-slot name="prefix">
-        $
-    </x-slot>
-    <x-slot name="suffix">
-        <x-ui.icon name="currency-dollar"/>
-    </x-slot>
-</x-ui.input>
-```
 
 ## Input Actions
 
@@ -233,6 +212,7 @@ You can use it outside Livewire with just Alpine (and Blade):
     <x-ui.input 
         x-model="apiKey" 
         placeholder="API Key"
+        class="max-w-sm mx-auto"
         copyable
         readonly
     />
@@ -255,6 +235,7 @@ You can use it outside Livewire with just Alpine (and Blade):
     <x-ui.input 
         x-model="search" 
         placeholder="Search..."
+        class="max-w-sm mx-auto"
         clearable
     />
 </x-demo>
@@ -276,6 +257,7 @@ You can use it outside Livewire with just Alpine (and Blade):
         x-model="password" 
         placeholder="Password"
         type="password"
+        class="max-w-sm mx-auto"
         revealable
     />
 </x-demo>
@@ -296,6 +278,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 <x-demo x-data="{ value: 'Multiple actions!' }">
     <x-ui.input 
         x-model="value" 
+        class="max-w-sm mx-auto"
         placeholder="Try all actions..."
         copyable
         clearable
@@ -322,7 +305,9 @@ The `field` component provides proper spacing and structure for form inputs with
 read more about [field component](/field)
 @blade
 <x-demo>
-    <x-ui.field required>
+    <x-ui.field required
+                class="max-w-sm mx-auto"
+    >
         <x-ui.label>Full Name</x-ui.label>
         <x-ui.description>Your first and last name as it appears on official documents</x-ui.description>
         <x-ui.input 
@@ -494,7 +479,7 @@ Group related form fields together with a fieldset. read more about [fieldset co
                 <x-ui.input 
                     wire:model="website"
                     type="url"
-                    placeholder="mysite"
+                    placeholder="charrafi"
                     copyable
                 >
                     <x-slot name="prefix">https://</x-slot>
@@ -571,7 +556,7 @@ Group related form fields together with a fieldset. read more about [fieldset co
             <x-ui.input 
                 wire:model="website"
                 type="url"
-                placeholder="mysite"
+                placeholder="charrafi"
                 copyable
             >
                 <x-slot name="prefix">https://</x-slot>
@@ -601,7 +586,9 @@ When validation fails, the input automatically shows error styling.
 
 @blade
 <x-demo>
-    <x-ui.field>
+    <x-ui.field
+                class="max-w-sm mx-auto"
+    >
         <x-ui.label>Email</x-ui.label>
         <x-ui.input 
             wire:model="email"
@@ -630,7 +617,10 @@ When validation fails, the input automatically shows error styling.
 
 @blade
 <x-demo>
-    <x-ui.field disabled>
+    <x-ui.field 
+        disabled
+        class="max-w-sm mx-auto"
+    >
         <x-ui.label>Disabled Input</x-ui.label>
         <x-ui.description>This field is currently disabled</x-ui.description>
         <x-ui.input 

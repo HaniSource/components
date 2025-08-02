@@ -169,7 +169,7 @@ When used within a field component with `required`, the label automatically inhe
 </x-demo>
 @endblade
  -->
- 
+
 ```html
 <x-ui.checkbox wire:model="newsletter">
     <x-ui.label>Subscribe to newsletter</x-ui.label>
@@ -299,13 +299,3 @@ The label component is designed to work seamlessly with:
 - [Textarea Component](/components/textarea) - Multi-line text input
 - [Checkbox Component](/components/checkbox) - Boolean selections
 - [Radio Component](/components/radio) - Single choice selections
-- [Description Component](/components/description) - Additional field context
-- [Error Component](/components/error) - Validation error messages
-
-## Best Practices
-
-1. **Always use labels**: Every form control should have an associated label for accessibility
-2. **Use the field component**: When building forms, wrap labels and inputs in field components for consistent spacing
-3. **Keep labels concise**: Use clear, descriptive but brief label text
-4. **Use descriptions for context**: For complex fields, pair labels with description components
-5. **Indicate required fields**: Use the `required` prop to show which fields are mandatory
