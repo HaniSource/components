@@ -8,12 +8,6 @@ The Error component displays validation errors and custom error messages with a 
 <x-ui.error name="email" />
 ```
 
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `name` | `string\|null` | `null` | The field name to get validation errors from Laravel's `$errors` bag |
-| `messages` | `array\|string\|null` | `[]` | Custom error messages to display alongside or instead of validation errors |
 
 ### Examples
 
@@ -65,6 +59,12 @@ Works with form validation:
     <x-ui.button type="submit">Save Post</x-ui.button>
 </form>
 ```
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `name` | `string\|null` | `null` | The field name to get validation errors from Laravel's `$errors` bag |
+| `messages` | `array\|string\|null` | `[]` | Custom error messages to display alongside or instead of validation errors |
 
 ### Styling Slots
 

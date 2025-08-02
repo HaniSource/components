@@ -4,7 +4,9 @@ name: 'fieldset'
 
 ## Introduction
 
-The `fieldset` component provides a semantic and visually appealing way to group related form fields. It features automatic spacing management for nested fields, optional labeling with legend support, and consistent styling that works perfectly in both light and dark modes. Perfect for organizing complex forms into logical sections.
+The `fieldset` component provides a semantic and visually appealing way to group related form fields.
+
+> always use it with `field` component, it manage spacing properly.
 
 ## Basic Usage
 
@@ -15,12 +17,10 @@ The `fieldset` component provides a semantic and visually appealing way to group
             <x-ui.label>Full Name</x-ui.label>
             <x-ui.input placeholder="John Doe" />
         </x-ui.field>
-        
         <x-ui.field required>
             <x-ui.label>Email Address</x-ui.label>
             <x-ui.input type="email" placeholder="john@example.com" />
         </x-ui.field>
-        
         <x-ui.field>
             <x-ui.label>Phone Number</x-ui.label>
             <x-ui.input type="tel" placeholder="+1 (555) 123-4567" />
@@ -59,7 +59,7 @@ Create fieldsets without visible labels for simple grouping.
             <x-ui.label>Username</x-ui.label>
             <x-ui.input placeholder="johndoe" />
         </x-ui.field>
-        
+        <!--  -->
         <x-ui.field required>
             <x-ui.label>Password</x-ui.label>
             <x-ui.input type="password" placeholder="••••••••" />
@@ -86,24 +86,24 @@ Combine fieldsets with grid layouts for responsive form organization.
                 <x-ui.label>First Name</x-ui.label>
                 <x-ui.input placeholder="John" />
             </x-ui.field>
-            
+            <!--  -->
             <x-ui.field required>
                 <x-ui.label>Last Name</x-ui.label>
                 <x-ui.input placeholder="Doe" />
             </x-ui.field>
         </div>
-        
+        <!--  -->
         <x-ui.field required>
             <x-ui.label>Email Address</x-ui.label>
             <x-ui.input type="email" placeholder="john.doe@example.com" />
         </x-ui.field>
-        
+        <!--  -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <x-ui.field>
                 <x-ui.label>Phone</x-ui.label>
                 <x-ui.input type="tel" placeholder="+1 (555) 123-4567" />
             </x-ui.field>
-            
+            <!--  -->
             <x-ui.field>
                 <x-ui.label>Country</x-ui.label>
                 <x-ui.select>
