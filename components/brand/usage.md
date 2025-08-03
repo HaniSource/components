@@ -24,23 +24,25 @@ Display your brand using a logo image URL and company name.
 
 @blade
 <x-demo>
-    <x-components::ui.brand 
-        href="#" 
-        name="Fluxtor" 
-        alt="Fluxtor" 
-        logo="/fluxtor-logo.webp" 
-        logoClass="rounded-full overflow-hidden"
-    />
+    <div class="flex justify-center">
+        <x-components::ui.brand 
+            href="#" 
+            name="BluePeak" 
+            alt="BluePeak" 
+            logo="/logo-demo.jpg" 
+            logoClass="rounded-full size-12!"
+        />
+    </div>
 </x-demo>
 @endblade
 
 ```html
 <x-ui.brand 
     href="/" 
-    logo="/fluxtor-logo.webp" 
-    name="Your Company" 
-    alt="Your Company" 
-    logoClass="rounded-full overflow-hidden"
+    logo="/logo-demo.jpg" 
+    name="BluePeak" 
+    alt="BluePeak" 
+    logoClass="rounded-full size-12"
 />
 ```
 
@@ -50,20 +52,22 @@ Create a minimal brand display using only the logo without text.
 
 @blade
 <x-demo>
-    <x-components::ui.brand 
-        href="#" 
-        logo="/fluxtor-logo.webp" 
-        logoClass="rounded-full overflow-hidden"
-        alt="Fluxtor" 
-    />
+    <div class="flex justify-center">
+        <x-components::ui.brand 
+            href="#" 
+            logo="/logo-demo.jpg"  
+            logoClass="rounded-full size-12!"
+            alt="Fluxtor" 
+        />
+    </div>
 </x-demo>
 @endblade
 
 ```html
 <x-ui.brand 
     href="/" 
-    logo="/fluxtor-logo.webp" 
-    logoClass="rounded-full overflow-hidden"  
+    logo="/logo-demo.jpg"  
+    logoClass="rounded-full size-12" 
     alt="Fluxtor" 
 />
 ```
@@ -74,17 +78,19 @@ Display your brand using only text, perfect for text-based logos or minimalist d
 
 @blade
 <x-demo>
-    <x-components::ui.brand 
-        href="#" 
-        name="TechCorp" 
-    />
+    <div class="flex justify-center">
+        <x-components::ui.brand 
+            href="#" 
+            name="TechCorp" 
+        />
+    </div>
 </x-demo>
 @endblade
 
 ```html
 <x-ui.brand 
     href="/" 
-    name="Your Company Name" 
+    name="TechCorp" 
 />
 ```
 
@@ -94,7 +100,7 @@ Use the logo slot to include custom SVG content or more complex logo structures.
 
 @blade
 <x-demo>
-    <div class="w-full px-6 py-3 bg-gray-50 dark:bg-neutral-950 rounded-lg">
+    <div class="flex justify-center">
         <x-components::ui.brand href="#" name="InnovateLab">
             <x-slot:logo>
                 <div class="h-8 w-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
@@ -126,14 +132,14 @@ Configure the brand to open in a new tab when linking to external sites.
 
 @blade
 <x-demo>
-    <div class="w-full px-6 py-3 bg-gray-50 dark:bg-neutral-950 rounded-lg">
-        <x-components::ui.brand 
-            href="https://example.com" 
-            target="_blank"
-            name="External Site" 
-        />
-        <p class="text-xs text-gray-500 mt-2 text-start">This link opens in a new tab</p>
-    </div>
+    <x-components::ui.brand 
+        href="https://example.com"
+        logo="/logo-demo.jpg" 
+        logoClass="rounded-full size-12!"
+        target="_blank"
+        name="External Site" 
+    />
+    <p class="text-xs text-gray-500 mt-2 text-start">This link opens in a new tab</p>
 </x-demo>
 @endblade
 
