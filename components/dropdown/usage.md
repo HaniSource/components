@@ -430,7 +430,7 @@ Use groups to organize related items with optional labels.
 Control where the dropdown appears relative to the trigger button.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
      <div class="flex gap-4 flex-wrap">
         <x-ui.dropdown position="bottom-center">
             <x-slot:button class="justify-center">
@@ -507,7 +507,7 @@ Control where the dropdown appears relative to the trigger button.
 Create hierarchical menus with nested items.
 
 @blade
-<x-demo >
+<x-demo class="flex justify-center">
     <x-ui.dropdown position="bottom-start">
         <x-slot:button>
             <x-ui.button >
@@ -621,7 +621,7 @@ Create hierarchical menus with nested items.
 Combine all features for sophisticated dropdown menus.
 
 @blade
-<x-demo >
+<x-demo class="flex justify-center">
     <x-ui.dropdown position="bottom-start">
         <x-slot:button>
             <x-ui.button >
