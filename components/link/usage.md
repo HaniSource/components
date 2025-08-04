@@ -11,7 +11,7 @@ The `link` component provides a flexible and accessible way to create styled lin
 ## Basic Usage
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.link href="https://example.com">
         Visit our website
     </x-ui.link>
@@ -27,7 +27,7 @@ The `link` component provides a flexible and accessible way to create styled lin
 ### Internal Links
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.link href="/dashboard">
         Go to Dashboard
     </x-ui.link>
@@ -43,7 +43,7 @@ The `link` component provides a flexible and accessible way to create styled lin
 ### External Links
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.link href="https://github.com" openInNewTab>
         View on GitHub
     </x-ui.link>
@@ -63,7 +63,7 @@ The `link` component provides a flexible and accessible way to create styled lin
 The default variant shows an underlined link with primary colors.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.text>This is a paragraph with a <x-ui.link href="#">default link</x-ui.link> inside it.</x-ui.text>
 </x-demo>
 @endblade
@@ -77,7 +77,7 @@ The default variant shows an underlined link with primary colors.
 Ghost links have no underline by default but show underline on hover.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.text>This is a paragraph with a <x-ui.link href="#" variant="ghost">ghost link</x-ui.link> that underlines on hover.</x-ui.text>
 </x-demo>
 @endblade
@@ -91,7 +91,7 @@ Ghost links have no underline by default but show underline on hover.
 Soft links have a muted appearance with no underline and Soft hover effects.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.text>This is a paragraph with a <x-ui.link href="#" variant="soft">soft link</x-ui.link> that has Soft styling.</x-ui.text>
 </x-demo>
 @endblade
@@ -107,8 +107,8 @@ Soft links have a muted appearance with no underline and Soft hover effects.
 Links with primary use the primary color scheme (our primary is white).
 
 @blade
-<x-demo>
-    <div class="space-y-2">
+<x-demo class="flex justify-center">
+    <div class="space-y-2 ">
         <x-ui.text><x-ui.link href="#" :primary="true">primary link (default)</x-ui.link></x-ui.text>
         <x-ui.text><x-ui.link href="#" :primary="true" variant="ghost">primary ghost link</x-ui.link></x-ui.text>
         <x-ui.text><x-ui.link href="#" :primary="true" variant="soft">primary soft link</x-ui.link></x-ui.text>
@@ -127,7 +127,7 @@ Links with primary use the primary color scheme (our primary is white).
 Links without primary use neutral colors.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="space-y-2">
         <x-ui.text><x-ui.link href="#" :primary="false">Neutral link</x-ui.link></x-ui.text>
         <x-ui.text><x-ui.link href="#" :primary="false" variant="ghost">Neutral ghost link</x-ui.link></x-ui.text>
@@ -149,8 +149,8 @@ Links without primary use neutral colors.
 ### ARIA Labels
 
 @blade
-<x-demo>
-    <div class="space-y-2">
+<x-demo class="flex justify-center">
+    <div class="space-y-2 ">
         <x-ui.text>
             <x-ui.link 
                 href="https://example.com" 
