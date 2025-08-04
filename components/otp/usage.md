@@ -11,7 +11,7 @@ The `otp` component provides a secure and user-friendly way to handle One-Time P
 ## Basic Usage
 
 @blade
-<x-demo x-data="{ code: null }">
+<x-demo class="flex justify-center !text-start" x-data="{ code: null }">
     <x-ui.otp 
         x-model="code" 
     />
@@ -60,7 +60,7 @@ Because we're making this possible using (like) the `x-modelable` API, so you ca
 Control the number of input fields with the `length` parameter.
 
 @blade
-<x-demo x-data="{ code4: null, code6: null, code8: null }">
+<x-demo class="flex justify-center !text-start" x-data="{ code4: null, code6: null, code8: null }">
     <div class="space-y-4">
         <div>
             <label class="block text-sm font-medium mb-2">4-digit code (default)</label>
@@ -108,7 +108,7 @@ you can pass the individual inputs as a slot and you tweack it as you need
 > note we're using `<x-ui.otp.input>` not the native input 
  
 @blade
-<x-demo>
+<x-demo class="flex justify-center !text-start">
     <div 
         x-data="{
             code: null,
@@ -141,7 +141,7 @@ you can pass the individual inputs as a slot and you tweack it as you need
 ### Separator 
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center !text-start">
     <div 
         x-data="{
             code: null,
@@ -186,7 +186,7 @@ you can pass the individual inputs as a slot and you tweack it as you need
 Control what characters are allowed with different input types and patterns.
 
 @blade
-<x-demo x-data="{ numericCode: null, alphanumericCode: null, customCode: null }">
+<x-demo class="flex justify-center !text-start" x-data="{ numericCode: null, alphanumericCode: null, customCode: null }">
     <div class="space-y-4">
         <div>
             <label class="block text-sm font-medium mb-2">Numeric only (default)</label>
@@ -242,7 +242,7 @@ Control what characters are allowed with different input types and patterns.
 The component automatically handles external state synchronization and can display pre-filled values.
 
 @blade
-<x-demo x-data="{ prefilledCode: '1234' }">
+<x-demo class="flex justify-center !text-start" x-data="{ prefilledCode: '1234' }">
     <div>
         <label class="block text-sm font-medium mb-2">Pre-filled code</label>
         <x-ui.otp 
@@ -264,7 +264,7 @@ The component automatically handles external state synchronization and can displ
 The component intelligently handles pasted content, filtering valid characters and auto-filling inputs.
 
 @blade
-<x-demo x-data="{ pasteCode: null }">
+<x-demo class="flex justify-center !text-start" x-data="{ pasteCode: null }">
     <div>
         <label class="block text-sm font-medium mb-2">Try pasting "12345678" or "abc123xyz"</label>
         <x-ui.otp 
@@ -281,7 +281,7 @@ The component intelligently handles pasted content, filtering valid characters a
 Monitor input changes in real-time with Alpine.js effects.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center !text-start">
     <div 
         x-data="{
             code: null,
