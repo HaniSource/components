@@ -11,9 +11,9 @@ The `key-value-input` component provides a powerful and flexible way to handle k
 ## Basic Usage
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.key-value 
-        class="max-w-2xl"
+        class="max-w-md"
         wire:model="configurations" 
         label="Configuration Settings"
     />
@@ -30,7 +30,7 @@ The `key-value-input` component provides a powerful and flexible way to handle k
 ### Usage with Livewire
 you need to have an array of keyed arrays with `key` and `value` keys pair
 @blade
-<x-demo x-data="{ 
+<x-demo class="flex justify-center" x-data="{ 
     envVariables: [
         { key: 'theme', value: 'dark' },
         { key: 'language', value: 'English' },
@@ -39,6 +39,7 @@ you need to have an array of keyed arrays with `key` and `value` keys pair
     ]
 }">
     <x-ui.key-value 
+        class="max-w-lg"
         x-model="envVariables" 
         label="Environment Variables"
         key-label="Variable Name"
@@ -69,8 +70,8 @@ you need to have an array of keyed arrays with `key` and `value` keys pair
 ### Usage with Raw Blade (Alpine.js)
 
 @blade
-<x-demo>
-    <div x-data="{ 
+<x-demo class="flex justify-center">
+    <div class="max-w-md" x-data="{ 
         configs: [
             { key: 'database_host', value: 'localhost' },
             { key: 'cache_driver', value: 'redis' }
@@ -109,8 +110,8 @@ you need to have an array of keyed arrays with `key` and `value` keys pair
 Customize the labels and placeholders for keys and values.
 
 @blade
-<x-demo>
-    <div class="max-w-2xl w-full space-y-6">
+<x-demo class="flex justify-center">
+    <div class="max-w-md w-full space-y-6">
         <x-ui.key-value 
             wire:model="envVars" 
             label="Environment Variables"
@@ -147,8 +148,8 @@ Customize the labels and placeholders for keys and values.
 Control the minimum and maximum number of rows.
 
 @blade
-<x-demo>
-    <div class="max-w-2xl w-full space-y-6">
+<x-demo class="flex justify-center">
+    <div class="max-w-md w-full space-y-6">
         <x-ui.key-value 
             wire:model="requiredSettings" 
             label="Required Settings (2-5 rows)"
@@ -189,8 +190,9 @@ Control the minimum and maximum number of rows.
 Set validation rules and constraints to ensure data quality.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.key-value 
+        class="max-w-md"
         wire:model="validatedConfig" 
         label="Validated Configuration"
         :prevent-duplicate-keys="true"
@@ -215,8 +217,8 @@ Set validation rules and constraints to ensure data quality.
 Enable or disable drag-and-drop reordering of rows.
 
 @blade
-<x-demo>
-    <div class="max-w-2xl w-full space-y-6">
+<x-demo class="flex justify-center">
+    <div class="max-w-md w-full space-y-6">
         <x-ui.key-value 
             wire:model="reorderableConfig" 
             label="Reorderable Configuration"
@@ -244,8 +246,9 @@ Enable or disable drag-and-drop reordering of rows.
 Control which row management features are available.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.key-value 
+        class="max-w-md"
         wire:model="managedRows" 
         label="Full Row Management"
         :reorderable="true"
@@ -270,8 +273,9 @@ Control which row management features are available.
 Create a minimal interface by hiding advanced features.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.key-value 
+        class="max-w-md"
         wire:model="simpleConfig" 
         label="Simple Configuration"
         :reorderable="false"
@@ -296,8 +300,9 @@ Create a minimal interface by hiding advanced features.
 ### Disabled State
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.key-value 
+        class="max-w-md"
         wire:model="disabledConfig" 
         label="Disabled Configuration"
         :disabled="true"
@@ -312,48 +317,6 @@ Create a minimal interface by hiding advanced features.
     :disabled="true"
 />
 ```
-
-
-## Real-time Features
-
-### Live Validation
-
-The component provides real-time validation feedback:
-
-- **Duplicate Key Detection**: Highlights duplicate keys immediately
-- **Empty Value Validation**: Shows errors for empty values when not allowed
-- **Row Limit Feedback**: Displays helpful messages when limits are reached
-- **Real-time Synchronization**: Instantly syncs with Livewire model
-
-### Dynamic Row Management
-
-- **Smart Add**: Automatically adds rows when needed
-- **Smart Delete**: Prevents deletion below minimum rows
-- **Auto-focus**: Focuses new rows for better UX
-- **Clear All**: Clear all rows while respecting minimum requirements
-
-## Keyboard Navigation
-
-The component supports comprehensive keyboard navigation:
-
-- **Tab**: Navigate between key and value inputs
-- **Enter**: Move to the next row or create a new one
-- **Escape**: Clear current input focus
-- **Arrow Keys**: Navigate reorder controls
-- **Delete**: Remove current row when focused on action buttons
-
-## Accessibility
-
-The component is fully accessible with:
-
-- ARIA labels and descriptions
-- Screen reader announcements for row operations
-- Keyboard-only navigation support
-- Focus management and indicators
-- Proper semantic table structure
-- High contrast support
-
-
 
 ## Component Props
 
