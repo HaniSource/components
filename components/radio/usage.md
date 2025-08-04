@@ -29,13 +29,13 @@ php artisan fluxtor:install radio
 
 ### Basic Radio Group
 @blade
-<x-demo>
-    <div class="w-full">
-        <x-components::ui.radio.group label="Roles" name="roles" >
-            <x-components::ui.radio.item value="backend" label="Back end" checked />
-            <x-components::ui.radio.item value="frontend" label="Front end" />
-            <x-components::ui.radio.item value="devops" label="DevOps" />
-        </x-components::ui.radio.group>
+<x-demo class="flex justify-center">
+    <div >
+        <x-ui.radio.group label="Roles" name="roles" >
+            <x-ui.radio.item value="backend" label="Back end" checked />
+            <x-ui.radio.item value="frontend" label="Front end" />
+            <x-ui.radio.item value="devops" label="DevOps" />
+        </x-ui.radio.group>
     </div>
 </x-demo>
 @endblade
@@ -50,13 +50,13 @@ php artisan fluxtor:install radio
 
 ### With error message
 @blade
-<x-demo>
-    <div class="w-full">
-        <x-components::ui.radio.group error="The selected role not supported" label="Roles" name="roles-1" >
-            <x-components::ui.radio.item value="backend" label="Back end" checked />
-            <x-components::ui.radio.item value="frontend" label="Front end" />
-            <x-components::ui.radio.item value="devops" label="DevOps" />
-        </x-components::ui.radio.group>
+<x-demo class="flex justify-center">
+    <div >
+        <x-ui.radio.group error="The selected role not supported" label="Roles" name="roles-1" >
+            <x-ui.radio.item value="backend" label="Back end" checked />
+            <x-ui.radio.item value="frontend" label="Front end" />
+            <x-ui.radio.item value="devops" label="DevOps" />
+        </x-ui.radio.group>
     </div>
 </x-demo>
 @endblade
@@ -74,13 +74,13 @@ php artisan fluxtor:install radio
 Add helpful descriptions to provide additional context for each option.
 
 @blade
-<x-demo>
-    <div class="w-full">
-        <x-components::ui.radio.group name="permissions" label="Permissions">
-            <x-components::ui.radio.item value="administrator" label="Administrator" description="Administrator users can perform any action." checked />
-            <x-components::ui.radio.item value="editor" label="Editor" description="Editor users have the ability to read, create, and update." />
-            <x-components::ui.radio.item value="viewer" label="Viewer" description="Viewer users only have the ability to read. Create, and update are restricted." />
-        </x-components::ui.radio.group>
+<x-demo class="flex justify-center">
+    <div >
+        <x-ui.radio.group name="permissions" label="Permissions">
+            <x-ui.radio.item value="administrator" label="Administrator" description="Administrator users can perform any action." checked />
+            <x-ui.radio.item value="editor" label="Editor" description="Editor users have the ability to read, create, and update." />
+            <x-ui.radio.item value="viewer" label="Viewer" description="Viewer users only have the ability to read. Create, and update are restricted." />
+        </x-ui.radio.group>
     </div>
 </x-demo>
 @endblade
@@ -109,23 +109,23 @@ Add helpful descriptions to provide additional context for each option.
 ### Segmented Radio (Horizontal)
 Create a more compact, button-like appearance with the segmented variant.
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto">
-        <x-components::ui.radio.group name="view-mode" label="View Mode"  variant="segmented" direction="horizontal">
-            <x-components::ui.radio.item
+<x-demo class="flex justify-center">
+    <div>
+        <x-ui.radio.group name="view-mode" label="View Mode"  variant="segmented" direction="horizontal">
+            <x-ui.radio.item
             value="list"
             label="List"
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             value="grid"
             label="Grid"
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             value="table"
             label="Table"
             checked
             />
-        </x-components::ui.radio.group>
+        </x-ui.radio.group>
     </div>
 </x-demo>
 @endblade
@@ -151,26 +151,26 @@ Create a more compact, button-like appearance with the segmented variant.
 ### Segmented Radio with Icons
 Enhance the segmented variant with icons for better visual communication.
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto">
-        <x-components::ui.radio.group name="environment" label="Deployment Environment" variant="segmented" direction="horizontal">
-            <x-components::ui.radio.item
-            icon="code-bracket"
-            value="development"
-            label="Development"
+<x-demo class="flex justify-center">
+    <div >
+        <x-ui.radio.group name="environment" label="Deployment Environment" variant="segmented" direction="horizontal">
+            <x-ui.radio.item
+                icon="code-bracket"
+                value="development"
+                label="Development"
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             icon="beaker"
             value="staging"
             label="Staging"
             checked
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             icon="globe-alt"
             value="production"
             label="Production"
             />
-        </x-components::ui.radio.group>
+        </x-ui.radio.group>
     </div>
 </x-demo>
 @endblade
@@ -179,20 +179,20 @@ Enhance the segmented variant with icons for better visual communication.
 ```html
 <x-ui.radio.group name="environment" label="Deployment Environment" variant="segmented" direction="horizontal">
     <x-ui.radio.item
-    icon="code-bracket"
-    value="development"
-    label="Development"
+        icon="code-bracket"
+        value="development"
+        label="Development"
     />
     <x-ui.radio.item
-    icon="beaker"
-    value="staging"
-    label="Staging"
-    checked
+        icon="beaker"
+        value="staging"
+        label="Staging"
+        checked
     />
     <x-ui.radio.item
-    icon="globe-alt"
-    value="production"
-    label="Production"
+        icon="globe-alt"
+        value="production"
+        label="Production"
     />
 </x-ui.radio.group>
 ```
@@ -202,26 +202,26 @@ Enhance the segmented variant with icons for better visual communication.
 Prominent card-style options with clear boundaries and descriptions. Ideal for important decisions, plan selections, or feature comparisons where each option needs significant visual weight.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="w-full mx-auto">
-        <x-components::ui.radio.group name="billing" label="Billing Frequency" variant="cards" direction="horizontal">
-            <x-components::ui.radio.item
+        <x-ui.radio.group name="billing" label="Billing Frequency" variant="cards" direction="horizontal">
+            <x-ui.radio.item
             value="monthly"
             label="Monthly"
             description="$29/month - Pay as you go"
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             value="yearly"
             label="Yearly"
             description="$290/year - Save 17% annually"
             checked
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             value="lifetime"
             label="Lifetime"
             description="$999 - One-time payment"
             />
-        </x-components::ui.radio.group>
+        </x-ui.radio.group>
     </div>
 </x-demo>
 @endblade
@@ -230,20 +230,20 @@ Prominent card-style options with clear boundaries and descriptions. Ideal for i
 ```html
 <x-ui.radio.group name="billing" label="Billing Frequency"  variant="cards" direction="horizontal">
     <x-ui.radio.item
-    value="monthly"
-    label="Monthly"
-    description="$29/month - Pay as you go"
+        value="monthly"
+        label="Monthly"
+        description="$29/month - Pay as you go"
     />
     <x-ui.radio.item
-    value="yearly"
-    label="Yearly"
-    description="$290/year - Save 17% annually"
-    checked
+        value="yearly"
+        label="Yearly"
+        description="$290/year - Save 17% annually"
+        checked
     />
     <x-ui.radio.item
-    value="lifetime"
-    label="Lifetime"
-    description="$999 - One-time payment"
+        value="lifetime"
+        label="Lifetime"
+        description="$999 - One-time payment"
     />
 </x-ui.radio.group>
 ```
@@ -252,31 +252,31 @@ Prominent card-style options with clear boundaries and descriptions. Ideal for i
 Card-style options without traditional radio indicators for a cleaner, more modern look. Great for product selections, service tiers, or any choice where the card itself acts as the selection indicator.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="w-full mx-auto">
-        <x-components::ui.radio.group 
+        <x-ui.radio.group 
         :indicator="false" 
         label="Shipping Method" 
         name="shipping" 
         variant="cards" 
         direction="horizontal">
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             value="standard"
             label="Standard Delivery"
             description="5-7 business days - Free"
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             value="express"
             label="Express Delivery"
             description="2-3 business days - $9.99"
             checked
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             value="overnight"
             label="Overnight"
             description="Next business day - $24.99"
             />
-        </x-components::ui.radio.group>
+        </x-ui.radio.group>
     </div>
 </x-demo>
 @endblade
@@ -288,22 +288,23 @@ Card-style options without traditional radio indicators for a cleaner, more mode
     label="Shipping Method" 
     name="shipping" 
     variant="cards" 
-    direction="horizontal">
-        <x-components::ui.radio.item
-        value="standard"
-        label="Standard Delivery"
-        description="5-7 business days - Free"
+    direction="horizontal"
+>
+        <x-ui.radio.item
+            value="standard"
+            label="Standard Delivery"
+            description="5-7 business days - Free"
         />
-        <x-components::ui.radio.item
-        value="express"
-        label="Express Delivery"
-        description="2-3 business days - $9.99"
-        checked
+        <x-ui.radio.item
+            value="express"
+            label="Express Delivery"
+            description="2-3 business days - $9.99"
+            checked
         />
-        <x-components::ui.radio.item
-        value="overnight"
-        label="Overnight"
-        description="Next business day - $24.99"
+        <x-ui.radio.item
+            value="overnight"
+            label="Overnight"
+            description="Next business day - $24.99"
         />
 </x-ui.radio.group>
 ```
@@ -313,29 +314,29 @@ Card-style options without traditional radio indicators for a cleaner, more mode
 Card-style options enhanced with icons for better visual hierarchy. Perfect for feature selection, service categories, or any scenario where icons help communicate the option's purpose.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="w-full mx-auto">
-        <x-components::ui.radio.group name="storage" label="Storage Options" variant="cards" direction="horizontal">
-            <x-components::ui.radio.item
+        <x-ui.radio.group name="storage" label="Storage Options" variant="cards" direction="horizontal">
+            <x-ui.radio.item
             icon="cloud"
             value="cloud"
             label="Cloud Storage"
             description="Secure cloud-based storage"
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             icon="server-stack"
             value="server"
             label="Local Server"
             description="On-premises server storage"
             checked
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             icon="shield-check"
             value="encrypted"
             label="Encrypted Storage"
             description="End-to-end encrypted storage"
             />
-        </x-components::ui.radio.group>
+        </x-ui.radio.group>
     </div>
 </x-demo>
 @endblade
@@ -344,23 +345,23 @@ Card-style options enhanced with icons for better visual hierarchy. Perfect for 
 ```html
 <x-ui.radio.group name="storage" label="Storage Options" variant="cards" direction="horizontal">
     <x-ui.radio.item
-    icon="cloud"
-    value="cloud"
-    label="Cloud Storage"
-    description="Secure cloud-based storage"
+        icon="cloud"
+        value="cloud"
+        label="Cloud Storage"
+        description="Secure cloud-based storage"
     />
     <x-ui.radio.item
-    icon="server-stack"
-    value="server"
-    label="Local Server"
-    description="On-premises server storage"
-    checked
+        icon="server-stack"
+        value="server"
+        label="Local Server"
+        description="On-premises server storage"
+        checked
     />
     <x-ui.radio.item
-    icon="shield-check"
-    value="encrypted"
-    label="Encrypted Storage"
-    description="End-to-end encrypted storage"
+        icon="shield-check"
+        value="encrypted"
+        label="Encrypted Storage"
+        description="End-to-end encrypted storage"
     />
 </x-ui.radio.group>
 ```
@@ -370,23 +371,23 @@ Card-style options enhanced with icons for better visual hierarchy. Perfect for 
 Compact, rounded pill-style options that work well for tags, categories, or filters. Great for space-constrained layouts or when you need multiple selection groups in close proximity.
 
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto">
-        <x-components::ui.radio.group name="priority" label="Task Priority" variant="pills" direction="horizontal">
-            <x-components::ui.radio.item
+<x-demo class="flex justify-center">
+    <div >
+        <x-ui.radio.group name="priority" label="Task Priority" variant="pills" direction="horizontal">
+            <x-ui.radio.item
             value="low"
             label="Low"
             checked
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             value="medium"
             label="Medium"
             />
-            <x-components::ui.radio.item
+            <x-ui.radio.item
             value="high"
             label="High"
             />
-        </x-components::ui.radio.group>
+        </x-ui.radio.group>
     </div>
 </x-demo>
 @endblade
@@ -394,18 +395,18 @@ Compact, rounded pill-style options that work well for tags, categories, or filt
 
 ```html
 <x-ui.radio.group name="priority" label="Task Priority" variant="pills" direction="horizontal">
-    <x-components::ui.radio.item
-    value="low"
-    label="Low"
-    checked
+    <x-ui.radio.item
+        value="low"
+        label="Low"
+        checked
     />
-    <x-components::ui.radio.item
-    value="medium"
-    label="Medium"
+    <x-ui.radio.item
+        value="medium"
+        label="Medium"
     />
-    <x-components::ui.radio.item
-    value="high"
-    label="High"
+    <x-ui.radio.item
+        value="high"
+        label="High"
     />
 </x-ui.radio.group>
 ```
