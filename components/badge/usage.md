@@ -23,7 +23,7 @@ php artisan fluxtor:install badge
 The badge component supports two main visual variants with different corner radius styles.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="flex flex-wrap items-center justify-center gap-4">
         <x-components::ui.badge>Default Badge</x-components::ui.badge>
         <x-components::ui.badge pill>Pill Badge</x-components::ui.badge>
@@ -44,7 +44,7 @@ The badge component supports two main visual variants with different corner radi
 Choose from three different sizes to match your design hierarchy and context.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="flex flex-wrap items-center justify-center gap-4">
         <x-components::ui.badge size="sm">Small Badge</x-components::ui.badge>
         <x-components::ui.badge>Default Badge</x-components::ui.badge>
@@ -69,7 +69,7 @@ Choose from three different sizes to match your design hierarchy and context.
 The solid style provides bold, high-contrast badges with white text on colored backgrounds.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="flex flex-wrap items-center gap-2">
         <x-components::ui.badge>Default</x-components::ui.badge>
         <x-components::ui.badge color="red">Red</x-components::ui.badge>
@@ -107,7 +107,7 @@ The solid style provides bold, high-contrast badges with white text on colored b
 The outline style provides colored text and border.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="flex flex-wrap items-center gap-2">
         <x-components::ui.badge variant="outline">Default</x-components::ui.badge>
         <x-components::ui.badge variant="outline" color="red">Red</x-components::ui.badge>
@@ -145,7 +145,7 @@ The outline style provides colored text and border.
 Add leading icons to provide visual context and improve recognition.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="flex flex-wrap items-center gap-4">
         <x-components::ui.badge icon="check-circle" color="green">Completed</x-components::ui.badge>
         <x-components::ui.badge icon="clock" color="amber">Pending</x-components::ui.badge>
@@ -168,7 +168,7 @@ Add leading icons to provide visual context and improve recognition.
 Use trailing icons for actions like removal or additional information.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="flex flex-wrap items-center gap-4">
         <x-components::ui.badge iconAfter="x-mark" color="blue">JavaScript</x-components::ui.badge>
         <x-components::ui.badge iconAfter="chevron-down" color="purple">More Options</x-components::ui.badge>
@@ -191,7 +191,7 @@ Use trailing icons for actions like removal or additional information.
 Control the icon style using the `iconVariant` prop, supporting both micro and outline styles.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="flex flex-wrap items-center gap-4">
         <x-components::ui.badge icon="heart" iconVariant="micro" color="red">Micro Icon</x-components::ui.badge>
         <x-components::ui.badge icon="heart" iconVariant="outline" color="red">Outline Icon</x-components::ui.badge>
@@ -212,7 +212,7 @@ Control the icon style using the `iconVariant` prop, supporting both micro and o
 Badges can function as buttons with hover states when appropriate attributes are applied.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="flex flex-wrap items-center gap-4">
         <x-components::ui.badge onclick="alert('Badge clicked!')" color="blue" class="cursor-pointer">Clickable Badge</x-components::ui.badge>
         <x-components::ui.badge onclick="alert('Remove tag')" icon="tag" iconTrailing="x-mark" color="green" pill class="cursor-pointer">Remove Tag</x-components::ui.badge>
@@ -236,7 +236,7 @@ Badges can function as buttons with hover states when appropriate attributes are
 Common usage patterns for status indicators and labels.
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="space-y-4">
         <div class="flex flex-wrap items-center gap-2">
             <span class="text-sm font-medium">Order Status:</span>
