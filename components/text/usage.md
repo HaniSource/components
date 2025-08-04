@@ -11,7 +11,7 @@ The `text` component provides a simple and consistent way to display text conten
 ## Basic Usage
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.text>
         This is a basic text component with default styling.
     </x-ui.text>
@@ -29,7 +29,7 @@ The `text` component provides a simple and consistent way to display text conten
 ### Default Text
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="space-y-2">
         <x-ui.text>
             Standard text with default small size and neutral colors.
@@ -50,7 +50,7 @@ The `text` component provides a simple and consistent way to display text conten
 ### Custom Sized Text
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="space-y-3">
         <x-ui.text class="text-xs">
             Extra small text content
@@ -85,7 +85,7 @@ The `text` component provides a simple and consistent way to display text conten
 ### Muted Text
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="space-y-2">
         <x-ui.text>
             Regular text content
@@ -109,7 +109,7 @@ The `text` component provides a simple and consistent way to display text conten
 ### Emphasized Text
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <div class="space-y-2">
         <x-ui.text class="font-medium">
             Medium weight text
