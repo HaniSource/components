@@ -794,6 +794,8 @@ Combine all features for sophisticated dropdown menus.
 | `disabled` | boolean | `false` | No | Whether the submenu is disabled |
 | `class` | string | `''` | No | Additional CSS classes |
 
+> you can pass the width as w-* class to control the width of the menu
+
 ### Dropdown Separator
 
 | Prop Name | Type | Default | Required | Description |
