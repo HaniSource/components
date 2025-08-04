@@ -11,7 +11,7 @@ The `description` component provides contextual help text for form fields. It's 
 ## Basic Usage
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.field>
         <x-ui.label>Password</x-ui.label>
         <x-ui.description>
@@ -46,7 +46,7 @@ The `description` component provides contextual help text for form fields. It's 
 ### Helpful Instructions
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.field>
         <x-ui.label>Website URL</x-ui.label>
         <x-ui.description>
@@ -79,7 +79,7 @@ The `description` component provides contextual help text for form fields. It's 
 ### Format Requirements
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.field required>
         <x-ui.label>Phone Number</x-ui.label>
         <x-ui.description>
@@ -112,7 +112,7 @@ The `description` component provides contextual help text for form fields. It's 
 ### Character Limits
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.field>
         <x-ui.label>Bio</x-ui.label>
         <x-ui.description>
@@ -145,7 +145,7 @@ The `description` component provides contextual help text for form fields. It's 
 ### Privacy Information
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center">
     <x-ui.field>
         <x-ui.label>Email Address</x-ui.label>
         <x-ui.description>

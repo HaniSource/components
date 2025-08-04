@@ -11,7 +11,7 @@ The `label` component provides consistent styling and accessibility for form fie
 ## Basic Usage
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center w-full max-w-md">
     <x-ui.label>Email Address</x-ui.label>
 </x-demo>
 @endblade
@@ -25,7 +25,7 @@ The `label` component provides consistent styling and accessibility for form fie
 You can pass the label text as a prop instead of using the slot:
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center w-full max-w-md">
     <x-ui.label text="Full Name" />
 </x-demo>
 @endblade
@@ -39,7 +39,7 @@ You can pass the label text as a prop instead of using the slot:
 ### Required Label
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center w-full max-w-md">
     <x-ui.label required>Email Address</x-ui.label>
 </x-demo>
 @endblade
@@ -53,7 +53,7 @@ You can pass the label text as a prop instead of using the slot:
 When used within a field component with `required`, the label automatically inherits the required state:
 
 @blade
-<x-demo>
+<x-demo class="flex justify-center w-full max-w-md">
     <x-ui.field required>
         <x-ui.label>Email Address</x-ui.label>
         <x-ui.input 
@@ -82,16 +82,14 @@ When used within a field component with `required`, the label automatically inhe
 ### With Input
 
 @blade
-<x-demo>
-    <div class="space-y-4">
-        <div>
+<x-demo class="flex justify-center w-full max-w-md">
+    <div class="space-y-4 w-full">
             <x-ui.label>Full Name</x-ui.label>
             <x-ui.input 
                 wire:model="name" 
                 placeholder="John Doe"
                 class="mt-2"
             />
-        </div>
     </div>
 </x-demo>
 @endblade
@@ -107,8 +105,8 @@ When used within a field component with `required`, the label automatically inhe
 ### With Select
 
 @blade
-<x-demo>
-    <div class="space-y-4">
+<x-demo class="flex justify-center w-full max-w-md">
+    <div class="space-y-4 w-full">
         <div>
             <x-ui.label required>Country</x-ui.label>
             <x-ui.select wire:model="country" class="mt-2">
@@ -133,8 +131,8 @@ When used within a field component with `required`, the label automatically inhe
 ### With Textarea
 
 @blade
-<x-demo>
-    <div class="space-y-4">
+<x-demo class="flex justify-center w-full max-w-md">
+    <div class="space-y-4 w-full">
         <div>
             <x-ui.label>Message</x-ui.label>
             <x-ui.textarea 
@@ -160,8 +158,8 @@ When used within a field component with `required`, the label automatically inhe
 ### With Checkbox
 
 <!-- @blade
-<x-demo>
-    <div class="space-y-4">
+<x-demo class="flex justify-center w-full max-w-md">
+    <div class="space-y-4 w-full">
         <x-ui.checkbox wire:model="newsletter">
             <x-ui.label>Subscribe to newsletter</x-ui.label>
         </x-ui.checkbox>
@@ -181,8 +179,8 @@ When used within a field component with `required`, the label automatically inhe
 ### Registration Form
 
 @blade
-<x-demo>
-    <form class="space-y-6">
+<x-demo class="flex justify-center w-full max-w-md">
+    <form class="space-y-6 w-full">
         <x-ui.field required>
             <x-ui.label>Full Name</x-ui.label>
             <x-ui.input 
@@ -248,8 +246,8 @@ When used within a field component with `required`, the label automatically inhe
 ### Custom Classes
 
 @blade
-<x-demo>
-    <div class="space-y-4">
+<x-demo class="flex justify-center w-full max-w-md">
+    <div class="space-y-4 w-full">
         <x-ui.label class="text-lg font-bold text-blue-600">
             Custom Styled Label
         </x-ui.label>

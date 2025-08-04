@@ -35,7 +35,7 @@ composer require wireui/phosphoricons
 Each variant offers different sizes and styles:
 #### Hero icons
 @blade
-<x-demo>
+<x-demo class="flex gap-2 justify-center items-center">
     <x-components::ui.icon name="academic-cap"  class="text-white"/> 
     <x-components::ui.icon name="academic-cap" variant="solid" class="text-white"/>
     <x-components::ui.icon name="academic-cap" variant="mini" class="text-white"/>
@@ -59,7 +59,7 @@ Each variant offers different sizes and styles:
 
 To use Phosphor icons, prefix the name with ps: or phosphor:.
 @blade
-<x-demo>
+<x-demo class="flex gap-2 justify-center items-center">
     <x-components::ui.icon name="ps:align-top" variant="thin" class="text-white"/>
     <x-components::ui.icon name="ps:align-top" variant="light" class="text-white"/>
     <x-components::ui.icon name="ps:align-top"  class="text-white"/> 
@@ -88,14 +88,14 @@ To use Phosphor icons, prefix the name with ps: or phosphor:.
 ### Sizes
 
 @blade
-<x-demo>
+<x-demo class="flex gap-2 justify-center items-center">
     <x-components::ui.icon name="cpu-chip"  class="size-12"/> 
     <x-components::ui.icon name="cpu-chip" variant="solid" class="size-12"/>
 </x-demo>
 @endblade
 
 ```html
-<x-demo>
+<x-demo class="flex gap-2 justify-center items-center">
     <x-ui.icon name="academic-cap"  class="size-12"/> 
     <x-ui.icon name="academic-cap" variant="solid" class="size-12"/>
 </x-demo>
@@ -107,19 +107,21 @@ If you're using **Phosphor icons** and no size is defined, the component applies
 
 > While you’re free to override the icon size, we recommend sticking with the provided variant sizes they’re crafted for optimal balance and clarity.
 
-### Color styles
+### Custom styles
 
 @blade
-<x-demo>
+<x-demo class="flex gap-2 justify-center items-center">
     <x-components::ui.icon name="cpu-chip"  class="text-purple-500"/> 
-    <x-components::ui.icon name="cpu-chip" variant="solid" class="bg-purple-300"/>
+    <x-components::ui.icon name="cpu-chip" variant="solid" class="size-12"/>
+    <x-components::ui.icon name="cpu-chip" variant="solid" class="fill-red-600 size-12"/>
 </x-demo>
 @endblade
 
 ```html
-<x-demo>
+<x-demo class="flex gap-2 justify-center items-center">
     <x-ui.icon name="academic-cap"  class="size-12"/> 
     <x-ui.icon name="academic-cap" variant="solid" class="size-12"/>
+    <x-components::ui.icon name="cpu-chip" variant="solid" class="fill-red-600 size-12"/>
 </x-demo>
 ```
 

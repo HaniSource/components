@@ -26,56 +26,14 @@ php artisan fluxtor:install select
 
 > Once installed, you can use the `<x-ui.select />` component in any Blade view.
 
-### Real-world Example
-@blade
-<x-demo>
-    <div class="grid gap-6 md:grid-cols-[1fr_auto_1fr]">
-        <div>
-            <x-components::ui.heading level="h3" class="mb-2 text-start">User Role Selection</x-components::ui.heading>
-            <x-components::ui.select 
-                label="Select Role" 
-                placeholder="Choose user role..." 
-                icon="user" 
-                clearable
-                description="Select the appropriate role for this user"
-                >
-                    <x-ui.select.option value="admin" icon="shield-check">Administrator</x-ui.select.option>
-                    <x-ui.select.option value="editor" icon="pencil">Editor</x-ui.select.option>
-                    <x-ui.select.option value="viewer" icon="eye">Viewer</x-ui.select.option>
-                    <x-ui.select.option value="guest" icon="user">Guest</x-ui.select.option>
-            </x-components::ui.select>
-        </div>
-        <x-ui.separator vertical label="And"/>
-        <div>
-            <x-components::ui.heading level="h3" class="mb-2 text-start">Technology Stack</x-components::ui.heading>
-            <x-components::ui.select 
-                label="Select Technologies" 
-                placeholder="Choose technologies..." 
-                icon="code-bracket" 
-                searchable
-                multiple
-                clearable
-                description="Select multiple technologies for your project"
-                >
-                    <x-ui.select.option value="laravel" icon="academic-cap">Laravel</x-ui.select.option>
-                    <x-ui.select.option value="vue" icon="cube">Vue.js</x-ui.select.option>
-                    <x-ui.select.option value="react" icon="bolt">React</x-ui.select.option>
-                    <x-ui.select.option value="tailwind" icon="paint-brush">Tailwind CSS</x-ui.select.option>
-                    <x-ui.select.option value="alpine" icon="variable">Alpine.js</x-ui.select.option>
-            </x-components::ui.select>
-        </div>
-    </div>
-</x-demo>
-@endblade
-
 ## Usage
 
 ### Basic Select
 
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto">
-        <x-components::ui.select 
+<x-demo class="flex justify-center">
+    <div class="w-full max-w-xs mx-auto">
+        <x-ui.select 
             label="Select Country" 
             placeholder="Choose a country..."
             >
@@ -85,7 +43,7 @@ php artisan fluxtor:install select
                 <x-ui.select.option value="au">Australia</x-ui.select.option>
                 <x-ui.select.option value="de">Germany</x-ui.select.option>
                 <x-ui.select.option value="fr">France</x-ui.select.option>
-        </x-components::ui.select>
+        </x-ui.select>
     </div>
 </x-demo>
 @endblade
@@ -109,9 +67,9 @@ php artisan fluxtor:install select
 Enhance the select with leading icons and option-specific icons for better visual communication.
 
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto">
-        <x-components::ui.select 
+<x-demo class="flex justify-center">
+    <div class="w-full max-w-xs mx-auto">
+        <x-ui.select 
             label="Select Status" 
             placeholder="Choose status..."
             icon="flag"
@@ -120,7 +78,7 @@ Enhance the select with leading icons and option-specific icons for better visua
                 <x-ui.select.option value="pending" icon="clock">Pending</x-ui.select.option>
                 <x-ui.select.option value="inactive" icon="x-circle">Inactive</x-ui.select.option>
                 <x-ui.select.option value="archived" icon="archive-box">Archived</x-ui.select.option>
-        </x-components::ui.select>
+        </x-ui.select>
     </div>
 </x-demo>
 @endblade
@@ -143,9 +101,9 @@ Enhance the select with leading icons and option-specific icons for better visua
 Add search functionality to easily find options in large lists.
 
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto">
-        <x-components::ui.select 
+<x-demo class="flex justify-center">
+    <div class="w-full max-w-xs mx-auto">
+        <x-ui.select 
             label="Search Cities" 
             placeholder="Find a city..."
             icon="map-pin"
@@ -158,7 +116,7 @@ Add search functionality to easily find options in large lists.
                 <x-ui.select.option value="tokyo">Tokyo</x-ui.select.option>
                 <x-ui.select.option value="sydney">Sydney</x-ui.select.option>
                 <x-ui.select.option value="berlin">Berlin</x-ui.select.option>
-        </x-components::ui.select>
+        </x-ui.select>
     </div>
 </x-demo>
 @endblade
@@ -185,9 +143,9 @@ Add search functionality to easily find options in large lists.
 Allow users to select multiple options with visual feedback.
 
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto">
-        <x-components::ui.select 
+<x-demo class="flex justify-center">
+    <div class="w-full max-w-xs mx-auto">
+        <x-ui.select 
             label="Select Skills" 
             placeholder="Choose your skills..."
             icon="academic-cap"
@@ -201,7 +159,7 @@ Allow users to select multiple options with visual feedback.
                 <x-ui.select.option value="react" icon="cube">React</x-ui.select.option>
                 <x-ui.select.option value="vue" icon="sparkles">Vue.js</x-ui.select.option>
                 <x-ui.select.option value="laravel" icon="academic-cap">Laravel</x-ui.select.option>
-        </x-components::ui.select>
+        </x-ui.select>
     </div>
 </x-demo>
 @endblade
@@ -229,9 +187,9 @@ Allow users to select multiple options with visual feedback.
 Combine search functionality with multiple selection for the best user experience.
 
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto">
-        <x-components::ui.select 
+<x-demo class="flex justify-center">
+    <div class="w-full max-w-xs mx-auto">
+        <x-ui.select 
             label="Select Team Members" 
             placeholder="Search and select members..."
             icon="users"
@@ -246,7 +204,7 @@ Combine search functionality with multiple selection for the best user experienc
                 <x-ui.select.option value="sarah" icon="user">Sarah Wilson</x-ui.select.option>
                 <x-ui.select.option value="david" icon="user">David Brown</x-ui.select.option>
                 <x-ui.select.option value="lisa" icon="user">Lisa Davis</x-ui.select.option>
-        </x-components::ui.select>
+        </x-ui.select>
     </div>
 </x-demo>
 @endblade
@@ -275,17 +233,17 @@ Combine search functionality with multiple selection for the best user experienc
 Show different states for validation feedback.
 
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto space-y-4">
-        <x-components::ui.select 
+<x-demo class="flex justify-center">
+    <div class="w-full max-w-xs mx-auto space-y-4">
+        <x-ui.select 
             label="Valid Selection" 
             placeholder="Choose option..."
             icon="check-circle"
             >
                 <x-ui.select.option value="option1">Valid Option 1</x-ui.select.option>
                 <x-ui.select.option value="option2">Valid Option 2</x-ui.select.option>
-        </x-components::ui.select>
-        <x-components::ui.select 
+        </x-ui.select>
+        <x-ui.select 
             label="Invalid Selection" 
             placeholder="Choose option..."
             icon="exclamation-circle"
@@ -294,7 +252,7 @@ Show different states for validation feedback.
             >
                 <x-ui.select.option value="option1">Option 1</x-ui.select.option>
                 <x-ui.select.option value="option2">Option 2</x-ui.select.option>
-        </x-components::ui.select>
+        </x-ui.select>
     </div>
 </x-demo>
 @endblade
@@ -326,16 +284,16 @@ Show different states for validation feedback.
 ### Disabled State
 
 @blade
-<x-demo>
-    <div class="w-full max-w-md mx-auto">
-        <x-components::ui.select 
+<x-demo class="flex justify-center">
+    <div class="w-full max-w-xs mx-auto">
+        <x-ui.select 
             label="Disabled Select" 
             placeholder="This is disabled..."
             disabled
             >
                 <x-ui.select.option value="option1">Option 1</x-ui.select.option>
                 <x-ui.select.option value="option2">Option 2</x-ui.select.option>
-        </x-components::ui.select>
+        </x-ui.select>
     </div>
 </x-demo>
 @endblade
@@ -350,39 +308,21 @@ Show different states for validation feedback.
         <x-ui.select.option value="option2">Option 2</x-ui.select.option>
 </x-ui.select>
 ```
-
-## Keyboard Navigation
-
-The select component supports the following keyboard interactions:
-
-- **Arrow Up/Down**: Navigate through dropdown options
-- **Enter**: Select the highlighted option
-- **Escape**: Close the dropdown
-- **Tab**: Close dropdown and move to next field
-- **Typing**: Filter options in real-time (when searchable)
-
-## Accessibility Features
-
-- **ARIA attributes**: Proper labeling and roles for screen readers
-- **Keyboard navigation**: Full keyboard support
-- **Focus management**: Proper focus handling and focus trapping
-- **Screen reader support**: Announces selections and changes
-- **High contrast support**: Works with high contrast modes
-
 ## Customization
 
 ### Custom Trigger Classes
 @blade
-<x-demo>
-    <x-ui.select 
-        label="Custom Styled" 
-        triggerClass="bg-blue-300!  border-blue-500! text-gray-800! focus:border-blue-500"
-        placeholder="Choose option..."
-        >
-        <x-ui.select.option value="option1">Option 1</x-ui.select.option>
-        <x-ui.select.option value="option2">Option 2</x-ui.select.option>
-    </x-ui.select>
-
+<x-demo class="flex justify-center">
+    <div class="max-w-sm w-full">
+        <x-ui.select 
+            label="Custom Styled" 
+            triggerClass="bg-blue-300!  border-blue-500! text-gray-800! focus:border-blue-500"
+            placeholder="Choose option..."
+            >
+            <x-ui.select.option value="option1">Option 1</x-ui.select.option>
+            <x-ui.select.option value="option2">Option 2</x-ui.select.option>
+        </x-ui.select>
+    </div>
 </x-demo>
 @endblade
 
@@ -399,17 +339,18 @@ The select component supports the following keyboard interactions:
 
 ### Custom Option Icons 
 @blade
-<x-demo>
-    <x-ui.select 
-        label="Priority Level" 
-        placeholder="Select priority..."
-        checkIcon="check-badge"
-        wire:model="priority">
-            <x-ui.select.option value="high" icon="exclamation-triangle" >High Priority</x-ui.select.option>
-            <x-ui.select.option value="medium" icon="minus-circle">Medium Priority</x-ui.select.option>
-            <x-ui.select.option value="low" icon="chevron-down">Low Priority</x-ui.select.option>
-    </x-ui.select>
-
+<x-demo class="flex justify-center">
+    <div class="max-w-sm w-full">
+        <x-ui.select 
+            label="Priority Level" 
+            placeholder="Select priority..."
+            checkIcon="check-badge"
+            wire:model="priority">
+                <x-ui.select.option value="high" icon="exclamation-triangle" >High Priority</x-ui.select.option>
+                <x-ui.select.option value="medium" icon="minus-circle">Medium Priority</x-ui.select.option>
+                <x-ui.select.option value="low" icon="chevron-down">Low Priority</x-ui.select.option>
+        </x-ui.select>
+    </div>
 </x-demo>
 @endblade
 
