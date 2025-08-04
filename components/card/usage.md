@@ -36,7 +36,7 @@ php artisan fluxtor:install card
             </div>
             <p class="text-sm">Building amazing web applications with the TALL stack.</p>
         </x-components::ui.card>
-        
+        <!--  -->
         <x-components::ui.card size="lg">
             <div class="text-center">
                 <x-components::ui.icon name="chart-bar" class="size-12 text-green-500 mx-auto mb-4" />

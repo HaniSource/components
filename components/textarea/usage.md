@@ -13,7 +13,7 @@ The `textarea` component provides a fully featured multi-line text input with au
 @blade
 <x-demo>
     <x-ui.textarea 
-        class="max-w-sm"
+        class="max-w-sm mx-auto"
         wire:model="description" 
         placeholder="Enter your description..."
     />
@@ -35,7 +35,7 @@ The textarea component uses `3` rows as the default, but you can adjust the init
 
 @blade
 <x-demo>
-    <div class="max-w-md w-full space-y-4">
+    <div class="max-w-md mx-auto w-full space-y-4">
         <x-ui.textarea 
             wire:model="smallText" 
             placeholder="Small textarea"
@@ -77,7 +77,7 @@ Control how users can resize the textarea. The default behavior is `vertical` re
 
 @blade
 <x-demo>
-    <div class="max-w-md w-full space-y-4">
+    <div class="max-w-md mx-auto w-full space-y-4">
         <x-ui.textarea 
             wire:model="noResize" 
             placeholder="No resizing allowed"
@@ -130,7 +130,7 @@ Control how users can resize the textarea. The default behavior is `vertical` re
 The component supports different states including disabled and validation states.
 
 @blade
-<x-demo>
+<x-demo class="max-w-md mx-auto space-y-4">
     <x-ui.textarea 
         wire:model="normalState" 
         placeholder="Normal state"
@@ -174,7 +174,7 @@ The textarea automatically adjusts its height to fit the content as you type, pr
 @blade
 <x-demo>
     <x-ui.textarea 
-        class="max-w-md "
+        class="max-w-md mx-auto "
         wire:model="autoResizeText" 
         placeholder="Start typing to see the auto-resize in action..."
         rows="3"
