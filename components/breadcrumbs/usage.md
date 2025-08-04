@@ -22,7 +22,7 @@ php artisan fluxtor:install breadcrumbs
 
 @blade
 <x-demo>
-    <div class="w-full">
+    <div class="flex justify-center w-full">
         <x-components::ui.breadcrumbs>
             <x-components::ui.breadcrumbs.item href="#">Home</x-components::ui.breadcrumbs.item>
             <x-components::ui.breadcrumbs.item href="#">Products</x-components::ui.breadcrumbs.item>
@@ -48,7 +48,7 @@ Use slash separators for a more compact, file-path-like appearance.
 
 @blade
 <x-demo>
-    <div class="w-full">
+    <div class="flex justify-center w-full">
         <x-components::ui.breadcrumbs>
             <x-components::ui.breadcrumbs.item href="#" separator="slash">Dashboard</x-components::ui.breadcrumbs.item>
             <x-components::ui.breadcrumbs.item href="#" separator="slash">Settings</x-components::ui.breadcrumbs.item>
@@ -74,7 +74,7 @@ Enhance breadcrumbs with icons to provide visual context and improve recognition
 
 @blade
 <x-demo>
-    <div class="w-full">
+    <div class="flex justify-center w-full">
         <x-components::ui.breadcrumbs>
             <x-components::ui.breadcrumbs.item href="#" icon="home" separator="slash">Home</x-components::ui.breadcrumbs.item>
             <x-components::ui.breadcrumbs.item href="#" icon="folder" separator="slash">Documents</x-components::ui.breadcrumbs.item>
@@ -100,7 +100,7 @@ Create compact breadcrumbs using only icons, perfect for mobile interfaces or wh
 
 @blade
 <x-demo>
-    <div class="w-full">
+    <div class="flex justify-center w-full">
         <x-components::ui.breadcrumbs>
             <x-components::ui.breadcrumbs.item href="#" icon="home" separator="slash" />
             <x-components::ui.breadcrumbs.item href="#" icon="building-office" separator="slash" />
@@ -126,7 +126,7 @@ Use dropdowns to handle long breadcrumb paths by collapsing intermediate items.
 
 @blade
 <x-demo>
-    <div class="w-full">
+    <div class="flex justify-center w-full">
         <x-components::ui.breadcrumbs>
             <x-components::ui.breadcrumbs.item href="#" icon="home" separator="slash" />
             
@@ -178,7 +178,7 @@ Use custom icons as separators to match your design system or brand aesthetic.
 
 @blade
 <x-demo>
-    <div class="w-full space-y-4">
+    <div class="flex justify-center w-full space-y-4">
         <div>
             <x-ui.heading level="2" class="mb-2">With arrow separators:</x-ui.heading>
             <x-components::ui.breadcrumbs>
@@ -210,7 +210,7 @@ A practical example showing breadcrumbs in an e-commerce context with mixed cont
 
 @blade
 <x-demo>
-    <div class="w-full">
+    <div class="flex justify-center w-full">
         <x-components::ui.breadcrumbs>
             <x-components::ui.breadcrumbs.item href="#" icon="home" separator="slash" />
             <x-components::ui.breadcrumbs.item href="#" separator="slash">Electronics</x-components::ui.breadcrumbs.item>
