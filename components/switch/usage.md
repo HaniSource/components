@@ -288,6 +288,107 @@ Various icon combinations for different use cases and contexts.
 />
 ```
 
+### Custom Colors
+
+Customize the switch and thumb colors using Tailwind CSS classes for different states. Perfect for matching your brand colors or creating themed switches.
+
+@blade
+<x-demo>
+    <div class="flex flex-col items-center gap-6">
+        <x-components::ui.switch 
+            label="Success theme"
+            description="Green themed switch for positive actions"
+            name="success_switch"
+            onClass="bg-green-500"
+            offClass="bg-red-300 dark:bg-red-600"
+            thumbOnClass="bg-white"
+            thumbOffClass="bg-white"
+            :checked="true"
+        />
+        
+        <x-components::ui.switch 
+            label="Warning theme"
+            description="Orange themed switch for caution actions"
+            name="warning_switch"
+            onClass="bg-orange-500"
+            offClass="bg-gray-300 dark:bg-gray-600"
+            thumbOnClass="bg-white"
+            thumbOffClass="bg-gray-100"
+            :checked="true"
+        />
+        
+        <x-components::ui.switch 
+            label="Brand theme"
+            description="Purple themed switch matching brand colors"
+            name="brand_switch"
+            onClass="bg-purple-600"
+            offClass="bg-gray-200 dark:bg-gray-700"
+            thumbOnClass="bg-white shadow-lg"
+            thumbOffClass="bg-gray-50"
+            :checked="true"
+        />
+        
+        <x-components::ui.switch 
+            label="Danger theme"
+            description="Red themed switch for critical actions"
+            name="danger_switch"
+            onClass="bg-red-500"
+            offClass="bg-gray-300"
+            thumbOnClass="bg-white"
+            thumbOffClass="bg-red-100"
+            iconOff="x-mark"
+            iconOn="check"
+        />
+    </div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.switch 
+    label="Success theme"
+    description="Green themed switch for positive actions"
+    name="success_switch"
+    onClass="bg-green-500"
+    offClass="bg-red-300 dark:bg-red-600"
+    thumbOnClass="bg-white"
+    thumbOffClass="bg-white"
+    :checked="true"
+/>
+
+<x-ui.switch 
+    label="Warning theme"
+    description="Orange themed switch for caution actions"
+    name="warning_switch"
+    onClass="bg-orange-500"
+    offClass="bg-gray-300 dark:bg-gray-600"
+    thumbOnClass="bg-white"
+    thumbOffClass="bg-gray-100"
+/>
+
+<x-ui.switch 
+    label="Brand theme"
+    description="Purple themed switch matching brand colors"
+    name="brand_switch"
+    onClass="bg-purple-600"
+    offClass="bg-gray-200 dark:bg-gray-700"
+    thumbOnClass="bg-white shadow-lg"
+    thumbOffClass="bg-gray-50"
+    :checked="true"
+/>
+
+<x-ui.switch 
+    label="Danger theme"
+    description="Red themed switch for critical actions"
+    name="danger_switch"
+    onClass="bg-red-500"
+    offClass="bg-gray-300"
+    thumbOnClass="bg-white"
+    thumbOffClass="bg-red-100"
+    iconOff="x-mark"
+    iconOn="check"
+/>
+```
+
 
 ## Component Props Reference
 
@@ -297,16 +398,21 @@ Various icon combinations for different use cases and contexts.
 |------|------|---------|-------------|
 | `align` | `string` | `'right'` | Position of the switch relative to label: `'left'`, `'right'` |
 | `label` | `string` | `''` | Label text displayed next to the switch |
-| `name` | `string` | `''` | Form input name attribute |
+| `name` | `string` | `null` | Form input name attribute |
 | `description` | `string\|null` | `null` | Optional description text shown below the label |
 | `disabled` | `boolean` | `false` | Whether the switch is disabled and cannot be toggled |
 | `maxWidth` | `string` | `'max-w-md'` | Maximum width constraint for the component container |
 | `checked` | `boolean` | `false` | Initial checked state of the switch |
 | `size` | `string` | `'md'` | Size variant: `'sm'`, `'md'`, `'lg'` |
-| `switchClass` | `string` | `''` | extend the switch style |
-| `thumbClass` | `string` | `''` | extend the thumb style |
-| `iconOn` | `string` | `null` | optional icon to show when the switch is open |
-| `iconOff` | `string` | `null` | optional icon to show when the switch is off |
+| `switchClass` | `string` | `''` | Custom Tailwind classes for switch background (applied to both states) |
+| `thumbClass` | `string` | `''` | Custom Tailwind classes for thumb element (applied to both states) |
+| `iconOff` | `string\|null` | `null` | Lucide icon name to display in thumb when switch is off |
+| `iconOn` | `string\|null` | `null` | Lucide icon name to display in thumb when switch is on |
+| `onClass` | `string` | `''` | Custom Tailwind classes for switch background when on |
+| `offClass` | `string` | `''` | Custom Tailwind classes for switch background when off |
+| `thumbOnClass` | `string` | `''` | Custom Tailwind classes for thumb element when on |
+| `thumbOffClass` | `string` | `''` | Custom Tailwind classes for thumb element when off |
+
 
 
 For advanced customization, you can override the component's CSS classes or extend the component file directly.
