@@ -214,6 +214,81 @@ Use switches without labels when the context is clear or when building custom la
 ```
 
 
+### Switch with Icons
+
+Add visual feedback to your switches by displaying different icons for on and off states. This enhances user experience by providing clear visual indicators of the current state.
+
+@blade
+<x-demo>
+    <div class="flex flex-col items-center gap-4">
+        <x-components::ui.switch 
+            label="Sound effects"
+            description="Play sound effects in the application"
+            name="sound_effects"
+            iconOff="speaker-x-mark"
+            iconOn="speaker-wave"
+        />
+    </div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.switch 
+    label="Sound effects"
+    description="Play sound effects in the application"
+    name="sound_effects"
+    iconOff="speaker-x-mark"
+    iconOn="speaker-wave"
+/>
+```
+
+### Different Icon Examples
+
+Various icon combinations for different use cases and contexts.
+
+@blade
+<x-demo>
+    <div class="flex flex-col items-center gap-6">
+        <x-components::ui.switch 
+            label="Dark mode"
+            description="Switch between light and dark themes"
+            name="dark_mode_icon"
+            iconOff="sun"
+            iconOn="moon"
+            size="lg"
+        />        
+        <x-components::ui.switch 
+            label="Auto-save"
+            description="Automatically save your work"
+            name="autosave_icon"
+            iconOff="bookmark-slash"
+            iconOn="bookmark"
+            size="sm"
+        />
+    </div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.switch 
+    label="Dark mode"
+    name="dark_mode"
+    iconOff="sun"
+    iconOn="moon"
+    size="lg"
+/>
+
+
+<x-ui.switch 
+    label="Auto-save"
+    name="autosave"
+    iconOff="bookmark-slash"
+    iconOn="bookmark"
+    size="sm"
+/>
+```
+
+
 ## Component Props Reference
 
 ### Switch Props
@@ -230,6 +305,8 @@ Use switches without labels when the context is clear or when building custom la
 | `size` | `string` | `'md'` | Size variant: `'sm'`, `'md'`, `'lg'` |
 | `switchClass` | `string` | `''` | extend the switch style |
 | `thumbClass` | `string` | `''` | extend the thumb style |
+| `iconOn` | `string` | `null` | optional icon to show when the switch is open |
+| `iconOff` | `string` | `null` | optional icon to show when the switch is off |
 
 
 For advanced customization, you can override the component's CSS classes or extend the component file directly.
