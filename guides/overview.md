@@ -3,13 +3,13 @@ name: 'overview'
 ---
 # Overview
 
-**Fluxtor** is a modern component library and design system built specifically for the **TALL stack**: Tailwind CSS, Alpine.js, Laravel, and Livewire, and even raw **Blade**.
+**Fluxtor** is a modern component library and design system built specifically for the **TALL stack**: Tailwind CSS, Alpine.js, Laravel, and Livewire, and even raw **Blade** with alpinejs reactivity.
 
 It was invented for personal needs and the lack of such solution in our amazing community.
 
-It follows the **copy-paste** philosophy made popular by shadcn/ui but goes further:
+It follows the **copy-paste** philosophy through our [cli](cli) made popular by shadcn/ui but goes further:
 
-* **Zero dependencies**
+* **Zero dependencies** (for most components)
 * **Real Laravel integration**
 * **Full ownership over your UI**
 * **Reactive Blade components that scale**
@@ -20,13 +20,13 @@ It follows the **copy-paste** philosophy made popular by shadcn/ui but goes furt
 
 Every Fluxtor component lives in **your codebase**, not a vendor package.
 No version conflicts, no dependency hell, no hidden behavior.
-You own it. You control it. You ship it.
+You own it. You control it.  You modify it. You ship it.
 
 ### Built for Developer Flow
 
-* Add any component with a simple CLI command
-* Components come fully documented and customizable
-* Everything is plain Blade, Alpine, and Tailwind—nothing more
+* Add any component with a simple CLI command.
+* Components come fully documented and customizable.
+* Everything is plain Blade, Alpine, and Tailwind, nothing more.
 * No build step. No lock-in. No surprises.
 
 
@@ -42,6 +42,8 @@ Each component includes:
 * **Clear docs** for usage, props, slots, and integration
 
 Example:
+
+this how may typically your codebase will look likes:
 
 ```
 resources/views/components/ui/
@@ -65,7 +67,7 @@ Fluxtor includes a fully themeable system with:
 
 * Designed to work **seamlessly with Laravel's Blade components**
 * Built with **Alpine** and **Livewire compatibility**
-* No extra config or boilerplate—just copy, use, extend
+* No extra config or boilerplate just copy (via cli), use, extend ...
 
 
 ## Getting Started
@@ -76,9 +78,10 @@ Fluxtor includes a fully themeable system with:
 php artisan fluxtor:add button
 php artisan fluxtor:add tags-input
 php artisan fluxtor:add select
+php artisan fluxtor:add ...
 ```
 
-> Our CLI handles setup, imports, and file placement—so you don't have to.
+> Our CLI handles setup, imports, and file placement so you don't have to.
 > 
 > [Read more about CLI](/docs/cli)
 
@@ -104,7 +107,7 @@ php artisan fluxtor:add select
 </button>
 ```
 
-Since it's your file, you can change anything—structure, logic, styles.
+Since it's your file, you can change anything: structure, logic, styles...
 
 ---
 
@@ -163,7 +166,5 @@ Since you own every component you install, **you can contribute improvements bac
 * [Need Help?](/docs/help) – Get unstuck fast
 
 
-## TL;DR:
-
 > **Fluxtor is the UI toolkit Laravel has always deserved.**
-> Fully native. Zero dependencies. Copy-paste simplicity with infinite power.
+> Fully native. Zero dependencies. Copy paste simplicity with infinite power.
