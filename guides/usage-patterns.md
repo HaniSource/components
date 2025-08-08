@@ -71,8 +71,9 @@ But sometimes that’s just not enough especially when you want more control ove
 ### Fun Fact About Livewire
 
 Dig into the Livewire source code and you’ll see this:  
-`wire:model` is basically just a powered-up `x-model`. Under the hood, it uses Alpine’s `bind()` utility.  
-You can see that in action [here](https://github.com/livewire/livewire/blob/main/js/directives/wire-model.js#L50).
+`wire:model` is basically just a powered-up `x-model`. Under the hood, it uses Alpine’s `bind()` utility.
+
+> You can see that in action [here](https://github.com/livewire/livewire/blob/main/js/directives/wire-model.js#L54).
 
 So yeah, next time you use `wire:model`, know that it’s just `x-model` with some Laravel seasoning.
 
@@ -119,7 +120,7 @@ So what’s going on?
 
 This pattern gives us full control without breaking Livewire or Blade compatibility. It’s how we make components that are truly reusable, reactive, and enjoyable to work with no matter your setup.
 
-## About Design
+## Design Patterns
 
 As a team working on this amazing project, we’ve defined a few essential rules to guide how we design and manage component styles, especially when it comes to handling **variants**.
 
@@ -167,5 +168,8 @@ that's all driven by css selectors in specific cretarias
 ### Rule #2: Hover States
 
 <!-- @todo -->
+I will write this tomorrow
 
-### Rule #3: 
+### Rule #3:
+ <!--@todo  -->
+also this.
