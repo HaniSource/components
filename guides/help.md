@@ -38,7 +38,7 @@ Open a thread in [Fluxtor Discussions](https://github.com/orgs/fluxtorphp/discus
 
 > **Note**: Please respect our licensing and don't share premium component code publicly.
 
-##t #  Reporting Bugs
+###  Reporting Bugs
 
 Found something broken?
 
