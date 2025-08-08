@@ -1,25 +1,34 @@
 ---
 name: 'themes'
 ---
+
 # Theming System
 
-We've meticulously designed Fluxtor to look great out of the box, however, every project has its own identity. You can choose from our hand-picked design tokens or build your own theme by customizing CSS variables.
+Fluxtor looks great out of the box, but your project isn’t “just another gray website.” Maybe you want bold and colorful, maybe minimal and sharp. Whatever your style, the theming system lets you align every component with your brand in minutes.
 
-## How Theming Works
+---
 
-There are essentially two main colors in a Fluxtor project: the **base color** and the **primary color**.
+## Core Idea
 
-The base color is the color of the majority of your application's content. It's used for things like text, backgrounds, borders, etc.
+Fluxtor themes are powered by **two main color families** and **two radius controls**.
+Everything else flows from there.
 
-The primary color is the color of your main action buttons and other interactive elements in your application.
+### Color Roles
 
-Fluxtor ships with "neutral" as the default base color, but you are free to use any shade of gray you'd like.
+| Variable                  | Purpose                                                 |
+| ------------------------- | ------------------------------------------------------- |
+| `--color-primary`         | Your main brand color (buttons, links, active states).  |
+| `--color-primary-content` | Slightly darker/lighter variant for better readability. |
+| `--color-primary-fg`      | Text color that sits on top of primary backgrounds.     |
 
-## Primary Color System
+**Base color** covers neutral backgrounds, borders, and text.
+**Primary color** handles interactive elements and brand accents.
 
-Under the hood, Fluxtor uses CSS variables for its primary colors. This means that you can change the primary color to any color you'd like.
+---
 
-Here's how you define your primary color palette:
+## Setting Your Primary Colors
+
+We use CSS variables so you can change the theme without touching component code.
 
 ```css
 /* resources/css/app.css */
@@ -27,23 +36,17 @@ Here's how you define your primary color palette:
     --color-primary: var(--color-neutral-800);
     --color-primary-content: var(--color-neutral-800);
     --color-primary-fg: var(--color-white);
-    
+
     --radius-field: 0.25rem;
     --radius-box: 0.5rem;
 }
 ```
 
-You'll notice Fluxtor uses three different hues in both light mode and dark mode for its primary color palette. Here are descriptions of each:
+---
 
-| Variable | Description |
-|----------|-------------|
-| `--color-primary` | The main primary color used as the background for primary buttons |
-| `--color-primary-content` | A (typically) darker hue used for text content because it's more readable |
-| `--color-primary-fg` | The color of (typically) text content on top of a primary colored background |
+## Dark Mode Support
 
-### Dark Mode Support
-
-For dark mode, you simply redefine these variables in the `.dark` context:
+Dark mode is built in. Override your variables inside a `.dark` selector:
 
 ```css
 @layer theme {
@@ -55,37 +58,40 @@ For dark mode, you simply redefine these variables in the `.dark` context:
 }
 ```
 
-## Radius Variables
+Switch your HTML’s class to `.dark` and everything adapts automatically.
 
-We've also included radius variables to control the "roundness" of your interface:
+---
 
-- `--radius-field` - Applied to form inputs and small interactive elements
-- `--radius-box` - Applied to cards, panels, and larger containers
+## Controlling Roundness
 
-Want a softer, more modern feel? Increase these values:
+Two variables control all corner radii:
+
+| Variable         | Affects                         |
+| ---------------- | ------------------------------- |
+| `--radius-field` | Inputs and small elements       |
+| `--radius-box`   | Cards, modals, large containers |
+
+Examples:
 
 ```css
+/* Soft and friendly */
 @theme {
     --radius-field: 0.5rem;
     --radius-box: 1rem;
 }
-```
 
-Prefer sharp, professional edges? Set them to zero:
-
-```css
+/* Sharp and minimal */
 @theme {
     --radius-field: 0rem;
     --radius-box: 0rem;
 }
 ```
 
-## Changing Your Primary Color
+---
 
-Let's say you want to use blue as your primary color instead of the default neutral. Here's how:
+## Example: Switching to Blue
 
 ```css
-/* resources/css/app.css */
 @theme {
     --color-primary: var(--color-blue-600);
     --color-primary-content: var(--color-blue-700);
@@ -101,17 +107,13 @@ Let's say you want to use blue as your primary color instead of the default neut
 }
 ```
 
-Now all your buttons, active states, and primary elements will use blue instead of neutral.
+---
 
-## Changing Your Base Color
+## Changing the Base Color Family
 
-Because neutral is used throughout Fluxtor's source code, you will need to redefine it in your CSS file if you'd like to use a different base color.
-
-Here is an example of redefining "neutral" to "slate" in your CSS file:
+If you want to replace the entire neutral palette (e.g., switch from `neutral` to `slate`):
 
 ```css
-/* resources/css/app.css */
-/* Re-assign Fluxtor's gray of choice... */
 @theme {
     --color-neutral-50: var(--color-slate-50);
     --color-neutral-100: var(--color-slate-100);
@@ -127,32 +129,44 @@ Here is an example of redefining "neutral" to "slate" in your CSS file:
 }
 ```
 
-Now, Fluxtor will use "slate" as the base color instead of "neutral", and you can use "slate" inside your application utilities like you normally would:
+This lets you keep using `text-neutral-800` while the underlying tone changes project-wide.
 
-```html
-<x-ui.text class="text-slate-800 dark:text-white">...</x-ui.text>
-```
+---
 
-## Using Your Theme Colors
- you can use utility classes such as:
+## Using Your Theme in Components
 
 ```html
 <button class="bg-primary text-primary-fg">
-    Click me   
+    Branded button
 </button>
 ```
 
-## Advanced Customization
+These utility classes map directly to your theme variables.
 
-### Adding More Colors
+---
 
-You can extend the system with additional semantic colors:
+## Adding Extra Semantic Colors
 
+```css
+@theme {
+    --color-success: var(--color-green-600);
+    --color-error: var(--color-red-600);
+    --color-warning: var(--color-yellow-600);
+}
+```
 
+Now you can do:
 
-### Component-Specific Styling
+```html
+<span class="text-success">Success</span>
+```
 
-Target specific components using data-slot attributes:
+---
+
+## Component-Specific Tweaks
+
+If you need global overrides for specific Fluxtor components, target them with data attributes.
+(You own the code — for deeper changes, edit the component directly.)
 
 ```css
 /* Make all buttons extra rounded */
@@ -160,8 +174,30 @@ Target specific components using data-slot attributes:
     border-radius: var(--radius-box);
 }
 
-/* Custom card styling */
+/* Give cards a custom border */
 [data-slot="card"] {
     border: 2px solid var(--color-primary);
 }
+
+/* Style icons */
+[data-slot="icon"] {
+    @apply text-neutral-300;
+}
 ```
+
+---
+
+## Quick Reference: Theme Variables
+
+| Variable                                     | Description                              |
+| -------------------------------------------- | ---------------------------------------- |
+| `--color-primary`                            | Main brand color                         |
+| `--color-primary-content`                    | Readable variant of primary              |
+| `--color-primary-fg`                         | Foreground color for primary backgrounds |
+| `--radius-field`                             | Rounding for inputs                      |
+| `--radius-box`                               | Rounding for larger elements             |
+| `--color-neutral-50` → `--color-neutral-950` | Neutral palette shades                   |
+
+---
+
+Now you have a theme system that’s **fast to change**, **consistent across components**, and **ready for both light and dark modes**.

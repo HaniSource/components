@@ -50,7 +50,7 @@ Found something broken?
 
 ## Still Stuck?
 
-Shoot us a message on Twitter [@fluxtor_ui](https://twitter.com/fluxtor_ui) or email us at [support@fluxtor.dev](mailto:support@fluxtor.dev). We're builders too and we want you unblocked.
+Shoot us a message on Twitter [@fluxtor](https://twitter.com/fluxtor) or email us at [support@fluxtor.dev](mailto:support@fluxtor.dev). We're builders too and we want you unblocked.
 
 
 If it’s a question, bug, or feedback we want to hear it. Fluxtor isn't just a platform. It’s a community.
