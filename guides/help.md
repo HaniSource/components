@@ -5,7 +5,7 @@ name: 'help'
 
 ## Need Help With Fluxtor?
 
-You're in the right place. Whether you're debugging a component, confused about integration, or just need direction—this page gives you clear ways to get help fast.
+You're in the right place. Whether you're debugging a component, confused about integration, or just need direction this page gives you clear ways to get help fast.
 
 ---
 
@@ -30,16 +30,15 @@ Join our Fluxtor Discord where the core team and contributors hang out. Ask ques
 
 ### GitHub Discussions
 
-Open a thread in [Fluxtor Discussions](https://github.com/orgs/fluxtorphp/discussions) if you:
+Open a thread in [Fluxtor Discussions](https://github.com/orgs/fluxtorphp/discussions) for:
 
-* Want feedback on a new component idea
-* Are unsure how to implement something complex
-* Encounter a bug that others might also face
+* New component ideas and feedback
+* Complex implementation questions  
+* Bug reports that others might face
 
-> please don't share the code of premium components 
+> **Note**: Please respect our licensing and don't share premium component code publicly.
 
-
-##  Reporting Bugs
+##t #  Reporting Bugs
 
 Found something broken?
 
@@ -47,15 +46,13 @@ Found something broken?
 2. Include Alpine state if relevant
 3. Open a GitHub issue with clear reproduction steps
 
-[Submit a bug →](https://github.com/fluxtorphp/issues)
+[Submit a bug →](https://github.com/orgs/fluxtorphp/discussions)
 
 ## Still Stuck?
 
 Shoot us a message on Twitter [@fluxtor_ui](https://twitter.com/fluxtor_ui) or email us at [support@fluxtor.dev](mailto:support@fluxtor.dev). We're builders too and we want you unblocked.
 
 
-## TL;DR
-
-If it’s a question, bug, or feedback—we want to hear it. Fluxtor isn't just a library. It’s a community.
+If it’s a question, bug, or feedback we want to hear it. Fluxtor isn't just a platform. It’s a community.
 
 > Help us make Laravel UI better, together.
