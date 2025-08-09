@@ -328,8 +328,31 @@ Customize icon avatars with different icon variants and styling.
 ### Avatar Groups and Lists
 
 Create user lists and avatar groups for team displays or user collections.
+@blade
+<x-demo>
+    <div class="space-y-6 flex flex-col items-center">
+        <x-components::ui.heading level="3">Team Members</x-components::ui.heading>
+        <x-components::ui.avatar.group >
+            <x-components::ui.avatar name="Alice Johnson" color="auto" circle href="/user/alice" />
+            <x-components::ui.avatar name="Bob Smith" color="auto" circle href="/user/bob" />
+            <x-components::ui.avatar name="Charlie Brown" color="auto" circle href="/user/charlie" />
+            <x-components::ui.avatar name="Diana Prince" color="auto" circle href="/user/diana" />
+            <x-components::ui.avatar circle>+5</x-components::ui.avatar>
+        </x-components::ui.avatar.group>
+    </div>
+</x-demo>
+@endblade
 
-Up Coming!!
+```html
+<x-components::ui.heading level="3">Team Members</x-components::ui.heading>
+<x-components::ui.avatar.group >
+    <x-components::ui.avatar name="Alice Johnson" color="auto" circle href="/user/alice" />
+    <x-components::ui.avatar name="Bob Smith" color="auto" circle href="/user/bob" />
+    <x-components::ui.avatar name="Charlie Brown" color="auto" circle href="/user/charlie" />
+    <x-components::ui.avatar name="Diana Prince" color="auto" circle href="/user/diana" />
+    <x-components::ui.avatar circle>+5</x-components::ui.avatar>
+</x-components::ui.avatar.group>
+```
 
 ## Component Props Reference
 
