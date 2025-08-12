@@ -162,9 +162,83 @@ window.dispatchEvent(
     })
 );
 ```
+#### From Backend
 
+You can create toasts from your backend using Laravel's `session()->flash()` helper:
 
+```php
+session()->flash('notify', [
+    'content' => 'Operation completed successfully!',
+    'type' => 'success', // optional if type is info.
+    'duration' => 5000 // optional
+]);
+```
 
+**Available Keys:**
+- `content` (required) - The toast message text
+- `type` (optional) - Toast variant: `info` (default), `success`, `error`, `warning`  
+- `duration` (optional) - Display duration in milliseconds (default: 4000ms)
+
+**Example Use Cases:**
+
+**After User Logout:**
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Actions\Auth;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+final class Logout
+{
+    public function __invoke(Request $request)
+    {
+        Auth::logout();
+        
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        session()->flash('notify', [
+            'content' => 'You have been logged out successfully',
+            'type' => 'success'
+        ]);
+
+        return redirect()->route('home');
+    }
+}
+```
+
+**Form Validation Errors:**
+```php
+// In your controller
+if ($validator->fails()) {
+    session()->flash('notify', [
+        'content' => 'Please fix the validation errors',
+        'type' => 'error',
+        'duration' => 6000
+    ]);
+    
+    return redirect()->back()->withErrors($validator);
+}
+```
+
+**After Data Operations:**
+```php
+// After creating a record
+$post = Post::create($validatedData);
+
+session()->flash('notify', [
+    'content' => 'Post created successfully!',
+    'type' => 'success'
+]);
+
+return redirect()->route('posts.index');
+```
+
+> **Note:** The toast system uses `session()->pull()` on the frontend to retrieve and display flashed toast data, ensuring toasts appear only once per session flash.
 ## Toast Types and Styling
 
 Supports types:
@@ -192,6 +266,24 @@ Control maximum visible toasts via `maxToasts` prop:
 
 ```blade
 <x-ui.toast maxToasts="3" />
+```
+
+### Progress Bar
+
+You can make the progress bar thin by using the `progressBarVariant` attribute:
+```html
+<x-ui.toast 
+    progressBarVariant="thin" 
+/>
+```
+
+You can align the progress bar to the top by using the `progressBarAlignment` attribute:
+
+```html
+<x-ui.toast 
+    progressBarVariant="thin"
+    progressBarAlignment="top" 
+/>
 ```
 
 

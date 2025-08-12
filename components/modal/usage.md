@@ -879,6 +879,8 @@ modal = Alpine.reactive({
     }
 })
 ```
+### Dealing with stacking context
+modals had a very z-index, but if you lock the stacking context in a container, and inside that container you put the modal, the modal maybe behind other element like navbars..., that had higher stacking context order  
 
 ### How it Works
 
