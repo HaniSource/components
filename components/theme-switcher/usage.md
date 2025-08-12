@@ -12,8 +12,8 @@ The `theme-switcher` component provides a fully accessible, responsive, and cust
 ## Basic Usage
 
 @blade 
-<x-demo>
-    <x-ui.theme-switcher variant="dropdown"/> 
+<x-demo class=" flex justify-center">
+    <x-ui.theme-switcher  variant="dropdown"/> 
 </x-demo>
 @endblade
 
@@ -30,7 +30,7 @@ The component supports three visual layouts:
 Displays the theme switcher as a dropdown menu with the current theme icon as a button.
 
 @blade 
-<x-demo>
+<x-demo class=" flex justify-center">
     <x-ui.theme-switcher variant="dropdown" /> 
 </x-demo>
 @endblade
@@ -44,7 +44,7 @@ Displays the theme switcher as a dropdown menu with the current theme icon as a 
 Displays a toggle button for dark/light themes. Automatically selects based on system preference if the `system` theme is active.
 
 @blade 
-<x-demo>
+<x-demo class=" flex justify-center">
     <x-ui.theme-switcher variant="stacked" />
 </x-demo>
 @endblade
@@ -58,7 +58,7 @@ Displays a toggle button for dark/light themes. Automatically selects based on s
 Displays all three theme options as inline buttons.
 
 @blade 
-<x-demo>
+<x-demo class=" flex justify-center">
     <x-ui.theme-switcher variant="inline" />
 </x-demo>
 @endblade
@@ -73,7 +73,7 @@ Displays all three theme options as inline buttons.
 
 You can customize the icons used for each theme:
 @blade 
-<x-demo>
+<x-demo class=" flex justify-center">
     <x-ui.theme-switcher 
         variant="stacked"
         dark-icon="bug-ant"
@@ -103,71 +103,7 @@ Control icon style using the `icon-variant` prop (e.g., `mini`, `outline`, etc.)
 
 ## JavaScript Behavior
 
-This component is fully driven by JavaScript logic, which is automatically wired up when you run using `fluxtor/cli`:
-
-```shell
-php artisan fluxtor:init
-```
-
-If you want to manually enable this behavior or integrate it into your existing build pipeline, copy the following snippet into your ``resources/js/app.js`` (or equivalent entry point):
-
-```js
-// Other imports...
-import themeSwitcher from "./components/themeSwitcher";
-
-// Initialize Alpine with themeSwitcher on alpine:init event
-document.addEventListener("alpine:init", themeSwitcher);
-```
-
-Here’s a canonical example of the ``resources/js/components/themeSwitcher.js`` module implementing the logic used by the component:
-
-```js
-export default () => {
-    
-    const theme = localStorage.getItem("theme") ?? "system";
-
-    window.Alpine.store(
-        "theme",
-        theme === "dark" ||
-            (theme === "system" &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ? "dark"
-            : "light"
-    );
-
-    window.addEventListener("theme-changed", (event) => {
-        let theme = event.detail;
-
-        localStorage.setItem("theme", theme);
-
-        if (theme === "system") {
-            theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "dark"
-                : "light";
-        }
-
-        window.Alpine.store("theme", theme);
-    });
-
-    window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", (event) => {
-            if (localStorage.getItem("theme") === "system") {
-                window.Alpine.store("theme", event.matches ? "dark" : "light");
-            }
-        });
-
-    window.Alpine.effect(() => {
-        const theme = window.Alpine.store("theme");
-
-        theme === "dark"
-            ? document.documentElement.classList.add("dark")
-            : document.documentElement.classList.remove("dark");
-    });
-}
-```
-
-The component uses Alpine.js internally and listens to `theme-changed` events. It stores the theme selection in `localStorage` and optionally applies the system preference if `theme == 'system'`.
+This component is fully driven by JavaScript logic, read [dark mode guide](/docs/guides/dark-mode)
 
 
 
@@ -192,8 +128,3 @@ The component uses Alpine.js internally and listens to `theme-changed` events. I
     icon-variant="outline"
 />
 ```
-
-## Notes
-
-* Make sure to handle the `theme-changed` event in your layout script to apply the class to `<html>` or `<body>`.
-* For system detection, ensure you're listening to `matchMedia('(prefers-color-scheme: dark)')`.
