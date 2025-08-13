@@ -1,5 +1,7 @@
 # Fluxtor CLI Documentation
 
+The CLI tool streamlines component installation, theme management, and project setup to accelerate your Laravel development workflow.
+
 ## Installation
 
 Install the Fluxtor CLI package in your Laravel project using Composer:
@@ -9,12 +11,11 @@ composer require fluxtor/cli
 ```
 
 **Requirements:**
+
 - Laravel 10.0 or higher
 - PHP 8.1 or higher
 - Alpine.js (auto-installed if not present)
 - Tailwindcss 4.0 or higher
-
-
 
 ## Package Initialization
 
@@ -80,28 +81,27 @@ resources/
 ```
 
 ### Important: Include Assets in Your Layout
+
 Make sure your main layout file includes the compiled CSS and JavaScript assets:
 
 ```html
 {{-- In your main layout file (e.g., resources/views/layouts/app.blade.php) --}}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your App</title>
-    
-    {{-- Include main CSS File --}}
-    {+ @vite(['resources/css/app.css']) +}
-</head>
-<body>
-    {{-- Your content --}}
-    
-    {{-- Include main JavaScript File --}}
-    {+ @vite(['resources/js/app.js']) +}
-</body>
+
+    {{-- Include main CSS File --}} {+ @vite(['resources/css/app.css']) +}
+  </head>
+  <body>
+    {{-- Your content --}} {{-- Include main JavaScript File --}} {+
+    @vite(['resources/js/app.js']) +}
+  </body>
 </html>
 ```
+
 ## Authentication
 
 ### Login to Your Account
@@ -113,13 +113,12 @@ php artisan fluxtor:login
 ```
 
 This command will:
+
 - Prompt for your Fluxtor credentials
 - Store authentication tokens securely
 - Enable access to premium components and features
 
 **Note:** Authentication is required for premium components but optional for free components.
-
-
 
 ## Component Management
 
@@ -132,6 +131,7 @@ php artisan fluxtor:install component-name
 ```
 
 **Examples:**
+
 ```bash
 # Install a button component
 php artisan fluxtor:install button
