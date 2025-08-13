@@ -79,8 +79,29 @@ resources/
             └── theme.js (Dark mode system)
 ```
 
+### Important: Include Assets in Your Layout
+Make sure your main layout file includes the compiled CSS and JavaScript assets:
 
-
+```html
+{{-- In your main layout file (e.g., resources/views/layouts/app.blade.php) --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your App</title>
+    
+    {{-- Include main CSS File --}}
+    {+ @vite(['resources/css/app.css']) +}
+</head>
+<body>
+    {{-- Your content --}}
+    
+    {{-- Include main JavaScript File --}}
+    {+ @vite(['resources/js/app.js']) +}
+</body>
+</html>
+```
 ## Authentication
 
 ### Login to Your Account
@@ -138,8 +159,6 @@ php artisan fluxtor:install button --no-deps
 # Preview what will be installed
 php artisan fluxtor:install button --dry-run
 ```
-
-
 
 ## Discovering Components
 
