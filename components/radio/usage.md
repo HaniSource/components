@@ -1,5 +1,5 @@
 ---
-name: card
+name: radio
 ---
 
 ## Introduction
