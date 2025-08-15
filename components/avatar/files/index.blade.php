@@ -11,6 +11,8 @@
     'href' => null,
     'alt' => null,
     'as' => 'div',
+    'class' => '',
+    'badgeClass' => ''
 ])
 
 @php
@@ -57,7 +59,7 @@
     ];
 
     if ($hasTextContent && $color === 'auto') {
-        $colorSeed = $attributes->has('color:seed') ?? ($name ?? ($icon ?? ($initials ?? $slot)));
+        $colorSeed = $attributes->get('color:seed') ?? ($name ?? ($icon ?? ($initials ?? $slot)));
         $hash = crc32((string) $colorSeed);
         $color = $colors[$hash % count($colors)];
     }
@@ -97,7 +99,7 @@
         'fuchsia' => 'bg-fuchsia-200 text-fuchsia-800',
         'pink' => 'bg-pink-200 text-pink-800',
         'rose' => 'bg-rose-200 text-rose-800',
-        default => '',
+        default => 'bg-neutral-200 dark:bg-neutral-500 [&>[data-slot=icon]]:text-white!',
     };
 
     $classes = [
@@ -105,6 +107,7 @@
         $avatarRadius,
         $avatarSize,
         $avatarColor,
+        $class
     ];
 
     $iconClasses = [
@@ -168,13 +171,14 @@
         $badgeSize,
         $badgePosition,
         $badgeColor,
+        $badgeClass
     ];
 
 @endphp
 
 
 
-<div class="relative">
+<div class="relative w-fit" data-slot="avatar" data-size="{{ $avatarSize }}">
     <x-ui.button.abstract :href="$href" :as="$as" {{ $attributes->class(Arr::toCssClasses($classes)) }}>
         @if ($src)
             <img src="{{ $src }}" alt="{{ $alt || $name }}">

@@ -27,14 +27,14 @@
 }"
     {{ $attributes->class(
         Arr::toCssClasses([
-            'dark:text-white text-gray-800 not-last:border-b border-black/10 dark:border-white/10 ',
+            'dark:text-white text-gray-800 not-last:border-b border-black/10 dark:border-white/10 text-start',
             'opacity-50' => $disabled,
         ]),
     ) }}>
 
     @if ($trigger)
         <x-components::ui.accordion.item.trigger>{{ $trigger }}</x-components::ui.accordion.item.trigger>
-        <x-components::ui.accordion.item.content>{{ $slot->__toString() }}</x-components::ui.accordion.item.content>
+        <x-components::ui.accordion.item.content>{{ $slot }}</x-components::ui.accordion.item.content>
     @else
         {{ $slot }}
     @endif

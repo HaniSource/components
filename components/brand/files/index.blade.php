@@ -5,6 +5,7 @@
     'name' => '',
     'alt' => '',
     'target' => '_self',
+    'logoClass' => '',
 ])
 
 
@@ -15,7 +16,7 @@
     @if ($logo || isset($logo))
         <div class="flex-shrink-0">
             @if (isset($logo) && is_string($logo))
-                <img src="{{ $logo }}" alt="{{ $alt }} Logo" class="h-8 w-auto">
+                <img src="{{ $logo }}" alt="{{ $alt }} Logo" class="h-8 w-auto {{ $logoClass }}">
             @elseif($logo && $logo->isNotEmpty())
                 {{ $logo }}
             @endif
