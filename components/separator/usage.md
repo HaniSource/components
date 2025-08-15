@@ -151,22 +151,40 @@ Add labels to provide context for the separation.
 ### Horizontal with Label
 
 @blade
-<x-demo class="w-full">
-    <div class="max-w-md mx-auto ">
-        <div class="text-center">
-            <h4 class="font-medium">Login Form</h4>
-            <input type="email" placeholder="Email" class="w-full p-2 border  bg-transparent rounded mt-2">
-            <input type="password" placeholder="Password" class="w-full p-2 border bg-transparent rounded mt-2">
-        </div>
-        <!--  -->
-        <x-ui.separator label="OR" />
-        <!--  -->
-        <div class="text-center">
-            <button class="w-full p-2 bg-blue-500 text-white rounded">
-                Continue with Google
-            </button>
-        </div>
+<x-demo class="max-w-md">
+    <x-ui.fieldset>
+    <div class="w-full text-center">
+        <x-ui.button
+            class="w-full"
+            iconAfter="arrow-trending-up"
+        >Log in with GitHub</x-ui.button>
     </div>
+    <x-ui.separator label="Or"/>
+    <div class="space-y-4">
+        <x-ui.field>
+            <x-ui.label>email address</x-ui.label>
+            <x-ui.input
+                wire:model.blur="form.email"
+            />
+            <x-ui.error name="form.email" />
+        </x-ui.field>
+        <x-ui.field>
+            <x-ui.label>password</x-ui.label>
+            <x-ui.input
+                wire:model.blur="form.password"
+                type='password'
+                revealable
+            />
+            <x-ui.error name="form.password" />
+        </x-ui.field>
+    </div>
+    <x-ui.button 
+        class="w-full mt-4"
+        type="submit"
+    >
+        Log in
+    </x-ui.button>
+    </x-ui.fieldset>
 </x-demo>
 @endblade
 
@@ -182,17 +200,25 @@ Add labels to provide context for the separation.
         <div class="text-center">
             <h4 class="font-medium">Option A</h4>
             <p class="text-sm text-gray-600">First choice</p>
-            <button class="mt-2 px-4 py-2 bg-blue-500 text-white rounded">
-                Choose A
-            </button>
+            <x-ui.button 
+                class="w-full mt-4"
+                iconAfter="arrow-trending-up"
+                type="submit"
+            >
+                option A
+            </x-ui.button>
         </div>  
         <x-ui.separator vertical label="OR" class="h-24" />
         <div class="text-center">
             <h4 class="font-medium">Option B</h4>
             <p class="text-sm text-gray-600">Second choice</p>
-            <button class="mt-2 px-4 py-2 bg-green-500 text-white rounded">
-                Choose B
-            </button>
+           <x-ui.button 
+                class="w-full mt-4"
+                iconAfter="arrow-trending-up"
+                type="submit"
+            >
+                option B 
+            </x-ui.button>
         </div>
     </div>
 </x-demo>
