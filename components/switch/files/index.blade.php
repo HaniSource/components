@@ -1,12 +1,20 @@
 @props([
     'align' => 'right',
     'label' => '',
-    'name' => $attributes->whereStartsWith('wire:model')->first(),
+    'name' => $attributes->whereStartsWith('wire:model')->first() ?? $attributes->whereStartsWith('x-model')->first(),
     'description' => null,
     'disabled' => false,
     'maxWidth' => 'max-w-md',
     'checked' => false,
-    'size' => 'md', // sm, md, lg
+    'size' => 'md',
+    'switchClass' => '',
+    'thumbClass' => '',
+    'iconOn' => null,
+    'iconOff' => null,
+    'onClass' => '',
+    'offClass' => '',
+    'thumbOnClass' => '',
+    'thumbOffClass' => '',
 ])
 
 @php
@@ -17,17 +25,20 @@
             'switch' => 'h-4 w-7',
             'thumb' => 'size-3',
             'activeTranslate' => 'translate-x-3',
+            'iconSize' => 'size-2.5',
         ],
         'lg' => [
             'switch' => 'h-8 w-14',
             'thumb' => 'size-7',
             'activeTranslate' => 'translate-x-6',
+            'iconSize' => 'size-6',
         ],
 
         default => [
             'switch' => 'h-6 w-11',
             'thumb' => 'size-5',
             'activeTranslate' => 'translate-x-5',
+            'iconSize' => 'size-3',
         ],
     };
 
@@ -44,11 +55,13 @@
     $switchClasses = [
         'relative inline-flex flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none disabled:cursor-not-allowed disabled:opacity-50',
         $sizeConfig['switch'],
+        $switchClass,
     ];
 
     $thumbClasses = [
-        'pointer-events-none inline-block transform  rounded-full shadow ring-0 transition duration-200 ease-in-out',
-        $sizeConfig['thumb']
+        'pointer-events-none inline-flex items-center justify-center transform rounded-full shadow ring-0 transition duration-200 ease-in-out',
+        $sizeConfig['thumb'],
+        $thumbClass,
     ];
 
 @endphp
@@ -57,34 +70,45 @@
     <div class="">
         <!-- Switch -->
         <div class="{{ Arr::toCssClasses($containerClasses) }}">
-            <div class="flex-shrink-0 pt-0.5">
-                <button 
-                    type="button" 
-                    class="{{ Arr::toCssClasses($switchClasses) }}"
-                    :class="checked ? 'bg-neutral-800 dark:bg-white' : 'bg-neutral-300 dark:bg-neutral-900'"
-                    @click="checked = !checked" @disabled($disabled) :aria-checked="checked" role="switch"
-                    aria-labelledby="{{ $id }}-label">
+            <div class="flex-shrink-0 flex items-center">
+                <button type="button" class="{{ Arr::toCssClasses($switchClasses) }}"
+                    x-bind:class="checked ? '[:where(&)]:bg-neutral-800 [:where(&)]:dark:bg-white {{ $onClass }}' :
+                        '{{ $offClass }} [:where(&)]:bg-neutral-300 [:where(&)]:dark:bg-neutral-950'"
+                    x-on:click="checked = !checked" @disabled($disabled) x-bind:aria-checked="checked"
+                    role="switch" aria-labelledby="{{ $id }}-label">
                     <span
-                        :class="checked ? '{{ $sizeConfig['activeTranslate'] }} bg-white dark:bg-neutral-950' :
-                            'translate-x-[0.05rem] bg-white'"
-                        class="{{ Arr::toCssClasses($thumbClasses) }}"></span>
+                        x-bind:class="checked ?
+                            '{{ $sizeConfig['activeTranslate'] }} {{ $thumbOnClass }} [:where(&)]:bg-white [:where(&)]:dark:bg-neutral-950' :
+                            'translate-x-[0.05rem] [:where(&)]:bg-white {{ $thumbOffClass }}'"
+                        class="{{ Arr::toCssClasses($thumbClasses) }}">
+
+                        @if ($iconOn)
+                            <x-ui.icon name="{{ $iconOn }}" x-show="checked"
+                                class="{{ $sizeConfig['iconSize'] }} text-black! dark:text-white!" />
+                        @endif
+
+                        @if ($iconOff)
+                            <x-ui.icon name="{{ $iconOff }}" x-show="!checked"
+                                class="{{ $sizeConfig['iconSize'] }} text-black!" />
+                        @endif
+                    </span>
                 </button>
 
                 @if ($name)
-                    <input type="hidden" name="{{ $name }}" :value="checked ? '1' : '0'">
+                    <input type="hidden" name="{{ $name }}" x-bind:value="checked ? '1' : '0'">
                 @endif
             </div>
-            
+
             <label id="{{ $id }}-label"
-                class="block flex-1 text-sm font-medium text-black dark:text-white cursor-pointer select-none"
-                @if (!$disabled) @click="checked = !checked" @endif>
+                class="block text-start flex-1 text-sm font-medium text-black dark:text-white cursor-pointer select-none"
+                @if (!$disabled) x-on:click="checked = !checked" @endif>
                 {{ $label }}
             </label>
         </div>
 
 
         @if ($description)
-            <p class="text-sm text-gray-500 mt-1">
+            <p class="text-sm text-gray-500 mt-1 text-start">
                 {{ $description }}
             </p>
         @endif

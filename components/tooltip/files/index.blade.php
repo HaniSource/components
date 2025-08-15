@@ -5,7 +5,7 @@
 
 <div x-data="{
     show: false,
-    placement: '{{ $placement }}',
+    placement: @js($placement),
     showTooltip() {
         this.show = true
     },
@@ -14,12 +14,12 @@
     }
 }" {{ $attributes->merge(['class' => 'relative inline-block']) }}>
     @if ($variant === 'button')
-        <button @click="showTooltip()"
+        <button x-on:click="showTooltip()"
             tabindex="0" class="inline-block" x-ref="tooltipTrigger">
             {{ $trigger }}
         </button>
     @else
-        <div @mouseenter="showTooltip()" @mouseleave="hideTooltip()" @focus="showTooltip()" @blur="hideTooltip()"
+        <div x-on:mouseenter="showTooltip()" x-on:mouseleave="hideTooltip()" x-on:focus="showTooltip()" x-on:blur="hideTooltip()"
             tabindex="0" class="inline-block" x-ref="tooltipTrigger">
             {{ $trigger }}
         </div>

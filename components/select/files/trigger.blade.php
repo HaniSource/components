@@ -1,9 +1,11 @@
 @aware([
     'icon' => '',
-    'iconTrailing' => 'chevron-up-down',
+    'iconAfter' => 'chevron-up-down',
     'disabled' => false,
     'clearable' => false,
     'triggerClass' => '',
+    'invalid' => false,
+    'trigger' => null,
 ])
 
 @php
@@ -17,9 +19,10 @@
     ];
 
     $triggerClasses = [
-        'border dark:bg-white/10 dark:border-white/20 border-gray-300 dark:text-gray-300 rounded-(--round) px-3 py-2 text-start w-full',
+        'border bg-white border-black/10 dark:bg-neutral-900 dark:border-white/10 border-gray-300 dark:text-gray-300 rounded-(--round) px-3 py-2 text-start w-full',
         'col-span-4 col-start-1 row-start-1',
         'disabled:opacity-60 disabled:cursor-auto',
+        'border-red-500/50!' => $invalid,
         $triggerClass,
     ];
 @endphp
@@ -30,13 +33,11 @@
             class="col-span-1 col-start-1 row-start-1 text-black dark:text-white z-10 pl-1.5" />
     @endif
 
-    <button @disabled($disabled) x-on:click="toggle" data-slot="select-control" @class($triggerClasses)
+    <button @disabled($disabled) x-on:click="toggle" type="button" data-slot="select-control" @class($triggerClasses)
         x-text="label"></button>
 
-
-
-    @if (filled($iconTrailing))
-        <x-ui.icon name="{{ $iconTrailing }}" @class([
+    @if (filled($iconAfter))
+        <x-ui.icon name="{{ $iconAfter }}" @class([
             'col-span-1 row-start-1',
             'col-start-4' => !$clearable,
             'col-start-3' => $clearable,
@@ -44,7 +45,7 @@
     @endif
 
     @if ($clearable)
-        <button data-slot="autocomplete-clear" x-on:click="clear"
+        <button data-slot="autocomplete-clear" type="button" x-on:click="clear"
             class='col-span-1 row-start-1 col-start-4 cursor-pointer'><x-ui.icon name="trash" /></button>
     @endif
 

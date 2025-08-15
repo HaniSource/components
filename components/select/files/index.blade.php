@@ -11,7 +11,9 @@
     'clearable' => false,
     'disabled' => false,
     'icon' => '',
-    'iconTrailing' => 'chevron-up-down',
+    'iconAfter' => 'chevron-up-down',
+    'checkIcon' => 'check',
+    'checkIconClass' => '',
     'invalid' => null,
     'triggerClass' => '',
 ])
@@ -61,7 +63,7 @@
         }
 
         const itemIndex = this.selected.findIndex(item => item === option);
-        if ( itemIndex === -1) {
+        if (itemIndex === -1) {
             this.selected.push(option);
         } else {
             this.selected.splice(itemIndex, 1);
@@ -93,21 +95,25 @@
         if (this.isDisabled) return;
         this.open = !this.open;
     },
-}" @class([
-    'relative [--round:--spacing(2)] [--padding:--spacing(1)]',
-    'dark:border-red-400! dark:shadow-red-400 text-red-400! placeholder:text-red-400!' => $invalid,
-])>
+}"
+    {{ $attributes->class(
+        Arr::toCssClasses([
+            'relative [--round:--spacing(2)] [--padding:--spacing(1)]',
+            'dark:border-red-400! dark:shadow-red-400 text-red-400! placeholder:text-red-400!' => $invalid,
+        ]),
+    ) }}>
+
+    @if ($label)
+        <x-ui.heading class="mb-1 text-start">{{ $label }}</x-ui.heading>
+    @endif
     {{-- trigger --}}
     <div @class(['relative', ' mb-2' => $description])>
         <x-ui.select.trigger />
-        <x-ui.select.options>{{ $slot }}</x-ui.select.options>
+        <x-ui.select.options :checkIconClass="$checkIconClass" :checkIcon="$checkIcon">{{ $slot }}</x-ui.select.options>
     </div>
 
     @if ($description)
-        <p data-slot="select-description" class="pl-3 text-sm dark:text-gray-100">{{ $description }}</p>
+        <p data-slot="select-description" class="pl-3 text-start text-sm dark:text-gray-100">{{ $description }}</p>
     @endif
-    {{-- dropdown --}}
-
-
 
 </div>
