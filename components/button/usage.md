@@ -75,6 +75,7 @@ The button component uses `md` size as the default, but you can adjust the size 
 
 A wide range of colors are available for customizing button appearance.
 
+#### Primary variant
 @blade
 <x-demo>
     <div class="grid grid-cols-6 gap-4">
@@ -120,6 +121,61 @@ A wide range of colors are available for customizing button appearance.
     <x-ui.button color="fuchsia">Fuchsia</x-ui.button>
     <x-ui.button color="pink">Pink</x-ui.button>
     <x-ui.button color="rose">Rose</x-ui.button>
+</div>  
+```
+
+#### Outline variant
+@blade
+<x-demo>
+    <div class="grid grid-cols-6 gap-4">
+         <x-ui.button variant="outline" color="slate">Slate</x-ui.button>
+    <x-ui.button variant="outline" color="stone">Stone</x-ui.button>
+    <x-ui.button variant="outline" color="neutral">Neutral</x-ui.button>
+    <x-ui.button variant="outline" color="zinc">Zinc</x-ui.button>
+    <x-ui.button variant="outline" color="red">Red</x-ui.button>
+    <x-ui.button variant="outline" color="orange">Orange</x-ui.button>
+    <x-ui.button variant="outline" color="amber">Amber</x-ui.button>
+    <x-ui.button variant="outline" color="yellow">Yellow</x-ui.button>
+    <x-ui.button variant="outline" color="lime">Lime</x-ui.button>
+    <x-ui.button variant="outline" color="green">Green</x-ui.button>
+    <x-ui.button variant="outline" color="emerald">Emerald</x-ui.button>
+    <x-ui.button variant="outline" color="teal">Teal</x-ui.button>
+    <x-ui.button variant="outline" color="cyan">Cyan</x-ui.button>
+    <x-ui.button variant="outline" color="sky">Sky</x-ui.button>
+    <x-ui.button variant="outline" color="blue">Blue</x-ui.button>
+    <x-ui.button variant="outline" color="indigo">Indigo</x-ui.button>
+    <x-ui.button variant="outline" color="violet">Violet</x-ui.button>
+    <x-ui.button variant="outline" color="purple">Purple</x-ui.button>
+    <x-ui.button variant="outline" color="fuchsia">Fuchsia</x-ui.button>
+    <x-ui.button variant="outline" color="pink">Pink</x-ui.button>
+    <x-ui.button variant="outline" color="rose">Rose</x-ui.button>
+    </div>  
+</x-demo>
+@endblade
+
+```html
+<div class="grid grid-cols-6 gap-4">
+     <x-ui.button variant="outline" color="slate">Slate</x-ui.button>
+    <x-ui.button variant="outline" color="stone">Stone</x-ui.button>
+    <x-ui.button variant="outline" color="neutral">Neutral</x-ui.button>
+    <x-ui.button variant="outline" color="zinc">Zinc</x-ui.button>
+    <x-ui.button variant="outline" color="red">Red</x-ui.button>
+    <x-ui.button variant="outline" color="orange">Orange</x-ui.button>
+    <x-ui.button variant="outline" color="amber">Amber</x-ui.button>
+    <x-ui.button variant="outline" color="yellow">Yellow</x-ui.button>
+    <x-ui.button variant="outline" color="lime">Lime</x-ui.button>
+    <x-ui.button variant="outline" color="green">Green</x-ui.button>
+    <x-ui.button variant="outline" color="emerald">Emerald</x-ui.button>
+    <x-ui.button variant="outline" color="teal">Teal</x-ui.button>
+    <x-ui.button variant="outline" color="cyan">Cyan</x-ui.button>
+    <x-ui.button variant="outline" color="sky">Sky</x-ui.button>
+    <x-ui.button variant="outline" color="blue">Blue</x-ui.button>
+    <x-ui.button variant="outline" color="indigo">Indigo</x-ui.button>
+    <x-ui.button variant="outline" color="violet">Violet</x-ui.button>
+    <x-ui.button variant="outline" color="purple">Purple</x-ui.button>
+    <x-ui.button variant="outline" color="fuchsia">Fuchsia</x-ui.button>
+    <x-ui.button variant="outline" color="pink">Pink</x-ui.button>
+    <x-ui.button variant="outline" color="rose">Rose</x-ui.button>>
 </div>  
 ```
 

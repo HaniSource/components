@@ -12,7 +12,7 @@ The `theme-switcher` component provides a fully accessible, responsive, and cust
 ## Basic Usage
 
 @blade 
-<x-demo class=" flex justify-center">
+<x-demo class="flex justify-center">
     <x-ui.theme-switcher  variant="dropdown"/> 
 </x-demo>
 @endblade
@@ -30,7 +30,7 @@ The component supports three visual layouts:
 Displays the theme switcher as a dropdown menu with the current theme icon as a button.
 
 @blade 
-<x-demo class=" flex justify-center">
+<x-demo class="flex justify-center">
     <x-ui.theme-switcher variant="dropdown" /> 
 </x-demo>
 @endblade
@@ -44,7 +44,7 @@ Displays the theme switcher as a dropdown menu with the current theme icon as a 
 Displays a toggle button for dark/light themes. Automatically selects based on system preference if the `system` theme is active.
 
 @blade 
-<x-demo class=" flex justify-center">
+<x-demo class="flex justify-center">
     <x-ui.theme-switcher variant="stacked" />
 </x-demo>
 @endblade
@@ -58,7 +58,7 @@ Displays a toggle button for dark/light themes. Automatically selects based on s
 Displays all three theme options as inline buttons.
 
 @blade 
-<x-demo class=" flex justify-center">
+<x-demo class="flex justify-center">
     <x-ui.theme-switcher variant="inline" />
 </x-demo>
 @endblade
@@ -73,7 +73,7 @@ Displays all three theme options as inline buttons.
 
 You can customize the icons used for each theme:
 @blade 
-<x-demo class=" flex justify-center">
+<x-demo class="flex justify-center">
     <x-ui.theme-switcher 
         variant="stacked"
         dark-icon="bug-ant"
