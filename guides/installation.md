@@ -120,6 +120,39 @@ This command will:
 
 **Note:** Authentication is required for premium components but optional for free components.
 
+### View Current Account
+
+Check which account is currently authenticated:
+
+```bash
+php artisan fluxtor:whoami
+```
+
+This command displays:
+
+- **Email Address** - Your registered Fluxtor account email
+
+**Example Output:**
+```
+You're login as john.doe@example.com
+```
+
+### Logout from Your Account
+
+Remove stored authentication credentials and logout:
+
+```bash
+php artisan fluxtor:logout
+```
+
+This command will:
+
+- Clear stored authentication tokens
+- Remove cached account information
+- Confirm successful logout
+
+**Note:** After logout, you'll need to authenticate again using `fluxtor:login` to install premium components.
+
 ## Component Management
 
 ### Installing Components
