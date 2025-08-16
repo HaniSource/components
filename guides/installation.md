@@ -207,8 +207,8 @@ php artisan fluxtor:list
 
 ```bash
 # List only free components
-php artisan fluxtor:list --free
+php artisan fluxtor:list --type=free
 
 # List only premium components
-php artisan fluxtor:list --premium
+php artisan fluxtor:list --type=premium
 ```
