@@ -1,4 +1,8 @@
----
 files:
-    
----
+  index: resources/views/components/input/index.blade.php
+  extra-slot: resources/views/components/input/extra-slot.blade.php
+  option-button: resources/views/components/input/options/button.blade.php
+  option-clearable: resources/views/components/input/options/clearable.blade.php
+  option-copyable: resources/views/components/input/options/copyable.blade.php
+  option-revealable: resources/views/components/input/options/revealable.blade.php
+dependencies: [icon]

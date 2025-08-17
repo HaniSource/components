@@ -3,8 +3,10 @@
 
 @php
     $classes = [
+        'isolate z-50',
         'grid grid-cols-[auto_1fr_auto]',
-        'z-10 max-w-96 min-w-40 text-start shadow-md backdrop-blur-xl border border-white/15',
+        'z-10 max-w-96 min-w-40 text-start',
+        'bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10  ',
         'rounded-(--dropdown-radius) p-(--dropdown-padding) [--dropdown-radius:var(--radius-box)] [--dropdown-padding:--spacing(.75)]', // adjut padding safely as you need, will still looks perfect
     ];  
 @endphp
@@ -20,6 +22,9 @@
 
                 this.$refs.button.focus()
                 this.open = true
+            },
+            isOpen(){
+                return this.open
             },
             close(focusAfter) {
                 if (! this.open) return
@@ -77,12 +82,6 @@
             x-on:keydown.page-up.prevent.stop="$focus.first()"
             x-on:keydown.end.prevent.stop="$focus.last()"
             x-on:keydown.page-down.prevent.stop="$focus.last()"
-            x-on:keydown.right.prevent.stop="
-                if ($focus.focused().dataset.hasSubmenu) {
-                    showSubmenu($focus.focused().dataset.submenuId);
-                    $nextTick(() => $focus.focus($focus.within($refs['submenu-' + $focus.focused().dataset.submenuId]).getFirst()));
-                }
-            "
             x-transition:enter="transition ease-out duration-200"
             x-transition:enter-start="opacity-0 scale-95"
             x-transition:enter-end="opacity-100 scale-100"
@@ -91,7 +90,7 @@
             x-transition:leave-end="opacity-0 scale-95"
             x-on:click.away="close($refs.button)"
             x-bind:id="$id('dropdown-button')"
-            style="display: none;"
+            style="display: none; backdrop-filter: blur(64px); -webkit-backdrop-filter: blur(64px);"
             {{ $menu->attributes->class(Arr::toCssClasses($classes)) }}
         >
             {{ $menu }}

@@ -33,8 +33,8 @@
     ) }}>
 
     @if ($trigger)
-        <x-components::ui.accordion.item.trigger>{{ $trigger }}</x-components::ui.accordion.item.trigger>
-        <x-components::ui.accordion.item.content>{{ $slot }}</x-components::ui.accordion.item.content>
+        <x-ui.accordion.item.trigger>{{ $trigger }}</x-ui.accordion.item.trigger>
+        <x-ui.accordion.item.content>{{ $slot->__toString() }}</x-ui.accordion.item.content>
     @else
         {{ $slot }}
     @endif

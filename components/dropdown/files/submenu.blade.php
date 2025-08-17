@@ -45,7 +45,8 @@
         x-transition:leave-end="opacity-0 scale-95"
         style="display: none;"
         {{ $attributes->class([
-            'z-10 max-w-96 min-w-40 text-start shadow-md backdrop-blur-xl border border-white/15',
+            'bg-white dark:bg-neutral-900 ',
+            'z-10 max-w-96 min-w-40 text-start shadow-md  border border-black/10 dark:border-white/10',
             'grid grid-cols-[auto_1fr_auto]',
             'rounded-(--dropdown-radius) p-(--dropdown-padding) [--dropdown-radius:var(--radius-box)] [--dropdown-padding:--spacing(.75)]',
         ]) }}
