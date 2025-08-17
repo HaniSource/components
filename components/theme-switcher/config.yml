@@ -4,4 +4,4 @@ files:
   inline: resources/views/components/ui/theme-switcher/inline.blade.php
   stacked: resources/views/components/ui/theme-switcher/stacked.blade.php
 dependencies:
-  intern:
+  internal: [dropdown, button]
