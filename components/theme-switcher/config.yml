@@ -1,0 +1,7 @@
+files:
+  index: resources/views/components/ui/theme-switcher/index.blade.php
+  dropdown: resources/views/components/ui/theme-switcher/dropdown.blade.php
+  inline: resources/views/components/ui/theme-switcher/inline.blade.php
+  stacked: resources/views/components/ui/theme-switcher/stacked.blade.php
+dependencies:
+  intern:

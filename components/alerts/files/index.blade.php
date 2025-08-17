@@ -12,7 +12,6 @@
         'success' => 'check-circle',
         'warning' => 'exclamation-triangle',
         'error' => 'exclamation-circle',
-        'ghost' => 'information-circle',
         default => 'information-circle',
     };
 
@@ -25,7 +24,7 @@
     };
 
     $containerClass = [
-        'border rounded-md px-4 py-2',
+        'border rounded-md px-4 py-2 text-white',
         '[:where(&)]:dark:bg-neutral-900  [:where(&)]:bg-white [:where(&)]:border-black/10 [:where(&)]:dark:border-white/10',
         'dark:bg-[color-mix(in_oklab,_var(--color-blue-600)_10%,_var(--color-neutral-900)_90%)] bg-[color-mix(in_oklab,_var(--color-blue-500)_20%,_var(--color-white)_80%)] border-gray-500/55' =>
             $type === 'info',
@@ -46,13 +45,13 @@
             <x-ui.icon name="{{ $iconName }}" class="{{ Arr::toCssClasses([$iconColor, $iconClass]) }}" />
         </div>
 
-        <div class="flex-1">
-            {{ $heading }}
+        <div class="flex-1 text-start">
+            {{ $heading ?? $slot }}
         </div>
     </div>
 
     @if (isset($content) && !$content->isEmpty())
-        <div data-slot='alert-content'>
+        <div class="text-start" data-slot='alert-content'>
             {{ $content }}
         </div>
     @endif
@@ -62,6 +61,4 @@
             {{ $actions }}
         </div>
     @endif
-
-
 </div>
