@@ -1,7 +1,7 @@
 @php
 // needs refactoring to use badge component instead
 $colorClasses = match($tagColor){
-    default=> "text-primary dark:text-primary bg-primary/15 dark:bg-white/5  border-primary dark:border-primary",
+    default=> "text-neutral-900 dark:text-neutral-50 bg-neutral-900/15 dark:bg-white/5 border-black/10 dark:border-white/10",
     'red' => 'text-red-700 dark:text-red-200 bg-red-400/15 dark:bg-red-400/5 border-red-400 dark:border-red-400/90',
     'orange' => 'text-orange-700 dark:text-orange-200 bg-orange-400/15 dark:bg-orange-400/5 border-orange-400 dark:border-orange-400/90',
     'amber' => 'text-amber-700 dark:text-amber-200 bg-amber-400/15 dark:bg-amber-400/5 border-amber-400 dark:border-amber-400/90',
@@ -22,7 +22,7 @@ $colorClasses = match($tagColor){
 };
 
 $variantClasses = match($tagVariant){
-    'rounded'=> ' rounded-field  border ',
+    'rounded'=> ' rounded-field  border',
     'pill'=> 'rounded-full border '
 };
 
@@ -46,7 +46,7 @@ $classes = [
     <button 
         type="button" 
         x-on:click="deleteTag(index)"
-        class="ml-1 cursor-pointer text-current hover:text-red-500"
+        class="ml-1 cursor-pointer text-current hover:text-red-500 transition"
     >
         &times;
     </button>

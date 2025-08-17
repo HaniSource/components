@@ -1,7 +1,6 @@
-{{-- @php $wireModel = $attributes->whereStartsWith('wire:model');@endphp --}}
 @props([
     'disabled' => false,
-    'name' => $attributes->whereStartsWith('wire:model')->first(),
+    'name' => $attributes->whereStartsWith('wire:model')->first() ?? $attributes->whereStartsWith('x-model')->first(),
     'placeholder' => 'Add tags...',
     'maxTags' => null,
     'minTagLength' => 1,
@@ -13,7 +12,7 @@
     'createOnBlur' => true,
     'createOnPaste' => true,
     'trimWhitespace' => true,
-    'tagColor' => 'default', 
+    'tagColor' => 'default',
     'tagVariant' => 'rounded',
     'showCounter' => true,
     'showClearAll' => true,
@@ -24,43 +23,43 @@
     'ariaLabel' => 'Tags input',
     'ariaDescription' => null,
     'persist' => false,
-    'persistKey' => null,    
+    'persistKey' => null,
     'suggestions' => [],
     'allowCustom' => true,
     'sortTags' => false,
-    'sortDirection' => 'asc', 
+    'sortDirection' => 'asc',
 ])
 
 @php
     $inputClasses = [
-        'input relative w-full border-none outline-none py-1.5 text-base text-gray-950 transition bg-transparent duration-75 placeholder:text-gray-400 focus:ring-0 disabled:text-gray-500 dark:text-white dark:placeholder:text-gray-500'
+        'input relative w-full border-none outline-none py-1.5 px-2 text-base text-neutral-800 transition bg-transparent duration-75 placeholder:text-neutral-400 focus:ring-0 disabled:text-neutral-500 dark:text-white dark:placeholder:text-neutral-500'
     ];
 @endphp
 
-<div 
+<div
     x-data="{
         // core states
         state: [],
         newTag: '',
         focused: false,
-        trimWhitespace: @js($trimWhitespace),   
-        
+        trimWhitespace: @js($trimWhitespace),
+
         error: '',
         dragIndex: -1,
-        
+
         splitKeys: @js($splitKeys),
-        
+
         // handle suggestion state
         suggestions: @js($suggestions),
         filteredSuggestions: [],
         showSuggestions: false,
         selectedSuggestionIndex: -1,
 
-        // sorting 
+        // sorting
         sortTags: @js($sortTags),
         sortDirection: @js($sortDirection),
-        
-        // validation state 
+
+        // validation state
         maxTags: @js($maxTags),
         minTagLength: @js($minTagLength),
         maxTagLength: @js($maxTagLength),
@@ -71,7 +70,7 @@
         createOnBlur: @js($createOnBlur),
         createOnPaste: @js($createOnPaste),
 
-        // error messages 
+        // error messages
         messages: {
             maxTags: @js($maxTagsMessage),
             duplicate: @js($duplicateMessage),
@@ -80,7 +79,7 @@
         },
         init: function() {
 
-            this.$watch('state', (value) => {                
+            this.$watch('state', (value) => {
                if (this.sortTags) {
                     Alpine.nextTick(() => {
                         this.state = [...value].sort((a, b) => {
@@ -90,21 +89,20 @@
                     });
                 }
             });
-            
-            Alpine.watch(() => this.state, (newVal) => {
-            console.log(`livewire: ${this.$wire.state}`)
+            Alpine.effect(()=> {
+                this.$root?._x_model?.set(this.state);
             })
         },
 
         addTag: function(tag) {
             if (!tag) return false;
-            
+
             if (this.trimWhitespace) {
                 tag = tag.trim();
                 if (!tag) return false;
             }
 
-            // check if we hit the maximum num allowed 
+            // check if we hit the maximum num allowed
             if (this.maxTags && this.state.length >= this.maxTags) {
                 this.showError(this.messages.maxTags);
                 return false;
@@ -125,42 +123,42 @@
                 }
             }
 
-            // then we check if we're allowed to accept custom state if there is suggestion 
+            // then we check if we're allowed to accept custom state if there is suggestion
             if (!this.allowCustom && !this.suggestions.includes(tag)) {
                 this.showError('Only predefined state are allowed');
                 return false;
             }
 
-            // add new tag and prevent any ui lags 
+            // add new tag and prevent any ui lags
             Alpine.mutateDom(() => {
                 this.state.push(tag);
             });
-            
+
             this.newTag = '';
             this.clearError();
             return true;
         },
-        
-        // new state validations 
+
+        // new state validations
         validateTag: function(tag) {
             // Length validation
             if (tag.length < this.minTagLength || tag.length > this.maxTagLength) {
                 return false;
             }
-            
+
             // Character validation
             if (this.allowedChars && !new RegExp(this.allowedChars).test(tag)) {
                 return false;
             }
-            
+
             // convenient to prevent blocked words
             if (this.blockedWords.some((word) => tag.toLowerCase() === word.toLowerCase())) {
                 return false;
             }
-            
+
             return true;
         },
-        
+
         deleteTag: function(index) {
             if (typeof index === 'string') {
                 // If called with tag value, find index
@@ -173,29 +171,29 @@
                 this.clearError();
             }
         },
-        
+
         clearAllTags: function() {
              Alpine.mutateDom(() => {
                 this.state = [];
             });
             this.clearError();
         },
-        
+
         showError: function(message) {
             this.error = message;
             setTimeout(() => this.clearError(), 3000);
         },
-        
+
         clearError: function() {
             this.error = '';
         },
-        
+
         selectSuggestion: function(index) {
             if (index >= 0 && index < this.filteredSuggestions.length) {
                 this.addTag(this.filteredSuggestions[index]);
             }
         },
-        
+
         hideSuggestions: function() {
             this.showSuggestions = false;
             this.selectedSuggestionIndex = -1;
@@ -246,21 +244,21 @@
         },
         handlePaste: function(event) {
             if (!this.createOnPaste) return;
-            
+
             Alpine.nextTick(() => {
                 this.processSplitKeys(this.newTag);
             });
         },
         handleInput: function(event) {
-            
+
             const inputValue = event.target.value;
             const lastChar = inputValue.slice(-1);
-            
+
             // Check if the last character is a split key
             if (this.splitKeys.includes(lastChar)) {
                 // Get the tag without the split key
                 const tagToAdd = inputValue.slice(0, -1);
-                
+
                 if (tagToAdd.trim()) {
                     // Add the tag and clear the input
                     this.addTag(tagToAdd);
@@ -283,9 +281,9 @@
             const pattern = this.splitKeys
                 .map(key => key.replace(/[/\\\\^$*+?.()|[\\]{}]/g, '\\\\$&'))
                 .join('|');
-            
+
             const state = text.split(new RegExp(pattern, 'g'));
-            
+
             if (state.length > 1) {
                 this.newTag = '';
                 state.forEach(tag => {
@@ -298,7 +296,7 @@
         hasMaxTags: function() {
             return this.maxTags && this.state.length >= this.maxTags;
         },
-        
+
         isEmpty: function() {
             return this.state.length === 0;
         },
@@ -312,16 +310,16 @@
 
         onDrop: function(event, dropIndex){
             if(this.dragIndex === -1 || this.dragIndex === dropIndex) return;
-            
+
             Alpine.mutateDom(() => {
                 const updatedTags = [...this.state];
-                
+
                 // Remove the dragged item from its original position
                 const [movedTag] = updatedTags.splice(this.dragIndex, 1);
-                
-                // insert the moved h tag exactly to the new state array 
+
+                // insert the moved h tag exactly to the new state array
                 updatedTags.splice(dropIndex, 0, movedTag);
-                
+
                 this.state = updatedTags;
                 this.dragIndex = -1;
             });
@@ -333,12 +331,12 @@
     {{ $attributes->whereStartsWith('x-model') }}
     class="contents"
 >
-    <div {{ $attributes->class('rounded-box bg-white/5 w-full shadow-sm ring-1 ring-gray-950/10 transition duration-75 focus-within:ring-2 focus-within:ring-gray-950/10 dark:ring-white/20 dark:focus-within:ring-white/10') }}>
+    <div {{ $attributes->class('rounded-box bg-white dark:bg-neutral-900 w-full shadow-sm ring-1 ring-neutral-950/10 transition duration-75 focus-within:ring-2 focus-within:ring-neutral-950/10 dark:ring-white/20 dark:focus-within:ring-white/10') }}>
             {{-- Counter and Clear All --}}
         @if($showCounter || $showClearAll)
         <div class="flex items-center justify-between p-2 ">
             @if($showCounter)
-            <span class="text-sm text-gray-500 dark:text-gray-400">
+            <span class="text-sm text-neutral-500 dark:text-neutral-400">
                 <span x-text="tagCount"></span>
                 @if($maxTags)
                 / {{ $maxTags }}
@@ -346,13 +344,13 @@
                 tags
             </span>
             @endif
-            
+
             @if($showClearAll)
                 <button
                     type="button"
                     x-on:click="clearAllTags()"
                     x-bind:disabled="isEmpty"
-                    class="text-sm hover:opacity-70 transition-opacity text-gray-400 dark:text-gray-300 duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                    class="text-sm hover:opacity-70 transition-opacity text-neutral-400 dark:text-neutral-300 duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                     <x-ui.icon name="trash" class="size-5"/>
 
@@ -361,44 +359,44 @@
         </div>
         @endif
         {{-- Input Field --}}
-        <input      
-            type="text"     
-            @class(Arr::toCssClasses($inputClasses))      
+        <input
+            type="text"
+            @class(Arr::toCssClasses($inputClasses))
             name="{{ $name }}"
-            placeholder="{{ $placeholder }}"     
+            placeholder="{{ $placeholder }}"
             x-bind:disabled="hasMaxTags() || @js($disabled)"
-            x-on:focus="focused = true"     
-            x-on:blur="focused = false; createOnBlur && newTag.trim() && addTag(newTag); hideSuggestions()"     
-            x-on:paste="handlePaste"     
+            x-on:focus="focused = true"
+            x-on:blur="focused = false; createOnBlur && newTag.trim() && addTag(newTag); hideSuggestions()"
+            x-on:paste="handlePaste"
             x-model="newTag"
             {{-- this mandantory for prevent  x -model wire: model that used with x-modelable to get bounded to this input  --}}
-            x-on:input.stop="handleInput"    
+            x-on:input.stop="handleInput"
             x-on:change.stop
-            
+
             x-bind:id="$id('tags-input')"
             x-ref="input"
             {{-- accessibilty --}}
-            role="textbox"     
-            x-bind:aria-label="@js($ariaLabel)"     
-            x-bind:aria-describedby="error ? 'error-message' : ''" 
+            role="textbox"
+            x-bind:aria-label="@js($ariaLabel)"
+            x-bind:aria-describedby="error ? 'error-message' : ''"
             x-on:keydown="handleKeydown"
-            
+
         >
         {{-- hanle suggestions --}}
-        <div 
-            x-show="showSuggestions" 
+        <div
+            x-show="showSuggestions"
             x-transition
             x-ref="suggestions"
-            x-anchor.bottom-start="$refs.input" 
-            class="absolute z-10 max-w-40 mt-1 bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-700 rounded-md shadow-lg"
+            x-anchor.bottom-start="$refs.input"
+            class="absolute z-10 max-w-40 mt-1 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-md shadow-lg"
         >
             <template x-for="(suggestion, index) in filteredSuggestions" x-bind:key="index">
-                <div 
+                <div
                     tabindex="0"
                     x-on:click.stop="addTag(suggestion); hideSuggestions()"
-                    x-on:keydown.enter="addTag(suggestion); hideSuggestions()" 
+                    x-on:keydown.enter="addTag(suggestion); hideSuggestions()"
                     x-text="suggestion"
-                    class="px-3 py-2 text-sm cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
+                    class="px-3 py-2 text-sm cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-700"
                     :class="{
                         'bg-white/5 ': selectedSuggestionIndex === index
                     }"
@@ -407,19 +405,19 @@
         </div>
 
         {{-- handle state dispaly --}}
-        <div wire:ignore class="block">
+        <div wire:ignore class="inline-block w-full">
             <template x-if="state?.length">
-                <div class="flex w-full flex-wrap gap-1.5 p-2 border-t border-t-gray-200 dark:border-t-white/10">
+                <div class="flex w-full  flex-wrap gap-1.5 p-2 border-t border-t-neutral-200 dark:border-t-white/10">
                     <template x-for="(tag, index) in state" :key="`${tag}-${index}`">
                         {{-- there is a lot to do with state, so extracting it, a smart move  --}}
-                        <x-ui.tags-input.tag 
+                        <x-ui.tags-input.tag
                             :$tagVariant
                             :$tagColor
                         />
                     </template>
                 </div>
             </template>
-        </div>        
+        </div>
         {{-- Error Display --}}
         <div x-show="error" style="display: none;" x-transition class="p-2 text-sm text-red-600 dark:text-red-400" id="error-message">
             <span x-text="error"></span>
