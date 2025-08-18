@@ -1,2 +1,4 @@
 files:
   index: resources/views/components/ui/switch/index.blade.php
+dependencies:
+  internal: [icon]

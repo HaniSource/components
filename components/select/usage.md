@@ -6,17 +6,6 @@ name: select
 
 The `Select` component is a **versatile**, **accessible** dropdown selection component with advanced features like search, multi-selection, and customizable styling. It provides a modern alternative to native select elements with enhanced user experience and seamless Livewire integration.
 
-**Key Features:**
-- Single and multiple selection modes
-- Searchable dropdown with real-time filtering
-- Livewire integration with wire:model
-- Clearable selection option
-- Icon support (leading, trailing, and option icons)
-- Dark mode ready
-- Accessible dropdown with proper ARIA attributes
-- Keyboard navigation support
-- Customizable styling and validation states
-
 ## Installation
 Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `select` component easily:
 
@@ -27,6 +16,47 @@ php artisan fluxtor:install select
 > Once installed, you can use the `<x-ui.select />` component in any Blade view.
 
 ## Usage
+
+
+### Bind To Livewire
+
+To use with Livewire you only need to use `wire:model="property"` to bind your input state:
+
+```html
+<x-ui.select 
+    wire:model="country"
+    label="Select Country" 
+    placeholder="Choose a country..."
+    >
+        <x-ui.select.option value="us">United States</x-ui.select.option>
+        <x-ui.select.option value="uk">United Kingdom</x-ui.select.option>
+        <x-ui.select.option value="ca">Canada</x-ui.select.option>
+        <x-ui.select.option value="au">Australia</x-ui.select.option>
+        <x-ui.select.option value="de">Germany</x-ui.select.option>
+        <x-ui.select.option value="fr">France</x-ui.select.option>
+</x-ui.select>
+```
+
+### Using it within Blade & Alpine
+
+You can use it outside Livewire with just Alpine (and Blade):
+
+```html
+<div x-data="{ country: '' }">
+    <x-ui.select 
+        x-model="country"
+        label="Select Country" 
+        placeholder="Choose a country..."
+        >
+            <x-ui.select.option value="us">United States</x-ui.select.option>
+            <x-ui.select.option value="uk">United Kingdom</x-ui.select.option>
+            <x-ui.select.option value="ca">Canada</x-ui.select.option>
+            <x-ui.select.option value="au">Australia</x-ui.select.option>
+            <x-ui.select.option value="de">Germany</x-ui.select.option>
+            <x-ui.select.option value="fr">France</x-ui.select.option>
+    </x-ui.select>
+</div>
+```
 
 ### Basic Select
 
