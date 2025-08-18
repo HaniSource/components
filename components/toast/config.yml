@@ -1,0 +1,3 @@
+files:
+  index: resources/views/components/ui/toast/index.blade.php
+  item: resources/views/components/ui/toast/item.blade.php

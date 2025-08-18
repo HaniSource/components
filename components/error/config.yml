@@ -1,0 +1,4 @@
+files:
+  error: resources/views/components/ui/error.blade.php
+dependencies:
+  internal: [icon]

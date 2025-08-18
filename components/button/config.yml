@@ -1,3 +1,5 @@
 files:
   index: resources/views/components/ui/button/index.blade.php
-  wrapper: resources/views/components/ui/button/wrapper.blade.php
+  abstract: resources/views/components/ui/button/abstract.blade.php
+dependencies:
+  internal: [icon]
