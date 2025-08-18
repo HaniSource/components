@@ -1,5 +1,4 @@
 files:
   index: resources/views/components/ui/alerts/index.blade.php
-  
 dependencies:
   internal: [icon]

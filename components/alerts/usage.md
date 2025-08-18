@@ -6,15 +6,6 @@ name: alerts
 
 The `Alerts` component is a versatile notification component designed to communicate important information to users. It provides multiple semantic types, customizable icons, and flexible content areas for headings, descriptions, and actions.
 
-**Key Features:**
-- Multiple semantic types: info, success, warning, error
-- Automatic icon selection based on alert type
-- Custom icon support with flexible styling
-- Three content areas: heading, content, and actions
-- Responsive design with proper spacing
-- Dark mode ready with color-mixed backgrounds
-- Accessible HTML structure with semantic meaning
-- Tailwind CSS integration
 
 ## Installation
 

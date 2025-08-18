@@ -6,15 +6,6 @@ name: radio
 
 The `Radio` component is a responsive, accessible form control component designed for single-choice selection. It provides a clean foundation for building radio button groups with consistent styling, multiple variants, and seamless dark mode support.
 
-**Key Features:**
-- Multiple variants: default, segmented
-- Horizontal and vertical layouts
-- Icon support
-- Optional descriptions
-- Dark mode ready
-- Accessible HTML structure with proper ARIA attributes
-- Tailwind CSS integration
-
 ## Installation
 
 Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `radio` component easily:
@@ -26,6 +17,31 @@ php artisan fluxtor:install radio
 > Once installed, you can use the <x-ui.radio.group /> and <x-ui.radio.item /> components in any Blade view.
 
 ## Usage
+
+
+### Bind To Livewire
+
+To use with Livewire you only need to use `wire:model="property"` to bind your input state:
+
+```html
+<x-ui.radio.group label="Roles" name="roles" wire:model="role">
+    <x-ui.radio.item value="backend" label="Back end" checked />
+    <x-ui.radio.item value="frontend" label="Front end" />
+    <x-ui.radio.item value="devops" label="DevOps" />
+</x-ui.radio.group>
+```
+
+### Using it within Blade & Alpine
+
+You can use it outside Livewire with just Alpine (and Blade):
+
+```html
+<x-ui.radio.group label="Roles" name="roles" x-model="role">
+    <x-ui.radio.item value="backend" label="Back end" checked />
+    <x-ui.radio.item value="frontend" label="Front end" />
+    <x-ui.radio.item value="devops" label="DevOps" />
+</x-ui.radio.group>
+```
 
 ### Basic Radio Group
 @blade

@@ -6,13 +6,6 @@ name: card
 
 The `Card` component is a **responsive**, **unstyled** container component designed for content encapsulation. It provides a clean foundation for building UI sections with consistent spacing, subtle borders, and seamless dark mode support.
 
-**Key Features:**
-- Responsive design with configurable max-widths
-- Dark mode ready
-- Unstyled by default - bring your own design system
-- Accessible HTML structure
-- Tailwind CSS integration
-
 ## Installation
 Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `card` component easily:
 

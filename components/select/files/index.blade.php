@@ -1,5 +1,5 @@
 @props([
-    'name' => $attributes->whereStartsWith('wire:model')->first(),
+    'name' => $attributes->whereStartsWith('wire:model')->first() ?? $attributes->whereStartsWith('x-model')->first(),
     'label' => '',
     'placeholder' => null,
     'description' => '',
@@ -17,10 +17,6 @@
     'invalid' => null,
     'triggerClass' => '',
 ])
-
-@php
-
-@endphp
 
 <div x-data="{
     search: '',
@@ -102,6 +98,8 @@
             'dark:border-red-400! dark:shadow-red-400 text-red-400! placeholder:text-red-400!' => $invalid,
         ]),
     ) }}>
+
+    <input style="display: hidden" type="hidden" name="{{ $name ?? 'label' }}" {{ $attributes }} />
 
     @if ($label)
         <x-ui.heading class="mb-1 text-start">{{ $label }}</x-ui.heading>

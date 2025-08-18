@@ -14,7 +14,7 @@ Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install
 php artisan fluxtor:install accordion
 ```
 
-> Once installed, you can use the <x-ui.accordion />, <x-ui.accordion.item />, <x-ui.accordion.item.trigger />, and <x-ui.accordion.item.content /> components in any Blade view.
+> Once installed, you can use the <x-ui.accordion />, <x-ui.accordion.item />, <x-ui.accordion.trigger />, and <x-ui.accordion.content /> components in any Blade view.
 
 ## Usage
 
@@ -25,30 +25,30 @@ php artisan fluxtor:install accordion
     <div class="w-full">
         <x-components::ui.accordion>
             <x-components::ui.accordion.item>
-                <x-components::ui.accordion.item.trigger>
+                <x-components::ui.accordion.trigger>
                     What is your return policy?
-                </x-components::ui.accordion.item.trigger>
-                <x-components::ui.accordion.item.content>
+                </x-components::ui.accordion.trigger>
+                <x-components::ui.accordion.content>
                     <p>We offer a 30-day return policy for all unused items in their original packaging. Simply contact our customer service team to initiate a return.</p>
-                </x-components::ui.accordion.item.content>
+                </x-components::ui.accordion.content>
             </x-components::ui.accordion.item>
 
             <x-components::ui.accordion.item>
-                <x-components::ui.accordion.item.trigger>
+                <x-components::ui.accordion.trigger>
                     How long does shipping take?
-                </x-components::ui.accordion.item.trigger>
-                <x-components::ui.accordion.item.content>
+                </x-components::ui.accordion.trigger>
+                <x-components::ui.accordion.content>
                     <p>Standard shipping typically takes 3-5 business days, while express shipping takes 1-2 business days. International orders may take 7-14 business days depending on the destination.</p>
-                </x-components::ui.accordion.item.content>
+                </x-components::ui.accordion.content>
             </x-components::ui.accordion.item>
 
             <x-components::ui.accordion.item>
-                <x-components::ui.accordion.item.trigger>
+                <x-components::ui.accordion.trigger>
                     Do you offer international shipping?
-                </x-components::ui.accordion.item.trigger>
-                <x-components::ui.accordion.item.content>
+                </x-components::ui.accordion.trigger>
+                <x-components::ui.accordion.content>
                     <p>Yes, we ship to over 50 countries worldwide. Shipping costs and delivery times vary by destination. You can see the exact cost and estimated delivery time at checkout.</p>
-                </x-components::ui.accordion.item.content>
+                </x-components::ui.accordion.content>
             </x-components::ui.accordion.item>
         </x-components::ui.accordion>
     </div>
@@ -58,21 +58,21 @@ php artisan fluxtor:install accordion
 ```html
 <x-ui.accordion>
     <x-ui.accordion.item>
-        <x-ui.accordion.item.trigger>
+        <x-ui.accordion.trigger>
             What is your return policy?
-        </x-ui.accordion.item.trigger>
-        <x-ui.accordion.item.content>
+        </x-ui.accordion.trigger>
+        <x-ui.accordion.content>
             <p>We offer a 30-day return policy for all unused items in their original packaging. Simply contact our customer service team to initiate a return.</p>
-        </x-ui.accordion.item.content>
+        </x-ui.accordion.content>
     </x-ui.accordion.item>
 
     <x-ui.accordion.item>
-        <x-ui.accordion.item.trigger>
+        <x-ui.accordion.trigger>
             How long does shipping take?
-        </x-ui.accordion.item.trigger>
-        <x-ui.accordion.item.content>
+        </x-ui.accordion.trigger>
+        <x-ui.accordion.content>
             <p>Standard shipping typically takes 3-5 business days, while express shipping takes 1-2 business days.</p>
-        </x-ui.accordion.item.content>
+        </x-ui.accordion.content>
     </x-ui.accordion.item>
 </x-ui.accordion>
 ```

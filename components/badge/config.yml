@@ -1,4 +1,4 @@
 files:
   index: resources/views/components/ui/badge/index.blade.php
 dependencies:
-  intern: [button]
+  intern: [button, icon]
