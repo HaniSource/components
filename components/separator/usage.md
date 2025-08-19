@@ -8,6 +8,13 @@ name: 'separator'
 
 The `separator` component provides a clean and accessible way to visually separate content sections. It supports both horizontal and vertical orientations, optional labels, and follows accessibility best practices. Perfect for dividing form sections, content areas, or creating visual breaks in your interface.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `separator` component easily:
+
+```bash
+php artisan fluxtor:install separator
+```
 ## Basic Usage
 
 

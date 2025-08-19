@@ -6,16 +6,6 @@ name: select
 
 The `Select` component is a **versatile**, **accessible** dropdown selection component with advanced features like search, multi-selection, and customizable styling. It provides a modern alternative to native select elements with enhanced user experience and seamless Livewire integration.
 
-**Key Features:**
-- Single and multiple selection modes
-- Searchable dropdown with real-time filtering
-- Livewire integration with wire:model
-- Clearable selection option
-- Icon support (leading, trailing, and option icons)
-- Dark mode ready
-- Accessible dropdown with proper ARIA attributes
-- Keyboard navigation support
-- Customizable styling and validation states
 
 ## Installation
 Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `select` component easily:

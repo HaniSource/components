@@ -8,6 +8,14 @@ name: 'tags-input'
 
 The `tags-input` component provides a powerful and flexible way to handle multiple tags or keywords input. It features autocomplete suggestions, drag-and-drop reordering, validation, persistence, and full accessibility support. Perfect for skills, categories, keywords, or any multi-value input scenario.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `tags-input` component easily:
+
+```bash
+php artisan fluxtor:install tags-input
+```
+
 ## Basic Usage
 
 @blade

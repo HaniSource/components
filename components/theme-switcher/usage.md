@@ -9,6 +9,14 @@ name: 'theme-switcher'
 
 The `theme-switcher` component provides a fully accessible, responsive, and customizable way to switch between color themes in your application. It supports three layout variants—dropdown, stacked, and inline—and allows users to select between light, dark, and system themes. It is built with Alpine.js and Blade, ensuring seamless integration into Livewire or Alpine-powered interfaces.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `theme-switcher` component easily:
+
+```bash
+php artisan fluxtor:install theme-switcher
+```
+
 ## Basic Usage
 
 @blade 
