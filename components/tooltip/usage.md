@@ -6,14 +6,6 @@ name: tooltip
 
 The `Tooltip` component is a lightweight, accessible overlay component that provides contextual information or helpful hints when users interact with elements. It offers flexible positioning, multiple trigger variants, and seamless dark mode support.
 
-**Key Features:**
-- Multiple placement options: top, bottom, left, right
-- Two interaction variants: hover/focus and button click
-- Automatic positioning with Alpine.js anchor
-- Dark mode ready
-- Accessible HTML structure with proper focus management
-- Tailwind CSS integration
-- Lightweight and performant
 
 ## Installation
 

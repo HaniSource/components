@@ -6,16 +6,6 @@ name: autocomplete
 
 The `Autocomplete` component is a **responsive**, **accessible** search input component with dropdown suggestions. It provides real-time filtering, keyboard navigation, and seamless integration with Livewire for dynamic data binding.
 
-**Key Features:**
-- Real-time search filtering
-- Keyboard navigation support
-- Livewire integration with wire:model
-- Clearable input option
-- Icon support (leading and trailing)
-- Dark mode ready
-- Accessible dropdown with proper ARIA attributes
-- Customizable styling and validation states
-
 ## Installation
 Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `autocomplete` component easily:
 
@@ -65,6 +55,49 @@ php artisan fluxtor:install autocomplete
 @endblade
 
 ## Usage
+
+
+### Bind To Livewire
+
+To use with Livewire you only need to use `wire:model="property"` to bind your input state:
+
+```html
+<x-ui.autocomplete 
+    label="Search Products" 
+    wire:model="product"
+    placeholder="Find products..." 
+    icon="shopping-bag" 
+    iconTrailing="magnifying-glass"
+    description="Search through our product catalog"
+    >
+        <x-ui.autocomplete.item>iPhone 15 Pro</x-ui.autocomplete.item>
+        <x-ui.autocomplete.item>MacBook Air M2</x-ui.autocomplete.item>
+        <x-ui.autocomplete.item>AirPods Pro</x-ui.autocomplete.item>
+        <x-ui.autocomplete.item>iPad Pro</x-ui.autocomplete.item>
+        <x-ui.autocomplete.item>Apple Watch Series 9</x-ui.autocomplete.item>
+</x-ui.autocomplete>
+```
+
+### Using it within Blade & Alpine
+
+You can use it outside Livewire with just Alpine (and Blade):
+
+```html
+<x-ui.autocomplete 
+    label="Search Products" 
+    x-model="product"
+    placeholder="Find products..." 
+    icon="shopping-bag" 
+    iconTrailing="magnifying-glass"
+    description="Search through our product catalog"
+    >
+        <x-ui.autocomplete.item>iPhone 15 Pro</x-ui.autocomplete.item>
+        <x-ui.autocomplete.item>MacBook Air M2</x-ui.autocomplete.item>
+        <x-ui.autocomplete.item>AirPods Pro</x-ui.autocomplete.item>
+        <x-ui.autocomplete.item>iPad Pro</x-ui.autocomplete.item>
+        <x-ui.autocomplete.item>Apple Watch Series 9</x-ui.autocomplete.item>
+</x-ui.autocomplete>
+```
 
 ### Basic Autocomplete
 

@@ -1,2 +1,5 @@
 files:
   index: resources/views/components/ui/avatar/index.blade.php
+  group: resources/views/components/ui/avatar/group.blade.php
+dependency:
+  internal: [button]
