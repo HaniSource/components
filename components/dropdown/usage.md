@@ -77,7 +77,7 @@ Add visual clarity with icons for better user experience.
             </x-ui.button>
         </x-slot:button>
         <x-slot:menu>
-            <x-ui.dropdown.item icon="pencil">
+            <x-ui.dropdown.item icon="pencil" iconAfter="pencil">
                 Edit
             </x-ui.dropdown.item>
             <x-ui.dropdown.item icon="document-duplicate">
