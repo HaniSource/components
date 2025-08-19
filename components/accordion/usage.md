@@ -23,34 +23,32 @@ php artisan fluxtor:install accordion
 @blade
 <x-demo>
     <div class="w-full">
-        <x-components::ui.accordion>
-            <x-components::ui.accordion.item>
-                <x-components::ui.accordion.trigger>
+        <x-ui.accordion>
+            <x-ui.accordion.item>
+                <x-ui.accordion.trigger>
                     What is your return policy?
-                </x-components::ui.accordion.trigger>
-                <x-components::ui.accordion.content>
+                </x-ui.accordion.trigger>
+                <x-ui.accordion.content>
                     <p>We offer a 30-day return policy for all unused items in their original packaging. Simply contact our customer service team to initiate a return.</p>
-                </x-components::ui.accordion.content>
-            </x-components::ui.accordion.item>
-
-            <x-components::ui.accordion.item>
-                <x-components::ui.accordion.trigger>
+                </x-ui.accordion.content>
+            </x-ui.accordion.item>
+            <x-ui.accordion.item>
+                <x-ui.accordion.trigger>
                     How long does shipping take?
-                </x-components::ui.accordion.trigger>
-                <x-components::ui.accordion.content>
+                </x-ui.accordion.trigger>
+                <x-ui.accordion.content>
                     <p>Standard shipping typically takes 3-5 business days, while express shipping takes 1-2 business days. International orders may take 7-14 business days depending on the destination.</p>
-                </x-components::ui.accordion.content>
-            </x-components::ui.accordion.item>
-
-            <x-components::ui.accordion.item>
-                <x-components::ui.accordion.trigger>
+                </x-ui.accordion.content>
+            </x-ui.accordion.item>
+            <x-ui.accordion.item>
+                <x-ui.accordion.trigger>
                     Do you offer international shipping?
-                </x-components::ui.accordion.trigger>
-                <x-components::ui.accordion.content>
+                </x-ui.accordion.trigger>
+                <x-ui.accordion.content>
                     <p>Yes, we ship to over 50 countries worldwide. Shipping costs and delivery times vary by destination. You can see the exact cost and estimated delivery time at checkout.</p>
-                </x-components::ui.accordion.content>
-            </x-components::ui.accordion.item>
-        </x-components::ui.accordion>
+                </x-ui.accordion.content>
+            </x-ui.accordion.item>
+        </x-ui.accordion>
     </div>
 </x-demo>
 @endblade
@@ -84,8 +82,8 @@ For simple accordions, you can use the shorthand syntax with the `trigger` prop.
 @blade
 <x-demo>
     <div class="w-full">
-        <x-components::ui.accordion>
-            <x-components::ui.accordion.item trigger="Account Settings">
+        <x-ui.accordion>
+            <x-ui.accordion.item trigger="Account Settings">
                 <p>Manage your account preferences, update your profile information, and configure notification settings.</p>
                 <div class="mt-3 space-y-2">
                     <div class="flex items-center justify-between">
@@ -97,17 +95,16 @@ For simple accordions, you can use the shorthand syntax with the `trigger` prop.
                         <span class="text-green-600">Enabled</span>
                     </div>
                 </div>
-            </x-components::ui.accordion.item>
-
-            <x-components::ui.accordion.item trigger="Privacy & Security">
+            </x-ui.accordion.item>
+            <x-ui.accordion.item trigger="Privacy & Security">
                 <p>Control your privacy settings and security preferences to keep your account safe.</p>
                 <ul class="mt-3 space-y-1 list-disc list-inside">
                     <li>Password requirements</li>
                     <li>Login history</li>
                     <li>Data sharing preferences</li>
                 </ul>
-            </x-components::ui.accordion.item>
-        </x-components::ui.accordion>
+            </x-ui.accordion.item>
+        </x-ui.accordion>
     </div>
 </x-demo>
 @endblade
@@ -146,22 +143,20 @@ Set an accordion item to be expanded when the component loads.
 @blade
 <x-demo>
     <div class="w-full">
-        <x-components::ui.accordion>
-            <x-components::ui.accordion.item expanded trigger="Getting Started">
+        <x-ui.accordion>
+            <x-ui.accordion.item expanded trigger="Getting Started">
                 <p>Welcome! This section is expanded by default to help you get started quickly.</p>
                 <div class="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded">
                     <p class="text-sm">💡 <strong>Tip:</strong> Use the <code>expanded</code> prop to open important sections by default.</p>
                 </div>
-            </x-components::ui.accordion.item>
-
-            <x-components::ui.accordion.item trigger="Advanced Features">
+            </x-ui.accordion.item>
+            <x-ui.accordion.item trigger="Advanced Features">
                 <p>Explore advanced features and customization options for power users.</p>
-            </x-components::ui.accordion.item>
-
-            <x-components::ui.accordion.item trigger="Troubleshooting">
+            </x-ui.accordion.item>
+            <x-ui.accordion.item trigger="Troubleshooting">
                 <p>Common issues and solutions to help you resolve problems quickly.</p>
-            </x-components::ui.accordion.item>
-        </x-components::ui.accordion>
+            </x-ui.accordion.item>
+        </x-ui.accordion>
     </div>
 </x-demo>
 @endblade
@@ -190,24 +185,24 @@ Disable specific accordion items to prevent user interaction.
 @blade
 <x-demo>
     <div class="w-full">
-        <x-components::ui.accordion>
-            <x-components::ui.accordion.item trigger="Available Features">
+        <x-ui.accordion>
+            <x-ui.accordion.item trigger="Available Features">
                 <p>These features are currently available and ready to use.</p>
                 <ul class="mt-3 space-y-1 list-disc list-inside">
                     <li>User management</li>
                     <li>Basic reporting</li>
                     <li>Email notifications</li>
                 </ul>
-            </x-components::ui.accordion.item>
+            </x-ui.accordion.item>
 
-            <x-components::ui.accordion.item disabled trigger="Premium Features (Coming Soon)">
+            <x-ui.accordion.item disabled trigger="Premium Features (Coming Soon)">
                 <p>This content is not yet available.</p>
-            </x-components::ui.accordion.item>
+            </x-ui.accordion.item>
 
-            <x-components::ui.accordion.item trigger="Documentation">
+            <x-ui.accordion.item trigger="Documentation">
                 <p>Access comprehensive documentation and guides for all features.</p>
-            </x-components::ui.accordion.item>
-        </x-components::ui.accordion>
+            </x-ui.accordion.item>
+        </x-ui.accordion>
     </div>
 </x-demo>
 @endblade
@@ -231,8 +226,8 @@ Use the reverse layout to position chevron icons on the left side.
 @blade
 <x-demo>
     <div class="w-full">
-        <x-components::ui.accordion reverse>
-            <x-components::ui.accordion.item trigger="System Requirements">
+        <x-ui.accordion reverse>
+            <x-ui.accordion.item trigger="System Requirements">
                 <div class="space-y-3">
                     <div>
                         <h4 class="font-semibold">Minimum Requirements:</h4>
@@ -251,9 +246,9 @@ Use the reverse layout to position chevron icons on the left side.
                         </ul>
                     </div>
                 </div>
-            </x-components::ui.accordion.item>
+            </x-ui.accordion.item>
 
-            <x-components::ui.accordion.item trigger="Supported Platforms">
+            <x-ui.accordion.item trigger="Supported Platforms">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <h4 class="font-semibold">Desktop</h4>
@@ -271,8 +266,8 @@ Use the reverse layout to position chevron icons on the left side.
                         </ul>
                     </div>
                 </div>
-            </x-components::ui.accordion.item>
-        </x-components::ui.accordion>
+            </x-ui.accordion.item>
+        </x-ui.accordion>
     </div>
 </x-demo>
 @endblade
