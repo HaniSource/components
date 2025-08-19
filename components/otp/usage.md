@@ -192,7 +192,6 @@ Control what characters are allowed with different input types and patterns.
             <label class="block text-sm font-medium mb-2">Numeric only (default)</label>
             <x-ui.otp 
                 x-model="numericCode"
-                type="text"
                 allowedPattern="[0-9]"
             />
         </div>
@@ -200,7 +199,6 @@ Control what characters are allowed with different input types and patterns.
             <label class="block text-sm font-medium mb-2">Alphanumeric</label>
             <x-ui.otp 
                 x-model="alphanumericCode"
-                type="text"
                 allowedPattern="[A-Za-z0-9]"
             />
         </div>
@@ -208,7 +206,6 @@ Control what characters are allowed with different input types and patterns.
             <label class="block text-sm font-medium mb-2">Letters only</label>
             <x-ui.otp 
                 x-model="customCode"
-                type="text"
                 allowedPattern="[A-Za-z]"
             />
         </div>
@@ -220,19 +217,27 @@ Control what characters are allowed with different input types and patterns.
 ```html
 <x-ui.otp 
     wire:model="numericCode"
-    type="text"
     allowedPattern="[0-9]"
 />
 <x-ui.otp 
     wire:model="alphanumericCode"
-    type="text"
     allowedPattern="[A-Za-z0-9]"
 />
 <x-ui.otp 
     wire:model="letterCode"
-    type="text"
     allowedPattern="[A-Za-z]"
 />
+```
+
+### AutoFocus
+
+to focus the first relevent input in the initialization phase you may use the ``autofocus``
+```html
+<x-ui.otp 
+    ...
+    autofocus
+/>
+
 ```
 
 ## Advanced Features
