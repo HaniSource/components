@@ -8,7 +8,7 @@ The `Accordion` component is a collapsible content component designed to organiz
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `accordion` component easily:
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `accordion` component easily:
 
 ```bash
 php artisan fluxtor:install accordion

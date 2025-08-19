@@ -18,7 +18,7 @@ The `Select` component is a **versatile**, **accessible** dropdown selection com
 - Customizable styling and validation states
 
 ## Installation
-Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `select` component easily:
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `select` component easily:
 
 ```bash
 php artisan fluxtor:install select

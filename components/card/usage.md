@@ -14,7 +14,7 @@ The `Card` component is a **responsive**, **unstyled** container component desig
 - Tailwind CSS integration
 
 ## Installation
-Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `card` component easily:
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `card` component easily:
 
 ```bash
 php artisan fluxtor:install card

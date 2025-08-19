@@ -17,7 +17,7 @@ The `Autocomplete` component is a **responsive**, **accessible** search input co
 - Customizable styling and validation states
 
 ## Installation
-Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `autocomplete` component easily:
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `autocomplete` component easily:
 
 ```bash
 php artisan fluxtor:install autocomplete

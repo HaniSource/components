@@ -17,7 +17,7 @@ The `Tooltip` component is a lightweight, accessible overlay component that prov
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `tooltip` component easily:
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `tooltip` component easily:
 
 ```bash
 php artisan fluxtor:install tooltip
