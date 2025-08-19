@@ -8,7 +8,7 @@ The `Breadcrumbs` component is a navigation aid that shows users their current l
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `breadcrumbs` component easily:
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `breadcrumbs` component easily:
 
 ```bash
 php artisan fluxtor:install breadcrumbs

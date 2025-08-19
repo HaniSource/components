@@ -8,7 +8,7 @@ The `Brand` component is a flexible branding element designed to display your co
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `brand` component easily:
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `brand` component easily:
 
 ```bash
 php artisan fluxtor:install brand

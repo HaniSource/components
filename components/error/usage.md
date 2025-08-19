@@ -6,6 +6,15 @@ name: error
 
 The Error component displays validation errors and custom error messages with a consistent design and proper accessibility features.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `error` component easily:
+
+```bash
+php artisan fluxtor:install error
+```
+
+
 ### Basic Usage
 
 ```blade

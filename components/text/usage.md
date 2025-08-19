@@ -8,6 +8,14 @@ name: 'text'
 
 The `text` component provides a simple and consistent way to display text content with proper styling and theme support, and serves as a foundational text element for consistent typography across your application.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `text` component easily:
+
+```bash
+php artisan fluxtor:install text
+```
+
 ## Basic Usage
 
 @blade

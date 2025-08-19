@@ -8,6 +8,15 @@ name: 'key-value'
 
 The `key-value-input` component provides a powerful and flexible way to handle key-value pairs input. It features dynamic row management, validation, drag-and-drop reordering, and full accessibility support. Perfect for environment variables, metadata, configuration settings, or any structured data input scenario.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `key-value` component easily:
+
+```bash
+php artisan fluxtor:install key-value
+```
+
+
 ## Basic Usage
 
 @blade

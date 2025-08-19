@@ -10,6 +10,14 @@ The `toasts` component provides a lightweight, accessible, and customizable toas
 
 This component listens to a global `notify` event, enabling toast triggering from anywhere in your app without prop drilling.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `toast` component easily:
+
+```bash
+php artisan fluxtor:install toast
+```
+
 ## Basic Usage
 
 @blade
