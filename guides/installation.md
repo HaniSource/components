@@ -14,8 +14,8 @@ composer require fluxtor/cli
 
 - Laravel 10.0 or higher
 - PHP 8.1 or higher
-- Alpine.js (auto-installed if not present)
-- Tailwindcss 4.0 or higher
+- Tailwind CSS 4.0 or higher
+- Alpine.js (auto-installed during initialization)
 
 ## Package Initialization
 
@@ -24,16 +24,40 @@ After installing the CLI, initialize Fluxtor with all required dependencies and 
 ```bash
 php artisan fluxtor:init
 ```
+This is a **one-time setup command** that prepares your Laravel project for Fluxtor components.
 
-### What This Command Does
+**Command Options**
+- `--with-dark-mode` : Include dark mode theme variables and utilities (default = false)
+- `--with-phosphor` : Install and configure Phosphor Icons package (default = false)
+- `--css-file=app.css` : Target CSS file name for package assets injection (relative to resources/css/) (default = app.css)
+- `--theme-file=theme.css` : Name for the generated theme CSS file (relative to resources/css/) (default = theme.css)
+- `--js-dir=fluxtor` : Directory path for JavaScript files (relative to resources/js/) (default = fluxtor)
+- `--skip-prompts` : Skip interactive prompts and use default configuration (default = false)
+- `--force` : Force overwrite existing files and configurations (default = false)
 
-The initialization command sets up your Laravel project with:
 
-- **CSS Theme System** - Installs CSS custom properties and utility classes
-- **Dark Mode Support** - Configures theme switching with Alpine.js integration
-- **JavaScript Utilities** - Adds reactive theme management system
-- **Package Dependencies** - Installs required packages (Alpine.js, WireUI, etc.)
-- **File Organization** - Creates proper directory structure for components
+#### What the Initialization Does
+The `fluxtor:init` command transforms your Laravel project by:
+
+**CSS Theme System**
+- Installs CSS custom properties for consistent theming
+- Adds utility classes for component styling
+- Sets up CSS variable management
+
+**Dark Mode Support**
+- Configures automatic theme switching
+- Integrates with Alpine.js for reactive updates
+- Provides theme persistence across sessions
+
+**JavaScript Utilities**
+- Installs Alpine.js if not present
+- Adds reactive theme management system
+- Creates utility functions for component interactions
+
+**Dependencies & Structure**
+- Installs required packages automatically
+- Creates organized directory structure
+- Updates your existing CSS and JS files
 
 ### Interactive Configuration
 
@@ -44,24 +68,78 @@ The command will guide you through configuration options:
 3. **File Locations** - Customize CSS and JavaScript file locations
 4. **Dependency Management** - Select which packages to install
 
-### Command Options
+#### Interactive Setup Process
+
+The initialization command guides you through configuration:
 
 ```bash
-# Initialize with dark mode and Phosphor Icons
-php artisan fluxtor:init --with-dark-mode --with-phosphor
-
-# Skip interactive prompts (use defaults)
-php artisan fluxtor:init --skip-prompts
-
-# Force overwrite existing files
-php artisan fluxtor:init --force
-
-# Only create JavaScript files
-php artisan fluxtor:init --js-only --with-dark-mode
-
-# Custom file locations
-php artisan fluxtor:init --css-file=custom.css --theme-file=my-theme
+php artisan fluxtor:init
 ```
+
+**Step 2: Icon Library**
+```
+? Install Phosphor Icons library? (Y/n)
+```
+Optionally install the comprehensive Phosphor icon set.
+
+**Step 1: Dark Mode Configuration**
+```
+? Include dark mode theme support? (Y/n)
+```
+Choose whether to include dark theme switching capabilities.
+
+If you choose **Yes**, see the documentation for details: https://fluxtor.dev/docs/guides/dark-mode
+
+**Step 3: File Locations**
+```
+? Target CSS file for package assets integration: (app.css)
+? Theme CSS file name: (theme.css)
+? JavaScript files directory path: (fluxtor)
+```
+Customize where theme files should be created (relative to resources folder).
+
+**Step 4: Dependencies**
+```
+? Will this project use Livewire? (Y/n)
+```
+If you choose **No**, Alpine.js will be skipped. If you choose **Yes**, it will be installed and configured automatically (only if it’s not already present).
+
+#### Command Options
+
+**Skip Interactive Prompts**
+```bash
+php artisan fluxtor:init --skip-prompts
+```
+Uses default settings for all configuration options.
+
+**Include All Features**
+```bash
+php artisan fluxtor:init --with-dark-mode --with-phosphor
+```
+Enables dark mode and installs Phosphor icons automatically.
+
+**Force Overwrite**
+```bash
+php artisan fluxtor:init --force
+```
+Overwrites existing files without confirmation prompts.
+
+**Custom File Locations**
+```bash
+php artisan fluxtor:init --css-file=styles/main.css --theme-file=custom-theme
+```
+Specify custom locations for generated files.
+
+**Complete Example with Options**
+```bash
+php artisan fluxtor:init \
+  --with-dark-mode \
+  --with-phosphor \
+  --css-file=resources/css/app.css \
+  --theme-file=fluxtor-theme \
+  --skip-prompts
+```
+
 
 ### Generated Files
 
@@ -82,27 +160,74 @@ resources/
 
 ### Important: Include Assets in Your Layout
 
-Make sure your main layout file includes the compiled CSS and JavaScript assets:
+**Critical:** Update your main layout file to include the compiled assets:
 
 ```html
-{{-- In your main layout file (e.g., resources/views/layouts/app.blade.php) --}}
+{{-- resources/views/layouts/app.blade.php --}}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your App</title>
-
-    {{-- Include main CSS File --}} {+ @vite(['resources/css/app.css']) +}
-  </head>
-  <body>
-    {{-- Your content --}} {{-- Include main JavaScript File --}} {+
-    @vite(['resources/js/app.js']) +}
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name') }}</title>
+    
+    {{-- Include Fluxtor CSS --}}
+    @vite(['resources/css/app.css'])
+</head>
+<body>
+    {{-- Your app content --}}
+    <main>
+        @yield('content')
+    </main>
+    
+    {{-- Include Fluxtor JavaScript --}}
+    @vite(['resources/js/app.js'])
+</body>
 </html>
 ```
+#### If you are using Livewire version 3
 
-## Authentication
+
+```html
+{{-- resources/views/layouts/app.blade.php --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name') }}</title>
+    
+    {{-- Include Fluxtor CSS --}}
+    @vite(['resources/css/app.css'])
+
+    {{-- include --}}
+    {+ @livewireStyles +}
+</head>
+<body>
+    {{-- Your app content --}}
+    <main>
+        @yield('content')
+    </main>
+    
+    {{-- Include Fluxtor JavaScript --}}
+    @vite(['resources/js/app.js'])
+
+
+    {{-- include --}}
+    {+ @livewireScripts +}
+</body>
+</html>
+```
+**For Laravel Mix users:**
+```html
+{{-- Replace @vite() with mix() --}}
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+<script src="{{ mix('js/app.js') }}"></script>
+```
+
+---
+
+## Authentication & Account Management
 
 ### Login to Your Account
 
@@ -176,21 +301,85 @@ php artisan fluxtor:install modal
 ### What Happens During Installation
 
 1. **Component Files** - Blade components are added to `resources/views/components/ui/`
-2. **Dependencies** - Required components and packages are automatically installed
+2. **Dependencies** - Required components and packages are automatically installed/updated (with confirmation)
 3. **Assets** - CSS and JavaScript assets are integrated
 4. **Documentation** - Usage examples are available at `https://fluxtor.dev/docs/components/component-name`
 
-### Installation Options
+#### Installation Options
+
+**Force Overwrite Existing Components**
+```bash
+php artisan fluxtor:install button --force
+```
+Replaces existing component files without confirmation.
+
+**Preview Installation (Dry Run)**
+```bash
+php artisan fluxtor:install button --dry-run
+```
+Shows what files would be created/modified without making changes.
+
+**Install with All Dependencies**
+```bash
+php artisan fluxtor:install button --internal-deps --external-deps
+```
+- `--internal-deps`: Install required Fluxtor components
+- `--external-deps`: Install required npm/composer packages
+
+**Install Only Dependencies**
+```bash
+php artisan fluxtor:install button --only-deps
+```
+Installs only the dependencies.
+
+
+**Skip Dependency Installation**
+```bash
+php artisan fluxtor:install button --skip-deps
+```
+Installs only the main component, skipping dependencies.
+
+
+### Example Installation Output
 
 ```bash
-# Force overwrite existing components
-php artisan fluxtor:install button --force
+php artisan fluxtor:install radio         
 
-# Install without dependencies
-php artisan fluxtor:install button --no-deps
+═════════════════════════════════════
+  Installing:  radio
+═════════════════════════════════════
 
-# Preview what will be installed
-php artisan fluxtor:install button --dry-run
+  Radio  has been installed successfully.
+ resources/views/components/ui/radio/group.blade.php has been  created 
+
+ resources/views/components/ui/radio/item.blade.php has been  created 
+
+ resources/views/components/ui/radio/indicator.blade.php has been  created 
+
+ Radio component requires internal dependencies to function properly.
+
+ ┌ Install required dependencies? ──────────────────────────────┐
+ │ Yes                                                          │
+ └──────────────────────────────────────────────────────────────┘
+
+ ↳ Installing Radio internal dependencies.
+
+  Icon  has been installed successfully.
+ resources/views/components/ui/icon/index.blade.php has been  created 
+
+ All Radio dependencies installed successfully.
+
+  INFO  Full documentation: https://fluxtor.dev/docs/components/radio. 
+
+```
+
+### Batch Operations
+
+**Install Multiple Related Components**
+```bash
+# Install all form components
+php artisan fluxtor:install button input select textarea switch radio
+
 ```
 
 ## Discovering Components
@@ -212,3 +401,21 @@ php artisan fluxtor:list --type=free
 # List only premium components
 php artisan fluxtor:list --type=premium
 ```
+
+
+### Getting Help
+
+**Check Component Documentation**
+- Online docs: `https://fluxtor.dev/docs/components/{component-name}`
+
+**Community Support**
+- GitHub Issues: `https://github.com/fluxtor/cli/issues`
+
+
+### Best Practices
+
+1. **Version Control**: Always commit your project before running Fluxtor commands
+2. **Component Organization**: Keep components in the default `ui/` namespace for consistency
+3. **Customization**: Document your customizations for team members
+4. **Dependencies**: Regularly update both Fluxtor and its dependencies
+5. **Testing**: Test components after installation in your specific use cases

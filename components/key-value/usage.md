@@ -1,5 +1,5 @@
 ---
-name: 'key-value-input'
+name: 'key-value'
 ---
 
 # Key-Value Input Component
