@@ -8,6 +8,13 @@ name: 'tabs'
 
 The `tabs` component provides a flexible and accessible tabbed interface for organizing content. It supports both named and indexed tabs, Livewire binding, x-model integration, keyboard navigation, and automatic tab management. Perfect for organizing related content sections, settings panels, or any multi-section interface.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `tabs` component easily:
+
+```bash
+php artisan fluxtor:install tabs
+```
 ## Basic Usage
 
 @blade

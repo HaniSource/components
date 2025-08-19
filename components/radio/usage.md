@@ -8,7 +8,7 @@ The `Radio` component is a responsive, accessible form control component designe
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `radio` component easily:
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `radio` component easily:
 
 ```bash
 php artisan fluxtor:install radio

@@ -8,6 +8,14 @@ name: 'textarea'
 
 The `textarea` component provides a fully featured multi-line text input with automatic resizing, validation states, and modern styling. It saves you from creating complex textarea elements each time you need one.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `textarea` component easily:
+
+```bash
+php artisan fluxtor:install textarea
+```
+
 ## Basic Usage
 
 @blade

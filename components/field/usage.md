@@ -8,6 +8,15 @@ name: 'field'
 
 The `field` component is the essential wrapper for all form fields, providing consistent spacing, layout, and state management between labels, descriptions, inputs, and error messages.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `field` component easily:
+
+```bash
+php artisan fluxtor:install field
+```
+
+
 ## Basic Usage
 
 @blade

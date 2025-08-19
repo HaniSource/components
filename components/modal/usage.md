@@ -8,6 +8,15 @@ name: 'modal'
 
 Welcome to this advanced modal component engineered for **complete flexibility** and designed to be used seamlessly from anywhere in your application.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `modal` component easily:
+
+```bash
+php artisan fluxtor:install modal
+```
+
+
 ### Basic Usage
 
 All you need is to bind a trigger to a modal using a unique `id`. That's it.

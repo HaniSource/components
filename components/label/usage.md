@@ -8,6 +8,14 @@ name: 'label'
 
 The `label` component provides consistent styling and accessibility for form field labels. It automatically handles required field indicators and integrates seamlessly with the field component for proper spacing and layout. Designed to work perfectly with all form input components.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `label` component easily:
+
+```bash
+php artisan fluxtor:install label
+```
+
 ## Basic Usage
 
 @blade

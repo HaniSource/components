@@ -6,6 +6,14 @@ name: 'dropdown'
 
 The `dropdown` component provides a powerful and accessible dropdown menu system with full keyboard navigation, submenus, grouping, and customizable positioning. It features smooth animations, proper focus management, and comprehensive ARIA support. Perfect for actions menus, navigation, settings, and any hierarchical menu structure.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `dropdown` component easily:
+
+```bash
+php artisan fluxtor:install dropdown
+```
+
 ## Basic Usage
 
 @blade

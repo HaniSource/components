@@ -7,7 +7,7 @@ name: select
 The `Select` component is a **versatile**, **accessible** dropdown selection component with advanced features like search, multi-selection, and customizable styling. It provides a modern alternative to native select elements with enhanced user experience and seamless Livewire integration.
 
 ## Installation
-Use the [fluxtor artisan command](/docs/cli-reference#fluxtorinstall) to install the `select` component easily:
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `select` component easily:
 
 ```bash
 php artisan fluxtor:install select

@@ -99,12 +99,14 @@ Let’s take our [Key Value](/docs/key-value) component as a real-world example.
         ...
         init() {
             this.$nextTick(() => {
-                this.state = this.$root._x_model?.get() ?? []
+                this.state = this.$root?._x_model?.get() ?? []
                 ...
             })
 
-            Alpine.effect(() => {
-                this.$root?._x_model?.set(this.state)
+           this.$watch('state',() => {
+                // ...
+                this.$root?._x_model?.set(this.state);
+                //...
             })
         },
         ...

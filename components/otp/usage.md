@@ -8,6 +8,14 @@ name: 'otp'
 
 The `otp` component provides a secure and user-friendly way to handle One-Time Password (OTP) input. It features automatic focus progression, paste handling, validation with custom patterns, accessibility support, and seamless integration with both Livewire and Alpine.js. Perfect for authentication flows, verification codes, and any multi-digit input scenarios.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `otp` component easily:
+
+```bash
+php artisan fluxtor:install otp
+```
+
 ## Basic Usage
 
 @blade

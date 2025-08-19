@@ -8,6 +8,15 @@ name: 'description'
 
 The `description` component provides contextual help text for form fields. It's designed to work exclusively within forms to give users additional information about what to enter, formatting requirements, or field constraints. **This component is form-specific and should only be used with form fields.**
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `description` component easily:
+
+```bash
+php artisan fluxtor:install description
+```
+
+
 ## Basic Usage
 
 @blade

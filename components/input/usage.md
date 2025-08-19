@@ -1,17 +1,20 @@
 ---
 name: 'input'
 ---
-<style>
-    .fluxtor-component input{
-        max-width : 40rem
-    }
-</style>
 
 # Input Component
 
 ## Introduction
 
 The `input` component provides a powerful and flexible foundation for text input fields. It features customizable prefixes and suffixes, icon support, input actions (copy, clear, reveal), validation states, and full accessibility support. Perfect for forms, search fields, and any text input scenario.
+
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `input` component easily:
+
+```bash
+php artisan fluxtor:install input
+```
 
 ## Basic Usage
 

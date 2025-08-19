@@ -8,6 +8,14 @@ The `fieldset` component provides a semantic and visually appealing way to group
 
 > always use it with `field` component, it manage spacing properly.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `fieldset` component easily:
+
+```bash
+php artisan fluxtor:install fieldset
+```
+
 ## Basic Usage
 
 @blade
