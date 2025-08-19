@@ -1,0 +1,4 @@
+files:
+  index: resources/views/components/ui/otp/index.blade.php
+  input: resources/views/components/ui/otp/input.blade.php
+  seperator: resources/views/components/ui/otp/separator.blade.php
