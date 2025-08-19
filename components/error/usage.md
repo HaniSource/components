@@ -1,3 +1,7 @@
+---
+name: error
+---
+
 ## Overview
 
 The Error component displays validation errors and custom error messages with a consistent design and proper accessibility features.

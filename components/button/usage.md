@@ -1,3 +1,7 @@
+---
+name: button
+---
+
 # Button Component
 
 ## Introduction

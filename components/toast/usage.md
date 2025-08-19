@@ -1,5 +1,5 @@
 ---
-name: 'toasts'
+name: 'toast'
 ---
 
 # Toast Notifications Component
