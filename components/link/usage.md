@@ -8,6 +8,14 @@ name: 'link'
 
 The `link` component provides a flexible and accessible way to create styled links.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `link` component easily:
+
+```bash
+php artisan fluxtor:install link
+```
+
 ## Basic Usage
 
 @blade

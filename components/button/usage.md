@@ -4,6 +4,14 @@
 
 The `button` component provides a reusable UI element that saves you from creating complex button elements each time you need one. It offers multiple variants, sizes, and customization options to fit your design needs.
 
+## Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `button` component easily:
+
+```bash
+php artisan fluxtor:install button
+```
+
 ## Basic Usage
 
 @blade

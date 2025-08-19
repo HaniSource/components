@@ -16,6 +16,8 @@ We leverage [WireUI's wrappers](https://wireui.com) for both providers to delive
 ---
 ## Installation 
 
+> this is already happens if you run the fluxtor:init commad
+
 ```shell
 composer require wireui/heroicons
 ```
@@ -27,6 +29,16 @@ composer require wireui/phosphoricons
 ```
 
 > Once installed, you can start using the <x-components::ui.icon /> component seamlessly in your views.
+
+
+## Component Installation
+
+Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `icon` component easily:
+
+```bash
+php artisan fluxtor:install icon
+```
+
 
 ## Customization 
 
