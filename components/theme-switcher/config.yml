@@ -1,7 +1,7 @@
 files:
   index: resources/views/components/ui/theme-switcher/index.blade.php
-  dropdown: resources/views/components/ui/theme-switcher/dropdown.blade.php
-  inline: resources/views/components/ui/theme-switcher/inline.blade.php
-  stacked: resources/views/components/ui/theme-switcher/stacked.blade.php
+  dropdown: resources/views/components/ui/theme-switcher/variants/dropdown.blade.php
+  inline: resources/views/components/ui/theme-switcher/variants/inline.blade.php
+  stacked: resources/views/components/ui/theme-switcher/variants/stacked.blade.php
 dependencies:
   internal: [dropdown, button]

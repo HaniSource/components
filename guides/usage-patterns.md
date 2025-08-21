@@ -103,11 +103,17 @@ Let’s take our [Key Value](/docs/key-value) component as a real-world example.
                 ...
             })
 
-           this.$watch('state',() => {
-                // ...
-                this.$root?._x_model?.set(this.state);
-                //...
-            })
+           this.$watch('state', (value) => {
+                // Sync with Alpine state
+                this.$root?._x_model?.set(value);
+
+                // Sync with Livewire state
+                if(this.$wire){
+                    let wireModel = this?.$root.getAttributeNames().find(n => n.startsWith('wire:model'))
+                    let prop = this.$root.getAttribute(wireModel)
+                    this.$wire.set(prop, value, wireModel.includes('.live'));
+                }
+            });
         },
         ...
     }"
