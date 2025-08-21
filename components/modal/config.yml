@@ -1,5 +1,7 @@
 files:
   index: resources/views/components/ui/modal/index.blade.php
+  modals.js: resources/js/globals/modals.js
+  utils.js: resources/js/utils.js
   backdrop: resources/views/components/ui/modal/backdrop.blade.php
   trigger: resources/views/components/ui/modal/trigger.blade.php
 dependencies: [icon, button]

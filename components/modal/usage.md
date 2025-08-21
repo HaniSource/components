@@ -16,6 +16,14 @@ Use the [fluxtor artisan command](/docs/guides/installation#content-component-ma
 php artisan fluxtor:install modal
 ```
 
+then you need to import the `./globals/modals.js` in your app.js like so:
+
+```js
+// ...
+import './globals/theme.js';
+// ...
+```
+
 
 ### Basic Usage
 
