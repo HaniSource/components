@@ -18,6 +18,31 @@ php artisan fluxtor:install radio
 
 ## Usage
 
+
+### Bind To Livewire
+
+To use with Livewire you only need to use `wire:model="property"` to bind your input state:
+
+```html
+<x-ui.radio.group label="Roles" name="roles" wire:model="role">
+    <x-ui.radio.item value="backend" label="Back end" checked />
+    <x-ui.radio.item value="frontend" label="Front end" />
+    <x-ui.radio.item value="devops" label="DevOps" />
+</x-ui.radio.group>
+```
+
+### Using it within Blade & Alpine
+
+You can use it outside Livewire with just Alpine (and Blade):
+
+```html
+<x-ui.radio.group label="Roles" name="roles" x-model="role">
+    <x-ui.radio.item value="backend" label="Back end" checked />
+    <x-ui.radio.item value="frontend" label="Front end" />
+    <x-ui.radio.item value="devops" label="DevOps" />
+</x-ui.radio.group>
+```
+
 ### Basic Radio Group
 @blade
 <x-demo class="flex justify-center">

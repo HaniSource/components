@@ -4,7 +4,7 @@ Fluxtor includes a comprehensive dark mode system that automatically detects use
 
 
 ## Using CLI 
-when using our [CLI](cli) it do most of work for you, when running 
+when using our [CLI](/docs/guides/installation) it do most of work for you, when running 
 
 ```sh
 php artisan fluxtor:init
@@ -307,7 +307,7 @@ Fluxtor includes a comprehensive theme-switcher component with multiple variants
 {{-- Inline buttons variant --}}
 <x-ui.theme-switcher variant="inline" />
 ```
-> go the official docs of the [theme switcher component](./docs/theme-switcher)
+> go the official docs of the [theme switcher component](/docs/components/theme-switcher)
 
 ### Testing Themes
 Test your components in all three theme modes:

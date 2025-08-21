@@ -7,7 +7,7 @@ name: 'overview'
 
 It was invented for personal needs and the lack of such solution in our amazing community.
 
-It follows the **copy-paste** philosophy through our [cli](cli) made popular by shadcn/ui but goes further:
+It follows the **copy-paste** philosophy through our [cli](/docs/guides/installation) made popular by shadcn/ui but goes further:
 
 * **Zero dependencies** (for most components)
 * **Real Laravel integration**
@@ -83,7 +83,7 @@ php artisan fluxtor:add ...
 
 > Our CLI handles setup, imports, and file placement so you don't have to.
 > 
-> [Read more about CLI](/docs/cli)
+> [Read more about CLI](/docs/guides/installation)
 
 ### Use in Blade
 
@@ -134,7 +134,7 @@ Define your own design system using Tailwind:
 * Global dark mode with Tailwind `dark:` classes
 * Consistent styles across all components
 
-> [Read more about theming system](/docs/theming-system)
+> [Read more about theming system](/docs/guides/themes)
 
 ## Documentation
 
@@ -160,10 +160,10 @@ Since you own every component you install, **you can contribute improvements bac
 
 ## Next Steps
 
-* [Dark Mode](/docs/dark-mode) – Add full theme switching
-* [Theming System](/docs/theming) – Customize your design language
+* [Dark Mode](/docs/guides/dark-mode) – Add full theme switching
+* [Theming System](/docs/guides/themes) – Customize your design language
 * [Component Reference](/docs/components) – Browse all available UI blocks
-* [Need Help?](/docs/help) – Get unstuck fast
+* [Need Help?](/docs/guides/help) – Get unstuck fast
 
 
 > **Fluxtor is the UI toolkit Laravel has always deserved.**
