@@ -20,7 +20,7 @@ then you need to import the `./globals/modals.js` in your app.js like so:
 
 ```js
 // ...
-import './globals/theme.js';
+import './globals/modals.js';
 // ...
 ```
 
