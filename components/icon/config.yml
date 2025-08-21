@@ -1,2 +1,3 @@
 files:
   index: resources/views/components/ui/icon/index.blade.php
+  loading: resources/views/components/ui/icon/loading.blade.php

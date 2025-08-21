@@ -6,15 +6,6 @@ name: radio
 
 The `Radio` component is a responsive, accessible form control component designed for single-choice selection. It provides a clean foundation for building radio button groups with consistent styling, multiple variants, and seamless dark mode support.
 
-**Key Features:**
-- Multiple variants: default, segmented
-- Horizontal and vertical layouts
-- Icon support
-- Optional descriptions
-- Dark mode ready
-- Accessible HTML structure with proper ARIA attributes
-- Tailwind CSS integration
-
 ## Installation
 
 Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `radio` component easily:

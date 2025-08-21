@@ -52,7 +52,7 @@ php artisan fluxtor:install autocomplete
                 icon="shopping-bag" 
                 iconTrailing="magnifying-glass"
                 description="Search through our product catalog"
-                >
+            >
                     <x-ui.autocomplete.item>iPhone 15 Pro</x-ui.autocomplete.item>
                     <x-ui.autocomplete.item>MacBook Air M2</x-ui.autocomplete.item>
                     <x-ui.autocomplete.item>AirPods Pro</x-ui.autocomplete.item>
@@ -90,7 +90,8 @@ php artisan fluxtor:install autocomplete
 <x-ui.autocomplete 
     label="Search Countries" 
     placeholder="Type to search..."
-    wire:model="selectedCountry">
+    wire:model="selectedCountry"
+>
         <x-ui.autocomplete.item>United States</x-ui.autocomplete.item>
         <x-ui.autocomplete.item>United Kingdom</x-ui.autocomplete.item>
         <x-ui.autocomplete.item>Canada</x-ui.autocomplete.item>
@@ -282,25 +283,6 @@ Show different states for validation feedback.
 </x-ui.autocomplete>
 ```
 
-
-## Keyboard Navigation
-
-The autocomplete component supports the following keyboard interactions:
-
-- **Arrow Up/Down**: Navigate through dropdown options
-- **Enter**: Select the highlighted option
-- **Escape**: Close the dropdown
-- **Tab**: Close dropdown and move to next field
-- **Typing**: Filter options in real-time
-
-## Accessibility Features
-
-- **ARIA attributes**: Proper labeling and roles for screen readers
-- **Keyboard navigation**: Full keyboard support
-- **Focus management**: Proper focus handling
-- **Screen reader support**: Announces selections and changes
-- **High contrast support**: Works with high contrast modes
-
 ## Customization
 
 ### Custom Input Classes
@@ -308,7 +290,7 @@ The autocomplete component supports the following keyboard interactions:
 ```html
 <x-ui.autocomplete 
     label="Custom Styled" 
-    classInput="bg-blue-50 border-blue-200 focus:border-blue-500"
+    inputClasses="bg-blue-50 border-blue-200 focus:border-blue-500"
     placeholder="Search..."
     wire:model="customValue">
         <x-ui.autocomplete.item>Option 1</x-ui.autocomplete.item>
@@ -333,5 +315,5 @@ The autocomplete component supports the following keyboard interactions:
 | `icon`         | string  | `''`          | No       | Leading icon name                                                            |
 | `iconTrailing` | string  | `''`          | No       | Trailing icon name                                                           |
 | `clearable`    | boolean | `false`       | No       | Whether to show a clear button                                               |
-| `classInput`   | string  | `''`          | No       | Additional CSS classes for the input element                                 |
+| `inputClasses`   | string  | `''`          | No       | Additional CSS classes for the input element                                 |
 | `slot`         | mixed   | `''`          | Yes      | Dropdown items using `<div data-slot="autocomplete-item">` elements         |
