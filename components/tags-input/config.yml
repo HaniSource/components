@@ -1,3 +1,3 @@
 files:
-  index: resources/views/ui/tags-input/index.blade.php
-  tag: resources/views/ui/tags-input/tag.blade.php
+  index: resources/views/components/ui/tags-input/index.blade.php
+  tag: resources/views/components/ui/tags-input/tag.blade.php

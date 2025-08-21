@@ -1,5 +1,5 @@
 files:
-  index: resources/views/ui/modal/index.blade.php
-  backdrop: resources/views/ui/modal/backdrop.blade.php
-  trigger: resources/views/ui/modal/trigger.blade.php
+  index: resources/views/components/ui/modal/index.blade.php
+  backdrop: resources/views/components/ui/modal/backdrop.blade.php
+  trigger: resources/views/components/ui/modal/trigger.blade.php
 dependencies: [icon, button]

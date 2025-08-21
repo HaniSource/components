@@ -1,8 +1,8 @@
 files:
   index: resources/views/components/ui/key-value/index.blade.php
-  item: resources/views/components/ui/key-value/actions.blade.php
-  submenu: resources/views/components/ui/key-value/input.blade.php
-  group: resources/views/components/ui/key-value/top-bar.blade.php
-  separator: resources/views/components/ui/key-value/th.blade.php
+  actions: resources/views/components/ui/key-value/actions.blade.php
+  input: resources/views/components/ui/key-value/input.blade.php
+  th: resources/views/components/ui/key-value/top-bar.blade.php
+  top-bar: resources/views/components/ui/key-value/th.blade.php
 dependencies:
   internal: [icon, button]
