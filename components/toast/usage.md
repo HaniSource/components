@@ -17,7 +17,7 @@ Use the [fluxtor artisan command](/docs/guides/installation#content-component-ma
 ```bash
 php artisan fluxtor:install toast
 ```
-then put the `<x-ui.toast position="top-left" />` in your global layout file like so:
+then put the `<x-ui.toast />` in your global layout file like so:
 
 ```html
 <!-- this is your base layout file -->
