@@ -27,26 +27,46 @@
     ];
 @endphp
 
-<div x-ref="selectTrigger" data-slot="trigger" @class($triggerWrapperClasses)>
+<div 
+    x-ref="selectTrigger" 
+    data-slot="trigger" 
+    @class($triggerWrapperClasses)
+>
     @if (filled($icon))
-        <x-ui.icon name="{{ $icon }}"
-            class="col-span-1 col-start-1 row-start-1 text-black dark:text-white z-10 pl-1.5" />
+        <x-ui.icon 
+            name="{{ $icon }}"
+            class="col-span-1 col-start-1 row-start-1 text-black dark:text-white z-10 pl-1.5" 
+        />
     @endif
 
-    <button @disabled($disabled) x-on:click="toggle" type="button" data-slot="select-control" @class($triggerClasses)
-        x-text="label"></button>
+    <button 
+        x-on:click="toggle"
+        type="button"
+        data-slot="select-control"
+        x-text="label"
+        @class($triggerClasses)
+        @disabled($disabled)
+    ></button>
 
     @if (filled($iconAfter))
-        <x-ui.icon name="{{ $iconAfter }}" @class([
-            'col-span-1 row-start-1',
-            'col-start-4' => !$clearable,
-            'col-start-3' => $clearable,
-        ]) />
+        <x-ui.icon name="{{ $iconAfter }}" 
+            @class([
+                'col-span-1 row-start-1',
+                'col-start-4' => !$clearable,
+                'col-start-3' => $clearable,
+            ]) 
+        />
     @endif
 
     @if ($clearable)
-        <button data-slot="autocomplete-clear" type="button" x-on:click="clear"
-            class='col-span-1 row-start-1 col-start-4 cursor-pointer'><x-ui.icon name="trash" /></button>
+        <button 
+            data-slot="autocomplete-clear"
+            type="button"
+            x-on:click="clear"
+            class='col-span-1 row-start-1 col-start-4 cursor-pointer'
+        >
+            <x-ui.icon name="trash" />
+        </button>
     @endif
 
 </div>

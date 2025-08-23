@@ -25,27 +25,46 @@
     isMultiple: @js($multiple),
     isDisabled: @js($disabled),
     isSearchable: @js($searchable),
-    selected: @js($multiple) ? [] : null,
+    state: @js($multiple) ? [] : null,
     placeholder: @js($placeholder) ?? 'select...',
 
+     init() {
+        this.$nextTick(() => {
+            this.state = this.$root?._x_model?.get();
+        });
+        
+        this.$watch('state', (value) => {
+            // Sync with Alpine state
+            this.$root?._x_model?.set(value);
+                
+            // Sync with Livewire state
+            let wireModel = this?.$root.getAttributeNames().find(n => n.startsWith('wire:model'))
+                
+            if(this.$wire && wireModel){
+                let prop = this.$root.getAttribute(wireModel)
+                this.$wire.set(prop, value, wireModel?.includes('.live'));
+            }
+        });
+        
+    },
 
     get label() {
 
         if (!this.hasSelection) return this.placeholder;
 
-        if (!this.isMultiple) return this.selected || this.placeholder;
+        if (!this.isMultiple) return this.state || this.placeholder;
 
-        if (this.selected.length === 1) return this.selected[0];
+        if (this.state.length === 1) return this.state[0];
 
-        return ` ${this.selected.length} items selected`;
+        return ` ${this.state.length} items selected`;
     },
 
     get hasSelection() {
-        return this.isMultiple ? this.selected.length > 0 : this.selected !== null;
+        return this.isMultiple ? this.state?.length > 0 : this.state !== null;
     },
 
     isSelected(option) {
-        return this.isMultiple ? this.selected.includes(option) : this.selected === option;
+        return this.isMultiple ? this.state?.includes(option) : this.state === option;
     },
 
     select(option) {
@@ -54,21 +73,20 @@
 
         if (!this.isMultiple) {
             this.open = false;
-            this.selected = option;
+            this.state = option;
             return;
         }
 
-        const itemIndex = this.selected.findIndex(item => item === option);
+        const itemIndex = this.state.findIndex(item => item === option);
         if (itemIndex === -1) {
-            this.selected.push(option);
+            this.state.push(option);
         } else {
-            this.selected.splice(itemIndex, 1);
+            this.state.splice(itemIndex, 1);
         }
-
     },
 
     clear() {
-        this.selected = this.isMultiple ? [] : '';
+        this.state = this.isMultiple ? [] : '';
         this.open = false;
     },
 
@@ -99,16 +117,26 @@
         ]),
     ) }}>
 
-    <input style="display: hidden" type="hidden" name="{{ $name ?? 'label' }}" {{ $attributes }} />
+    <input style="display: hidden" type="hidden" name="{{ $name }}" {{ $attributes }} />
 
     @if ($label)
         <x-ui.heading class="mb-1 text-start">{{ $label }}</x-ui.heading>
     @endif
     {{-- trigger --}}
-    <div @class(['relative', ' mb-2' => $description])>
+    <div 
+        @class(['relative', ' mb-2' => $description])
+    >
+        
         <x-ui.select.trigger />
-        <x-ui.select.options :checkIconClass="$checkIconClass" :checkIcon="$checkIcon">{{ $slot }}</x-ui.select.options>
-    </div>
+
+        <x-ui.select.options 
+            :checkIconClass="$checkIconClass"
+            :checkIcon="$checkIcon"
+        >
+            {{ $slot }}
+        </x-ui.select.options>
+    </div
+    >
 
     @if ($description)
         <p data-slot="select-description" class="pl-3 text-start text-sm dark:text-gray-100">{{ $description }}</p>
