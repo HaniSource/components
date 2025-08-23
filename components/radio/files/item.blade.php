@@ -32,15 +32,15 @@
         'peer-disabled:opacity-50 cursor-auto',
         'peer-disabled:[&>[data-slot=radio-item-indicator]]:opacity-50 peer-disabled:[&>[data-slot=radio-item-indicator]]:shadow-none',
 
-        'text-neutral-300 hover:text-neutral-950 py-2 rounded-md peer-checked:shadow-xs dark:text-white/70 peer-checked:bg-white/80 dark:peer-checked:bg-neutral-800 px-4' => $isSegmented,
+        'text-neutral-300 hover:text-neutral-950 p-2 rounded-field peer-checked:shadow-xs dark:text-white/70 peer-checked:bg-white/80 dark:peer-checked:bg-neutral-700 hover:bg-white dark:hover:bg-neutral-700' => $isSegmented,
         'peer-checked:bg-primary-content peer-checked:text-primary-fg px-2 py-0.5 rounded-full peer-checked:hover:text-primary-fg' => $isPills,
         '[&>[data-slot=radio-item-indicator]]:order-3 [&>[data-slot=radio-item-indicator]]:ml-auto' => $isCards
     ];
 
     $containerClasses = [
         'relative isolate transition duration-200',
-        'flex-1 bg-white dark:bg-neutral-900 py-4 px-6 rounded-md border border-black/5 dark:border-white/5 dark:hover:bg-neutral-800 hover:bg-neutral-100' => $isCards,
-        'has-[:checked]:bg-white/5 dark:has-[:checked]:bg-neutral-800 has-[:checked]:border-neutral-950/10 dark:has-[:checked]:border-white/10' => $isCards,
+        'flex-1 bg-white dark:bg-neutral-900 py-4 px-6 rounded-field border border-black/5 dark:border-white/5 dark:hover:bg-neutral-700 hover:bg-neutral-100' => $isCards,
+        'has-[:checked]:bg-white/5 dark:has-[:checked]:bg-neutral-700 has-[:checked]:border-neutral-950/10 dark:has-[:checked]:border-white/10' => $isCards,
     ];
 
 
@@ -49,10 +49,26 @@
 
 @endphp
 
-<div @class($containerClasses)>
-    <input data-slot="radio-item-control" class="peer" name="{{ $name }}" hidden
-        id="{{ $value }}-{{ $name }}" value="{{ $value }}" type="radio"
-        {{ $checked ? 'checked' : '' }} {{ $disabled ? 'disabled' : '' }} />
+<div
+    @class($containerClasses)
+    x-init="
+        $nextTick(()=>{
+            if (@js($checked) && ($data.state == null)) {
+                $data.state = @js($value);
+            }
+        })
+    "
+>
+    <input 
+        data-slot="radio-item-control"
+        class="peer"
+        name="{{ $name }}"
+        hidden
+        id="{{ $value }}-{{ $name }}"
+        value="{{ $value }}" 
+        type="radio"
+        x-model="$data.state"
+    />
 
     <label for="{{ $value }}-{{ $name }}" @class($labelClasses)>
         @if ($indicator && !$isPills)
@@ -63,7 +79,12 @@
         @endif
 
         @if ($showIcon)
-            <x-ui.icon name="{{ $icon }}" variant="{{ $iconVariant }}" class="{{ $iconClass }}" />
+            <x-ui.icon 
+                name="{{ $icon }}"
+                variant="{{ $iconVariant }}" 
+                class="{{ $iconClass }}"
+                 
+            />
         @endif
 
         <span class="font-semibold">{{ $label }}</span>
