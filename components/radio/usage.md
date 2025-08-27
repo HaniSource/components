@@ -169,22 +169,22 @@ Enhance the segmented variant with icons for better visual communication.
 @blade
 <x-demo class="flex justify-center">
     <div >
-        <x-ui.radio.group name="environment" label="Deployment Environment" variant="segmented" direction="horizontal">
+        <x-ui.radio.group name="environment" :indicator="false" label="Deployment Environment" variant="segmented" direction="horizontal">
             <x-ui.radio.item
                 icon="code-bracket"
                 value="development"
                 label="Development"
             />
             <x-ui.radio.item
-            icon="beaker"
-            value="staging"
-            label="Staging"
-            checked
+                icon="beaker"
+                value="staging"
+                label="Staging"
+                checked
             />
             <x-ui.radio.item
-            icon="globe-alt"
-            value="production"
-            label="Production"
+                icon="globe-alt"
+                value="production"
+                label="Production"
             />
         </x-ui.radio.group>
     </div>
@@ -193,7 +193,7 @@ Enhance the segmented variant with icons for better visual communication.
 
 
 ```html
-<x-ui.radio.group name="environment" label="Deployment Environment" variant="segmented" direction="horizontal">
+<x-ui.radio.group name="environment" label="Deployment Environment" :indicator="false" variant="segmented" direction="horizontal">
     <x-ui.radio.item
         icon="code-bracket"
         value="development"
