@@ -70,7 +70,7 @@ The solid style provides bold, high-contrast badges with white text on colored b
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="flex flex-wrap items-center gap-2">
+    <div class="grid grid-cols-4 lg:grid-cols-6 gap-2">
         <x-components::ui.badge>Default</x-components::ui.badge>
         <x-components::ui.badge color="red">Red</x-components::ui.badge>
         <x-components::ui.badge color="orange">Orange</x-components::ui.badge>
@@ -108,7 +108,7 @@ The outline style provides colored text and border.
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="flex flex-wrap items-center gap-2">
+    <div class="grid grid-cols-4 lg:grid-cols-6 gap-2">
         <x-components::ui.badge variant="outline">Default</x-components::ui.badge>
         <x-components::ui.badge variant="outline" color="red">Red</x-components::ui.badge>
         <x-components::ui.badge variant="outline" color="orange">Orange</x-components::ui.badge>
