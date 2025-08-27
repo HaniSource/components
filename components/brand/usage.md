@@ -131,7 +131,7 @@ Use the logo slot to include custom SVG content or more complex logo structures.
 Configure the brand to open in a new tab when linking to external sites.
 
 @blade
-<x-demo class="flex justify-center">
+<x-demo class="flex flex-col justify-center">
     <x-components::ui.brand 
         href="https://example.com"
         logo="/logo-demo.jpg" 

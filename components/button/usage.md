@@ -90,7 +90,7 @@ A wide range of colors are available for customizing button appearance.
 #### Primary variant
 @blade
 <x-demo>
-    <div class="grid grid-cols-6 gap-4">
+    <div class="grid grid-cols-3 lg:grid-cols-6 gap-4">
         <x-ui.button color="zinc">Zinc</x-ui.button>
         <x-ui.button color="red">Red</x-ui.button>
         <x-ui.button color="orange">Orange</x-ui.button>
@@ -114,7 +114,7 @@ A wide range of colors are available for customizing button appearance.
 @endblade
 
 ```html
-<div class="grid grid-cols-6 gap-4">
+<div class="grid grid-cols-3 lg:grid-cols-6 gap-4">
     <x-ui.button color="zinc">Zinc</x-ui.button>
     <x-ui.button color="red">Red</x-ui.button>
     <x-ui.button color="orange">Orange</x-ui.button>
@@ -139,7 +139,7 @@ A wide range of colors are available for customizing button appearance.
 #### Outline variant
 @blade
 <x-demo>
-    <div class="grid grid-cols-6 gap-4">
+    <div class="grid grid-cols-3 lg:grid-cols-6 gap-4">
          <x-ui.button variant="outline" color="slate">Slate</x-ui.button>
     <x-ui.button variant="outline" color="stone">Stone</x-ui.button>
     <x-ui.button variant="outline" color="neutral">Neutral</x-ui.button>
@@ -166,7 +166,7 @@ A wide range of colors are available for customizing button appearance.
 @endblade
 
 ```html
-<div class="grid grid-cols-6 gap-4">
+<div class="grid grid-cols-3 lg:grid-cols-6 gap-4">
      <x-ui.button variant="outline" color="slate">Slate</x-ui.button>
     <x-ui.button variant="outline" color="stone">Stone</x-ui.button>
     <x-ui.button variant="outline" color="neutral">Neutral</x-ui.button>
@@ -197,24 +197,26 @@ The component supports 6 different visual variants:
 
 @blade
 <x-demo>
-    <x-ui.button>
+    <div class="flex flex-wrap gap-3">
+        <x-ui.button>
         Button
-    </x-ui.button>    
-    <x-ui.button variant="danger">
-        Danger
-    </x-ui.button>     
-    <x-ui.button variant="outline">
-        Outline
-    </x-ui.button>
-    <x-ui.button variant="solid">
-        solid
-    </x-ui.button>
-    <x-ui.button variant="ghost">
-        Ghost
-    </x-ui.button>
-    <x-ui.button variant="soft">
-        soft
-    </x-ui.button>
+        </x-ui.button>    
+        <x-ui.button variant="danger">
+            Danger
+        </x-ui.button>     
+        <x-ui.button variant="outline">
+            Outline
+        </x-ui.button>
+        <x-ui.button variant="solid">
+            solid
+        </x-ui.button>
+        <x-ui.button variant="ghost">
+            Ghost
+        </x-ui.button>
+        <x-ui.button variant="soft">
+            soft
+        </x-ui.button>
+    </div>
 </x-demo>
 @endblade
 
