@@ -10,10 +10,10 @@ The `link` component provides a flexible and accessible way to create styled lin
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `link` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `link` component easily:
 
 ```bash
-php artisan fluxtor:install link
+php artisan sheaf:install link
 ```
 
 ## Basic Usage

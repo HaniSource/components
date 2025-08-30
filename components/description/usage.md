@@ -10,10 +10,10 @@ The `description` component provides contextual help text for form fields. It's 
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `description` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `description` component easily:
 
 ```bash
-php artisan fluxtor:install description
+php artisan sheaf:install description
 ```
 
 

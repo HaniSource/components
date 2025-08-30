@@ -10,10 +10,10 @@ The `button` component provides a reusable UI element that saves you from creati
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `button` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `button` component easily:
 
 ```bash
-php artisan fluxtor:install button
+php artisan sheaf:install button
 ```
 
 ## Basic Usage

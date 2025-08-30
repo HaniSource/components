@@ -10,10 +10,10 @@ The `field` component is the essential wrapper for all form fields, providing co
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `field` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `field` component easily:
 
 ```bash
-php artisan fluxtor:install field
+php artisan sheaf:install field
 ```
 
 

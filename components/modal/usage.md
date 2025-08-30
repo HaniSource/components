@@ -10,10 +10,10 @@ Welcome to this advanced modal component engineered for **complete flexibility**
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `modal` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `modal` component easily:
 
 ```bash
-php artisan fluxtor:install modal
+php artisan sheaf:install modal
 ```
 
 then you need to import the `./globals/modals.js` in your app.js like so:

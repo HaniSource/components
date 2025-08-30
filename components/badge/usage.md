@@ -8,10 +8,10 @@ The `Badge` component is a versatile labeling component designed to highlight st
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `badge` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `badge` component easily:
 
 ```bash
-php artisan fluxtor:install badge
+php artisan sheaf:install badge
 ```
 
 > Once installed, you can use the <x-ui.badge /> component in any Blade view.

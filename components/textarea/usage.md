@@ -10,10 +10,10 @@ The `textarea` component provides a fully featured multi-line text input with au
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `textarea` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `textarea` component easily:
 
 ```bash
-php artisan fluxtor:install textarea
+php artisan sheaf:install textarea
 ```
 
 ## Basic Usage

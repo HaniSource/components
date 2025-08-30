@@ -10,10 +10,10 @@ The `key-value-input` component provides a powerful and flexible way to handle k
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `key-value` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `key-value` component easily:
 
 ```bash
-php artisan fluxtor:install key-value
+php artisan sheaf:install key-value
 ```
 
 

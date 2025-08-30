@@ -1,13 +1,13 @@
 # Adding Dark Mode
 
-Fluxtor includes a comprehensive dark mode system that automatically detects user preferences, prevents flickering. The implementation uses Alpine.js for state management and Tailwind CSS for styling.
+sheaf includes a comprehensive dark mode system that automatically detects user preferences, prevents flickering. The implementation uses Alpine.js for state management and Tailwind CSS for styling.
 
 
 ## Using CLI 
 when using our [CLI](/docs/guides/installation) it do most of work for you, when running 
 
 ```sh
-php artisan fluxtor:init
+php artisan sheaf:init
 ```
 
 it will add : 
@@ -20,7 +20,7 @@ it will add :
 
 > This is the cleaner way we discover so far to add dark mode to your apps  
 
-The dark mode system integrates seamlessly with Fluxtor's ``theme-switcher`` component, which handles all user interactions and theme management automatically. The component fires `theme-changed` events that the theme switcher script listens to, providing a complete theming solution.
+The dark mode system integrates seamlessly with sheaf's ``theme-switcher`` component, which handles all user interactions and theme management automatically. The component fires `theme-changed` events that the theme switcher script listens to, providing a complete theming solution.
 
 ## Step 1: Setup the Utility
 using the same way we manage `modals`, `toasts`, other global things you may consider
@@ -295,7 +295,7 @@ Add flicker prevention scripts directly in your HTML head to ensure themes load 
 ```
 ## Step 5: Add Theme Switcher Component
 
-Fluxtor includes a comprehensive theme-switcher component with multiple variants. Add it to your layout or navigation:
+sheaf includes a comprehensive theme-switcher component with multiple variants. Add it to your layout or navigation:
 
 ```blade
 {{-- Basic dropdown theme switcher --}}

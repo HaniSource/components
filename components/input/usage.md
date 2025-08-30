@@ -10,10 +10,10 @@ The `input` component provides a powerful and flexible foundation for text input
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `input` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `input` component easily:
 
 ```bash
-php artisan fluxtor:install input
+php artisan sheaf:install input
 ```
 
 ## Basic Usage
