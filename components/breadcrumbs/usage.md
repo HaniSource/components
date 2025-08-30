@@ -8,10 +8,10 @@ The `Breadcrumbs` component is a navigation aid that shows users their current l
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `breadcrumbs` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `breadcrumbs` component easily:
 
 ```bash
-php artisan fluxtor:install breadcrumbs
+php artisan sheaf:install breadcrumbs
 ```
 
 > Once installed, you can use the <x-ui.breadcrumbs /> and <x-ui.breadcrumbs.item /> components in any Blade view.

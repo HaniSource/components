@@ -8,10 +8,10 @@ The `Brand` component is a flexible branding element designed to display your co
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `brand` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `brand` component easily:
 
 ```bash
-php artisan fluxtor:install brand
+php artisan sheaf:install brand
 ```
 
 > Once installed, you can use the <x-ui.brand /> component in any Blade view.
@@ -57,7 +57,7 @@ Create a minimal brand display using only the logo without text.
             href="#" 
             logo="/logo-demo.jpg"  
             logoClass="rounded-full size-12!"
-            alt="Fluxtor" 
+            alt="sheaf" 
         />
     </div>
 </x-demo>
@@ -68,7 +68,7 @@ Create a minimal brand display using only the logo without text.
     href="/" 
     logo="/logo-demo.jpg"  
     logoClass="rounded-full size-12" 
-    alt="Fluxtor" 
+    alt="sheaf" 
 />
 ```
 

@@ -9,10 +9,10 @@ The `Tooltip` component is a lightweight, accessible overlay component that prov
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `tooltip` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `tooltip` component easily:
 
 ```bash
-php artisan fluxtor:install tooltip
+php artisan sheaf:install tooltip
 ```
 
 > Once installed, you can use the <x-ui.tooltip /> and <x-ui.tooltip.content /> components in any Blade view.

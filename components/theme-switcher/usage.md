@@ -11,10 +11,10 @@ The `theme-switcher` component provides a fully accessible, responsive, and cust
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `theme-switcher` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `theme-switcher` component easily:
 
 ```bash
-php artisan fluxtor:install theme-switcher
+php artisan sheaf:install theme-switcher
 ```
 
 ## Basic Usage

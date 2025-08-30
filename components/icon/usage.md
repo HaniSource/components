@@ -16,7 +16,7 @@ We leverage [WireUI's wrappers](https://wireui.com) for both providers to delive
 ---
 ## Installation 
 
-> this is already happens if you run the fluxtor:init commad
+> this is already happens if you run the sheaf:init commad
 
 ```shell
 composer require wireui/heroicons
@@ -33,10 +33,10 @@ composer require wireui/phosphoricons
 
 ## Component Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `icon` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `icon` component easily:
 
 ```bash
-php artisan fluxtor:install icon
+php artisan sheaf:install icon
 ```
 
 

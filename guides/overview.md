@@ -3,7 +3,7 @@ name: 'overview'
 ---
 # Overview
 
-**Fluxtor** is a modern component library and design system built specifically for the **TALL stack**: Tailwind CSS, Alpine.js, Laravel, and Livewire, and even raw **Blade** with alpinejs reactivity.
+**sheaf** is a modern component library and design system built specifically for the **TALL stack**: Tailwind CSS, Alpine.js, Laravel, and Livewire, and even raw **Blade** with alpinejs reactivity.
 
 It was invented for personal needs and the lack of such solution in our amazing community.
 
@@ -18,7 +18,7 @@ It follows the **copy-paste** philosophy through our [cli](/docs/guides/installa
 
 ### Own Your Code
 
-Every Fluxtor component lives in **your codebase**, not a vendor package.
+Every sheaf component lives in **your codebase**, not a vendor package.
 No version conflicts, no dependency hell, no hidden behavior.
 You own it. You control it.  You modify it. You ship it.
 
@@ -56,7 +56,7 @@ resources/views/components/ui/
 
 ### Design System
 
-Fluxtor includes a fully themeable system with:
+sheaf includes a fully themeable system with:
 
 * Light/Dark mode support via system preference
 * Custom color palettes, spacing, and typography
@@ -75,10 +75,10 @@ Fluxtor includes a fully themeable system with:
 ### Install via CLI
 
 ```bash
-php artisan fluxtor:add button
-php artisan fluxtor:add tags-input
-php artisan fluxtor:add select
-php artisan fluxtor:add ...
+php artisan sheaf:add button
+php artisan sheaf:add tags-input
+php artisan sheaf:add select
+php artisan sheaf:add ...
 ```
 
 > Our CLI handles setup, imports, and file placement so you don't have to.
@@ -113,7 +113,7 @@ Since it's your file, you can change anything: structure, logic, styles...
 
 ## Component Organization
 
-All Fluxtor components live under the `ui` namespace:
+All sheaf components live under the `ui` namespace:
 
 ```
 resources/views/components/ui/
@@ -147,7 +147,7 @@ Every component includes:
 
 ## Community & Contribution
 
-Fluxtor is built **by Laravel devs, for Laravel devs**.
+sheaf is built **by Laravel devs, for Laravel devs**.
 It powers production UIs and evolves based on real-world needs.
 
 Since you own every component you install, **you can contribute improvements back**:
@@ -166,5 +166,5 @@ Since you own every component you install, **you can contribute improvements bac
 * [Need Help?](/docs/guides/help) – Get unstuck fast
 
 
-> **Fluxtor is the UI toolkit Laravel has always deserved.**
+> **sheaf is the UI toolkit Laravel has always deserved.**
 > Fully native. Zero dependencies. Copy paste simplicity with infinite power.

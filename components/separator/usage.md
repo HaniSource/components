@@ -10,10 +10,10 @@ The `separator` component provides a clean and accessible way to visually separa
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `separator` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `separator` component easily:
 
 ```bash
-php artisan fluxtor:install separator
+php artisan sheaf:install separator
 ```
 ## Basic Usage
 
@@ -23,8 +23,8 @@ php artisan fluxtor:install separator
     <div class="">
         <x-ui.card size="md" class="mx-auto">
             <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-                <span>Welcome to Fluxtor.</span>
-                <a href="https://fluxtor.dev">
+                <span>Welcome to sheaf.</span>
+                <a href="https://sheaf.dev">
                     <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
                 </a>
             </x-ui.heading>
@@ -53,8 +53,8 @@ php artisan fluxtor:install separator
 <div class="flex gap-4">
     <x-ui.card size="md" class="mx-auto">
         <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-            <span>Welcome to Fluxtor.</span>
-            <a href="https://fluxtor.dev">
+            <span>Welcome to sheaf.</span>
+            <a href="https://sheaf.dev">
                 <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
             </a>
         </x-ui.heading>
@@ -95,8 +95,8 @@ Use vertical orientation to separate content horizontally.
     <div class="flex gap-4">
         <x-ui.card size="md" class="mx-auto flex-1">
             <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-                <span>Welcome to Fluxtor.</span>
-                <a href="https://fluxtor.dev">
+                <span>Welcome to sheaf.</span>
+                <a href="https://sheaf.dev">
                     <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
                 </a>
             </x-ui.heading>
@@ -125,8 +125,8 @@ Use vertical orientation to separate content horizontally.
 <div class="flex gap-4">
         <x-ui.card size="md" class="mx-auto flex-1">
             <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-                <span>Welcome to Fluxtor.</span>
-                <a href="https://fluxtor.dev">
+                <span>Welcome to sheaf.</span>
+                <a href="https://sheaf.dev">
                     <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
                 </a>
             </x-ui.heading>

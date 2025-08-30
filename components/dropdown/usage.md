@@ -8,10 +8,10 @@ The `dropdown` component provides a powerful and accessible dropdown menu system
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `dropdown` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `dropdown` component easily:
 
 ```bash
-php artisan fluxtor:install dropdown
+php artisan sheaf:install dropdown
 ```
 
 ## Basic Usage

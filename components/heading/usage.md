@@ -11,10 +11,10 @@ Perfect for creating clear content hierarchy without the hassle of managing font
 ---
 
 ## Installation
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `heading` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `heading` component easily:
 
 ```bash
-php artisan fluxtor:install heading
+php artisan sheaf:install heading
 ```
 
 > Once installed, you can use the <x-ui.heading /> component in any Blade view.

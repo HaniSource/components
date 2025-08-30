@@ -8,10 +8,10 @@ The `Avatar` component is a versatile user representation component designed to 
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `avatar` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `avatar` component easily:
 
 ```bash
-php artisan fluxtor:install avatar
+php artisan sheaf:install avatar
 ```
 
 > Once installed, you can use the <x-ui.avatar /> component in any Blade view.

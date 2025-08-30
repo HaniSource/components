@@ -7,10 +7,10 @@ name: autocomplete
 The `Autocomplete` component is a **responsive**, **accessible** search input component with dropdown suggestions. It provides real-time filtering, keyboard navigation, and seamless integration with Livewire for dynamic data binding.
 
 ## Installation
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `autocomplete` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `autocomplete` component easily:
 
 ```bash
-php artisan fluxtor:install autocomplete
+php artisan sheaf:install autocomplete
 ```
 
 > Once installed, you can use the `<x-ui.autocomplete />` component in any Blade view.

@@ -8,10 +8,10 @@ The `Radio` component is a responsive, accessible form control component designe
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `radio` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `radio` component easily:
 
 ```bash
-php artisan fluxtor:install radio
+php artisan sheaf:install radio
 ```
 
 > Once installed, you can use the <x-ui.radio.group /> and <x-ui.radio.item /> components in any Blade view.
