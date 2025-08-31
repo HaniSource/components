@@ -8,7 +8,7 @@ The Error component displays validation errors and custom error messages with a 
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `error` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `error` component easily:
 
 ```bash
 php artisan sheaf:install error

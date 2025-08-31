@@ -8,7 +8,7 @@ The `Badge` component is a versatile labeling component designed to highlight st
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `badge` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `badge` component easily:
 
 ```bash
 php artisan sheaf:install badge

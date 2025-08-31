@@ -10,7 +10,7 @@ The `tags-input` component provides a powerful and flexible way to handle multip
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `tags-input` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `tags-input` component easily:
 
 ```bash
 php artisan sheaf:install tags-input

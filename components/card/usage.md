@@ -7,7 +7,7 @@ name: card
 The `Card` component is a **responsive**, **unstyled** container component designed for content encapsulation. It provides a clean foundation for building UI sections with consistent spacing, subtle borders, and seamless dark mode support.
 
 ## Installation
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `card` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `card` component easily:
 
 ```bash
 php artisan sheaf:install card

@@ -10,7 +10,7 @@ The `fieldset` component provides a semantic and visually appealing way to group
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `fieldset` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `fieldset` component easily:
 
 ```bash
 php artisan sheaf:install fieldset

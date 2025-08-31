@@ -3,15 +3,11 @@ name: 'overview'
 ---
 # Overview
 
-<<<<<<< HEAD
 **Sheaf UI** is a modern component library and design system built specifically for the **TALL stack**: Tailwind CSS, Alpine.js, Laravel, and Livewire, and even raw **Blade** with alpinejs reactivity.
-=======
-**sheaf** is a modern component library and design system built specifically for the **TALL stack**: Tailwind CSS, Alpine.js, Laravel, and Livewire, and even raw **Blade** with alpinejs reactivity.
->>>>>>> 0f4057d15faad34310ebce7d7e580a793a714bba
 
 It was invented for personal needs and the lack of such solution in our amazing community.
 
-It follows the **copy-paste** philosophy through our [cli](/docs/guides/installation) made popular by shadcn/ui but goes further:
+It follows the **copy-paste** philosophy through our [cli](/docs/guides/cli-installation) made popular by shadcn/ui but goes further:
 
 * **Zero dependencies** (for most components)
 * **Real Laravel integration**
@@ -22,11 +18,7 @@ It follows the **copy-paste** philosophy through our [cli](/docs/guides/installa
 
 ### Own Your Code
 
-<<<<<<< HEAD
 Every Sheaf UI component lives in **your codebase**, not a vendor package.
-=======
-Every sheaf component lives in **your codebase**, not a vendor package.
->>>>>>> 0f4057d15faad34310ebce7d7e580a793a714bba
 No version conflicts, no dependency hell, no hidden behavior.
 You own it. You control it.  You modify it. You ship it.
 
@@ -91,7 +83,7 @@ php artisan sheaf:add ...
 
 > Our CLI handles setup, imports, and file placement so you don't have to.
 > 
-> [Read more about CLI](/docs/guides/installation)
+> [Read more about CLI](/docs/guides/cli-installation)
 
 ### Use in Blade
 

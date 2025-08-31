@@ -10,7 +10,7 @@ The `tabs` component provides a flexible and accessible tabbed interface for org
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `tabs` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `tabs` component easily:
 
 ```bash
 php artisan sheaf:install tabs

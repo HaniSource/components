@@ -10,7 +10,7 @@ The `separator` component provides a clean and accessible way to visually separa
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `separator` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `separator` component easily:
 
 ```bash
 php artisan sheaf:install separator

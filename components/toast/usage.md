@@ -12,7 +12,7 @@ This component listens to a global `notify` event, enabling toast triggering fro
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `toast` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `toast` component easily:
 
 ```bash
 php artisan sheaf:install toast

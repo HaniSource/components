@@ -15,7 +15,7 @@ You're in the right place. Whether you're debugging a component, confused about 
 
 Before anything else, check the official docs:
 
-* [Installation](/docs/guides/installation)
+* [Installation](/docs/guides/cli-installation)
 * [Component Reference](/docs/components)
 * [Theming Guide](/docs/guides/themes)
 <!-- * [Livewire Integration](/docs/livewire) --> // not exist yet

@@ -10,7 +10,7 @@ The `textarea` component provides a fully featured multi-line text input with au
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `textarea` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `textarea` component easily:
 
 ```bash
 php artisan sheaf:install textarea

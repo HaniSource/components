@@ -10,7 +10,7 @@ Welcome to this advanced modal component engineered for **complete flexibility**
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `modal` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `modal` component easily:
 
 ```bash
 php artisan sheaf:install modal

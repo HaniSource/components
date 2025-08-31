@@ -4,7 +4,7 @@ Sheaf UI includes a comprehensive dark mode system that automatically detects us
 
 
 ## Using CLI 
-when using our [CLI](/docs/guides/installation) it do most of work for you, when running 
+when using our [CLI](/docs/guides/cli-installation) it do most of work for you, when running 
 
 ```sh
 php artisan sheaf:init
