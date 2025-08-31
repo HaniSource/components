@@ -10,7 +10,7 @@ The `field` component is the essential wrapper for all form fields, providing co
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `field` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `field` component easily:
 
 ```bash
 php artisan sheaf:install field

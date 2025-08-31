@@ -11,7 +11,7 @@ Perfect for creating clear content hierarchy without the hassle of managing font
 ---
 
 ## Installation
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `heading` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `heading` component easily:
 
 ```bash
 php artisan sheaf:install heading

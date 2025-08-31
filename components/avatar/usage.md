@@ -8,7 +8,7 @@ The `Avatar` component is a versatile user representation component designed to 
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `avatar` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `avatar` component easily:
 
 ```bash
 php artisan sheaf:install avatar

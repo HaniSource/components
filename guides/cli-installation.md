@@ -1,10 +1,10 @@
-# sheaf CLI Documentation
+# Sheaf CLI Documentation
 
 The CLI tool streamlines component installation, theme management, and project setup to accelerate your Laravel development workflow.
 
 ## Installation
 
-Install the sheaf CLI package in your Laravel project using Composer:
+Install the Sheaf CLI package in your Laravel project using Composer:
 
 ```bash
 composer require sheaf/cli
@@ -19,19 +19,18 @@ composer require sheaf/cli
 
 ## Package Initialization
 
-After installing the CLI, initialize sheaf with all required dependencies and configurations:
+After installing the CLI, initialize Sheaf with all required dependencies and configurations:
 
 ```bash
 php artisan sheaf:init
 ```
-This is a **one-time setup command** that prepares your Laravel project for sheaf components.
+This is a **one-time setup command** that prepares your Laravel project for Sheaf components.
 
 **Command Options**
 - `--with-dark-mode` : Include dark mode theme variables and utilities (default = false)
 - `--with-phosphor` : Install and configure Phosphor Icons package (default = false)
 - `--css-file=app.css` : Target CSS file name for package assets injection (relative to resources/css/) (default = app.css)
 - `--theme-file=theme.css` : Name for the generated theme CSS file (relative to resources/css/) (default = theme.css)
-- `--js-dir=sheaf` : Directory path for JavaScript files (relative to resources/js/) (default = sheaf)
 - `--skip-prompts` : Skip interactive prompts and use default configuration (default = false)
 - `--force` : Force overwrite existing files and configurations (default = false)
 
@@ -88,13 +87,12 @@ Optionally install the comprehensive Phosphor icon set.
 ```
 Choose whether to include dark theme switching capabilities.
 
-If you choose **Yes**, see the documentation for details: https://sheaf.dev/docs/guides/dark-mode
+If you choose **Yes**, see the documentation for details: https://sheafui.dev/docs/guides/dark-mode
 
 **Step 3: File Locations**
 ```
 ? Target CSS file for package assets integration: (app.css)
 ? Theme CSS file name: (theme.css)
-? JavaScript files directory path: (sheaf)
 ```
 Customize where theme files should be created (relative to resources folder).
 
@@ -151,11 +149,10 @@ resources/
 │   ├── app.css (updated with theme import)
 │   └── theme.css (CSS custom properties)
 └── js/
-    └── sheaf/
-        ├── utils.js (Alpine.js utilities)
-        ├── app.js (updated with imports)
-        └── globals/
-            └── theme.js (Dark mode system)
+    ├── utils.js (Alpine.js utilities)
+    ├── app.js (updated with imports)
+    └── globals/
+        └── theme.js (Dark mode system)
 ```
 
 ### Important: Include Assets in Your Layout
@@ -171,7 +168,7 @@ resources/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name') }}</title>
     
-    {{-- Include sheaf CSS --}}
+    {{-- Include Sheaf UI CSS --}}
     @vite(['resources/css/app.css'])
 </head>
 <body>
@@ -180,7 +177,7 @@ resources/
         @yield('content')
     </main>
     
-    {{-- Include sheaf JavaScript --}}
+    {{-- Include Sheaf UI JavaScript --}}
     @vite(['resources/js/app.js'])
 </body>
 </html>
@@ -197,7 +194,7 @@ resources/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name') }}</title>
     
-    {{-- Include sheaf CSS --}}
+    {{-- Include Sheaf UI CSS --}}
     @vite(['resources/css/app.css'])
 
     {{-- include --}}
@@ -209,7 +206,7 @@ resources/
         @yield('content')
     </main>
     
-    {{-- Include sheaf JavaScript --}}
+    {{-- Include Sheaf UI JavaScript --}}
     @vite(['resources/js/app.js'])
 
 
@@ -231,7 +228,7 @@ resources/
 
 ### Login to Your Account
 
-Access premium components and features by authenticating with your sheaf account:
+You can authenticate with your Sheaf UI account:
 
 ```bash
 php artisan sheaf:login
@@ -239,11 +236,8 @@ php artisan sheaf:login
 
 This command will:
 
-- Prompt for your sheaf credentials
+- Prompt for your Sheaf account credentials
 - Store authentication tokens securely
-- Enable access to premium components and features
-
-**Note:** Authentication is required for premium components but optional for free components.
 
 ### View Current Account
 
@@ -255,11 +249,11 @@ php artisan sheaf:whoami
 
 This command displays:
 
-- **Email Address** - Your registered sheaf account email
+- **Email Address** - Your registered Sheaf account email
 
 **Example Output:**
 ```
-You're login as john.doe@example.com
+You're login as achchiraj.youssef@gmail.com
 ```
 
 ### Logout from Your Account
@@ -275,8 +269,6 @@ This command will:
 - Clear stored authentication tokens
 - Remove cached account information
 - Confirm successful logout
-
-**Note:** After logout, you'll need to authenticate again using `sheaf:login` to install premium components.
 
 ## Component Management
 
@@ -303,7 +295,7 @@ php artisan sheaf:install modal
 1. **Component Files** - Blade components are added to `resources/views/components/ui/`
 2. **Dependencies** - Required components and packages are automatically installed/updated (with confirmation)
 3. **Assets** - CSS and JavaScript assets are integrated
-4. **Documentation** - Usage examples are available at `https://sheaf.dev/docs/components/component-name`
+4. **Documentation** - Usage examples are available at `https://sheafui.dev/docs/components/component-name`
 
 #### Installation Options
 
@@ -323,7 +315,7 @@ Shows what files would be created/modified without making changes.
 ```bash
 php artisan sheaf:install button --internal-deps --external-deps
 ```
-- `--internal-deps`: Install required sheaf components
+- `--internal-deps`: Install required Sheaf components
 - `--external-deps`: Install required npm/composer packages
 
 **Install Only Dependencies**
@@ -369,7 +361,7 @@ php artisan sheaf:install radio
 
  All Radio dependencies installed successfully.
 
-  INFO  Full documentation: https://sheaf.dev/docs/components/radio. 
+  INFO  Full documentation: https://sheafui.dev/docs/components/radio. 
 
 ```
 
@@ -386,7 +378,7 @@ php artisan sheaf:install button input select textarea switch radio
 
 ### List Available Components
 
-Browse all available components in the sheaf library:
+Browse all available components in the Sheaf UI library:
 
 ```bash
 php artisan sheaf:list
@@ -406,16 +398,16 @@ php artisan sheaf:list --type=premium
 ### Getting Help
 
 **Check Component Documentation**
-- Online docs: `https://sheaf.dev/docs/components/{component-name}`
+- Online docs: `https://sheafui.dev/docs/components/{component-name}`
 
 **Community Support**
-- GitHub Issues: `https://github.com/sheaf/cli/issues`
+- GitHub Issues: `https://github.com/sheafui/cli/issues`
 
 
 ### Best Practices
 
-1. **Version Control**: Always commit your project before running sheaf commands
+1. **Version Control**: Always commit your project before running Sheaf UI commands
 2. **Component Organization**: Keep components in the default `ui/` namespace for consistency
 3. **Customization**: Document your customizations for team members
-4. **Dependencies**: Regularly update both sheaf and its dependencies
+4. **Dependencies**: Regularly update both Sheaf UI and its dependencies
 5. **Testing**: Test components after installation in your specific use cases

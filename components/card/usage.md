@@ -7,7 +7,7 @@ name: card
 The `Card` component is a **responsive**, **unstyled** container component designed for content encapsulation. It provides a clean foundation for building UI sections with consistent spacing, subtle borders, and seamless dark mode support.
 
 ## Installation
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `card` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `card` component easily:
 
 ```bash
 php artisan sheaf:install card
@@ -49,7 +49,7 @@ php artisan sheaf:install card
     <div class="w-full">
         <x-components::ui.card size="xl" class="mx-auto">
             <x-components::ui.heading class="flex items-center justify-between mt-0 mb-4 leading-0 " level="h3" size="sm">
-                <span>Welcome to sheaf.</span>
+                <span>Welcome to Sheaf UI.</span>
                 <a href="https://sheaf.dev">
                     <x-components::ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
                 </a>
@@ -65,7 +65,7 @@ php artisan sheaf:install card
 ```html
     <x-ui.card size="xl" class="mx-auto">
         <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-            <span>Welcome to sheaf.</span>
+            <span>Welcome to Sheaf UI.</span>
             <a href="https://sheaf.dev">
                 <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
             </a>
@@ -100,7 +100,7 @@ Structure your content with distinct header and footer sections for better organ
                     <div class="flex items-center gap-3">
                         <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
                         <div class="flex-1">
-                            <p class="text-sm font-medium text-gray-900 dark:text-white mb-0 mt-0">Welcome to sheaf</p>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white mb-0 mt-0">Welcome to Sheaf UI</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400 mb-0 mt-0">2 minutes ago</p>
                         </div>
                     </div>
@@ -152,7 +152,7 @@ Structure your content with distinct header and footer sections for better organ
             <div class="flex items-center gap-3">
                 <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
                 <div class="flex-1">
-                    <p class="text-sm font-medium text-gray-900 dark:text-white">Welcome to sheaf</p>
+                    <p class="text-sm font-medium text-gray-900 dark:text-white">Welcome to Sheaf UI</p>
                     <p class="text-xs text-gray-500 dark:text-gray-400">2 minutes ago</p>
                 </div>
             </div>

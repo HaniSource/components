@@ -9,7 +9,7 @@ The `Alerts` component is a versatile notification component designed to communi
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `alerts` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `alerts` component easily:
 
 ```bash
 php artisan sheaf:install alerts

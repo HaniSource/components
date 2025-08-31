@@ -10,7 +10,7 @@ The `separator` component provides a clean and accessible way to visually separa
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `separator` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `separator` component easily:
 
 ```bash
 php artisan sheaf:install separator
@@ -23,7 +23,7 @@ php artisan sheaf:install separator
     <div class="">
         <x-ui.card size="md" class="mx-auto">
             <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-                <span>Welcome to sheaf.</span>
+                <span>Welcome to Sheaf UI.</span>
                 <a href="https://sheaf.dev">
                     <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
                 </a>
@@ -53,7 +53,7 @@ php artisan sheaf:install separator
 <div class="flex gap-4">
     <x-ui.card size="md" class="mx-auto">
         <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-            <span>Welcome to sheaf.</span>
+            <span>Welcome to Sheaf UI.</span>
             <a href="https://sheaf.dev">
                 <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
             </a>
@@ -95,7 +95,7 @@ Use vertical orientation to separate content horizontally.
     <div class="flex gap-4">
         <x-ui.card size="md" class="mx-auto flex-1">
             <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-                <span>Welcome to sheaf.</span>
+                <span>Welcome to Sheaf UI.</span>
                 <a href="https://sheaf.dev">
                     <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
                 </a>
@@ -125,7 +125,7 @@ Use vertical orientation to separate content horizontally.
 <div class="flex gap-4">
         <x-ui.card size="md" class="mx-auto flex-1">
             <x-ui.heading class="flex items-center justify-between mb-4" level="h3" size="sm">
-                <span>Welcome to sheaf.</span>
+                <span>Welcome to Sheaf UI.</span>
                 <a href="https://sheaf.dev">
                     <x-ui.icon name="arrow-up-right" class="text-gray-800 dark:text-white size-4" />
                 </a>
