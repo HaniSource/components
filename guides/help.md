@@ -3,7 +3,7 @@ name: 'help'
 ---
 # Help & Support
 
-## Need Help With Fluxtor?
+## Need Help With Sheaf UI?
 
 You're in the right place. Whether you're debugging a component, confused about integration, or just need direction this page gives you clear ways to get help fast.
 
@@ -26,11 +26,11 @@ Every component includes real Blade examples, slot/prop references, and customiz
 
 ### Discord (coming soon)
 
-Join our Fluxtor Discord where the core team and contributors hang out. Ask questions, share components, or just vibe with the Laravel UI dev crowd.
+Join our Sheaf UI Discord where the core team and contributors hang out. Ask questions, share components, or just vibe with the Laravel UI dev crowd.
 
 ### GitHub Discussions
 
-Open a thread in [Fluxtor Discussions](https://github.com/orgs/fluxtorphp/discussions) for:
+Open a thread in [Sheaf UI Discussions](https://github.com/orgs/sheafui/discussions) for:
 
 * New component ideas and feedback
 * Complex implementation questions  
@@ -46,13 +46,13 @@ Found something broken?
 2. Include Alpine state if relevant
 3. Open a GitHub issue with clear reproduction steps
 
-[Submit a bug →](https://github.com/orgs/fluxtorphp/discussions)
+[Submit a bug →](https://github.com/orgs/sheafui/discussions)
 
 ## Still Stuck?
 
-Shoot us a message on Twitter [@fluxtor](https://twitter.com/fluxtor) or email us at [support@fluxtor.dev](mailto:support@fluxtor.dev). We're builders too and we want you unblocked.
+Shoot us a message on Twitter [@sheaf UI](https://twitter.com/sheafui) or email us at [support@sheafui.dev](mailto:support@sheafui.dev). We're builders too and we want you unblocked.
 
 
-If it’s a question, bug, or feedback we want to hear it. Fluxtor isn't just a platform. It’s a community.
+If it’s a question, bug, or feedback we want to hear it. Sheaf UI isn't just a platform. It’s a community.
 
 > Help us make Laravel UI better, together.

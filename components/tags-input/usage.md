@@ -10,16 +10,16 @@ The `tags-input` component provides a powerful and flexible way to handle multip
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `tags-input` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `tags-input` component easily:
 
 ```bash
-php artisan fluxtor:install tags-input
+php artisan sheaf:install tags-input
 ```
 
 ## Basic Usage
 
 @blade
-<x-demo  x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+<x-demo  x-data="{ tags: ['convergephp','sheaf','eigenify']}">
     <x-ui.tags-input 
         x-model="tags" 
         placeholder="Add tags..."
@@ -41,7 +41,7 @@ to use with livewire you need to only to use `wire:mode="tags"` to bind your tag
 you can use it outside livewire and just alpine (with blade):
 
 ```html
-<div class="w-full" x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+<div class="w-full" x-data="{ tags: ['convergephp','sheaf','eigenify']}">
     <x-ui.tags-input 
         x-model="tags" 
         placeholder="Add tags..."
@@ -59,7 +59,7 @@ Control the visual appearance of your tags with different shapes.
 
 @blade
 <x-demo  >
-    <div   x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+    <div   x-data="{ tags: ['convergephp','sheaf','eigenify']}">
         <x-ui.tags-input 
             x-model="tags" 
             placeholder="Rounded tags (default)"
@@ -94,7 +94,7 @@ by default tags input uses the primary color but you can any tailwind color you 
 
 @blade
 <x-demo  >
-    <div class="space-y-6 max-w-2xlw-full mx-auto h-[25rem] overflow-y-auto p-4" x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+    <div class="space-y-6 max-w-2xlw-full mx-auto h-[25rem] overflow-y-auto p-4" x-data="{ tags: ['convergephp','sheaf','eigenify']}">
         @foreach([
             'red', 'orange', 'amber', 'yellow', 'lime', 'green',
             'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo',
@@ -242,7 +242,7 @@ Define which keys should create new tags.
 Enable counter display and clear all functionality.
 
 @blade
-<x-demo   x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+<x-demo   x-data="{ tags: ['convergephp','sheaf','eigenify']}">
     <x-ui.tags-input 
         x-model="tags" 
         placeholder="Tags with counter and clear all"
@@ -359,7 +359,7 @@ Users can reorder tags by dragging and dropping them.
 > The component includes zero dependency built-in drag-and-drop functionality. Simply drag tags to reorder them.
 
 @blade
-<x-demo   x-data="{ tags: ['convergephp','fluxtor','eigenify']}">
+<x-demo   x-data="{ tags: ['convergephp','sheaf','eigenify']}">
     <x-ui.tags-input
         x-model="tags"  
         placeholder="Add tags and drag to reorder"

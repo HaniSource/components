@@ -8,10 +8,10 @@ The `Accordion` component is a collapsible content component designed to organiz
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `accordion` component easily:
+Use the [Sheaf artisan command](/docs/guides/installation#content-component-management) to install the `accordion` component easily:
 
 ```bash
-php artisan fluxtor:install accordion
+php artisan sheaf:install accordion
 ```
 
 > Once installed, you can use the <x-ui.accordion />, <x-ui.accordion.item />, <x-ui.accordion.trigger />, and <x-ui.accordion.content /> components in any Blade view.

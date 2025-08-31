@@ -4,13 +4,13 @@ name: 'themes'
 
 # Theming System
 
-Fluxtor looks great out of the box, but your project isn’t “just another gray website.” Maybe you want bold and colorful, maybe minimal and sharp. Whatever your style, the theming system lets you align every component with your brand in minutes.
+Sheaf UI looks great out of the box, but your project isn’t “just another gray website.” Maybe you want bold and colorful, maybe minimal and sharp. Whatever your style, the theming system lets you align every component with your brand in minutes.
 
 ---
 
 ## Core Idea
 
-Fluxtor themes are powered by **two main color families** and **two radius controls**.
+Sheaf UI themes are powered by **two main color families** and **two radius controls**.
 Everything else flows from there.
 
 ### Color Roles
@@ -165,7 +165,7 @@ Now you can do:
 
 ## Component-Specific Tweaks
 
-If you need global overrides for specific Fluxtor components, target them with data attributes.
+If you need global overrides for specific Sheaf UI components, target them with data attributes.
 (You own the code — for deeper changes, edit the component directly.)
 
 ```css

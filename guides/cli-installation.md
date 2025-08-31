@@ -1,13 +1,13 @@
-# Fluxtor CLI Documentation
+# Sheaf CLI Documentation
 
 The CLI tool streamlines component installation, theme management, and project setup to accelerate your Laravel development workflow.
 
 ## Installation
 
-Install the Fluxtor CLI package in your Laravel project using Composer:
+Install the Sheaf CLI package in your Laravel project using Composer:
 
 ```bash
-composer require fluxtor/cli
+composer require sheaf/cli
 ```
 
 **Requirements:**
@@ -19,25 +19,24 @@ composer require fluxtor/cli
 
 ## Package Initialization
 
-After installing the CLI, initialize Fluxtor with all required dependencies and configurations:
+After installing the CLI, initialize Sheaf with all required dependencies and configurations:
 
 ```bash
-php artisan fluxtor:init
+php artisan sheaf:init
 ```
-This is a **one-time setup command** that prepares your Laravel project for Fluxtor components.
+This is a **one-time setup command** that prepares your Laravel project for Sheaf components.
 
 **Command Options**
 - `--with-dark-mode` : Include dark mode theme variables and utilities (default = false)
 - `--with-phosphor` : Install and configure Phosphor Icons package (default = false)
 - `--css-file=app.css` : Target CSS file name for package assets injection (relative to resources/css/) (default = app.css)
 - `--theme-file=theme.css` : Name for the generated theme CSS file (relative to resources/css/) (default = theme.css)
-- `--js-dir=fluxtor` : Directory path for JavaScript files (relative to resources/js/) (default = fluxtor)
 - `--skip-prompts` : Skip interactive prompts and use default configuration (default = false)
 - `--force` : Force overwrite existing files and configurations (default = false)
 
 
 #### What the Initialization Does
-The `fluxtor:init` command transforms your Laravel project by:
+The `sheaf:init` command transforms your Laravel project by:
 
 **CSS Theme System**
 - Installs CSS custom properties for consistent theming
@@ -73,7 +72,7 @@ The command will guide you through configuration options:
 The initialization command guides you through configuration:
 
 ```bash
-php artisan fluxtor:init
+php artisan sheaf:init
 ```
 
 **Step 2: Icon Library**
@@ -88,13 +87,12 @@ Optionally install the comprehensive Phosphor icon set.
 ```
 Choose whether to include dark theme switching capabilities.
 
-If you choose **Yes**, see the documentation for details: https://fluxtor.dev/docs/guides/dark-mode
+If you choose **Yes**, see the documentation for details: https://sheafui.dev/docs/guides/dark-mode
 
 **Step 3: File Locations**
 ```
 ? Target CSS file for package assets integration: (app.css)
 ? Theme CSS file name: (theme.css)
-? JavaScript files directory path: (fluxtor)
 ```
 Customize where theme files should be created (relative to resources folder).
 
@@ -108,35 +106,35 @@ If you choose **No**, Alpine.js will be skipped. If you choose **Yes**, it will 
 
 **Skip Interactive Prompts**
 ```bash
-php artisan fluxtor:init --skip-prompts
+php artisan sheaf:init --skip-prompts
 ```
 Uses default settings for all configuration options.
 
 **Include All Features**
 ```bash
-php artisan fluxtor:init --with-dark-mode --with-phosphor
+php artisan sheaf:init --with-dark-mode --with-phosphor
 ```
 Enables dark mode and installs Phosphor icons automatically.
 
 **Force Overwrite**
 ```bash
-php artisan fluxtor:init --force
+php artisan sheaf:init --force
 ```
 Overwrites existing files without confirmation prompts.
 
 **Custom File Locations**
 ```bash
-php artisan fluxtor:init --css-file=styles/main.css --theme-file=custom-theme
+php artisan sheaf:init --css-file=styles/main.css --theme-file=custom-theme
 ```
 Specify custom locations for generated files.
 
 **Complete Example with Options**
 ```bash
-php artisan fluxtor:init \
+php artisan sheaf:init \
   --with-dark-mode \
   --with-phosphor \
   --css-file=resources/css/app.css \
-  --theme-file=fluxtor-theme \
+  --theme-file=sheaf-theme \
   --skip-prompts
 ```
 
@@ -151,11 +149,10 @@ resources/
 │   ├── app.css (updated with theme import)
 │   └── theme.css (CSS custom properties)
 └── js/
-    └── fluxtor/
-        ├── utils.js (Alpine.js utilities)
-        ├── app.js (updated with imports)
-        └── globals/
-            └── theme.js (Dark mode system)
+    ├── utils.js (Alpine.js utilities)
+    ├── app.js (updated with imports)
+    └── globals/
+        └── theme.js (Dark mode system)
 ```
 
 ### Important: Include Assets in Your Layout
@@ -171,7 +168,7 @@ resources/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name') }}</title>
     
-    {{-- Include Fluxtor CSS --}}
+    {{-- Include Sheaf UI CSS --}}
     @vite(['resources/css/app.css'])
 </head>
 <body>
@@ -180,7 +177,7 @@ resources/
         @yield('content')
     </main>
     
-    {{-- Include Fluxtor JavaScript --}}
+    {{-- Include Sheaf UI JavaScript --}}
     @vite(['resources/js/app.js'])
 </body>
 </html>
@@ -197,7 +194,7 @@ resources/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name') }}</title>
     
-    {{-- Include Fluxtor CSS --}}
+    {{-- Include Sheaf UI CSS --}}
     @vite(['resources/css/app.css'])
 
     {{-- include --}}
@@ -209,7 +206,7 @@ resources/
         @yield('content')
     </main>
     
-    {{-- Include Fluxtor JavaScript --}}
+    {{-- Include Sheaf UI JavaScript --}}
     @vite(['resources/js/app.js'])
 
 
@@ -231,35 +228,32 @@ resources/
 
 ### Login to Your Account
 
-Access premium components and features by authenticating with your Fluxtor account:
+You can authenticate with your Sheaf UI account:
 
 ```bash
-php artisan fluxtor:login
+php artisan sheaf:login
 ```
 
 This command will:
 
-- Prompt for your Fluxtor credentials
+- Prompt for your Sheaf account credentials
 - Store authentication tokens securely
-- Enable access to premium components and features
-
-**Note:** Authentication is required for premium components but optional for free components.
 
 ### View Current Account
 
 Check which account is currently authenticated:
 
 ```bash
-php artisan fluxtor:whoami
+php artisan sheaf:whoami
 ```
 
 This command displays:
 
-- **Email Address** - Your registered Fluxtor account email
+- **Email Address** - Your registered Sheaf account email
 
 **Example Output:**
 ```
-You're login as john.doe@example.com
+You're login as achchiraj.youssef@gmail.com
 ```
 
 ### Logout from Your Account
@@ -267,7 +261,7 @@ You're login as john.doe@example.com
 Remove stored authentication credentials and logout:
 
 ```bash
-php artisan fluxtor:logout
+php artisan sheaf:logout
 ```
 
 This command will:
@@ -276,8 +270,6 @@ This command will:
 - Remove cached account information
 - Confirm successful logout
 
-**Note:** After logout, you'll need to authenticate again using `fluxtor:login` to install premium components.
-
 ## Component Management
 
 ### Installing Components
@@ -285,17 +277,17 @@ This command will:
 Install individual components with all their dependencies:
 
 ```bash
-php artisan fluxtor:install component-name
+php artisan sheaf:install component-name
 ```
 
 **Examples:**
 
 ```bash
 # Install a button component
-php artisan fluxtor:install button
+php artisan sheaf:install button
 
 # Install a modal component (may include dependencies)
-php artisan fluxtor:install modal
+php artisan sheaf:install modal
 ```
 
 ### What Happens During Installation
@@ -303,39 +295,39 @@ php artisan fluxtor:install modal
 1. **Component Files** - Blade components are added to `resources/views/components/ui/`
 2. **Dependencies** - Required components and packages are automatically installed/updated (with confirmation)
 3. **Assets** - CSS and JavaScript assets are integrated
-4. **Documentation** - Usage examples are available at `https://fluxtor.dev/docs/components/component-name`
+4. **Documentation** - Usage examples are available at `https://sheafui.dev/docs/components/component-name`
 
 #### Installation Options
 
 **Force Overwrite Existing Components**
 ```bash
-php artisan fluxtor:install button --force
+php artisan sheaf:install button --force
 ```
 Replaces existing component files without confirmation.
 
 **Preview Installation (Dry Run)**
 ```bash
-php artisan fluxtor:install button --dry-run
+php artisan sheaf:install button --dry-run
 ```
 Shows what files would be created/modified without making changes.
 
 **Install with All Dependencies**
 ```bash
-php artisan fluxtor:install button --internal-deps --external-deps
+php artisan sheaf:install button --internal-deps --external-deps
 ```
-- `--internal-deps`: Install required Fluxtor components
+- `--internal-deps`: Install required Sheaf components
 - `--external-deps`: Install required npm/composer packages
 
 **Install Only Dependencies**
 ```bash
-php artisan fluxtor:install button --only-deps
+php artisan sheaf:install button --only-deps
 ```
 Installs only the dependencies.
 
 
 **Skip Dependency Installation**
 ```bash
-php artisan fluxtor:install button --skip-deps
+php artisan sheaf:install button --skip-deps
 ```
 Installs only the main component, skipping dependencies.
 
@@ -343,7 +335,7 @@ Installs only the main component, skipping dependencies.
 ### Example Installation Output
 
 ```bash
-php artisan fluxtor:install radio         
+php artisan sheaf:install radio         
 
 ═════════════════════════════════════
   Installing:  radio
@@ -369,7 +361,7 @@ php artisan fluxtor:install radio
 
  All Radio dependencies installed successfully.
 
-  INFO  Full documentation: https://fluxtor.dev/docs/components/radio. 
+  INFO  Full documentation: https://sheafui.dev/docs/components/radio. 
 
 ```
 
@@ -378,7 +370,7 @@ php artisan fluxtor:install radio
 **Install Multiple Related Components**
 ```bash
 # Install all form components
-php artisan fluxtor:install button input select textarea switch radio
+php artisan sheaf:install button input select textarea switch radio
 
 ```
 
@@ -386,36 +378,36 @@ php artisan fluxtor:install button input select textarea switch radio
 
 ### List Available Components
 
-Browse all available components in the Fluxtor library:
+Browse all available components in the Sheaf UI library:
 
 ```bash
-php artisan fluxtor:list
+php artisan sheaf:list
 ```
 
 ### Filtering Options
 
 ```bash
 # List only free components
-php artisan fluxtor:list --type=free
+php artisan sheaf:list --type=free
 
 # List only premium components
-php artisan fluxtor:list --type=premium
+php artisan sheaf:list --type=premium
 ```
 
 
 ### Getting Help
 
 **Check Component Documentation**
-- Online docs: `https://fluxtor.dev/docs/components/{component-name}`
+- Online docs: `https://sheafui.dev/docs/components/{component-name}`
 
 **Community Support**
-- GitHub Issues: `https://github.com/fluxtor/cli/issues`
+- GitHub Issues: `https://github.com/sheafui/cli/issues`
 
 
 ### Best Practices
 
-1. **Version Control**: Always commit your project before running Fluxtor commands
+1. **Version Control**: Always commit your project before running Sheaf UI commands
 2. **Component Organization**: Keep components in the default `ui/` namespace for consistency
 3. **Customization**: Document your customizations for team members
-4. **Dependencies**: Regularly update both Fluxtor and its dependencies
+4. **Dependencies**: Regularly update both Sheaf UI and its dependencies
 5. **Testing**: Test components after installation in your specific use cases

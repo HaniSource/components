@@ -10,10 +10,10 @@ The `label` component provides consistent styling and accessibility for form fie
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `label` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `label` component easily:
 
 ```bash
-php artisan fluxtor:install label
+php artisan sheaf:install label
 ```
 
 ## Basic Usage

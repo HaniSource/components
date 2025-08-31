@@ -12,10 +12,10 @@ This component listens to a global `notify` event, enabling toast triggering fro
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `toast` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `toast` component easily:
 
 ```bash
-php artisan fluxtor:install toast
+php artisan sheaf:install toast
 ```
 then put the `<x-ui.toast />` in your global layout file like so:
 

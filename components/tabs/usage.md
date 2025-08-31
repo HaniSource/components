@@ -10,10 +10,10 @@ The `tabs` component provides a flexible and accessible tabbed interface for org
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `tabs` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `tabs` component easily:
 
 ```bash
-php artisan fluxtor:install tabs
+php artisan sheaf:install tabs
 ```
 ## Basic Usage
 

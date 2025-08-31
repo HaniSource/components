@@ -4,7 +4,7 @@ name: usage patterns
 
 ## About State Binding In livewire and Blade with Alpinejs
 
-We built Fluxtor to work out of the box with typical Laravel apps no big JavaScript frameworks required. Just Blade, Alpine, and optionally Livewire.
+We built Sheaf UI to work out of the box with typical Laravel apps no big JavaScript frameworks required. Just Blade, Alpine, and optionally Livewire.
 
 But to make the most of it, we follow a small pattern that lets our components work smoothly in both Livewire and plain Blade. Once you get the idea, it’s super flexible.
 
@@ -12,7 +12,7 @@ But to make the most of it, we follow a small pattern that lets our components w
 
 ### Using with Livewire
 
-All dynamic components in Fluxtor work with Livewire the same way you'd expect. Just bind your property using `wire:model`, like you normally do:
+All dynamic components in Sheaf UI work with Livewire the same way you'd expect. Just bind your property using `wire:model`, like you normally do:
 
 ```html
 <x-ui.key-value 
@@ -45,7 +45,7 @@ So whether you’re submitting with a form or capturing it via JS, you’re good
 
 ### A Bit of Theory
 
-Under the hood, Fluxtor components expose a `state` a global value that needs to be either synced with Livewire or sent through a request. That’s where `x-model` and `wire:model` come into play.
+Under the hood, Sheaf UI components expose a `state` a global value that needs to be either synced with Livewire or sent through a request. That’s where `x-model` and `wire:model` come into play.
 
 You can use either of them depending on your setup, and things will just work. But how?
 

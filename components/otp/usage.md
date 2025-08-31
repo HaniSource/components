@@ -10,10 +10,10 @@ The `otp` component provides a secure and user-friendly way to handle One-Time P
 
 ## Installation
 
-Use the [fluxtor artisan command](/docs/guides/installation#content-component-management) to install the `otp` component easily:
+Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `otp` component easily:
 
 ```bash
-php artisan fluxtor:install otp
+php artisan sheaf:install otp
 ```
 
 ## Basic Usage
