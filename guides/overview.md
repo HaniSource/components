@@ -3,11 +3,11 @@ name: 'overview'
 ---
 # Overview
 
-**sheaf** is a modern component library and design system built specifically for the **TALL stack**: Tailwind CSS, Alpine.js, Laravel, and Livewire, and even raw **Blade** with alpinejs reactivity.
+**Sheaf UI** is a modern component library and design system built specifically for the **TALL stack**: Tailwind CSS, Alpine.js, Laravel, and Livewire, and even raw **Blade** with alpinejs reactivity.
 
 It was invented for personal needs and the lack of such solution in our amazing community.
 
-It follows the **copy-paste** philosophy through our [cli](/docs/guides/installation) made popular by shadcn/ui but goes further:
+It follows the **copy-paste** philosophy through our [cli](/docs/guides/cli-installation) made popular by shadcn/ui but goes further:
 
 * **Zero dependencies** (for most components)
 * **Real Laravel integration**
@@ -18,7 +18,7 @@ It follows the **copy-paste** philosophy through our [cli](/docs/guides/installa
 
 ### Own Your Code
 
-Every sheaf component lives in **your codebase**, not a vendor package.
+Every Sheaf UI component lives in **your codebase**, not a vendor package.
 No version conflicts, no dependency hell, no hidden behavior.
 You own it. You control it.  You modify it. You ship it.
 
@@ -56,7 +56,7 @@ resources/views/components/ui/
 
 ### Design System
 
-sheaf includes a fully themeable system with:
+Sheaf UI includes a fully themeable system with:
 
 * Light/Dark mode support via system preference
 * Custom color palettes, spacing, and typography
@@ -83,7 +83,7 @@ php artisan sheaf:add ...
 
 > Our CLI handles setup, imports, and file placement so you don't have to.
 > 
-> [Read more about CLI](/docs/guides/installation)
+> [Read more about CLI](/docs/guides/cli-installation)
 
 ### Use in Blade
 
@@ -113,7 +113,7 @@ Since it's your file, you can change anything: structure, logic, styles...
 
 ## Component Organization
 
-All sheaf components live under the `ui` namespace:
+All Sheaf UI components live under the `ui` namespace:
 
 ```
 resources/views/components/ui/
@@ -147,7 +147,7 @@ Every component includes:
 
 ## Community & Contribution
 
-sheaf is built **by Laravel devs, for Laravel devs**.
+Sheaf UI is built **by Laravel devs, for Laravel devs**.
 It powers production UIs and evolves based on real-world needs.
 
 Since you own every component you install, **you can contribute improvements back**:
@@ -166,5 +166,5 @@ Since you own every component you install, **you can contribute improvements bac
 * [Need Help?](/docs/guides/help) – Get unstuck fast
 
 
-> **sheaf is the UI toolkit Laravel has always deserved.**
+> **Sheaf UI is the UI toolkit Laravel has always deserved.**
 > Fully native. Zero dependencies. Copy paste simplicity with infinite power.

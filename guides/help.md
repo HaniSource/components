@@ -3,7 +3,7 @@ name: 'help'
 ---
 # Help & Support
 
-## Need Help With sheaf?
+## Need Help With Sheaf UI?
 
 You're in the right place. Whether you're debugging a component, confused about integration, or just need direction this page gives you clear ways to get help fast.
 
@@ -15,7 +15,7 @@ You're in the right place. Whether you're debugging a component, confused about 
 
 Before anything else, check the official docs:
 
-* [Installation](/docs/guides/installation)
+* [Installation](/docs/guides/cli-installation)
 * [Component Reference](/docs/components)
 * [Theming Guide](/docs/guides/themes)
 <!-- * [Livewire Integration](/docs/livewire) --> // not exist yet
@@ -26,11 +26,11 @@ Every component includes real Blade examples, slot/prop references, and customiz
 
 ### Discord (coming soon)
 
-Join our sheaf Discord where the core team and contributors hang out. Ask questions, share components, or just vibe with the Laravel UI dev crowd.
+Join our Sheaf UI Discord where the core team and contributors hang out. Ask questions, share components, or just vibe with the Laravel UI dev crowd.
 
 ### GitHub Discussions
 
-Open a thread in [sheaf Discussions](https://github.com/orgs/sheafphp/discussions) for:
+Open a thread in [Sheaf UI Discussions](https://github.com/orgs/sheafui/discussions) for:
 
 * New component ideas and feedback
 * Complex implementation questions  
@@ -46,13 +46,13 @@ Found something broken?
 2. Include Alpine state if relevant
 3. Open a GitHub issue with clear reproduction steps
 
-[Submit a bug →](https://github.com/orgs/sheafphp/discussions)
+[Submit a bug →](https://github.com/orgs/sheafui/discussions)
 
 ## Still Stuck?
 
-Shoot us a message on Twitter [@sheaf](https://twitter.com/sheaf) or email us at [support@sheaf.dev](mailto:support@sheaf.dev). We're builders too and we want you unblocked.
+Shoot us a message on Twitter [@sheaf UI](https://twitter.com/sheafui) or email us at [support@sheafui.dev](mailto:support@sheafui.dev). We're builders too and we want you unblocked.
 
 
-If it’s a question, bug, or feedback we want to hear it. sheaf isn't just a platform. It’s a community.
+If it’s a question, bug, or feedback we want to hear it. Sheaf UI isn't just a platform. It’s a community.
 
 > Help us make Laravel UI better, together.

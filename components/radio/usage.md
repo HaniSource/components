@@ -8,7 +8,7 @@ The `Radio` component is a responsive, accessible form control component designe
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `radio` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `radio` component easily:
 
 ```bash
 php artisan sheaf:install radio
@@ -24,7 +24,7 @@ php artisan sheaf:install radio
 To use with Livewire you only need to use `wire:model="property"` to bind your input state:
 
 ```html
-<x-ui.radio.group label="Roles" name="roles" wire:model="role">
+<x-ui.radio.group wire:model="role" label="Roles" name="roles">
     <x-ui.radio.item value="backend" label="Back end" checked />
     <x-ui.radio.item value="frontend" label="Front end" />
     <x-ui.radio.item value="devops" label="DevOps" />
@@ -36,7 +36,7 @@ To use with Livewire you only need to use `wire:model="property"` to bind your i
 You can use it outside Livewire with just Alpine (and Blade):
 
 ```html
-<x-ui.radio.group label="Roles" name="roles" x-model="role">
+<x-ui.radio.group x-model="role" label="Roles" name="roles">
     <x-ui.radio.item value="backend" label="Back end" checked />
     <x-ui.radio.item value="frontend" label="Front end" />
     <x-ui.radio.item value="devops" label="DevOps" />

@@ -10,7 +10,7 @@ The `link` component provides a flexible and accessible way to create styled lin
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `link` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `link` component easily:
 
 ```bash
 php artisan sheaf:install link

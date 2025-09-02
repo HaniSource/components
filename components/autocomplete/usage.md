@@ -7,7 +7,7 @@ name: autocomplete
 The `Autocomplete` component is a **responsive**, **accessible** search input component with dropdown suggestions. It provides real-time filtering, keyboard navigation, and seamless integration with Livewire for dynamic data binding.
 
 ## Installation
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `autocomplete` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `autocomplete` component easily:
 
 ```bash
 php artisan sheaf:install autocomplete

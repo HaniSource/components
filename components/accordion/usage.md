@@ -8,7 +8,7 @@ The `Accordion` component is a collapsible content component designed to organiz
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `accordion` component easily:
+Use the [Sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `accordion` component easily:
 
 ```bash
 php artisan sheaf:install accordion

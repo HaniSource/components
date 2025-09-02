@@ -11,7 +11,7 @@ The `theme-switcher` component provides a fully accessible, responsive, and cust
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `theme-switcher` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `theme-switcher` component easily:
 
 ```bash
 php artisan sheaf:install theme-switcher

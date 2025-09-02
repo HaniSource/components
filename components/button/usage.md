@@ -10,7 +10,7 @@ The `button` component provides a reusable UI element that saves you from creati
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `button` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `button` component easily:
 
 ```bash
 php artisan sheaf:install button
@@ -172,7 +172,7 @@ A wide range of colors are available for customizing button appearance.
 @endblade
 
 ```html
-<div class="grid grid-cols-6 gap-4">
+<div class="grid grid-cols-3 lg:grid-cols-6 gap-4">
      <x-ui.button variant="outline" color="slate">Slate</x-ui.button>
     <x-ui.button variant="outline" color="stone">Stone</x-ui.button>
     <x-ui.button variant="outline" color="neutral">Neutral</x-ui.button>
@@ -203,24 +203,26 @@ The component supports 6 different visual variants:
 
 @blade
 <x-demo>
-    <x-ui.button>
+    <div class="flex flex-wrap gap-3">
+        <x-ui.button>
         Button
-    </x-ui.button>    
-    <x-ui.button variant="danger">
-        Danger
-    </x-ui.button>     
-    <x-ui.button variant="outline">
-        Outline
-    </x-ui.button>
-    <x-ui.button variant="solid">
-        solid
-    </x-ui.button>
-    <x-ui.button variant="ghost">
-        Ghost
-    </x-ui.button>
-    <x-ui.button variant="soft">
-        soft
-    </x-ui.button>
+        </x-ui.button>    
+        <x-ui.button variant="danger">
+            Danger
+        </x-ui.button>     
+        <x-ui.button variant="outline">
+            Outline
+        </x-ui.button>
+        <x-ui.button variant="solid">
+            solid
+        </x-ui.button>
+        <x-ui.button variant="ghost">
+            Ghost
+        </x-ui.button>
+        <x-ui.button variant="soft">
+            soft
+        </x-ui.button>
+    </div>
 </x-demo>
 @endblade
 

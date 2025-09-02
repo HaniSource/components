@@ -8,7 +8,7 @@ The `Breadcrumbs` component is a navigation aid that shows users their current l
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `breadcrumbs` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `breadcrumbs` component easily:
 
 ```bash
 php artisan sheaf:install breadcrumbs
@@ -79,7 +79,6 @@ Enhance breadcrumbs with icons to provide visual context and improve recognition
             <x-components::ui.breadcrumbs.item href="#" icon="home" separator="slash">Home</x-components::ui.breadcrumbs.item>
             <x-components::ui.breadcrumbs.item href="#" icon="folder" separator="slash">Documents</x-components::ui.breadcrumbs.item>
             <x-components::ui.breadcrumbs.item href="#" icon="document-text" separator="slash">Reports</x-components::ui.breadcrumbs.item>
-            <x-components::ui.breadcrumbs.item icon="chart-bar">Analytics</x-components::ui.breadcrumbs.item>
         </x-components::ui.breadcrumbs>
     </div>
 </x-demo>
@@ -90,7 +89,6 @@ Enhance breadcrumbs with icons to provide visual context and improve recognition
     <x-ui.breadcrumbs.item href="#" icon="home" separator="slash">Home</x-ui.breadcrumbs.item>
     <x-ui.breadcrumbs.item href="#" icon="folder" separator="slash">Documents</x-ui.breadcrumbs.item>
     <x-ui.breadcrumbs.item href="#" icon="document-text" separator="slash">Reports</x-ui.breadcrumbs.item>
-    <x-ui.breadcrumbs.item icon="chart-bar">Analytics</x-ui.breadcrumbs.item>
 </x-ui.breadcrumbs>
 ```
 
@@ -185,7 +183,6 @@ Use custom icons as separators to match your design system or brand aesthetic.
                 <x-components::ui.breadcrumbs.item href="#" separator="arrow-right">E-commerce</x-components::ui.breadcrumbs.item>
                 <x-components::ui.breadcrumbs.item href="#" separator="arrow-right">Categories</x-components::ui.breadcrumbs.item>
                 <x-components::ui.breadcrumbs.item href="#" separator="arrow-right">Clothing</x-components::ui.breadcrumbs.item>
-                <x-components::ui.breadcrumbs.item>Men's Shirts</x-components::ui.breadcrumbs.item>
             </x-components::ui.breadcrumbs>
         </div>
 
@@ -199,7 +196,6 @@ Use custom icons as separators to match your design system or brand aesthetic.
     <x-ui.breadcrumbs.item href="#" separator="arrow-right">E-commerce</x-ui.breadcrumbs.item>
     <x-ui.breadcrumbs.item href="#" separator="arrow-right">Categories</x-ui.breadcrumbs.item>
     <x-ui.breadcrumbs.item href="#" separator="arrow-right">Clothing</x-ui.breadcrumbs.item>
-    <x-ui.breadcrumbs.item>Men's Shirts</x-ui.breadcrumbs.item>
 </x-ui.breadcrumbs>
 
 ```
@@ -214,8 +210,7 @@ A practical example showing breadcrumbs in an e-commerce context with mixed cont
         <x-components::ui.breadcrumbs>
             <x-components::ui.breadcrumbs.item href="#" icon="home" separator="slash" />
             <x-components::ui.breadcrumbs.item href="#" separator="slash">Electronics</x-components::ui.breadcrumbs.item>
-            <x-components::ui.breadcrumbs.item href="#" separator="slash">Computers & Tablets</x-components::ui.breadcrumbs.item>
-            <x-components::ui.breadcrumbs.item href="#" separator="slash">Laptops</x-components::ui.breadcrumbs.item>
+            <x-components::ui.breadcrumbs.item href="#" separator="slash">Laptop</x-components::ui.breadcrumbs.item>
             <x-components::ui.breadcrumbs.item>MacBook Pro 16"</x-components::ui.breadcrumbs.item>
         </x-components::ui.breadcrumbs>
     </div>
@@ -226,8 +221,7 @@ A practical example showing breadcrumbs in an e-commerce context with mixed cont
 <x-ui.breadcrumbs>
     <x-ui.breadcrumbs.item href="#" icon="home" separator="slash" />
     <x-ui.breadcrumbs.item href="#" separator="slash">Electronics</x-ui.breadcrumbs.item>
-    <x-ui.breadcrumbs.item href="#" separator="slash">Computers & Tablets</x-ui.breadcrumbs.item>
-    <x-ui.breadcrumbs.item href="#" separator="slash">Laptops</x-ui.breadcrumbs.item>
+    <x-ui.breadcrumbs.item href="#" separator="slash">Laptop</x-ui.breadcrumbs.item>
     <x-ui.breadcrumbs.item>MacBook Pro 16"</x-ui.breadcrumbs.item>
 </x-ui.breadcrumbs>
 ```

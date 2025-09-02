@@ -33,7 +33,7 @@ composer require wireui/phosphoricons
 
 ## Component Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `icon` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `icon` component easily:
 
 ```bash
 php artisan sheaf:install icon

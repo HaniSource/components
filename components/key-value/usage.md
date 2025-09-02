@@ -10,7 +10,7 @@ The `key-value-input` component provides a powerful and flexible way to handle k
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `key-value` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `key-value` component easily:
 
 ```bash
 php artisan sheaf:install key-value

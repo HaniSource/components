@@ -8,7 +8,7 @@ The `Brand` component is a flexible branding element designed to display your co
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `brand` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `brand` component easily:
 
 ```bash
 php artisan sheaf:install brand
@@ -57,7 +57,7 @@ Create a minimal brand display using only the logo without text.
             href="#" 
             logo="/logo-demo.jpg"  
             logoClass="rounded-full size-12!"
-            alt="sheaf" 
+            alt="Sheaf UI" 
         />
     </div>
 </x-demo>
@@ -68,7 +68,7 @@ Create a minimal brand display using only the logo without text.
     href="/" 
     logo="/logo-demo.jpg"  
     logoClass="rounded-full size-12" 
-    alt="sheaf" 
+    alt="Sheaf UI" 
 />
 ```
 

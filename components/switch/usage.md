@@ -8,7 +8,7 @@ The `Switch` component is a flexible toggle control that provides an intuitive w
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `switch` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `switch` component easily:
 
 ```bash
 php artisan sheaf:install switch

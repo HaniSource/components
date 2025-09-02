@@ -10,7 +10,7 @@ The `input` component provides a powerful and flexible foundation for text input
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/installation#content-component-management) to install the `input` component easily:
+Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `input` component easily:
 
 ```bash
 php artisan sheaf:install input
