@@ -308,6 +308,8 @@ You can align the progress bar to the top by using the `progressBarAlignment` at
 Toasts dismiss automatically after a duration (default 4000ms). Progress bar shows remaining time.
 Hover pauses dismissal and progress animation.
 
+> I (mohamed) actually believe this toasts system working for all kind of tasts (after actions) in laravel, is deadly simple and powerfull, if you find any cases where it doesn't open new issue and let the work to me.  
+
 
 
 
