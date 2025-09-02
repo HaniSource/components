@@ -44,7 +44,7 @@ Found something broken?
 2. Include Alpine state if relevant
 3. Open a GitHub issue with clear reproduction steps
 
-[Submit a bug →](https://github.com/orgs/sheafui/components)
+[Submit a bug →](https://github.com/sheafui/components/issues/new)
 
 ## Still Stuck?
 
