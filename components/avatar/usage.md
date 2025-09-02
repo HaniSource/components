@@ -25,10 +25,10 @@ The avatar component automatically chooses the best display mode based on the pr
 @blade
 <x-demo>
     <div class="flex flex-wrap items-center justify-center gap-4">
-        <x-components::ui.avatar src="/youssef.jpeg" alt="Profile Picture" />
-        <x-components::ui.avatar name="John Doe" />
-        <x-components::ui.avatar icon="user" />
-        <x-components::ui.avatar />
+        <x-ui.avatar src="/youssef.jpeg" alt="Profile Picture" />
+        <x-ui.avatar name="John Doe" />
+        <x-ui.avatar icon="user" />
+        <x-ui.avatar />
     </div>
 </x-demo>
 @endblade
@@ -54,11 +54,11 @@ Choose from five different sizes to match your design context and hierarchy.
 @blade
 <x-demo>
     <div class="flex flex-wrap items-center justify-center gap-4">
-        <x-components::ui.avatar name="XS" size="xs" color="blue" />
-        <x-components::ui.avatar name="SM" size="sm" color="green" />
-        <x-components::ui.avatar name="MD" size="md" color="purple" />
-        <x-components::ui.avatar name="LG" size="lg" color="orange" />
-        <x-components::ui.avatar name="XL" size="xl" color="red" />
+        <x-ui.avatar name="XS" size="xs" color="blue" />
+        <x-ui.avatar name="SM" size="sm" color="green" />
+        <x-ui.avatar name="MD" size="md" color="purple" />
+        <x-ui.avatar name="LG" size="lg" color="orange" />
+        <x-ui.avatar name="XL" size="xl" color="red" />
     </div>
 </x-demo>
 @endblade
@@ -79,10 +79,10 @@ Control the shape of avatars using the `circle` prop.
 @blade
 <x-demo>
     <div class="flex flex-wrap items-center justify-center gap-4">
-        <x-components::ui.avatar name="Round" color="blue" />
-        <x-components::ui.avatar name="Circle" color="green" circle />
-        <x-components::ui.avatar icon="star" color="purple" />
-        <x-components::ui.avatar icon="heart" color="red" circle />
+        <x-ui.avatar name="Round" color="blue" />
+        <x-ui.avatar name="Circle" color="green" circle />
+        <x-ui.avatar icon="star" color="purple" />
+        <x-ui.avatar icon="heart" color="red" circle />
     </div>
 </x-demo>
 @endblade
@@ -104,23 +104,23 @@ The avatar component supports 17 beautiful color options for initials and icon a
 @blade
 <x-demo>
     <div class="flex flex-wrap items-center justify-center gap-2">
-        <x-components::ui.avatar icon="user" color="red" />
-        <x-components::ui.avatar icon="user" color="orange" />
-        <x-components::ui.avatar icon="user" color="amber" />
-        <x-components::ui.avatar icon="user" color="yellow" />
-        <x-components::ui.avatar icon="user" color="lime" />
-        <x-components::ui.avatar icon="user" color="green" />
-        <x-components::ui.avatar icon="user" color="emerald" />
-        <x-components::ui.avatar icon="user" color="teal" />
-        <x-components::ui.avatar icon="user" color="cyan" />
-        <x-components::ui.avatar icon="user" color="sky" />
-        <x-components::ui.avatar icon="user" color="blue" />
-        <x-components::ui.avatar icon="user" color="indigo" />
-        <x-components::ui.avatar icon="user" color="violet" />
-        <x-components::ui.avatar icon="user" color="purple" />
-        <x-components::ui.avatar icon="user" color="fuchsia" />
-        <x-components::ui.avatar icon="user" color="pink" />
-        <x-components::ui.avatar icon="user" color="rose" />
+        <x-ui.avatar icon="user" color="red" />
+        <x-ui.avatar icon="user" color="orange" />
+        <x-ui.avatar icon="user" color="amber" />
+        <x-ui.avatar icon="user" color="yellow" />
+        <x-ui.avatar icon="user" color="lime" />
+        <x-ui.avatar icon="user" color="green" />
+        <x-ui.avatar icon="user" color="emerald" />
+        <x-ui.avatar icon="user" color="teal" />
+        <x-ui.avatar icon="user" color="cyan" />
+        <x-ui.avatar icon="user" color="sky" />
+        <x-ui.avatar icon="user" color="blue" />
+        <x-ui.avatar icon="user" color="indigo" />
+        <x-ui.avatar icon="user" color="violet" />
+        <x-ui.avatar icon="user" color="purple" />
+        <x-ui.avatar icon="user" color="fuchsia" />
+        <x-ui.avatar icon="user" color="pink" />
+        <x-ui.avatar icon="user" color="rose" />
     </div>
 </x-demo>
 @endblade
@@ -140,12 +140,12 @@ Use `color="auto"` to automatically assign colors based on content, perfect for 
 @blade
 <x-demo>
     <div class="flex flex-wrap items-center justify-center gap-2">
-        <x-components::ui.avatar name="Alice Johnson" color="auto" />
-        <x-components::ui.avatar name="Bob Smith" color="auto" />
-        <x-components::ui.avatar name="Charlie Brown" color="auto" />
-        <x-components::ui.avatar name="Diana Prince" color="auto" />
-        <x-components::ui.avatar name="Eve Wilson" color="auto" />
-        <x-components::ui.avatar name="Frank Miller" color="auto" />
+        <x-ui.avatar name="Alice Johnson" color="auto" />
+        <x-ui.avatar name="Bob Smith" color="auto" />
+        <x-ui.avatar name="Charlie Brown" color="auto" />
+        <x-ui.avatar name="Diana Prince" color="auto" />
+        <x-ui.avatar name="Eve Wilson" color="auto" />
+        <x-ui.avatar name="Frank Miller" color="auto" />
     </div>
 </x-demo>
 @endblade
@@ -167,11 +167,11 @@ The component automatically generates initials from names with flexible formatti
 @blade
 <x-demo>
     <div class="flex flex-wrap items-center justify-center gap-4">
-        <x-components::ui.avatar name="John Doe" color="blue" />
-        <x-components::ui.avatar name="Jane Smith Wilson" color="green" />
-        <x-components::ui.avatar name="Bob" color="purple" />
-        <x-components::ui.avatar name="Alice Johnson" initials:single color="orange" />
-        <x-components::ui.avatar initials="XY" color="red" />
+        <x-ui.avatar name="John Doe" color="blue" />
+        <x-ui.avatar name="Jane Smith Wilson" color="green" />
+        <x-ui.avatar name="Bob" color="purple" />
+        <x-ui.avatar name="Alice Johnson" initials:single color="orange" />
+        <x-ui.avatar initials="XY" color="red" />
     </div>
 </x-demo>
 @endblade
@@ -200,9 +200,9 @@ Make avatars clickable by adding the `href` prop for navigation.
 @blade
 <x-demo>
     <div class="flex flex-wrap items-center justify-center gap-4">
-        <x-components::ui.avatar name="Profile" color="blue" href="/profile" />
-        <x-components::ui.avatar icon="cog-8-tooth" color="gray" href="/settings" />
-        <x-components::ui.avatar name="Admin" color="red" href="/admin" circle />
+        <x-ui.avatar name="Profile" color="blue" href="/profile" />
+        <x-ui.avatar icon="cog-8-tooth" color="gray" href="/settings" />
+        <x-ui.avatar name="Admin" color="red" href="/admin" circle />
     </div>
 </x-demo>
 @endblade
@@ -221,10 +221,10 @@ Add status indicators or notification badges to avatars with flexible positionin
 @blade
 <x-demo>
     <div class="flex flex-wrap items-center justify-center gap-6">
-        <x-components::ui.avatar name="Online" color="blue" size="lg" badge badge:color="green" />
-        <x-components::ui.avatar name="Away" color="amber" size="lg" badge badge:color="yellow" badge:position="top right" />
-        <x-components::ui.avatar name="Busy" color="red" size="lg" badge="5" badge:color="red" />
-        <x-components::ui.avatar name="VIP" color="purple" size="lg" badge="👑" badge:circle />
+        <x-ui.avatar name="Online" color="blue" size="lg" badge badge:color="green" />
+        <x-ui.avatar name="Away" color="amber" size="lg" badge badge:color="yellow" badge:position="top right" />
+        <x-ui.avatar name="Busy" color="red" size="lg" badge="5" badge:color="red" />
+        <x-ui.avatar name="VIP" color="purple" size="lg" badge="👑" badge:circle />
     </div>
 </x-demo>
 @endblade
@@ -252,34 +252,34 @@ Control badge placement and appearance with detailed customization options.
     <div class="space-y-4">
         <div class="flex flex-wrap items-center justify-center gap-6">
             <div class="text-center">
-                <x-components::ui.avatar name="TL" color="blue" size="lg" badge badge:color="green" badge:position="top left" />
+                <x-ui.avatar name="TL" color="blue" size="lg" badge badge:color="green" badge:position="top left" />
                 <p class="text-xs mt-1">Top Left</p>
             </div>
             <div class="text-center">
-                <x-components::ui.avatar name="TR" color="green" size="lg" badge badge:color="red" badge:position="top right" />
+                <x-ui.avatar name="TR" color="green" size="lg" badge badge:color="red" badge:position="top right" />
                 <p class="text-xs mt-1">Top Right</p>
             </div>
             <div class="text-center">
-                <x-components::ui.avatar name="BL" color="purple" size="lg" badge badge:color="blue" badge:position="bottom left" />
+                <x-ui.avatar name="BL" color="purple" size="lg" badge badge:color="blue" badge:position="bottom left" />
                 <p class="text-xs mt-1">Bottom Left</p>
             </div>
             <div class="text-center">
-                <x-components::ui.avatar name="BR" color="orange" size="lg" badge badge:color="purple" badge:position="bottom right" />
+                <x-ui.avatar name="BR" color="orange" size="lg" badge badge:color="purple" badge:position="bottom right" />
                 <p class="text-xs mt-1">Bottom Right (Default)</p>
             </div>
         </div>
         
         <div class="flex flex-wrap items-center justify-center gap-6">
             <div class="text-center">
-                <x-components::ui.avatar name="Solid" color="blue" size="lg" badge="3" badge:color="red" />
+                <x-ui.avatar name="Solid" color="blue" size="lg" badge="3" badge:color="red" />
                 <p class="text-xs mt-1">Solid Badge</p>
             </div>
             <div class="text-center">
-                <x-components::ui.avatar name="Outline" color="green" size="lg" badge="5" badge:color="blue" badge:variant="outline" />
+                <x-ui.avatar name="Outline" color="green" size="lg" badge="5" badge:color="blue" badge:variant="outline" />
                 <p class="text-xs mt-1">Outline Badge</p>
             </div>
             <div class="text-center">
-                <x-components::ui.avatar name="Circle" color="purple" size="lg" badge="99+" badge:color="red" badge:circle />
+                <x-ui.avatar name="Circle" color="purple" size="lg" badge="99+" badge:color="red" badge:circle />
                 <p class="text-xs mt-1">Circular Badge</p>
             </div>
         </div>
@@ -307,10 +307,10 @@ Customize icon avatars with different icon variants and styling.
 @blade
 <x-demo>
     <div class="flex flex-wrap items-center justify-center gap-4">
-        <x-components::ui.avatar icon="user" iconVariant="outline" color="blue" />
-        <x-components::ui.avatar icon="star" iconVariant="outline" color="yellow" />
-        <x-components::ui.avatar icon="heart" iconVariant="micro" color="red" />
-        <x-components::ui.avatar icon="home" iconVariant="micro" color="green" />
+        <x-ui.avatar icon="user" iconVariant="outline" color="blue" />
+        <x-ui.avatar icon="star" iconVariant="outline" color="yellow" />
+        <x-ui.avatar icon="heart" iconVariant="micro" color="red" />
+        <x-ui.avatar icon="home" iconVariant="micro" color="green" />
     </div>
 </x-demo>
 @endblade
@@ -331,27 +331,27 @@ Create user lists and avatar groups for team displays or user collections.
 @blade
 <x-demo>
     <div class="space-y-6 flex flex-col items-center">
-        <x-components::ui.heading level="3">Team Members</x-components::ui.heading>
-        <x-components::ui.avatar.group >
-            <x-components::ui.avatar name="Alice Johnson" color="auto" circle href="/user/alice" />
-            <x-components::ui.avatar name="Bob Smith" color="auto" circle href="/user/bob" />
-            <x-components::ui.avatar name="Charlie Brown" color="auto" circle href="/user/charlie" />
-            <x-components::ui.avatar name="Diana Prince" color="auto" circle href="/user/diana" />
-            <x-components::ui.avatar circle>+5</x-components::ui.avatar>
-        </x-components::ui.avatar.group>
+        <x-ui.heading level="3">Team Members</x-ui.heading>
+        <x-ui.avatar.group >
+            <x-ui.avatar name="Alice Johnson" color="auto" circle href="/user/alice" />
+            <x-ui.avatar name="Bob Smith" color="auto" circle href="/user/bob" />
+            <x-ui.avatar name="Charlie Brown" color="auto" circle href="/user/charlie" />
+            <x-ui.avatar name="Diana Prince" color="auto" circle href="/user/diana" />
+            <x-ui.avatar circle>+5</x-ui.avatar>
+        </x-ui.avatar.group>
     </div>
 </x-demo>
 @endblade
 
 ```html
-<x-components::ui.heading level="3">Team Members</x-components::ui.heading>
-<x-components::ui.avatar.group >
-    <x-components::ui.avatar name="Alice Johnson" color="auto" circle href="/user/alice" />
-    <x-components::ui.avatar name="Bob Smith" color="auto" circle href="/user/bob" />
-    <x-components::ui.avatar name="Charlie Brown" color="auto" circle href="/user/charlie" />
-    <x-components::ui.avatar name="Diana Prince" color="auto" circle href="/user/diana" />
-    <x-components::ui.avatar circle>+5</x-components::ui.avatar>
-</x-components::ui.avatar.group>
+<x-ui.heading level="3">Team Members</x-ui.heading>
+<x-ui.avatar.group >
+    <x-ui.avatar name="Alice Johnson" color="auto" circle href="/user/alice" />
+    <x-ui.avatar name="Bob Smith" color="auto" circle href="/user/bob" />
+    <x-ui.avatar name="Charlie Brown" color="auto" circle href="/user/charlie" />
+    <x-ui.avatar name="Diana Prince" color="auto" circle href="/user/diana" />
+    <x-ui.avatar circle>+5</x-ui.avatar>
+</x-ui.avatar.group>
 ```
 
 ## Component Props Reference

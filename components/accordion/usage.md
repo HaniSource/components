@@ -146,8 +146,10 @@ Set an accordion item to be expanded when the component loads.
         <x-ui.accordion>
             <x-ui.accordion.item expanded trigger="Getting Started">
                 <p>Welcome! This section is expanded by default to help you get started quickly.</p>
-                <div class="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded">
-                    <p class="text-sm">💡 <strong>Tip:</strong> Use the <code>expanded</code> prop to open important sections by default.</p>
+                <div class="mt-3 p-3 rounded">
+                    <x-ui.alerts>
+                        <p class="text-sm">💡 <strong>Tip:</strong> Use the <code>expanded</code> prop to open important sections by default.</p>
+                    </x-ui.alerts>
                 </div>
             </x-ui.accordion.item>
             <x-ui.accordion.item trigger="Advanced Features">
@@ -162,20 +164,24 @@ Set an accordion item to be expanded when the component loads.
 @endblade
 
 ```html
-<x-ui.accordion>
-    <x-ui.accordion.item 
-        expanded
-        trigger="Getting Started">
-        <p>Welcome! This section is expanded by default to help you get started quickly.</p>
-        <div class="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded">
-            <p class="text-sm">💡 <strong>Tip:</strong> Use the <code>expanded</code> prop to open important sections by default.</p>
-        </div>
-    </x-ui.accordion.item>
-
-    <x-ui.accordion.item trigger="Advanced Features">
-        <p>Explore advanced features and customization options for power users.</p>
-    </x-ui.accordion.item>
-</x-ui.accordion>
+<div class="w-full">
+    <x-ui.accordion>
+        <x-ui.accordion.item expanded trigger="Getting Started">
+            <p>Welcome! This section is expanded by default to help you get started quickly.</p>
+            <div class="mt-3 p-3 rounded">
+                <x-ui.alerts>
+                    <p class="text-sm">💡 <strong>Tip:</strong> Use the <code>expanded</code> prop to open important sections by default.</p>
+                </x-ui.alerts>
+            </div>
+        </x-ui.accordion.item>
+        <x-ui.accordion.item trigger="Advanced Features">
+            <p>Explore advanced features and customization options for power users.</p>
+        </x-ui.accordion.item>
+        <x-ui.accordion.item trigger="Troubleshooting">
+            <p>Common issues and solutions to help you resolve problems quickly.</p>
+        </x-ui.accordion.item>
+    </x-ui.accordion>
+</div>
 ```
 
 ### Disabled Items
@@ -194,11 +200,11 @@ Disable specific accordion items to prevent user interaction.
                     <li>Email notifications</li>
                 </ul>
             </x-ui.accordion.item>
-
+            <!--  -->
             <x-ui.accordion.item disabled trigger="Premium Features (Coming Soon)">
                 <p>This content is not yet available.</p>
             </x-ui.accordion.item>
-
+            <!--  -->
             <x-ui.accordion.item trigger="Documentation">
                 <p>Access comprehensive documentation and guides for all features.</p>
             </x-ui.accordion.item>
@@ -247,7 +253,7 @@ Use the reverse layout to position chevron icons on the left side.
                     </div>
                 </div>
             </x-ui.accordion.item>
-
+            <!--  -->
             <x-ui.accordion.item trigger="Supported Platforms">
                 <div class="grid grid-cols-2 gap-4">
                     <div>

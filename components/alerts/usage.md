@@ -147,7 +147,7 @@ Override the default icon with a custom one that better fits your specific use c
                 <p>Your system settings have been successfully updated and are now in effect.</p>
             </x-slot:content>
         </x-components::ui.alerts>
-
+        <!--  -->
         <x-components::ui.alerts type="success" iconName="trophy" iconClass="text-yellow-500">
             <x-slot:heading>Achievement unlocked!</x-slot:heading>
             <x-slot:content>

@@ -215,7 +215,7 @@ Badges can function as buttons with hover states when appropriate attributes are
 <x-demo class="flex justify-center">
     <div class="flex flex-wrap items-center gap-4">
         <x-components::ui.badge onclick="alert('Badge clicked!')" color="blue" class="cursor-pointer">Clickable Badge</x-components::ui.badge>
-        <x-components::ui.badge onclick="alert('Remove tag')" icon="tag" iconTrailing="x-mark" color="green" pill class="cursor-pointer">Remove Tag</x-components::ui.badge>
+        <x-components::ui.badge onclick="alert('Remove tag')" icon="tag" iconAfter="x-mark" color="green" pill class="cursor-pointer">Remove Tag</x-components::ui.badge>
     </div>
 </x-demo>
 @endblade
@@ -226,7 +226,7 @@ Badges can function as buttons with hover states when appropriate attributes are
     Clickable Badge
 </x-ui.badge>
 
-<x-ui.badge onclick="alert('Remove tag')" icon="tag" iconTrailing="x-mark" color="green" pill class="cursor-pointer">
+<x-ui.badge onclick="alert('Remove tag')" icon="tag" iconAfter="x-mark" color="green" pill class="cursor-pointer">
     Remove Tag
 </x-ui.badge>
 ```
@@ -252,9 +252,9 @@ Common usage patterns for status indicators and labels.
         
         <div class="flex flex-wrap items-center gap-2">
             <span class="text-sm font-medium">Tags:</span>
-            <x-components::ui.badge pill iconTrailing="x-mark" color="purple">React</x-components::ui.badge>
-            <x-components::ui.badge pill iconTrailing="x-mark" color="blue">TypeScript</x-components::ui.badge>
-            <x-components::ui.badge pill iconTrailing="x-mark" color="green">Tailwind</x-components::ui.badge>
+            <x-components::ui.badge pill iconAfter="x-mark" color="purple">React</x-components::ui.badge>
+            <x-components::ui.badge pill iconAfter="x-mark" color="blue">TypeScript</x-components::ui.badge>
+            <x-components::ui.badge pill iconAfter="x-mark" color="green">Tailwind</x-components::ui.badge>
         </div>
     </div>
 </x-demo>
@@ -278,9 +278,9 @@ Common usage patterns for status indicators and labels.
 <!-- Removable tags -->
 <div class="flex items-center gap-2">
     <span class="text-sm font-medium">Tags:</span>
-    <x-ui.badge pill iconTrailing="x-mark" color="purple">React</x-ui.badge>
-    <x-ui.badge pill iconTrailing="x-mark" color="blue">TypeScript</x-ui.badge>
-    <x-ui.badge pill iconTrailing="x-mark" color="green">Tailwind</x-ui.badge>
+    <x-ui.badge pill iconAfter="x-mark" color="purple">React</x-ui.badge>
+    <x-ui.badge pill iconAfter="x-mark" color="blue">TypeScript</x-ui.badge>
+    <x-ui.badge pill iconAfter="x-mark" color="green">Tailwind</x-ui.badge>
 </div>
 ```
 
@@ -294,7 +294,7 @@ Common usage patterns for status indicators and labels.
 | `color` | `string` | `null` | Color theme: `'red'`, `'green'`, `'blue'`, `'purple'`, `'amber'`, `'yellow'`, `'lime'`, `'emerald'`, `'teal'`, `'cyan'`, `'sky'`, `'indigo'`, `'violet'`, `'fuchsia'`, `'pink'`, `'rose'`, `'orange'` |
 | `size` | `string` | `null` | Size variant: `'sm'`, `null` (default), `'lg'` |
 | `icon` | `string\|mixed` | `null` | Leading icon name or custom icon content |
-| `iconTrailing` | `string\|mixed` | `null` | Trailing icon name or custom icon content |
+| `iconAfter` | `string\|mixed` | `null` | Trailing icon name or custom icon content |
 | `iconVariant` | `string` | `'micro'` | Icon style: `'micro'`, `'outline'` |
 | `pill` | `bool` | `'false'` | for full rounded: `'false'`, `'true'`, `'null'` |
 
