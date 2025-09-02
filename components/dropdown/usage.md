@@ -129,7 +129,7 @@ Add visual clarity with icons for better user experience.
     </x-slot:menu>
 </x-ui.dropdown>
 ```
-
+<!-- 
 ### Items with Shortcuts
 
 Display keyboard shortcuts for power users.
@@ -186,7 +186,7 @@ Display keyboard shortcuts for power users.
         </x-ui.dropdown.item>
     </x-slot:menu>
 </x-ui.dropdown>
-```
+``` -->
 
 ### Linked Items
 
