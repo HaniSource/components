@@ -36,10 +36,35 @@
                 }
                 
 
-                Alpine.effect(()=> {
-                    this.$root?._x_model?.set(this.state);
-                })
             });
+            this.$watch('state', (value) => {
+                // Sync with Alpine state
+                this.$root?._x_model?.set(value);
+
+                // Sync with Livewire state
+                let wireModel = this?.$root.getAttributeNames().find(n => n.startsWith('wire:model'))
+
+                if(this.$wire && wireModel){
+                    let prop = this.$root.getAttribute(wireModel)
+                    this.$wire.set(prop, value, wireModel?.includes('.live'));
+                }
+            });
+        },
+        syncExternalState(){
+            const externalState = this.$root?._x_model?.get();
+
+            if(externalState != null){
+                const chars = String(externalState).slice(0, this.length).split('');
+                
+                this.state = chars.join('');
+
+                chars.forEach((char, i) => {
+                    if (this.inputs[i]) {
+                        this.inputs[i].value = char;
+                        this.inputs[i].disabled = false;
+                    }
+                });
+            }
         },
         handleInput(el) {
             const index = parseInt(el.dataset.order);
@@ -117,22 +142,7 @@
         syncState() {
             this.state = this.inputs.map(input => input.value || '').join('');
         },
-        syncExternalState(){
-            const externalState = this.$root?._x_model?.get();
-
-            if(externalState != null){
-                const chars = String(externalState).slice(0, this.length).split('');
-                
-                this.state = chars.join('');
-
-                chars.forEach((char, i) => {
-                    if (this.inputs[i]) {
-                        this.inputs[i].value = char;
-                        this.inputs[i].disabled = false;
-                    }
-                });
-            }
-        }
+       
 }"
 {{ $attributes->class('contents') }}
 >
@@ -145,8 +155,8 @@
     <div
         @class([
             'flex rounded-box items-center ',
-            '[:where(&>[data-slot=otp-input]:has(+[data-slot=separator]))]:rounded-r-field', // give right rounded to the input that cames before separator
-            '[:where(&>[data-slot=separator]+[data-slot=otp-input])]:rounded-l-field'// give left rounded to the input that cames after separator
+            '[:where(&>[data-slot=otp-input]:has(+[data-slot=separator]))]:rounded-r-box', // give right rounded to the input that cames before separator
+            '[:where(&>[data-slot=separator]+[data-slot=otp-input])]:rounded-l-box'// give left rounded to the input that cames after separator
         ])
     >
         @if($slot->isNotEmpty())
