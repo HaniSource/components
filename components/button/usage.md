@@ -91,6 +91,9 @@ A wide range of colors are available for customizing button appearance.
 @blade
 <x-demo>
     <div class="grid grid-cols-6 gap-4">
+        <x-ui.button color="slate">Slate</x-ui.button>
+        <x-ui.button color="stone">Stone</x-ui.button>
+        <x-ui.button color="neutral">Neutral</x-ui.button>
         <x-ui.button color="zinc">Zinc</x-ui.button>
         <x-ui.button color="red">Red</x-ui.button>
         <x-ui.button color="orange">Orange</x-ui.button>
@@ -115,6 +118,9 @@ A wide range of colors are available for customizing button appearance.
 
 ```html
 <div class="grid grid-cols-6 gap-4">
+    <x-ui.button color="slate">Slate</x-ui.button>
+    <x-ui.button color="stone">Stone</x-ui.button>
+    <x-ui.button color="neutral">Neutral</x-ui.button>
     <x-ui.button color="zinc">Zinc</x-ui.button>
     <x-ui.button color="red">Red</x-ui.button>
     <x-ui.button color="orange">Orange</x-ui.button>
@@ -140,7 +146,7 @@ A wide range of colors are available for customizing button appearance.
 @blade
 <x-demo>
     <div class="grid grid-cols-6 gap-4">
-         <x-ui.button variant="outline" color="slate">Slate</x-ui.button>
+    <x-ui.button variant="outline" color="slate">Slate</x-ui.button>
     <x-ui.button variant="outline" color="stone">Stone</x-ui.button>
     <x-ui.button variant="outline" color="neutral">Neutral</x-ui.button>
     <x-ui.button variant="outline" color="zinc">Zinc</x-ui.button>

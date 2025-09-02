@@ -139,7 +139,6 @@ Configure the brand to open in a new tab when linking to external sites.
         target="_blank"
         name="External Site" 
     />
-    <p class="text-xs text-gray-500 flex-none mt-2 text-start">This link opens in a new tab</p>
 </x-demo>
 @endblade
 
