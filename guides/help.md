@@ -36,8 +36,6 @@ Open a thread in [Sheaf UI Discussions](https://github.com/orgs/sheafui/discussi
 * Complex implementation questions  
 * Bug reports that others might face
 
-> **Note**: Please respect our licensing and don't share premium component code publicly.
-
 ###  Reporting Bugs
 
 Found something broken?
@@ -46,11 +44,9 @@ Found something broken?
 2. Include Alpine state if relevant
 3. Open a GitHub issue with clear reproduction steps
 
-[Submit a bug →](https://github.com/orgs/sheafui/discussions)
+[Submit a bug →](https://github.com/orgs/sheafui/components)
 
 ## Still Stuck?
-
-Shoot us a message on Twitter [@sheaf UI](https://twitter.com/sheafui) or email us at [support@sheafui.dev](mailto:support@sheafui.dev). We're builders too and we want you unblocked.
 
 
 If it’s a question, bug, or feedback we want to hear it. Sheaf UI isn't just a platform. It’s a community.
