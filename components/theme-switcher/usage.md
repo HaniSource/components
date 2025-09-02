@@ -16,8 +16,9 @@ Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-
 ```bash
 php artisan sheaf:install theme-switcher
 ```
-
+> make sure your setup the [themes system](/docs/guides/dark-mode) first then use this switchers 
 ## Basic Usage
+
 
 @blade 
 <x-demo class="flex justify-center">
@@ -124,15 +125,3 @@ This component is fully driven by JavaScript logic, read [dark mode guide](/docs
 | `light-icon`   | string | `sun`              | No       | Icon name for light theme                     |
 | `system-icon`  | string | `computer-desktop` | No       | Icon name for system theme                    |
 | `icon-variant` | string | `mini`             | No       | Variant style for icons                       |
-
-## Example with All Props
-
-```html
-<x-ui.theme-switcher
-    variant="inline"
-    dark-icon="moon"
-    light-icon="sun"
-    system-icon="computer-desktop"
-    icon-variant="outline"
-/>
-```

@@ -1,7 +1,7 @@
 @aware(['type' => 'text'])
 @php
 $classes = [
-    '[:where(&:first-child)]:rounded-l-field [:where(&:last-child)]:rounded-r-field', // default rounding with zero specificity, allows external classes to override without !
+    '[:where(&:first-child)]:rounded-l-box [:where(&:last-child)]:rounded-r-box', // default rounding with zero specificity, allows external classes to override without !
     'text-center text-base max-w-12 w-full h-12',
     'bg-white dark:bg-neutral-900', // subtle background
     'text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500',

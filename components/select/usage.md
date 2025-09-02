@@ -17,6 +17,37 @@ php artisan sheaf:install select
 
 ## Usage
 
+@blade
+<x-demo class="flex justify-center">
+    <div class="w-full max-w-xs mx-auto">
+        <x-ui.select 
+            label="Select Country" 
+            placeholder="Choose a country..."
+            >
+                <x-ui.select.option value="us">United States</x-ui.select.option>
+                <x-ui.select.option value="uk">United Kingdom</x-ui.select.option>
+                <x-ui.select.option value="ca">Canada</x-ui.select.option>
+                <x-ui.select.option value="au">Australia</x-ui.select.option>
+                <x-ui.select.option value="de">Germany</x-ui.select.option>
+                <x-ui.select.option value="fr">France</x-ui.select.option>
+        </x-ui.select>
+    </div>
+</x-demo>
+@endblade
+
+```html
+<x-ui.select 
+    label="Select Country" 
+    placeholder="Choose a country..."
+    wire:model="selectedCountry">
+        <x-ui.select.option value="us">United States</x-ui.select.option>
+        <x-ui.select.option value="uk">United Kingdom</x-ui.select.option>
+        <x-ui.select.option value="ca">Canada</x-ui.select.option>
+        <x-ui.select.option value="au">Australia</x-ui.select.option>
+        <x-ui.select.option value="de">Germany</x-ui.select.option>
+        <x-ui.select.option value="fr">France</x-ui.select.option>
+</x-ui.select>
+```
 
 ### Bind To Livewire
 
@@ -56,40 +87,6 @@ You can use it outside Livewire with just Alpine (and Blade):
             <x-ui.select.option value="fr">France</x-ui.select.option>
     </x-ui.select>
 </div>
-```
-
-### Basic Select
-
-@blade
-<x-demo class="flex justify-center">
-    <div class="w-full max-w-xs mx-auto">
-        <x-ui.select 
-            label="Select Country" 
-            placeholder="Choose a country..."
-            >
-                <x-ui.select.option value="us">United States</x-ui.select.option>
-                <x-ui.select.option value="uk">United Kingdom</x-ui.select.option>
-                <x-ui.select.option value="ca">Canada</x-ui.select.option>
-                <x-ui.select.option value="au">Australia</x-ui.select.option>
-                <x-ui.select.option value="de">Germany</x-ui.select.option>
-                <x-ui.select.option value="fr">France</x-ui.select.option>
-        </x-ui.select>
-    </div>
-</x-demo>
-@endblade
-
-```html
-<x-ui.select 
-    label="Select Country" 
-    placeholder="Choose a country..."
-    wire:model="selectedCountry">
-        <x-ui.select.option value="us">United States</x-ui.select.option>
-        <x-ui.select.option value="uk">United Kingdom</x-ui.select.option>
-        <x-ui.select.option value="ca">Canada</x-ui.select.option>
-        <x-ui.select.option value="au">Australia</x-ui.select.option>
-        <x-ui.select.option value="de">Germany</x-ui.select.option>
-        <x-ui.select.option value="fr">France</x-ui.select.option>
-</x-ui.select>
 ```
 
 ### Select with Icons

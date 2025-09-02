@@ -1,12 +1,11 @@
-{{-- index --}}
 @props(['position' => 'bottom-center'])
 
 @php
     $classes = [
         'isolate z-50',
         'grid grid-cols-[auto_1fr_auto]',
-        'z-10 max-w-96 min-w-40 text-start',
-        'bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10  ',
+        'z-10 [:where(&)]:max-w-96 [:where(&)]:min-w-40 text-start',
+        'bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 space-y-0.5',
         'rounded-(--dropdown-radius) p-(--dropdown-padding) [--dropdown-radius:var(--radius-box)] [--dropdown-padding:--spacing(.75)]', // adjut padding safely as you need, will still looks perfect
     ];  
 @endphp

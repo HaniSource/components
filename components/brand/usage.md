@@ -25,7 +25,7 @@ Display your brand using a logo image URL and company name.
 @blade
 <x-demo>
     <div class="flex justify-center">
-        <x-components::ui.brand 
+        <x-ui.brand 
             href="#" 
             name="BluePeak" 
             alt="BluePeak" 
@@ -53,7 +53,7 @@ Create a minimal brand display using only the logo without text.
 @blade
 <x-demo>
     <div class="flex justify-center">
-        <x-components::ui.brand 
+        <x-ui.brand 
             href="#" 
             logo="/logo-demo.jpg"  
             logoClass="rounded-full size-12!"
@@ -79,7 +79,7 @@ Display your brand using only text, perfect for text-based logos or minimalist d
 @blade
 <x-demo>
     <div class="flex justify-center">
-        <x-components::ui.brand 
+        <x-ui.brand 
             href="#" 
             name="TechCorp" 
         />
@@ -101,7 +101,7 @@ Use the logo slot to include custom SVG content or more complex logo structures.
 @blade
 <x-demo>
     <div class="flex justify-center">
-        <x-components::ui.brand href="#" name="InnovateLab">
+        <x-ui.brand href="#" name="InnovateLab">
             <x-slot:logo>
                 <div class="h-8 w-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                     <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -109,7 +109,7 @@ Use the logo slot to include custom SVG content or more complex logo structures.
                     </svg>
                 </div>
             </x-slot:logo>
-        </x-components::ui.brand>
+        </x-ui.brand>
     </div>
 </x-demo>
 @endblade
@@ -131,15 +131,14 @@ Use the logo slot to include custom SVG content or more complex logo structures.
 Configure the brand to open in a new tab when linking to external sites.
 
 @blade
-<x-demo class="flex flex-col justify-center">
-    <x-components::ui.brand 
+<x-demo class="flex justify-center">
+    <x-ui.brand 
         href="https://example.com"
         logo="/logo-demo.jpg" 
         logoClass="rounded-full size-12!"
         target="_blank"
         name="External Site" 
     />
-    <p class="text-xs text-gray-500 flex-none mt-2 text-start">This link opens in a new tab</p>
 </x-demo>
 @endblade
 
@@ -151,130 +150,6 @@ Configure the brand to open in a new tab when linking to external sites.
     name="External Site" 
     alt="External Site" 
 />
-```
-
-### Navigation Header Example
-
-A practical example showing the brand component in a typical navigation header.
-
-@blade
-<x-demo>
-    <div class="w-full">
-        <header class="bg-white dark:bg-neutral-950 shadow-sm border-b border-gray-200 dark:border-gray-700">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16">
-                    <x-components::ui.brand 
-                        href="#" 
-                        name="Dashboard"
-                    >
-                        <x-slot:logo>
-                            <div class="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                                <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                            </div>
-                        </x-slot:logo>
-                    </x-components::ui.brand>
-                    
-                    <nav class="hidden md:flex space-x-8">
-                        <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Features</a>
-                        <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">Pricing</a>
-                        <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">About</a>
-                    </nav>
-                    
-                    <x-components::ui.button size="sm">Get Started</x-components::ui.button>
-                </div>
-            </div>
-        </header>
-    </div>
-</x-demo>
-@endblade
-
-```html
-<header class="bg-white dark:bg-neutral-950 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-            <x-ui.brand href="/" name="Your App">
-                <x-slot:logo>
-                    <div class="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-                        <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                </x-slot:logo>
-            </x-ui.brand>
-            
-            <!-- Navigation items -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="#" class="text-gray-500 hover:text-gray-700">Features</a>
-                <a href="#" class="text-gray-500 hover:text-gray-700">Pricing</a>
-            </nav>
-        </div>
-    </div>
-</header>
-```
-
-### Footer Brand Example
-
-Using the brand component in a footer context with custom styling.
-
-@blade
-<x-demo>
-    <div class="w-full">
-        <footer class="bg-neutral-950 text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <x-components::ui.brand 
-                        href="#" 
-                        name="Company Inc."
-                        class="mb-4 md:mb-0"
-                    >
-                        <x-slot:logo>
-                            <div class="h-8 w-8 bg-white rounded-full flex items-center justify-center">
-                                <span class="text-gray-900 font-bold text-sm">YC</span>
-                            </div>
-                        </x-slot:logo>
-                    </x-components::ui.brand>
-                    
-                    <div class="flex flex-col md:flex-row gap-4 text-sm text-gray-400">
-                        <a href="#" class="hover:text-white">Privacy Policy</a>
-                        <a href="#" class="hover:text-white">Terms of Service</a>
-                        <a href="#" class="hover:text-white">Contact</a>
-                    </div>
-                </div>
-                
-                <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
-                    © 2024 Company Inc. All rights reserved.
-                </div>
-            </div>
-        </footer>
-    </div>
-</x-demo>
-@endblade
-
-```html
-<footer class="bg-neutral-950 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-            <x-ui.brand 
-                href="/" 
-                name="Your Company"
-                class="mb-4 md:mb-0"
-            >
-                <x-slot:logo>
-                    <div class="h-8 w-8 bg-white rounded-full flex items-center justify-center">
-                        <span class="text-gray-900 font-bold text-sm">YC</span>
-                    </div>
-                </x-slot:logo>
-            </x-ui.brand>
-            
-            <div class="flex gap-4 text-sm text-gray-400">
-                <a href="#" class="hover:text-white">Privacy Policy</a>
-                <a href="#" class="hover:text-white">Terms of Service</a>
-            </div>
-        </div>
-    </div>
-</footer>
 ```
 
 ## Component Props Reference

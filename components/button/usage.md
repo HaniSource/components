@@ -90,7 +90,10 @@ A wide range of colors are available for customizing button appearance.
 #### Primary variant
 @blade
 <x-demo>
-    <div class="grid grid-cols-3 lg:grid-cols-6 gap-4">
+    <div class="grid grid-cols-6 gap-4">
+        <x-ui.button color="slate">Slate</x-ui.button>
+        <x-ui.button color="stone">Stone</x-ui.button>
+        <x-ui.button color="neutral">Neutral</x-ui.button>
         <x-ui.button color="zinc">Zinc</x-ui.button>
         <x-ui.button color="red">Red</x-ui.button>
         <x-ui.button color="orange">Orange</x-ui.button>
@@ -114,7 +117,10 @@ A wide range of colors are available for customizing button appearance.
 @endblade
 
 ```html
-<div class="grid grid-cols-3 lg:grid-cols-6 gap-4">
+<div class="grid grid-cols-6 gap-4">
+    <x-ui.button color="slate">Slate</x-ui.button>
+    <x-ui.button color="stone">Stone</x-ui.button>
+    <x-ui.button color="neutral">Neutral</x-ui.button>
     <x-ui.button color="zinc">Zinc</x-ui.button>
     <x-ui.button color="red">Red</x-ui.button>
     <x-ui.button color="orange">Orange</x-ui.button>
@@ -139,8 +145,8 @@ A wide range of colors are available for customizing button appearance.
 #### Outline variant
 @blade
 <x-demo>
-    <div class="grid grid-cols-3 lg:grid-cols-6 gap-4">
-         <x-ui.button variant="outline" color="slate">Slate</x-ui.button>
+    <div class="grid grid-cols-6 gap-4">
+    <x-ui.button variant="outline" color="slate">Slate</x-ui.button>
     <x-ui.button variant="outline" color="stone">Stone</x-ui.button>
     <x-ui.button variant="outline" color="neutral">Neutral</x-ui.button>
     <x-ui.button variant="outline" color="zinc">Zinc</x-ui.button>
@@ -295,7 +301,7 @@ You can disable this behavior by explicitly setting `:loading="false"`.
 
 ## `div` vs `a` vs `button`
 
-by default the button is button tag (wooooooooow), you can change it to a link by providing `href` attribtue:
+by default the button is button tag , you can change it to a link by providing `href` attribtue:
 
 @blade
 <x-demo>
