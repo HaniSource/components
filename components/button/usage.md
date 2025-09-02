@@ -299,7 +299,7 @@ You can disable this behavior by explicitly setting `:loading="false"`.
 
 ## `div` vs `a` vs `button`
 
-by default the button is button tag (wooooooooow), you can change it to a link by providing `href` attribtue:
+by default the button is button tag , you can change it to a link by providing `href` attribtue:
 
 @blade
 <x-demo>
