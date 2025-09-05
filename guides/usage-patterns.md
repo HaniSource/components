@@ -176,8 +176,8 @@ that's all driven by css selectors in specific cretarias
 ### Rule #2: Hover States
 
 <!-- @todo -->
-I will write this tomorrow
+soon
 
 ### Rule #3:
  <!--@todo  -->
-also this.
+soon.
