@@ -270,19 +270,20 @@ The button component supports icons both before and after the text content.
     <x-ui.button size="xs" icon="ellipsis-horizontal" />
 </div>
 ```
-
 ## Loading State
 
-When a form is submitted or a targeted method or property updates (using the button), the button will show a loading indicator if there is `wire:loading` prop :
+The button can display a loading indicator when a Livewire action is being processed or when a targeted property is updating.
+
+### Livewire Loading
+
+By default, the loading state is triggered by a `wire:click` or `wire:submit` action. You can override this using `wire:target`. See [Livewire Loading Docs](https://livewire.laravel.com/docs/wire-loading#targeting-specific-actions) for more information.
 
 @blade
 <x-demo>
-    <x-ui.button size="xs" loading/>
-    <!--  -->
+    <x-ui.button size="xs" loading />
     <div class="ml-2">
-        <x-ui.button loading/>
+        <x-ui.button loading />
     </div>
-    <!--  -->
     <div class="ml-4">
         <x-ui.button loading>Processing...</x-ui.button>
     </div>
@@ -290,18 +291,20 @@ When a form is submitted or a targeted method or property updates (using the but
 @endblade
 
 ```html
-<x-ui.button size="xs" wire:loading/>
+<x-ui.button size="xs" wire:loading />
+
 <div class="ml-2">
-    <x-ui.button wire:loading/>
+    <x-ui.button wire:loading />
 </div>
+
 <div class="ml-4">
-    <x-ui.button wire:loading >Processing...</x-ui.button>
+    <x-ui.button wire:loading>Processing...</x-ui.button>
 </div>
 ```
-by default the target action that trigger the loading state is taken form the `wire:click` directive (if any), you can override that by using `wire:target` as you could as always use it, see [wire target docs](https://livewire.laravel.com/docs/wire-loading#targeting-specific-actions) for more infos
 
+### Static Loading
 
-you can also show the loading indicator statically using the ``loading`` prop
+You can also display the loading indicator manually using the `loading` prop, regardless of Livewire actions:
 
 @blade
 <x-demo>
@@ -310,10 +313,9 @@ you can also show the loading indicator statically using the ``loading`` prop
 @endblade
 
 ```html
-<div class="ml-4">
-    <x-ui.button :loading="true">Processing...</x-ui.button>
-</div>
+<x-ui.button :loading="true">Processing...</x-ui.button>
 ```
+
 
 ## `div` vs `a` vs `button`
 
