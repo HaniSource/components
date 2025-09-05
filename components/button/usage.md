@@ -273,14 +273,16 @@ The button component supports icons both before and after the text content.
 
 ## Loading State
 
-When a form is submitted or a targeted method is triggered, the button will automatically show a loading indicator:
+When a form is submitted or a targeted method or property updates (using the button), the button will show a loading indicator if there is `wire:loading` prop :
 
 @blade
 <x-demo>
     <x-ui.button size="xs" loading/>
+    <!--  -->
     <div class="ml-2">
         <x-ui.button loading/>
     </div>
+    <!--  -->
     <div class="ml-4">
         <x-ui.button loading>Processing...</x-ui.button>
     </div>
@@ -288,16 +290,30 @@ When a form is submitted or a targeted method is triggered, the button will auto
 @endblade
 
 ```html
-<x-ui.button size="xs" loading/>
+<x-ui.button size="xs" wire:loading/>
 <div class="ml-2">
-    <x-ui.button loading/>
+    <x-ui.button wire:loading/>
 </div>
 <div class="ml-4">
-    <x-ui.button loading>Processing...</x-ui.button>
+    <x-ui.button wire:loading >Processing...</x-ui.button>
 </div>
 ```
+by default the target action that trigger the loading state is taken form the `wire:click` directive (if any), you can override that by using `wire:target` as you could as always use it, see [wire target docs](https://livewire.laravel.com/docs/wire-loading#targeting-specific-actions) for more infos
 
-You can disable this behavior by explicitly setting `:loading="false"`.
+
+you can also show the loading indicator statically using the ``loading`` prop
+
+@blade
+<x-demo>
+    <x-ui.button loading>Processing...</x-ui.button>
+</x-demo>
+@endblade
+
+```html
+<div class="ml-4">
+    <x-ui.button :loading="true">Processing...</x-ui.button>
+</div>
+```
 
 ## `div` vs `a` vs `button`
 
