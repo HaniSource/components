@@ -135,7 +135,7 @@ $hasWireLoading = filled($attributes->whereStartsWith('wire:loading')->first());
 
 $loadingAttributes = new \Illuminate\View\ComponentAttributeBag();
 // Configure loading attributes for Livewire actions (adds data-loading="true" during loading)
-$loadingAttributes = $loadingAttributes->merge($hasWireLoading ? [
+$loadingAttributes = $loadingAttributes->merge($hasWireLoading || $type === 'submit' ? [
     'wire:loading.attr' => 'data-loading',
     'wire:target' => $attributes->has('wire:target') ? $attributes->get('wire:target') : ($attributes->whereStartsWith('wire:click')->first() ?? null),
 ] : []);
