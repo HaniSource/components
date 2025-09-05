@@ -276,7 +276,7 @@ The button can display a loading indicator when a Livewire action is being proce
 
 ### Livewire Loading
 
-By default, the loading state is triggered by a `wire:click` or `wire:submit` action. You can override this using `wire:target`. See [Livewire Loading Docs](https://livewire.laravel.com/docs/wire-loading#targeting-specific-actions) for more information.
+By default, the loading state is triggered by a `wire:click` or `wire:submit` action. 
 
 @blade
 <x-demo>
@@ -301,7 +301,7 @@ By default, the loading state is triggered by a `wire:click` or `wire:submit` ac
     <x-ui.button wire:loading>Processing...</x-ui.button>
 </div>
 ```
-
+> You can override this using `wire:target`. See [Livewire Loading Docs](https://livewire.laravel.com/docs/wire-loading#targeting-specific-actions) for more information.
 ### Static Loading
 
 You can also display the loading indicator manually using the `loading` prop, regardless of Livewire actions:
