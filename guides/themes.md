@@ -51,9 +51,9 @@ Dark mode is built in. Override your variables inside a `.dark` selector:
 ```css
 @layer theme {
     .dark {
-        --color-primary: var(--color-white);
-        --color-primary-content: var(--color-white);
-        --color-primary-fg: var(--color-neutral-800);
+        --color-primary: var(--color-white) !important ;
+        --color-primary-content: var(--color-white) !important;
+        --color-primary-fg:  var(--color-neutral-800) !important;
     }
 }
 ```
@@ -100,9 +100,9 @@ Examples:
 
 @layer theme {
     .dark {
-        --color-primary: var(--color-blue-400);
-        --color-primary-content: var(--color-blue-300);
-        --color-primary-fg: var(--color-neutral-900);
+        --color-primary: var(--color-white) !important ;
+        --color-primary-content: var(--color-white) !important;
+        --color-primary-fg:  var(--color-neutral-800) !important;
     }
 }
 ```
