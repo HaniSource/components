@@ -1,4 +1,5 @@
 @props([
+    'name' => $attributes->whereStartsWith('wire:model')->first() ?? $attributes->whereStartsWith('x-model')->first(),
     'length' => 4,
     'type'=>'text',
     'allowedPattern' => '[0-9]',
@@ -13,7 +14,7 @@
         allowedPattern: @js($allowedPattern),
         autofocus: @js($autofocus),
         init() {
-            queueMicrotask(() => {
+            $nextTick(() => {
                 this.inputs = Array.from(this.$el.querySelectorAll('[data-slot=otp-input]'));
 
                 this.inputs.forEach((input, index) => {
@@ -80,9 +81,7 @@
 
             const next = this.inputs[index + 1];
             if (next) {
-                next.disabled = false;
-                next.focus();
-                next.select();
+                this.focusAndSelect(next);
             }
         },
         handlePaste(e) {
@@ -97,16 +96,15 @@
             validChars.forEach((char, offset) => this.enableAndFill(char, offset + startIndex));
 
             // Need to focus the input immediately after the last filled one,
-            // but we defer it with queueMicrotask() to leet the current Js callstack complete,
+            // but we defer it with $nextTick() to leet the current Js callstack complete,
             // This ensures all synchronous DOM property updatess (like input.value = char) are applied in the JS engine,
             // so the focus action sees the correct, updated state.
-            queueMicrotask(() => {
+            $nextTick(() => {
                 const nextIndex = startIndex + validChars.length;
                 const next = this.inputs[nextIndex];
 
                 if (next) {
-                    next.disabled = false;
-                    next.focus();
+                    this.focusAndSelect(next)
                 }
             });
 
@@ -119,6 +117,14 @@
             input.disabled = false;
             input.value = char;
         },
+        focusAndSelect(el) {
+            if (!el) return;
+            el.disabled = false;
+            requestAnimationFrame(() => {
+                el.focus();
+                el.select();
+            });
+        },
         handleBackspace(e) {
             const input = e.target;
             const index = parseInt(input.dataset.order);
@@ -130,10 +136,8 @@
             }
 
             const prev = this.inputs[index - 1];
-            console.log(prev);
             if (prev) {
-                prev.focus();
-                prev.select();
+                requestAnimationFrame(() => prev.focus());
             }
 
             e.preventDefault();

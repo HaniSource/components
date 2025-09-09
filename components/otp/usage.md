@@ -301,9 +301,8 @@ Monitor input changes in real-time with Alpine.js effects.
             isValid: false,
         }"
         x-init="
-            queueMicrotask(() => {
+            $nextTick(() => {
                 Alpine.effect(() => {
-                   console.log('here')
                     isValid = code && code.length === 4;
                 });
             });
@@ -326,7 +325,7 @@ Monitor input changes in real-time with Alpine.js effects.
         isValid: false,
     }"
     x-init="
-         queueMicrotask(() => {
+         $nextTick(() => {
             Alpine.effect(() => {
                 console.log('here')
                 isValid = code && code.length === 4;
