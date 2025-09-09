@@ -4,13 +4,13 @@ name: 'official starter kit'
 
 ## SheafUI Official Starter Kit
 
-The official starter kit to jumpstart your next Laravel application, powered by the SheafUI component platform.
+The official [starter kit](https://github.com/sheafui/starter-kit) to jumpstart your next Laravel application, powered by the SheafUI component platform.
 
 ## Installation
 to start using new laravel app using this skeleton
 
 ```shell
- laravel new example-name --using=sheaf/starter-kit
+laravel new example-name --using=sheaf/starter-kit
 ```
 
 
