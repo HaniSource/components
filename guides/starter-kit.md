@@ -60,4 +60,3 @@ Your starter kit comes pre-loaded with essential UI components:
 - [Text](https://sheafui.dev/docs/components/text) - Unified Text styling
 - [Heading](https://sheafui.dev/docs/components/heading) - Heading components
 - [Card](https://sheafui.dev/docs/components/card) - blocks of UI
-

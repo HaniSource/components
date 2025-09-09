@@ -264,6 +264,224 @@ Supports types:
 
 Each type has its own colors and icons for light and dark modes, using Tailwind and color-mix for theme consistency.
 
+## Creating Class and Trait Helpers
+
+Laravel applications typically need toast notifications in two scenarios:
+
+1. **Real-time notifications** - For Livewire actions like `saveChanges()`, `updateProfile()`, etc.
+2. **Post-redirect notifications** - After operations like login, registration, or form submissions that cause redirects
+
+Our helper classes handle both cases elegantly using traits for Livewire components and a static class for controllers.
+
+> **Note:** If you're using our starter kit, this implementation is already included.
+
+### Livewire Trait
+
+
+For real-time toast notifications in Livewire components, create a trait:
+
+```php
+<?php
+// app/Livewire/Concerns/HasToast.php
+
+namespace App\Livewire\Concerns;
+
+trait HasToast
+{
+    /**
+     * Dispatch a success toast notification
+     */
+    public function toastSuccess(string $content): void
+    {
+        $this->toast($content, 'success');
+    }
+
+    /**
+     * Dispatch a warning toast notification
+     */
+    public function toastWarning(string $content): void
+    {
+        $this->toast($content, 'warning');
+    }
+
+    /**
+     * Dispatch an error toast notification
+     */
+    public function toastError(string $content): void
+    {
+        $this->toast($content, 'error');
+    }
+
+    /**
+     * Dispatch an info toast notification
+     */
+    public function toastInfo(string $content): void
+    {
+        $this->toast($content, 'info');
+    }
+
+    /**
+     * Dispatch a toast notification
+     */
+    public function toast(string $content, string $type = 'info'): void
+    {
+        $this->dispatch('notify', [
+            'content' => $content,
+            'type' => $type
+        ]);
+    }
+}
+```
+
+**Usage in Livewire Components:**
+
+Add the trait to your Livewire components and use the convenient methods:
+
+```php
+<?php
+
+namespace App\Livewire\Settings;
+
+use App\Livewire\Concerns\HasToast;
+use App\Models\User;
+use Illuminate\Container\Attributes\CurrentUser;
+use Livewire\Component;
+
+class Account extends Component
+{
+    use HasToast;
+
+    public function saveChanges(#[CurrentUser] User $user)
+    {   
+        // Your validation and update logic here
+        $validated = $this->validate([...]);
+        $user->update($validated);
+
+        // Show success toast
+        $this->toastSuccess('Your account has been updated.');
+    }
+
+    public function deleteAccount()
+    {
+        // Deletion logic here
+        
+        $this->toastWarning('Your account has been deleted.');
+    }
+}
+```
+
+### PHP Class for Session-Based Toasts
+
+For controllers and redirect scenarios, create a static Toast class:
+
+```php
+<?php
+// app/Support/Toast.php
+
+namespace App\Support;
+
+use Illuminate\Support\Facades\Session;
+
+final class Toast
+{
+    public static function success(string $content): void
+    {
+        static::add($content, 'success');
+    }
+
+    public static function warning(string $content): void
+    {
+        static::add($content, 'warning');
+    }
+
+    public static function error(string $content): void
+    {
+        static::add($content, 'error');
+    }
+
+    public static function info(string $content): void
+    {
+        static::add($content, 'info');
+    }
+
+    public static function add(string $content, string $type): void
+    {
+        Session::flash('notify', [
+            'content' => $content,
+            'type' => $type
+        ]);
+    }
+}
+```
+
+**Usage in Controllers:**
+
+Use the Toast class in controllers or any code that performs redirects:
+
+```php
+<?php
+// app/Http/Controllers/AuthController.php
+
+namespace App\Http\Controllers;
+
+use App\Support\Toast;
+
+class AuthController extends Controller
+{
+    public function store()
+    {
+        // Login logic...
+        
+        Toast::success('You have successfully logged in!');
+        
+        return redirect()->intended(route('dashboard'));
+    }
+
+    public function destroy()
+    {
+        // Logout logic...
+        
+        Toast::info('You have been logged out.');
+        
+        return redirect()->route('home');
+    }
+}
+```
+
+**Usage in Livewire (with redirects):**
+
+```php
+<?php
+// app/Livewire/Auth/Login.php
+
+namespace App\Livewire\Auth;
+
+use App\Support\Toast;
+use Livewire\Component;
+
+class Login extends Component
+{
+    public function login()
+    {
+        // Login validation and logic...
+        
+        Toast::success('You have successfully logged in!');
+        
+        $this->redirectIntended(
+            default: route('dashboard', absolute: false), 
+            navigate: true
+        );
+    }
+}
+```
+
+### When to Use Which Approach
+
+- **Use the HasToast trait** for real-time notifications within Livewire components (no page reload)
+- **Use the Toast class** for notifications that need to persist through redirects (login, logout, form submissions)
+
+Both approaches work seamlessly with the same toast component, providing a consistent user experience across your entire application.
+
 ## Customization
 
 ### Positioning
