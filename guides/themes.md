@@ -6,8 +6,6 @@ name: 'themes'
 
 Sheaf UI looks great out of the box, but your project isn’t “just another gray website.” Maybe you want bold and colorful, maybe minimal and sharp. Whatever your style, the theming system lets you align every component with your brand in minutes.
 
----
-
 ## Core Idea
 
 Sheaf UI themes are powered by **two main color families** and **two radius controls**.
@@ -23,8 +21,6 @@ Everything else flows from there.
 
 **Base color** covers neutral backgrounds, borders, and text.
 **Primary color** handles interactive elements and brand accents.
-
----
 
 ## Setting Your Primary Colors
 
@@ -42,8 +38,6 @@ We use CSS variables so you can change the theme without touching component code
 }
 ```
 
----
-
 ## Dark Mode Support
 
 Dark mode is built in. Override your variables inside a `.dark` selector:
@@ -59,8 +53,6 @@ Dark mode is built in. Override your variables inside a `.dark` selector:
 ```
 
 Switch your HTML’s class to `.dark` and everything adapts automatically.
-
----
 
 ## Controlling Roundness
 
@@ -87,8 +79,6 @@ Examples:
 }
 ```
 
----
-
 ## Example: Switching to Blue
 
 ```css
@@ -106,8 +96,6 @@ Examples:
     }
 }
 ```
-
----
 
 ## Changing the Base Color Family
 
@@ -131,8 +119,6 @@ If you want to replace the entire neutral palette (e.g., switch from `neutral` t
 
 This lets you keep using `text-neutral-800` while the underlying tone changes project-wide.
 
----
-
 ## Using Your Theme in Components
 
 ```html
@@ -142,8 +128,6 @@ This lets you keep using `text-neutral-800` while the underlying tone changes pr
 ```
 
 These utility classes map directly to your theme variables.
-
----
 
 ## Adding Extra Semantic Colors
 
@@ -160,8 +144,6 @@ Now you can do:
 ```html
 <span class="text-success">Success</span>
 ```
-
----
 
 ## Component-Specific Tweaks
 
@@ -185,8 +167,6 @@ If you need global overrides for specific Sheaf UI components, target them with 
 }
 ```
 
----
-
 ## Quick Reference: Theme Variables
 
 | Variable                                     | Description                              |
@@ -197,7 +177,5 @@ If you need global overrides for specific Sheaf UI components, target them with 
 | `--radius-field`                             | Rounding for inputs                      |
 | `--radius-box`                               | Rounding for larger elements             |
 | `--color-neutral-50` → `--color-neutral-950` | Neutral palette shades                   |
-
----
 
 Now you have a theme system that’s **fast to change**, **consistent across components**, and **ready for both light and dark modes**.

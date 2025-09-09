@@ -1,5 +1,5 @@
 ---
-name: 'official starter kit'
+name: official starter kit
 ---
 
 ## SheafUI Official Starter Kit
@@ -12,7 +12,6 @@ to start using new laravel app using this skeleton
 ```shell
 laravel new example-name --using=sheaf/starter-kit
 ```
-
 
 ##  Zero Dependency, Full Control
 
@@ -29,7 +28,6 @@ This starter kit requires no external dependencies and gives you **100% ownershi
 > Dashboard and settings pages are temporary implementations. They will be refactored once the `sidebar`, `header`, and `navlist` components are built and integrated.
 
 > Tests are still needed for the basic account management features.
-
 
 ## Tech Stack
 
@@ -60,7 +58,6 @@ Your starter kit comes pre-loaded with essential UI components:
 - [Text](https://sheafui.dev/docs/components/text) - Unified Text styling
 - [Heading](https://sheafui.dev/docs/components/heading) - Heading components
 - [Card](https://sheafui.dev/docs/components/card) - blocks of UI
-
 
 ## Toast System
 
