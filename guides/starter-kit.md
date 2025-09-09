@@ -60,3 +60,8 @@ Your starter kit comes pre-loaded with essential UI components:
 - [Text](https://sheafui.dev/docs/components/text) - Unified Text styling
 - [Heading](https://sheafui.dev/docs/components/heading) - Heading components
 - [Card](https://sheafui.dev/docs/components/card) - blocks of UI
+
+
+## Toast System
+
+To learn more about toasts system used in the starter kit refer [toast helpers](/docs/components/toast#content-creating-class-and-trait-helpers)
