@@ -6,36 +6,66 @@
     'checkIcon' => 'check'
 ])
 
-
-
 <div 
     x-show="open"
-    x-transition x-anchor.offset.5="$refs.selectTrigger"
-    x-on:click.away="open = false"
-    x-on:keydown.escape="open = false"
+    x-trap="open"
+    x-effect="
+        if(!open) $el.blur()
+    "
+    x-anchor.offset.5="$refs.selectTrigger"
+    x-transition 
+    x-on:click.away="close()"
+    x-on:keydown.escape="close()"
     style="display: none;"
-    class="bg-white dark:bg-neutral-900 backdrop-blur-2xl z-50 rounded-(--round) p-(--padding) border border-black/10 dark:border-white/10 w-full">
+    class="bg-white w-full dark:bg-neutral-800 z-50 rounded-(--round) border border-neutral-200 dark:border-neutral-700"
+>
     @if ($searchable)
-        <input 
-            x-model="search"
-            x-on:input.stop="isTyping = true"
-            x-on:keydown.down.prevent.stop="$focus.focus($focus.within($refs.selectOptions).getFirst())"
-            type="text"
-            placeholder="search..."
-            class="px-2 py-1 placeholder:text-gray-700 dark:placeholder:text-gray-200 w-full rounded-[calc(var(--round)-var(--padding))] bg-white dark:bg-neutral-900 focus:ring-2 focus:ring-offset-0 focus:outline-none border-black/10 focus:border-black/15 focus:ring-neutral-900/15 dark:border-white/15 dark:focus:border-white/20 dark:focus:ring-neutral-100/15"
+        <div
+            @class([
+                'grid items-center justify-center grid-cols-[20px_1fr] px-2', // give the icon 20 px and leave the input take the rest
+                '[&>[data-slot=icon]+[data-slot=search-control]]:pl-6', // because there is an icon give it 6 padding   
+                'w-full border-b border-neutral-200 dark:border-neutral-700',
+            ])    
         >
+            <x-ui.icon 
+                name="magnifying-glass"
+                class="col-span-1 col-start-1 row-start-1 !text-neutral-500 dark:!text-neutral-400 !size-5"
+            />
+
+            <input 
+                x-model="search"
+                x-on:input.stop="isTyping = true"
+                x-on:keydown.down.prevent.stop="handleKeydown($event)"
+                x-on:keydown.up.prevent.stop="handleKeydown($event)"
+                x-on:keydown.enter.prevent.stop="handleKeydown($event)"
+                x-bind:aria-activedescendant="activeIndex !== null ? 'option-' + activeIndex : null"
+                type="text"
+                x-ref='searchControl'
+                data-slot="search-control"
+                placeholder="search..."
+                @class([
+                    'bg-transparent placeholder:text-neutral-500 dark:placeholder:text-neutral-400 dark:text-neutral-50 text-neutral-900',
+                    'ring-0 ring-offset-0 outline-none focus:ring-0 border-0',
+                    'col-span-4 col-start-1 row-start-1',
+                ])
+            >
+        </div>
     @endif
     
     <ul 
-        x-trap="open && !@js($searchable)"
-        x-on:keydown.down.prevent.stop="$focus.wrap().next()"
+        role="listbox"
+        x-on:keydown.enter.prevent.stop="select($focus.focused().dataset.value)"
         x-on:keydown.up.prevent.stop="$focus.wrap().prev()"
-        x-on:keydown.enter.stop="select($el.getAttribute('value'))"
-        x-ref="selectOptions"
+        x-on:keydown.down.prevent.stop="$focus.wrap().next()"
         @class([
-            "grid grid-cols-[auto_auto_1fr] gap-y-1",
+            "grid grid-cols-[auto_auto_1fr] !p-(--padding) gap-y-1",
         ])
     >
         {{ $slot }}
     </ul>
+    <template x-if="isSearchable && isTyping && !hasFilteredResults">
+        <x-ui.text class="h-14 flex items-center justify-center">
+            no results found
+        </x-ui.text>
+    </template>
 </div>
