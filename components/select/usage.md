@@ -20,7 +20,7 @@ php artisan sheaf:install select
 @blade
 <x-demo class="flex justify-center">
      <div
-        class="w-full max-w-[17rem] mx-auto"
+        class="w-full !max-w-[17rem] mx-auto"
         x-data="{
             members:[]
         }"
@@ -89,7 +89,7 @@ Enhance the select with leading icons and option-specific icons for better visua
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="w-full max-w-[17rem] mx-auto">
+    <div class="w-full !max-w-[17rem] mx-auto">
         <x-ui.select 
             placeholder="Choose status..."
             icon="flag"
@@ -121,7 +121,7 @@ Add search functionality to easily find options in large lists.
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="w-full max-w-[17rem] mx-auto">
+    <div class="w-full !max-w-[17rem] mx-auto">
         <x-ui.select 
             placeholder="Find a city..."
             icon="map-pin"
@@ -162,7 +162,7 @@ Allow users to select multiple options with visual feedback.
 @blade
 <x-demo class="flex justify-center">
     <div
-        class="w-full max-w-[17rem] mx-auto"
+        class="w-full !max-w-[17rem] mx-auto"
         x-data="{
             selectedSkills:[]
         }"
@@ -210,7 +210,7 @@ Combine search functionality with multiple selection for the best user experienc
 @blade
 <x-demo class="flex justify-center">
     <div
-        class="w-full max-w-[17rem] mx-auto"
+        class="w-full !max-w-[17rem] mx-auto"
         x-data="{
             members:[]
         }"
@@ -259,7 +259,7 @@ Show different states for validation feedback.
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="w-full max-w-[17rem] mx-auto space-y-4">
+    <div class="w-full !max-w-[17rem] mx-auto space-y-4">
         <x-ui.select 
             placeholder="Choose option..."
             icon="exclamation-circle"
@@ -290,7 +290,7 @@ Show different states for validation feedback.
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="w-full max-w-[17rem] mx-auto">
+    <div class="w-full !max-w-[17rem] mx-auto">
         <x-ui.select 
             placeholder="This is disabled..."
             disabled
