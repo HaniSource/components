@@ -20,19 +20,19 @@ php artisan sheaf:install select
 @blade
 <x-demo class="flex justify-center">
      <div
-        class="w-full !max-w-[17rem] mx-auto"
+        class="max-x-2xs mx-auto"
         x-data="{
             members:[]
         }"
     >
         <x-ui.select 
+            class="w-3xs"
             placeholder="Team members"
             icon="users"
             x-model="members"
             searchable
             multiple
             clearable
-            description="Search and select team members"
             >
                 <x-ui.select.option value="john" icon="user">John Doe</x-ui.select.option>
                 <x-ui.select.option value="jane" icon="user">Jane Smith</x-ui.select.option>
@@ -70,6 +70,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 ```html
 <div x-data="{ country: '' }">
     <x-ui.select 
+        class="w-3xs"
         x-model="country"
         placeholder="Choose a country..."
         >
@@ -89,8 +90,9 @@ Enhance the select with leading icons and option-specific icons for better visua
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="w-full !max-w-[17rem] mx-auto">
+    <div class="max-x-2xs mx-auto">
         <x-ui.select 
+            class="w-3xs"
             placeholder="Choose status..."
             icon="flag"
            >
@@ -121,12 +123,12 @@ Add search functionality to easily find options in large lists.
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="w-full !max-w-[17rem] mx-auto">
+    <div class="max-x-2xs mx-auto">
         <x-ui.select 
+            class="w-3xs"
             placeholder="Find a city..."
             icon="map-pin"
             searchable
-            description="Search through cities worldwide"
             >
                 <x-ui.select.option value="nyc">New York City</x-ui.select.option>
                 <x-ui.select.option value="london">London</x-ui.select.option>
@@ -144,7 +146,6 @@ Add search functionality to easily find options in large lists.
     placeholder="Find a city..."
     icon="map-pin"
     searchable
-    description="Search through cities worldwide"
     wire:model="selectedCity">
         <x-ui.select.option value="nyc">New York City</x-ui.select.option>
         <x-ui.select.option value="london">London</x-ui.select.option>
@@ -162,18 +163,18 @@ Allow users to select multiple options with visual feedback.
 @blade
 <x-demo class="flex justify-center">
     <div
-        class="w-full !max-w-[17rem] mx-auto"
+        class="max-x-2xs mx-auto"
         x-data="{
             selectedSkills:[]
         }"
     >
         <x-ui.select 
+            class="w-3xs"
             placeholder="Choose your skills..."
             icon="academic-cap"
             multiple
             x-model="selectedSkills"
             clearable
-            description="Select all skills that apply"
             >
                 <x-ui.select.option value="php" icon="code-bracket">PHP</x-ui.select.option>
                 <x-ui.select.option value="javascript" icon="bolt">JavaScript</x-ui.select.option>
@@ -192,7 +193,6 @@ Allow users to select multiple options with visual feedback.
     icon="academic-cap"
     multiple
     clearable
-    description="Select all skills that apply"
     wire:model="selectedSkills">
         <x-ui.select.option value="php" icon="code-bracket">PHP</x-ui.select.option>
         <x-ui.select.option value="javascript" icon="bolt">JavaScript</x-ui.select.option>
@@ -210,19 +210,19 @@ Combine search functionality with multiple selection for the best user experienc
 @blade
 <x-demo class="flex justify-center">
     <div
-        class="w-full !max-w-[17rem] mx-auto"
+        class="max-x-2xs mx-auto"
         x-data="{
             members:[]
         }"
     >
         <x-ui.select 
+            class="w-3xs"
             placeholder="Search and select members..."
             icon="users"
             x-model="members"
             searchable
             multiple
             clearable
-            description="Search and select team members"
             >
                 <x-ui.select.option value="john" icon="user">John Doe</x-ui.select.option>
                 <x-ui.select.option value="jane" icon="user">Jane Smith</x-ui.select.option>
@@ -242,7 +242,6 @@ Combine search functionality with multiple selection for the best user experienc
     searchable
     multiple
     clearable
-    description="Search and select team members"
     wire:model="selectedMembers">
         <x-ui.select.option value="john" icon="user">John Doe</x-ui.select.option>
         <x-ui.select.option value="jane" icon="user">Jane Smith</x-ui.select.option>
@@ -259,12 +258,12 @@ Show different states for validation feedback.
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="w-full !max-w-[17rem] mx-auto space-y-4">
+    <div class="max-x-2xs mx-auto space-y-4">
         <x-ui.select 
+            class="w-3xs"
             placeholder="Choose option..."
             icon="exclamation-circle"
             :invalid="true"
-            description="Please select a valid option"
             >
                 <x-ui.select.option value="option1">Option 1</x-ui.select.option>
                 <x-ui.select.option value="option2">Option 2</x-ui.select.option>
@@ -279,7 +278,6 @@ Show different states for validation feedback.
     placeholder="Choose option..."
     icon="exclamation-circle"
     invalid="true"
-    description="Please select a valid option"
     wire:model="invalidSelection">
         <x-ui.select.option value="option1">Option 1</x-ui.select.option>
         <x-ui.select.option value="option2">Option 2</x-ui.select.option>
@@ -290,8 +288,9 @@ Show different states for validation feedback.
 
 @blade
 <x-demo class="flex justify-center">
-    <div class="w-full !max-w-[17rem] mx-auto">
+    <div class="max-x-2xs mx-auto">
         <x-ui.select 
+            class="w-3xs"
             placeholder="This is disabled..."
             disabled
             >
