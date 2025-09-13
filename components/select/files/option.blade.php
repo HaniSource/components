@@ -17,25 +17,43 @@
 @endphp
 
 <li 
+    
     tabindex="0"
+
     x-bind:data-value="@js($value)"
     x-bind:data-label="@js($slot)"
 
     x-show="isItemShown(@js($value))"
     
-    x-on:mouseleave="$el.blur()"
-    x-on:mouseenter="$el.focus()"
+    x-on:mouseleave="handleMouseLeave($el)"
     
+    {{--
+        this required only when using none searchable select because 
+        it moves out the focus state from the input
+    --}}
+    @if(!$searchable)
+        x-on:mouseover="$focus.focus($el)"
+    @endif
+
+    x-on:mouseover="handleMouseEnter(@js($value))"
+
+
     x-bind:id="'option-' + getFilteredIndex(@js($value))"
     x-on:click="select(@js($value))"
     
     x-bind:class="{
-        'bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-100 hover:dark:bg-neutral-700': isFocused(@js($value)),
+        'bg-neutral-300 dark:bg-neutral-700 ': isFocused(@js($value)),
+        {{-- 'hover:bg-neutral-100 hover:dark:bg-neutral-700': !isFocused(@js($value)), --}}
         '[&>[data-slot=icon]]:opacity-100': isSelected(@js($value)),
     }"
     role="option"
     data-slot="option"
-    class="cursor-pointer focus:bg-neutral-100 focus:dark:bg-neutral-700 px-3 py-0.5 rounded-[calc(var(--round)-var(--padding))] col-span-full grid grid-cols-subgrid items-center w-full self-center gap-x-2 text-[1rem]"
+    
+    class="
+        rounded-[calc(var(--popup-round)-var(--popup-padding))] col-span-full grid grid-cols-subgrid items-center
+        focus:bg-neutral-100 focus:dark:bg-neutral-700 px-3 py-0.5 w-full text-[1rem]
+        self-center gap-x-2 
+    "
 >
     <x-ui.icon 
         :name="$checkIcon"
