@@ -9,18 +9,30 @@
 <li 
     x-show="itemShouldShow(@js($value))"
     data-slot="autocomplete-item"
+    
+    x-on:mouseleave="$el.blur()"
+    x-on:mouseenter="handleMouseEnter(@js($value))"
+    
+    x-bind:id="'option-' + getFilteredIndex(@js($value))"
+    
+    x-on:click.stop="select(@js($value))"
+
+    x-bind:data-value="@js($value)"
+
+    tabindex="0"
+
+    {{-- x-on:focus="console.log('focused')" --}}
+    x-bind:id="'item-' + getFilteredIndex(@js($value))"
+    
+    x-bind:class="{
+        'bg-neutral-300 dark:bg-neutral-700 hover:bg-neutral-100 hover:dark:bg-neutral-700': isFocused(@js($value)),
+        '[&>[data-slot=icon]]:opacity-100': isSelected(@js($value)),
+    }"
+
+    role="option"
+    x-bind:aria-selected="isSelected(@js($value))"
+
+    class="cursor-pointer focus:bg-neutral-100 focus:dark:bg-neutral-700 px-3 py-1 rounded-[calc(var(--popup-round)-var(--popup-padding))] w-full text-[1rem]"
 >
-    <button 
-        x-on:mouseenter="$el.focus()"
-        x-on:click="select(@js($value))"
-        x-bind:value="@js($value)"
-        x-bind:class="{ 
-            'dark:bg-white/5 bg-neutral-100': isSelected(@js($value)),
-            'hover:dark:bg-white/5 hover:bg-neutral-50': !isSelected(@js($value))
-        }"
-        class="dark:focus:bg-white/5 focus:bg-neutral-800/5 w-full px-3 py-0.5 text-start rounded-[calc(var(--autocomplete-round)-var(--autocomplete-padding))] transition-colors focus:outline-none"
-        tabindex="0"
-    >
-        {{ $slot }}
-    </button>
+    {{ $slot }}
 </li>
