@@ -3,6 +3,7 @@
     'iconAfter' => 'chevron-up-down',
     'disabled' => false,
     'clearable' => false,
+    'searchable' => false,
     'triggerClass' => '',
     'invalid' => false,
     'trigger' => null,
@@ -31,21 +32,23 @@
     @endif
 
     <button 
-        x-on:click="toggle"
+        x-on:click="toggle()"
         x-bind:aria-expanded="open"
         type="button"
         aria-haspopup="listbox"
         data-slot="select-control"
-        @disabled($disabled)
         {{ $attributes->class([
-            'border bg-white truncate border-black/10 dark:bg-neutral-900 dark:border-white/10 border-gray-300 dark:text-gray-300 rounded-(--round) px-2 py-1 text-start ',
+            'border bg-white truncate border-black/10 dark:bg-neutral-900 dark:border-white/10 border-gray-300 dark:text-gray-300 rounded-box px-2 py-1 text-start ',
             'col-span-4 col-start-1 row-start-1 justify-self-stretch',
-                // make button span all available grid columns 
+            // make button span all available grid columns 
             'disabled:opacity-60 flex disabled:cursor-auto cursor-pointer',
             'overflow-hidden whitespace-nowrap', 
             'border-red-500/50!' => $invalid, 
             $triggerClass, 
         ]) }}
+        {{-- when not searchable, the trigger who managed the active aria... --}}
+        x-bind:aria-activedescendant="!isSearchable && activeIndex !== null ? 'option-' + activeIndex : null"
+        @disabled($disabled)
     >
         <span class="truncate block w-full">
             <span x-text="label">select...</span>

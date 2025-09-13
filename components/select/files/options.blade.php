@@ -6,23 +6,16 @@
     'checkIcon' => 'check'
 ])
 
-<div 
+<x-ui.popup
     x-show="open"
-    x-trap="open"
-    x-effect="
-        if(!open) $el.blur()
-    "
-    x-anchor.offset.5="$refs.selectTrigger"
-    x-transition 
     x-on:click.away="close()"
     x-on:keydown.escape="close()"
-    style="display: none;"
-    class="bg-white w-full dark:bg-neutral-800 z-50 rounded-(--round) border border-neutral-200 dark:border-neutral-700"
+    x-anchor.offset.3="$refs.selectTrigger"
 >
     @if ($searchable)
         <div
             @class([
-                'grid items-center justify-center grid-cols-[20px_1fr] px-2', // give the icon 20 px and leave the input take the rest
+                'grid items-center justify-center grid-cols-[20px_1fr] px-2 mb-1', // give the icon 20 px and leave the input take the rest
                 '[&>[data-slot=icon]+[data-slot=search-control]]:pl-6', // because there is an icon give it 6 padding   
                 'w-full border-b border-neutral-200 dark:border-neutral-700',
             ])    
@@ -44,7 +37,7 @@
                 data-slot="search-control"
                 placeholder="search..."
                 @class([
-                    'bg-transparent placeholder:text-neutral-500 dark:placeholder:text-neutral-400 dark:text-neutral-50 text-neutral-900',
+                    'bg-transparent placeholder:text-neutral-500 dark:placeholder:text-neutral-400 dark:text-neutral-50 text-neutral-900 ',
                     'ring-0 ring-offset-0 outline-none focus:ring-0 border-0',
                     'col-span-4 col-start-1 row-start-1',
                 ])
@@ -57,9 +50,7 @@
         x-on:keydown.enter.prevent.stop="select($focus.focused().dataset.value)"
         x-on:keydown.up.prevent.stop="$focus.wrap().prev()"
         x-on:keydown.down.prevent.stop="$focus.wrap().next()"
-        @class([
-            "grid grid-cols-[auto_auto_1fr] !p-(--padding) gap-y-1",
-        ])
+        class="grid grid-cols-[auto_auto_1fr] gap-y-1 overflow-y-auto max-h-60"
     >
         {{ $slot }}
     </ul>
@@ -68,4 +59,4 @@
             no results found
         </x-ui.text>
     </template>
-</div>
+</x-ui.popup>

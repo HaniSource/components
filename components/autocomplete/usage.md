@@ -18,7 +18,7 @@ php artisan sheaf:install autocomplete
 ## Usage
 @blade
 <x-demo>
-    <div class="w-full max-w-md mx-auto">
+    <div class="w-full max-w-3xs mx-auto">
         <x-ui.autocomplete 
             label="Search Countries" 
             placeholder="Type to search..."
@@ -97,9 +97,8 @@ Enhance the autocomplete with leading and trailing icons for better visual commu
 
 @blade
 <x-demo>
-    <div class="w-full max-w-md mx-auto">
+    <div class="w-full max-w-3xs mx-auto">
         <x-ui.autocomplete 
-            label="Search Technologies" 
             placeholder="Find your favorite tech..."
             icon="code-bracket"
             iconTrailing="magnifying-glass"
@@ -137,9 +136,8 @@ Add a clear button to easily reset the input value.
 
 @blade
 <x-demo>
-    <div class="w-full max-w-md mx-auto">
+    <div class="w-full max-w-3xs mx-auto">
         <x-ui.autocomplete 
-            label="Search Cities" 
             placeholder="Type city name..."
             icon="map-pin"
             clearable="true"
@@ -179,15 +177,7 @@ Show different states for validation feedback.
 
 @blade
 <x-demo>
-    <div class="w-full max-w-md mx-auto space-y-4">
-        <x-ui.autocomplete 
-            label="Valid Selection" 
-            placeholder="Search..."
-            icon="check-circle"
-            >
-                <x-ui.autocomplete.item>Valid Option 1</x-ui.autocomplete.item>
-                <x-ui.autocomplete.item>Valid Option 2</x-ui.autocomplete.item>
-        </x-ui.autocomplete>
+    <div class="w-full max-w-3xs mx-auto space-y-4">
         <x-ui.autocomplete 
             label="Invalid Selection" 
             placeholder="Search..."
@@ -203,16 +193,6 @@ Show different states for validation feedback.
 @endblade
 
 ```html
-<!-- Valid state -->
-<x-ui.autocomplete 
-    label="Valid Selection" 
-    placeholder="Search..."
-    icon="check-circle"
-    wire:model="validSelection">
-        <x-ui.autocomplete.item>Valid Option 1</x-ui.autocomplete.item>
-        <x-ui.autocomplete.item>Valid Option 2</x-ui.autocomplete.item>
-</x-ui.autocomplete>
-
 <!-- Invalid state -->
 <x-ui.autocomplete 
     label="Invalid Selection" 
@@ -230,11 +210,10 @@ Show different states for validation feedback.
 
 @blade
 <x-demo>
-    <div class="w-full max-w-md mx-auto space-y-4">
+    <div class="w-full max-w-3xs mx-auto space-y-4">
         <x-ui.autocomplete 
-            label="Disabled Autocomplete" 
             placeholder="This is disabled..."
-            disabled="true"
+            :disabled="true"
             >
                 <x-ui.autocomplete.item>Option 1</x-ui.autocomplete.item>
                 <x-ui.autocomplete.item>Option 2</x-ui.autocomplete.item>
@@ -242,7 +221,7 @@ Show different states for validation feedback.
         <x-ui.autocomplete 
             label="Readonly Autocomplete" 
             placeholder="This is readonly..."
-            readonly="true"
+            readonly
             >
                 <x-ui.autocomplete.item>Option 1</x-ui.autocomplete.item>
                 <x-ui.autocomplete.item>Option 2</x-ui.autocomplete.item>
@@ -266,7 +245,7 @@ Show different states for validation feedback.
 <x-ui.autocomplete 
     label="Readonly Autocomplete" 
     placeholder="This is readonly..."
-    readonly="true"
+    readonly
     wire:model="readonlyValue">
         <x-ui.autocomplete.item>Option 1</x-ui.autocomplete.item>
         <x-ui.autocomplete.item>Option 2</x-ui.autocomplete.item>
