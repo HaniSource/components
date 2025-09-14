@@ -1,3 +1,9 @@
 files:
   index: resources/views/components/ui/autocomplete/index.blade.php
-  item: resources/views/components/ui/autocomplete/item.blade.php
+  items: resources/views/components/ui/autocomplete/items.blade.php
+  input: resources/views/components/ui/autocomplete/input.blade.php
+  item:  resources/views/components/ui/autocomplete/item.blade.php
+
+dependencies:
+  internal: [icon]
+  helper: [popup]

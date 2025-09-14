@@ -1,0 +1,6 @@
+files:
+  index: resources/views/components/ui/popover/index.blade.php
+  overlay: resources/views/components/ui/popover/overlay.blade.php
+  trigger: resources/views/components/ui/popover/trigger.blade.php
+dependencies:
+  helper: [popup]

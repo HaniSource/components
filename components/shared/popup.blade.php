@@ -33,7 +33,7 @@
             })
         "
     @endif
-    {{ $attributes->class(["absolute z-50 bg-white w-full dark:bg-neutral-800 mt-1 backdrop-blur-xl border dark:border-white/10 border-black/10 rounded-(--popup-round) shadow-lg p-(--popup-padding)"]) }}
+    {{ $attributes->class(["absolute z-50 bg-white w-full dark:bg-neutral-800 mt-1 backdrop-blur-xl border dark:border-neutral-700 border-neutral-200 rounded-(--popup-round) shadow-lg p-(--popup-padding)"]) }}
     x-transition:enter="transition ease-out duration-200"
     x-transition:enter-start="opacity-0 transform scale-95"
     x-transition:enter-end="opacity-100 transform scale-100"
