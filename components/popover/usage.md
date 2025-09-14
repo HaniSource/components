@@ -6,6 +6,8 @@ name: 'popover'
 
 The `popover` component provides a flexible overlay system for displaying contextual information or interactive content. 
 
+> it is like a [dropdown](/docs/components/dropdown) with full freedom 
+
 ## Installation
 
 Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `popover` component easily:
