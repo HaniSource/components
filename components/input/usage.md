@@ -19,7 +19,7 @@ php artisan sheaf:install input
 ## Basic Usage
 
 @blade
-<x-demo x-data="{ value: 'Hello World' }">
+<x-demo x-data="{ value: '' }">
     <x-ui.input 
         class="max-w-sm mx-auto"
         x-model="value" 

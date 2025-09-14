@@ -386,13 +386,6 @@ php artisan sheaf:list
 
 ### Filtering Options
 
-```bash
-# List only free components
-php artisan sheaf:list --type=free
-
-# List only premium components
-php artisan sheaf:list --type=premium
-```
 
 
 ### Getting Help
