@@ -6,4 +6,4 @@ files:
 
 dependencies:
   internal: [icon]
-  helper: [popup]
+  helpers: [popup]
