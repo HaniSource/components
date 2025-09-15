@@ -2,17 +2,14 @@
 @props([
     'disabled' => false,
     'resize' => 'vertical',
-    'name' => $attributes->whereStartsWith('wire:model')->first(),
+    'name' => $attributes->whereStartsWith('wire:model')->first() ?? $attributes->whereStartsWith('x-model')->first(),
     'rows' => null,
-    'persist' => false,
     'invalid' => null,
     ])
 @php
     $rows ??= 3;
 
     $initialHeight = (($rows) * 1.5) + 0.75;
-
-    $persist = filled($persistenceKey = $persist && $name ? $name . '-value' : null);
 
     $classes = [
         // Text colors
@@ -52,7 +49,7 @@
         initialHeight: @js($initialHeight) + 'rem',
         height: @js($initialHeight) + 'rem',
         name: @js($name),
-        contents: '',
+        state: '',
         resize() {
             if (!this.$el) return;
             this.$el.style.height = 'auto';
@@ -66,7 +63,28 @@
         }
     }"
     x-init="
+
+        $nextTick(() => {
+            // Initialize state from x-model or wire:model binding
+            this.state = this.$root?._x_model?.get();
+        })
+
+        // Two-way data binding: sync internal state back to Alpine/Livewire
+        $watch('state', (value) => {
+            // Sync with Alpine.js x-model
+            this.$root?._x_model?.set(value);
+                
+            // Sync with Livewire wire:model (if present)
+            let wireModel = this?.$root.getAttributeNames().find(n => n.startsWith('wire:model'))
+                
+            if(this.$wire && wireModel){
+                let prop = this.$root.getAttribute(wireModel)
+                this.$wire.set(prop, value, wireModel?.includes('.live'));
+            }
+        });
+
         if(!this.$el) return;
+
         // give our textarea initial height based on the provided rows
         this.$el.style.height = this.initialHeight;
 
@@ -82,8 +100,7 @@
     data-slot="textarea"
     x-intersect.once="resize()"
     rows={{ $rows }}
-    x-on:input="resize()"
+    x-on:input.stop="resize()"
     x-on:resize.window="resize()"
     x-on:keydown="resize()"
-    x-modelable="contents"
 ></textarea>
