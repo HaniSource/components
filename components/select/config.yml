@@ -4,5 +4,5 @@ files:
   options: resources/views/components/ui/select/options.blade.php
   trigger: resources/views/components/ui/select/trigger.blade.php
 dependencies:
-  internal: [icon]
+  internal: [icon,text]
   helper: [popup]

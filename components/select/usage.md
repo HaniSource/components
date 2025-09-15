@@ -237,12 +237,14 @@ Combine search functionality with multiple selection for the best user experienc
 
 ```html
 <x-ui.select 
+    class="w-3xs"
     placeholder="Search and select members..."
     icon="users"
+    wire:model="members"
     searchable
     multiple
     clearable
-    wire:model="selectedMembers">
+    >
         <x-ui.select.option value="john" icon="user">John Doe</x-ui.select.option>
         <x-ui.select.option value="jane" icon="user">Jane Smith</x-ui.select.option>
         <x-ui.select.option value="mike" icon="user">Mike Johnson</x-ui.select.option>
