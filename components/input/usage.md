@@ -205,6 +205,50 @@ You can use it outside Livewire with just Alpine (and Blade):
 />
 ```
 
+### Static Right and Left Icons
+
+you can pass left icon to the `icon` prop
+@blade
+<x-demo x-data="{ search: '' }">
+    <x-ui.input 
+        x-model="search" 
+        placeholder="search..."
+        class="max-w-sm mx-auto"
+        icon="magnifying-glass"
+    />
+</x-demo>
+@endblade
+
+```html
+<x-ui.input 
+    x-model="search" 
+    placeholder="Search..."
+    class="max-w-sm mx-auto"
+    icon="magnifying-glass"
+/>
+```
+you can pass the right icon to the `rightIcon` prop
+
+@blade
+<x-demo x-data="{ search: '' }">
+    <x-ui.input 
+        x-model="search" 
+        placeholder="what name of you bank account?"
+        class="max-w-sm mx-auto"
+        rightIcon="banknotes"
+    />
+</x-demo>
+@endblade
+
+```html
+<x-ui.input 
+    x-model="search" 
+    placeholder="Search..."
+    class="max-w-sm mx-auto"
+    rightIcon="magnifying-glass"
+/>
+```
+
 
 ## Input Actions
 

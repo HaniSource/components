@@ -16,12 +16,12 @@
 >     
     <x-ui.icon 
         name="eye-slash" 
-        class="hidden [[data-slot-revealed]>&]:block"
+        class="hidden [[data-slot-revealed]>&]:inline-flex"
         aria-hidden="true"
     />
     <x-ui.icon 
         name="eye" 
-        class="block [[data-slot-revealed]>&]:hidden"
+        class="inline-flex [[data-slot-revealed]>&]:hidden"
         aria-hidden="true"
     />
 </x-ui.input.options.button>

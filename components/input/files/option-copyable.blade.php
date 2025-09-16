@@ -21,12 +21,12 @@
 >     
     <x-ui.icon 
         name="clipboard-document-check" 
-        class="hidden [[data-slot-copied]>&]:block" 
+        class="hidden [[data-slot-copied]>&]:inline-flex" 
         aria-hidden="true"
     />
     <x-ui.icon 
         name="clipboard-document" 
-        class="block [[data-slot-copied]>&]:hidden" 
+        class="inline-flex [[data-slot-copied]>&]:hidden" 
         aria-hidden="true"
     />
 </x-ui.input.options.button>

@@ -63,7 +63,6 @@
         }
     }"
     x-init="
-
         $nextTick(() => {
             // Initialize state from x-model or wire:model binding
             this.state = this.$root?._x_model?.get();
