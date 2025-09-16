@@ -2,7 +2,7 @@
     x-data="{
         revealed: false,
         toggleReveal() {
-            const input = this.$refs.input;
+            const input = $el.closest('[data-slot=input-actions]').parentElement.querySelector('input[data-control-id=input]');
             if (!input) return;
             
             this.revealed = !this.revealed;
