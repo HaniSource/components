@@ -24,7 +24,7 @@
     x-bind:data-label="@js($slot)"
 
     x-show="isItemShown(@js($value))"
-    
+
     x-on:mouseleave="handleMouseLeave($el)"
     
     {{--
@@ -58,7 +58,7 @@
     <x-ui.icon 
         :name="$checkIcon"
         @class([
-            'text-black dark:text-white z-10 place-self-center opacity-0 size-[1.15rem]',
+            ' z-10 place-self-center opacity-0 size-[1.15rem]',
             $checkIconClass,
         ])
     />
@@ -66,10 +66,11 @@
         <x-ui.icon 
             :name="$icon"
             @class([
-                'text-black dark:text-white z-10 pl-1.5',
+                'z-10 pl-1.5',
                 $iconClass
             ]) 
         />
     @endif
-    <span class="col-start-3 text-start text-black dark:text-white">{{ $slot  }}</span>
+    
+    <span class="col-start-3 text-start text-neutral-950 dark:text-neutral-50">{{ $slot  }}</span>
 </li>

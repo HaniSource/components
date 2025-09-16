@@ -32,7 +32,7 @@
     role="option"
     x-bind:aria-selected="isSelected(@js($value))"
 
-    class="cursor-pointer focus:bg-neutral-100 focus:dark:bg-neutral-700 px-3 py-1 rounded-[calc(var(--popup-round)-var(--popup-padding))] w-full text-[1rem]"
+    class="cursor-pointer focus:bg-neutral-100 focus:dark:bg-neutral-700 px-3 py-1 rounded-[calc(var(--popup-round)-var(--popup-padding))] w-full text-[1rem] text-neutral-950 dark:text-neutral-50"
 >
     {{ $slot }}
 </li>
