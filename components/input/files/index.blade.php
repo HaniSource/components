@@ -109,7 +109,7 @@
             // Prevents text from overlapping with overlaid icons by adding padding
             
             // LEFT PADDING: Space for left icon when present
-            '[&:has([data-slot=left-icon])>[data-slot=control]]:pl-[1.9rem]',
+            '[&:has([data-slot=left-icon])>[data-slot=control]]:pl-[2.2rem]',
             
             // RIGHT PADDING: Dynamic padding based on number of action elements
             // Each action input option (or right icon) takes ~1.9rem of space, padding increases accordingly
@@ -142,16 +142,16 @@
             'grid-template-columns: 1fr calc(var(--icon-width) * var(--icon-count))' => blank($icon),
             
             // WITH LEFT ICON: 3-column layout  
-            // Column 1: Left icon (fixed 2rem)
+            // Column 1: Left icon (fixed 2.3rem) 2 seems too small spacially for  left icons
             // Column 2: Input (flexible width)
             // Column 3: Action icons (fixed width based on count)
-            'grid-template-columns: calc(var(--icon-width)) 1fr calc(var(--icon-width) * var(--icon-count))' => filled($icon),
+            'grid-template-columns: 2.3rem 1fr calc(var(--icon-width) * var(--icon-count))' => filled($icon),
         ])
     >
         @if($icon)
             <x-ui.icon
                 :name="$icon"
-                class="!text-neutral-500 dark:!text-neutral-500"
+                class="!text-neutral-500 dark:!text-neutral-500 !size-[1.15rem]"
                 data-slot="left-icon"
             />
         @endif
@@ -195,9 +195,7 @@
     @if (filled($suffix) || filled($suffixIcon))
         <x-ui.input.extra-slot data-slot="input-suffix">
             @if ($suffix instanceof \Illuminate\View\ComponentSlot)
-                <div class="px-3">
-                    {{ $suffix }}
-                </div>
+                {{ $suffix }}
             @elseif ($suffixIcon)
                 <x-ui.icon name="{{ $suffixIcon }}" />
             @endif

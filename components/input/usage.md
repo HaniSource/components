@@ -28,7 +28,7 @@ php artisan sheaf:install input
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="name"  
     placeholder="Enter your name..."
@@ -39,7 +39,7 @@ php artisan sheaf:install input
 
 To use with Livewire you only need to use `wire:model="property"` to bind your input state:
 
-```html
+```blade
 <x-ui.input 
     wire:model="email" 
     placeholder="Enter email..."
@@ -51,7 +51,7 @@ To use with Livewire you only need to use `wire:model="property"` to bind your i
 
 You can use it outside Livewire with just Alpine (and Blade):
 
-```html
+```blade
 <div x-data="{ email: '' }">
     <x-ui.input 
         x-model="email" 
@@ -76,7 +76,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="text" 
     placeholder="Enter text..."
@@ -97,7 +97,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="email" 
     placeholder="Enter email..."
@@ -118,7 +118,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="password" 
     placeholder="Enter password..."
@@ -139,7 +139,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="age" 
     placeholder="Enter age..."
@@ -168,7 +168,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="url" 
     placeholder="Enter your site name"
@@ -196,7 +196,7 @@ You can use it outside Livewire with just Alpine (and Blade):
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="search" 
     placeholder="Search..."
@@ -219,7 +219,7 @@ you can pass left icon to the `icon` prop
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     x-model="search" 
     placeholder="Search..."
@@ -240,7 +240,7 @@ you can pass the right icon to the `rightIcon` prop
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     x-model="search" 
     placeholder="Search..."
@@ -266,7 +266,7 @@ you can pass the right icon to the `rightIcon` prop
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="apiKey" 
     placeholder="API Key"
@@ -288,7 +288,7 @@ you can pass the right icon to the `rightIcon` prop
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="search" 
     placeholder="Search..."
@@ -310,7 +310,7 @@ you can pass the right icon to the `rightIcon` prop
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="password" 
     placeholder="Password"
@@ -334,7 +334,7 @@ you can pass the right icon to the `rightIcon` prop
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.input 
     wire:model="value" 
     placeholder="Try all actions..."
@@ -366,7 +366,7 @@ read more about [field component](/field)
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.field required>
     <x-ui.label>Full Name</x-ui.label>
     <x-ui.description>Your first and last name as it appears on official documents</x-ui.description>
@@ -383,7 +383,7 @@ read more about [field component](/field)
 
 read more about [label component](/components/label)
 
-```html
+```blade
 <x-ui.label>Email Address</x-ui.label>
 <!-- or -->
 <x-ui.label text="Email Address" />
@@ -401,7 +401,7 @@ intent to be used with inputs
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.description>
     This information will be displayed publicly so be careful what you share.
 </x-ui.description>
@@ -411,7 +411,7 @@ intent to be used with inputs
 
 read more about [error component](/components/error)
 
-```html
+```blade
 <x-ui.error name="email" />
 <!-- or with manual messages -->
 <x-ui.error messages="['Custom error message']" />
@@ -446,7 +446,7 @@ Group related form fields together with a fieldset. read more about [fieldset co
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.fieldset label="Account Information">
     <x-ui.field required>
         <x-ui.label>Email</x-ui.label>
@@ -547,7 +547,7 @@ Group related form fields together with a fieldset. read more about [fieldset co
 </x-demo>
 @endblade
 
-```html
+```blade
 <form class="space-y-6">
     <x-ui.fieldset label="Personal Information">
         <x-ui.field required>
@@ -648,7 +648,7 @@ When validation fails, the input automatically shows error styling.
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.field>
     <x-ui.label>Email</x-ui.label>
     <x-ui.input 
@@ -679,7 +679,7 @@ When validation fails, the input automatically shows error styling.
 </x-demo>
 @endblade
 
-```html
+```blade
 <x-ui.field disabled>
     <x-ui.label>Disabled Input</x-ui.label>
     <x-ui.description>This field is currently disabled</x-ui.description>
@@ -690,6 +690,483 @@ When validation fails, the input automatically shows error styling.
     />
 </x-ui.field>
 ```
+
+## Input Masking
+
+Transform your input fields into smart, formatted text controls using Alpine.js's powerful mask plugin. The input component seamlessly integrates with Alpine's masking capabilities to provide real-time formatting as users type.
+
+### Basic Masking
+
+Apply simple masks using the `x-mask` directive with wildcard patterns:
+
+@blade
+<x-demo>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <x-ui.field class="max-w-sm">
+            <x-ui.label>Phone Number</x-ui.label>
+            <x-ui.input 
+                x-mask="(999) 999-9999"
+                placeholder="(555) 123-4567"
+                icon="phone"
+            />
+        </x-ui.field>
+        
+        <x-ui.field class="max-w-sm">
+            <x-ui.label>Date of Birth</x-ui.label>
+            <x-ui.input 
+                x-mask="99/99/9999"
+                placeholder="MM/DD/YYYY"
+                icon="calendar"
+            />
+        </x-ui.field>
+    </div>
+</x-demo>
+@endblade
+
+```blade
+<!-- Phone Number -->
+<x-ui.input 
+    x-mask="(999) 999-9999"
+    placeholder="(555) 123-4567"
+    icon="phone"
+/>
+
+<!-- Date -->
+<x-ui.input 
+    x-mask="99/99/9999"
+    placeholder="MM/DD/YYYY"
+    icon="calendar"
+/>
+```
+
+### Mask Wildcards
+
+Alpine.js supports several wildcard characters for different input requirements:
+
+@blade
+<x-demo>
+    <div class="space-y-4">
+        <x-ui.field>
+            <x-ui.label>Product Code (Any characters)</x-ui.label>
+            <x-ui.description>Wildcard: * (any character)</x-ui.description>
+            <x-ui.input 
+                x-mask="***-****-***"
+                placeholder="ABC-1234-XYZ"
+                class="max-w-sm"
+            />
+        </x-ui.field>
+        
+        <x-ui.field>
+            <x-ui.label>Department Code (Letters only)</x-ui.label>
+            <x-ui.description>Wildcard: a (alpha characters only)</x-ui.description>
+            <x-ui.input 
+                x-mask="aaa-aaa"
+                placeholder="DEV-OPS"
+                class="max-w-sm"
+            />
+        </x-ui.field>
+        
+        <x-ui.field>
+            <x-ui.label>Employee ID (Numbers only)</x-ui.label>
+            <x-ui.description>Wildcard: 9 (numeric characters only)</x-ui.description>
+            <x-ui.input 
+                x-mask="9999-9999"
+                placeholder="1234-5678"
+                class="max-w-sm"
+            />
+        </x-ui.field>
+    </div>
+</x-demo>
+@endblade
+
+```blade
+<!-- Any character (*) -->
+<x-ui.input x-mask="***-****-***" placeholder="ABC-1234-XYZ" />
+
+<!-- Alpha only (a) -->
+<x-ui.input x-mask="aaa-aaa" placeholder="DEV-OPS" />
+
+<!-- Numeric only (9) -->
+<x-ui.input x-mask="9999-9999" placeholder="1234-5678" />
+```
+
+| Wildcard | Description | Example |
+|----------|-------------|---------|
+| `*` | Any character | `***-***` → `ABC-123` |
+| `a` | Alpha characters (a-z, A-Z) | `aaa-aaa` → `DEV-OPS` |
+| `9` | Numeric characters (0-9) | `999-999` → `123-456` |
+
+### Dynamic Masking
+
+For complex scenarios where the mask needs to change based on user input, use `x-mask:dynamic`:
+
+@blade
+<x-demo>
+    <x-ui.field>
+        <x-ui.label>Credit Card Number</x-ui.label>
+        <x-ui.description>
+            Try typing a number starting with 34 or 37 (Amex format) vs other numbers
+        </x-ui.description>
+        <x-ui.input 
+            x-mask:dynamic="
+                $input.startsWith('34') || $input.startsWith('37')
+                    ? '9999 999999 99999' : '9999 9999 9999 9999'
+            "
+            placeholder="Enter credit card number"
+            icon="credit-card"
+            class="max-w-sm"
+        />
+    </x-ui.field>
+</x-demo>
+@endblade
+
+```blade
+<x-ui.input 
+    x-mask:dynamic="
+        $input.startsWith('34') || $input.startsWith('37')
+            ? '9999 999999 99999' : '9999 9999 9999 9999'
+    "
+    placeholder="Enter credit card number"
+    icon="credit-card"
+/>
+```
+
+### Money Input Masking
+
+Alpine provides a built-in `$money()` function for currency formatting:
+
+@blade
+<x-demo>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <x-ui.field>
+            <x-ui.label>USD Amount</x-ui.label>
+            <x-ui.input 
+                x-mask:dynamic="$money($input)"
+                placeholder="0.00"
+                icon="banknotes"
+            >
+                <x-slot name="prefix">$</x-slot>
+            </x-ui.input>
+        </x-ui.field>
+        
+        <x-ui.field>
+            <x-ui.label>EUR Amount</x-ui.label>
+            <x-ui.input 
+                x-mask:dynamic="$money($input, ',')"
+                placeholder="0,00"
+                icon="banknotes"
+            >
+                <x-slot name="suffix">€</x-slot>
+            </x-ui.input>
+        </x-ui.field>
+        
+        <x-ui.field>
+            <x-ui.label>High Precision</x-ui.label>
+            <x-ui.input 
+                x-mask:dynamic="$money($input, '.', ',', 4)"
+                placeholder="0.0000"
+                icon="banknotes"
+            >
+                <x-slot name="prefix">$</x-slot>
+            </x-ui.input>
+        </x-ui.field>
+    </div>
+</x-demo>
+@endblade
+
+```blade
+<!-- Standard USD format -->
+<x-ui.input x-mask:dynamic="$money($input)" placeholder="0.00">
+    <x-slot name="prefix">$</x-slot>
+</x-ui.input>
+
+<!-- European format (comma as decimal separator) -->
+<x-ui.input x-mask:dynamic="$money($input, ',')" placeholder="0,00">
+    <x-slot name="suffix">€</x-slot>
+</x-ui.input>
+
+<!-- Custom separators and precision -->
+<x-ui.input 
+    x-mask:dynamic="$money($input, '.', ',', 4)" 
+    placeholder="0.0000"
+>
+    <x-slot name="prefix">$</x-slot>
+</x-ui.input>
+```
+
+### Advanced Masking Examples
+
+#### Social Security Number
+@blade
+<x-demo>
+    <x-ui.field class="max-w-sm mx-auto">
+        <x-ui.label>Social Security Number</x-ui.label>
+        <x-ui.input 
+            x-mask="999-99-9999"
+            placeholder="123-45-6789"
+            icon="identification"
+        />
+    </x-ui.field>
+</x-demo>
+@endblade
+
+```blade
+<x-ui.input 
+    x-mask="999-99-9999"
+    placeholder="123-45-6789"
+    icon="identification"
+/>
+```
+
+#### License Plate
+@blade
+<x-demo>
+    <x-ui.field class="max-w-sm mx-auto">
+        <x-ui.label>License Plate</x-ui.label>
+        <x-ui.input 
+            x-mask="aaa-9999"
+            placeholder="ABC-1234"
+            icon="truck"
+        />
+    </x-ui.field>
+</x-demo>
+@endblade
+
+```blade
+<x-ui.input 
+    x-mask="aaa-9999"
+    placeholder="ABC-1234"
+    icon="truck"
+/>
+```
+
+#### Custom Business Logic
+@blade
+<x-demo>
+    <x-ui.field class="max-w-sm mx-auto">
+        <x-ui.label>Account Number</x-ui.label>
+        <x-ui.description>Different format based on account type</x-ui.description>
+        <x-ui.input 
+            x-mask:dynamic="
+                $input.startsWith('SAV') ? 'aaa-9999-9999' : 
+                $input.startsWith('CHK') ? 'aaa-999-999-999' : 
+                '999-999-999'
+            "
+            placeholder="SAV-1234-5678"
+            icon="building-library"
+        />
+    </x-ui.field>
+</x-demo>
+@endblade
+
+```blade
+<x-ui.input 
+    x-mask:dynamic="
+        $input.startsWith('SAV') ? 'aaa-9999-9999' : 
+        $input.startsWith('CHK') ? 'aaa-999-999-999' : 
+        '999-999-999'
+    "
+    placeholder="SAV-1234-5678"
+/>
+```
+
+### International Phone Numbers
+
+Handle different international phone formats dynamically:
+
+@blade
+<x-demo>
+    <x-ui.field class="max-w-sm mx-auto">
+        <x-ui.label>International Phone</x-ui.label>
+        <x-ui.description>US: +1, UK: +44, others: flexible format</x-ui.description>
+        <x-ui.input 
+            x-mask:dynamic="
+                $input.startsWith('+1') ? '+1 (999) 999-9999' :
+                $input.startsWith('+44') ? '+44 9999 999 999' :
+                $input.startsWith('+') ? '+** *** *** ****' :
+                '(999) 999-9999'
+            "
+            placeholder="+1 (555) 123-4567"
+            icon="phone"
+        />
+    </x-ui.field>
+</x-demo>
+@endblade
+
+```blade
+<x-ui.input 
+    x-mask:dynamic="
+        $input.startsWith('+1') ? '+1 (999) 999-9999' :
+        $input.startsWith('+44') ? '+44 9999 999 999' :
+        $input.startsWith('+') ? '+** *** *** ****' :
+        '(999) 999-9999'
+    "
+    placeholder="+1 (555) 123-4567"
+/>
+```
+
+### Complete Form with Masking
+
+@blade
+<x-demo>
+    <form class="space-y-6">
+        <x-ui.fieldset label="Personal Information">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <x-ui.field required>
+                    <x-ui.label>Phone Number</x-ui.label>
+                    <x-ui.input 
+                        wire:model="phone"
+                        x-mask="(999) 999-9999"
+                        placeholder="(555) 123-4567"
+                        icon="phone"
+                    />
+                </x-ui.field>
+                <!--  -->
+                <x-ui.field required>
+                    <x-ui.label>Date of Birth</x-ui.label>
+                    <x-ui.input 
+                        wire:model="dob"
+                        x-mask="99/99/9999"
+                        placeholder="MM/DD/YYYY"
+                        icon="calendar"
+                    />
+                </x-ui.field>
+            </div>
+            <!--  -->
+            <x-ui.field>
+                <x-ui.label>Social Security Number</x-ui.label>
+                <x-ui.input 
+                    wire:model="ssn"
+                    x-mask="999-99-9999"
+                    placeholder="123-45-6789"
+                    type="password"
+                    revealable
+                    icon="identification"
+                />
+            </x-ui.field>
+        </x-ui.fieldset>
+        <!--  -->
+        <x-ui.fieldset label="Financial Information">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <x-ui.field>
+                    <x-ui.label>Credit Card</x-ui.label>
+                    <x-ui.input 
+                        wire:model="credit_card"
+                        x-mask:dynamic="
+                            $input.startsWith('34') || $input.startsWith('37')
+                                ? '9999 999999 99999' : '9999 9999 9999 9999'
+                        "
+                        placeholder="1234 5678 9012 3456"
+                        icon="credit-card"
+                    />
+                </x-ui.field>
+                <!--  -->
+                <x-ui.field>
+                    <x-ui.label>Annual Salary</x-ui.label>
+                    <x-ui.input 
+                        wire:model="salary"
+                        x-mask:dynamic="$money($input)"
+                        placeholder="75,000.00"
+                        icon="banknotes"
+                    >
+                        <x-slot name="suffix">$</x-slot>
+                    </x-ui.input>
+                </x-ui.field>
+            </div>
+        </x-ui.fieldset>
+    </form>
+</x-demo>
+@endblade
+
+```blade
+<form class="space-y-6">
+    <x-ui.fieldset label="Personal Information">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <x-ui.field required>
+                <x-ui.label>Phone Number</x-ui.label>
+                <x-ui.input 
+                    wire:model="phone"
+                    x-mask="(999) 999-9999"
+                    placeholder="(555) 123-4567"
+                    icon="phone"
+                />
+                <x-ui.error name="phone" />
+            </x-ui.field>
+            
+            <x-ui.field required>
+                <x-ui.label>Date of Birth</x-ui.label>
+                <x-ui.input 
+                    wire:model="dob"
+                    x-mask="99/99/9999"
+                    placeholder="MM/DD/YYYY"
+                    icon="calendar"
+                />
+                <x-ui.error name="dob" />
+            </x-ui.field>
+        </div>
+        
+        <x-ui.field>
+            <x-ui.label>Social Security Number</x-ui.label>
+            <x-ui.input 
+                wire:model="ssn"
+                x-mask="999-99-9999"
+                placeholder="123-45-6789"
+                type="password"
+                revealable
+                icon="identification"
+            />
+            <x-ui.error name="ssn" />
+        </x-ui.field>
+    </x-ui.fieldset>
+    
+    <x-ui.fieldset label="Financial Information">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <x-ui.field>
+                <x-ui.label>Credit Card</x-ui.label>
+                <x-ui.input 
+                    wire:model="credit_card"
+                    x-mask:dynamic="
+                        $input.startsWith('34') || $input.startsWith('37')
+                            ? '9999 999999 99999' : '9999 9999 9999 9999'
+                    "
+                    placeholder="1234 5678 9012 3456"
+                    icon="credit-card"
+                />
+                <x-ui.error name="credit_card" />
+            </x-ui.field>
+            
+            <x-ui.field>
+                <x-ui.label>Annual Salary</x-ui.label>
+                <x-ui.input 
+                    wire:model="salary"
+                    x-mask:dynamic="$money($input)"
+                    placeholder="75,000.00"
+                    icon="banknotes"
+                >
+                    <x-slot name="prefix">$</x-slot>
+                </x-ui.input>
+                <x-ui.error name="salary" />
+            </x-ui.field>
+        </div>
+    </x-ui.fieldset>
+</form>
+```
+
+### Money Function Parameters
+
+The `$money()` function accepts several parameters for customization:
+
+```javascript
+$money(input, decimal_separator, thousands_separator, precision)
+```
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `input` | string | - | The current input value |
+| `decimal_separator` | string | `'.'` | Character for decimal separation |
+| `thousands_separator` | string | `','` | Character for thousands separation |
+| `precision` | number | `2` | Number of decimal places |
+
 
 ## Component Props
 
