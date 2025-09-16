@@ -22,6 +22,7 @@ php artisan sheaf:install autocomplete
         <x-ui.autocomplete 
             label="Search Countries" 
             placeholder="Type to search..."
+            leftIcon="map-pin"
             >
                 <x-ui.autocomplete.item>United States</x-ui.autocomplete.item>
                 <x-ui.autocomplete.item>United Kingdom</x-ui.autocomplete.item>
@@ -38,8 +39,8 @@ php artisan sheaf:install autocomplete
 <x-ui.autocomplete 
     label="Search Countries" 
     placeholder="Type to search..."
-    wire:model="selectedCountry"
->
+    leftIcon="map-pin"
+    >
         <x-ui.autocomplete.item>United States</x-ui.autocomplete.item>
         <x-ui.autocomplete.item>United Kingdom</x-ui.autocomplete.item>
         <x-ui.autocomplete.item>Canada</x-ui.autocomplete.item>
@@ -58,8 +59,6 @@ To use with Livewire you only need to use `wire:model="property"` to bind your i
     label="Search Products" 
     wire:model="product"
     placeholder="Find products..." 
-    icon="shopping-bag" 
-    iconTrailing="magnifying-glass"
     description="Search through our product catalog"
     >
         <x-ui.autocomplete.item>iPhone 15 Pro</x-ui.autocomplete.item>
@@ -79,8 +78,6 @@ You can use it outside Livewire with just Alpine (and Blade):
     label="Search Products" 
     x-model="product"
     placeholder="Find products..." 
-    icon="shopping-bag" 
-    iconTrailing="magnifying-glass"
     description="Search through our product catalog"
     >
         <x-ui.autocomplete.item>iPhone 15 Pro</x-ui.autocomplete.item>
@@ -100,8 +97,8 @@ Enhance the autocomplete with leading and trailing icons for better visual commu
     <div class="w-full max-w-3xs mx-auto">
         <x-ui.autocomplete 
             placeholder="Find your favorite tech..."
-            icon="code-bracket"
-            iconTrailing="magnifying-glass"
+            leftIcon="code-bracket"
+            rightIcon="magnifying-glass"
            >
                 <x-ui.autocomplete.item>Laravel</x-ui.autocomplete.item>
                 <x-ui.autocomplete.item>Vue.js</x-ui.autocomplete.item>
@@ -118,8 +115,8 @@ Enhance the autocomplete with leading and trailing icons for better visual commu
 <x-ui.autocomplete 
     label="Search Technologies" 
     placeholder="Find your favorite tech..."
-    icon="code-bracket"
-    iconTrailing="magnifying-glass"
+    leftIcon="code-bracket"
+    rightIcon="magnifying-glass"
     wire:model="selectedTech">
         <x-ui.autocomplete.item>Laravel</x-ui.autocomplete.item>
         <x-ui.autocomplete.item>Vue.js</x-ui.autocomplete.item>
@@ -140,7 +137,7 @@ Add a clear button to easily reset the input value.
         <x-ui.autocomplete 
             placeholder="Type city name..."
             icon="map-pin"
-            clearable="true"
+            clearable
             description="Search for cities worldwide"
             >
                 <x-ui.autocomplete.item>New York</x-ui.autocomplete.item>

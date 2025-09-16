@@ -6,8 +6,8 @@
     'disabled' => false,
     'readonly' => false,
     'invalid' => false,
-    'icon' => '',
-    'iconAfter' => '',
+    'leftIcon' => '',
+    'rightIcon' => '',
     'clearable' => false,
     'inputClasses' => '',
     'input' => null
@@ -64,6 +64,7 @@
                     this.$wire.set(prop, value, wireModel?.includes('.live'));
                 }
             });
+            {{-- this.$watch('activeIndex',(val) => console.log(val)) --}}
 
             this.$watch('search', (val) => {
                 // reset highlighted item whenever search text changes I don't like it, you may so here it is comented
@@ -103,7 +104,7 @@
             // Check if clicking on the input control, if so we don't need to close the dropdown
             if (
                 e.target.hasAttribute('data-slot') &&
-                e.target.getAttribute('data-slot') === 'autocomplete-control'
+                e.target.getAttribute('data-slot') === 'control'
             ) {
                 return; 
             }
@@ -190,7 +191,36 @@
         @if($input)    
             {{ $input }}
         @else
-            <x-ui.autocomplete.input/>
+            <x-ui.input
+                {{-- disable actual input scope and uses this autocomplete scope --}}
+                :bindToParentScope="true"
+
+                x-ref="autocompleteControl"  
+                x-model="search"
+                x-on:click="open = true"
+                x-on:keydown.escape="open = false"
+                x-on:keydown.up.prevent.stop="handleKeydown($event)"
+                x-on:keydown.down.prevent.stop="handleKeydown($event)"
+                x-on:keydown.enter.prevent.stop="handleKeydown($event)"
+                x-bind:aria-activedescendant="activeIndex !== null ? 'option-' + activeIndex : null"
+                x-on:focus="handleFocus()"
+                x-on:input.stop="handleInput()"
+                autocomplete="off"
+
+                {{-- passing through manually --}}
+                :$placeholder
+                :id="$name"
+                :$readonly
+                :$disabled
+                :$disabled
+                :$clearable
+                :$name
+                :$type
+
+                {{-- icons --}}
+                :$rightIcon
+                :$leftIcon
+            />
         @endif
     </div>   
     <x-ui.autocomplete.items>

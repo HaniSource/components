@@ -214,7 +214,7 @@ you can pass left icon to the `icon` prop
         x-model="search" 
         placeholder="search..."
         class="max-w-sm mx-auto"
-        icon="magnifying-glass"
+        leftIcon="magnifying-glass"
     />
 </x-demo>
 @endblade
@@ -224,7 +224,7 @@ you can pass left icon to the `icon` prop
     x-model="search" 
     placeholder="Search..."
     class="max-w-sm mx-auto"
-    icon="magnifying-glass"
+    leftIcon="magnifying-glass"
 />
 ```
 you can pass the right icon to the `rightIcon` prop
@@ -707,7 +707,7 @@ Apply simple masks using the `x-mask` directive with wildcard patterns:
             <x-ui.input 
                 x-mask="(999) 999-9999"
                 placeholder="(555) 123-4567"
-                icon="phone"
+                leftIcon="phone"
             />
         </x-ui.field>
         
@@ -716,7 +716,7 @@ Apply simple masks using the `x-mask` directive with wildcard patterns:
             <x-ui.input 
                 x-mask="99/99/9999"
                 placeholder="MM/DD/YYYY"
-                icon="calendar"
+                leftIcon="calendar"
             />
         </x-ui.field>
     </div>
@@ -728,14 +728,14 @@ Apply simple masks using the `x-mask` directive with wildcard patterns:
 <x-ui.input 
     x-mask="(999) 999-9999"
     placeholder="(555) 123-4567"
-    icon="phone"
+    leftIcon="phone"
 />
 
 <!-- Date -->
 <x-ui.input 
     x-mask="99/99/9999"
     placeholder="MM/DD/YYYY"
-    icon="calendar"
+    leftIcon="calendar"
 />
 ```
 
@@ -813,7 +813,7 @@ For complex scenarios where the mask needs to change based on user input, use `x
                     ? '9999 999999 99999' : '9999 9999 9999 9999'
             "
             placeholder="Enter credit card number"
-            icon="credit-card"
+            leftIcon="credit-card"
             class="max-w-sm"
         />
     </x-ui.field>
@@ -827,7 +827,7 @@ For complex scenarios where the mask needs to change based on user input, use `x
             ? '9999 999999 99999' : '9999 9999 9999 9999'
     "
     placeholder="Enter credit card number"
-    icon="credit-card"
+    leftIcon="credit-card"
 />
 ```
 
@@ -843,7 +843,7 @@ Alpine provides a built-in `$money()` function for currency formatting:
             <x-ui.input 
                 x-mask:dynamic="$money($input)"
                 placeholder="0.00"
-                icon="banknotes"
+                leftIcon="banknotes"
             >
                 <x-slot name="prefix">$</x-slot>
             </x-ui.input>
@@ -854,7 +854,7 @@ Alpine provides a built-in `$money()` function for currency formatting:
             <x-ui.input 
                 x-mask:dynamic="$money($input, ',')"
                 placeholder="0,00"
-                icon="banknotes"
+                leftIcon="banknotes"
             >
                 <x-slot name="suffix">€</x-slot>
             </x-ui.input>
@@ -865,7 +865,7 @@ Alpine provides a built-in `$money()` function for currency formatting:
             <x-ui.input 
                 x-mask:dynamic="$money($input, '.', ',', 4)"
                 placeholder="0.0000"
-                icon="banknotes"
+                leftIcon="banknotes"
             >
                 <x-slot name="prefix">$</x-slot>
             </x-ui.input>
@@ -904,7 +904,7 @@ Alpine provides a built-in `$money()` function for currency formatting:
         <x-ui.input 
             x-mask="999-99-9999"
             placeholder="123-45-6789"
-            icon="identification"
+            leftIcon="identification"
         />
     </x-ui.field>
 </x-demo>
@@ -914,7 +914,7 @@ Alpine provides a built-in `$money()` function for currency formatting:
 <x-ui.input 
     x-mask="999-99-9999"
     placeholder="123-45-6789"
-    icon="identification"
+    leftIcon="identification"
 />
 ```
 
@@ -926,7 +926,7 @@ Alpine provides a built-in `$money()` function for currency formatting:
         <x-ui.input 
             x-mask="aaa-9999"
             placeholder="ABC-1234"
-            icon="truck"
+            leftIcon="truck"
         />
     </x-ui.field>
 </x-demo>
@@ -936,7 +936,7 @@ Alpine provides a built-in `$money()` function for currency formatting:
 <x-ui.input 
     x-mask="aaa-9999"
     placeholder="ABC-1234"
-    icon="truck"
+    leftIcon="truck"
 />
 ```
 
@@ -953,7 +953,7 @@ Alpine provides a built-in `$money()` function for currency formatting:
                 '999-999-999'
             "
             placeholder="SAV-1234-5678"
-            icon="building-library"
+            leftIcon="building-library"
         />
     </x-ui.field>
 </x-demo>
@@ -987,7 +987,7 @@ Handle different international phone formats dynamically:
                 '(999) 999-9999'
             "
             placeholder="+1 (555) 123-4567"
-            icon="phone"
+            leftIcon="phone"
         />
     </x-ui.field>
 </x-demo>
@@ -1015,20 +1015,18 @@ Handle different international phone formats dynamically:
                 <x-ui.field required>
                     <x-ui.label>Phone Number</x-ui.label>
                     <x-ui.input 
-                        wire:model="phone"
                         x-mask="(999) 999-9999"
                         placeholder="(555) 123-4567"
-                        icon="phone"
+                        leftIcon="phone"
                     />
                 </x-ui.field>
                 <!--  -->
                 <x-ui.field required>
                     <x-ui.label>Date of Birth</x-ui.label>
                     <x-ui.input 
-                        wire:model="dob"
                         x-mask="99/99/9999"
                         placeholder="MM/DD/YYYY"
-                        icon="calendar"
+                        leftIcon="calendar"
                     />
                 </x-ui.field>
             </div>
@@ -1036,12 +1034,11 @@ Handle different international phone formats dynamically:
             <x-ui.field>
                 <x-ui.label>Social Security Number</x-ui.label>
                 <x-ui.input 
-                    wire:model="ssn"
                     x-mask="999-99-9999"
                     placeholder="123-45-6789"
                     type="password"
                     revealable
-                    icon="identification"
+                    leftIcon="identification"
                 />
             </x-ui.field>
         </x-ui.fieldset>
@@ -1051,23 +1048,21 @@ Handle different international phone formats dynamically:
                 <x-ui.field>
                     <x-ui.label>Credit Card</x-ui.label>
                     <x-ui.input 
-                        wire:model="credit_card"
                         x-mask:dynamic="
                             $input.startsWith('34') || $input.startsWith('37')
                                 ? '9999 999999 99999' : '9999 9999 9999 9999'
                         "
                         placeholder="1234 5678 9012 3456"
-                        icon="credit-card"
+                        leftIcon="credit-card"
                     />
                 </x-ui.field>
                 <!--  -->
                 <x-ui.field>
                     <x-ui.label>Annual Salary</x-ui.label>
                     <x-ui.input 
-                        wire:model="salary"
                         x-mask:dynamic="$money($input)"
                         placeholder="75,000.00"
-                        icon="banknotes"
+                        leftIcon="banknotes"
                     >
                         <x-slot name="suffix">$</x-slot>
                     </x-ui.input>
@@ -1088,7 +1083,7 @@ Handle different international phone formats dynamically:
                     wire:model="phone"
                     x-mask="(999) 999-9999"
                     placeholder="(555) 123-4567"
-                    icon="phone"
+                    leftIcon="phone"
                 />
                 <x-ui.error name="phone" />
             </x-ui.field>
@@ -1099,7 +1094,7 @@ Handle different international phone formats dynamically:
                     wire:model="dob"
                     x-mask="99/99/9999"
                     placeholder="MM/DD/YYYY"
-                    icon="calendar"
+                    leftIcon="calendar"
                 />
                 <x-ui.error name="dob" />
             </x-ui.field>
@@ -1113,7 +1108,7 @@ Handle different international phone formats dynamically:
                 placeholder="123-45-6789"
                 type="password"
                 revealable
-                icon="identification"
+                leftIcon="identification"
             />
             <x-ui.error name="ssn" />
         </x-ui.field>
@@ -1130,7 +1125,7 @@ Handle different international phone formats dynamically:
                             ? '9999 999999 99999' : '9999 9999 9999 9999'
                     "
                     placeholder="1234 5678 9012 3456"
-                    icon="credit-card"
+                    leftIcon="credit-card"
                 />
                 <x-ui.error name="credit_card" />
             </x-ui.field>
@@ -1141,7 +1136,7 @@ Handle different international phone formats dynamically:
                     wire:model="salary"
                     x-mask:dynamic="$money($input)"
                     placeholder="75,000.00"
-                    icon="banknotes"
+                    leftIcon="banknotes"
                 >
                     <x-slot name="prefix">$</x-slot>
                 </x-ui.input>

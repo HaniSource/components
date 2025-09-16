@@ -2,7 +2,7 @@
     'name' => $attributes->whereStartsWith('wire:model')->first() ?? $attributes->whereStartsWith('x-model')->first(),
     'prefix' => null,
     'suffix' => null,
-    'icon' => null,
+    'leftIcon' => null,
     'rightIcon' => null,
     'prefixIcon' => null,
     'suffixIcon' => null,
@@ -15,6 +15,7 @@
     'size' => null,
     'kbd' => null,
     'as' => null,
+    'bindScopeToParent' => false
 ])
 
 @php
@@ -52,7 +53,25 @@
     @endif
 
     <div
-        x-data {{-- required for Alpine actions --}}
+        @unless($bindScopeToParent)
+            {{-- 
+                When this input component is used on its own, it needs its own Alpine.js scope (`x-data`) 
+                to handle features like copy, clear, reveal, etc.
+
+                However, when this input is nested inside a parent component that already has an Alpine.js scope,
+                giving it a separate `x-data` creates duplicate Alpine scopes. 
+
+                Duplicate scopes mean that methods like `handleKeydown` exist both in the parent and child, 
+                so the same event gets handled twice, which is why you were seeing the keydown fire handled two times...
+
+                Setting '$bindScopeToParent = true' disables this child scope, allowing the input to 
+                use the parent's Alpine.js scope, preventing duplicate event handling while still 
+                keeping all parent features intact.
+            --}}
+            x-data
+        @endunless
+
+        
         @class([
             // ============================================================================
             // GRID CONTAINER SETUP 
@@ -139,18 +158,18 @@
             // WITHOUT LEFT ICON: 2-column layout
             // Column 1: Input (flexible width)
             // Column 2: Action icons (fixed width based on count)
-            'grid-template-columns: 1fr calc(var(--icon-width) * var(--icon-count))' => blank($icon),
+            'grid-template-columns: 1fr calc(var(--icon-width) * var(--icon-count))' => blank($leftIcon),
             
             // WITH LEFT ICON: 3-column layout  
             // Column 1: Left icon (fixed 2.3rem) 2 seems too small spacially for  left icons
             // Column 2: Input (flexible width)
             // Column 3: Action icons (fixed width based on count)
-            'grid-template-columns: 2.3rem 1fr calc(var(--icon-width) * var(--icon-count))' => filled($icon),
+            'grid-template-columns: 2.3rem 1fr calc(var(--icon-width) * var(--icon-count))' => filled($leftIcon),
         ])
     >
-        @if($icon)
+        @if($leftIcon)
             <x-ui.icon
-                :name="$icon"
+                :name="$leftIcon"
                 class="!text-neutral-500 dark:!text-neutral-500 !size-[1.15rem]"
                 data-slot="left-icon"
             />
@@ -170,8 +189,8 @@
             name="{{ $name }}"
             type="{{ $type }}"
             data-slot="control"
-            {{$attributes}}
-            x-ref="input"
+            {{ $attributes }}
+            data-control-id="input" {{-- used for actions --}}
             @if($invalid) invalid @endif
         />
         <div class="flex items-center justify-center h-full mr-1" data-slot="input-actions">
