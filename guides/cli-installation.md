@@ -374,6 +374,24 @@ php artisan sheaf:install button input select textarea switch radio
 
 ```
 
+### Updating Components
+
+update individual component with all their dependencies:
+
+```bash
+php artisan sheaf:update component-name
+```
+
+**Examples:**
+
+```bash
+# Update a button component
+php artisan sheaf:update button
+
+# Update a modal component (may include dependencies update)
+php artisan sheaf:update modal
+```
+
 ## Discovering Components
 
 ### List Available Components
