@@ -325,10 +325,11 @@ trait HasToast
      */
     public function toast(string $content, string $type = 'info'): void
     {
-        $this->dispatch('notify', [
-            'content' => $content,
-            'type' => $type
-        ]);
+        $this->dispatch('notify', 
+            type: 'success',
+            content:'post saved successfully',
+            duration: 4000
+        );
     }
 }
 ```
