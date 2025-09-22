@@ -153,8 +153,11 @@ The checkbox system intelligently adapts based on context:
 ### Basic States
 
 @blade
-<x-demo x-data="{ basic: false, checked: true, indeterminate: false }">
-    <div class="flex flex-col gap-y-4 mx-auto w-fit">
+<x-demo >
+    <div
+        x-data="{ basic: false, checked: true, indeterminate: false }"
+        class="flex flex-col gap-y-4 mx-auto w-fit"
+    >
         <x-ui.checkbox 
             x-model="basic"
             label="Unchecked checkbox"
