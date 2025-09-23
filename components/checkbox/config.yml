@@ -1,0 +1,8 @@
+files:
+  index: resources/views/components/ui/checkbox/index.blade.php
+  label: resources/views/components/ui/checkbox/label.blade.php
+  indicator: resources/views/components/ui/checkbox/indicator.blade.php
+  group: resources/views/components/ui/checkbox/group.blade.php
+  variant-default: resources/views/components/ui/checkbox/variant/default.blade.php
+  variant-pills: resources/views/components/ui/checkbox/variant/card.blade.php
+  variant-cards: resources/views/components/ui/checkbox/variant/pill.blade.php

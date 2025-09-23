@@ -278,8 +278,8 @@ Show different states for validation feedback.
 | `disabled`     | boolean | `false`       | No       | Whether the input is disabled                                                |
 | `readonly`     | boolean | `false`       | No       | Whether the input is readonly                                                |
 | `invalid`      | boolean | `false`       | No       | Whether to show invalid/error state styling                                  |
-| `icon`         | string  | `''`          | No       | Leading icon name                                                            |
-| `iconTrailing` | string  | `''`          | No       | Trailing icon name                                                           |
+| `leftIcon`         | string  | `''`          | No       | left side of the icon name                                                            |
+| `rightIcon` | string  | `''`          | No       | Right side of the icon name                                                           |
 | `clearable`    | boolean | `false`       | No       | Whether to show a clear button                                               |
 | `inputClasses`   | string  | `''`          | No       | Additional CSS classes for the input element                                 |
 | `slot`         | mixed   | `''`          | Yes      | Dropdown items using `<div data-slot="autocomplete-item">` elements         |
