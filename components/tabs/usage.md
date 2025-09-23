@@ -44,22 +44,19 @@ php artisan sheaf:install tabs
 ```html
 <x-ui.tabs>
     <x-ui.tab.group>
-        <x-ui.tab label="Tab 1" />
-        <x-ui.tab label="Tab 2" />
-        <x-ui.tab label="Tab 3" />
+        <x-ui.tab name="users" label="Tab 1" />
+        <x-ui.tab name="dashboard" label="Tab 2" />
+        <x-ui.tab name="settings" label="Tab 3" />
     </x-ui.tab.group>
-    
     <x-ui.tab.panel name="users">
         <h3 class="text-lg font-semibold mb-2">Tab 1 Content</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </x-ui.tab.panel>
-    
-    <x-ui.tab.panel name="users">
+    <x-ui.tab.panel name="dashboard">
         <h3 class="text-lg font-semibold mb-2">Tab 2 Content</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
     </x-ui.tab.panel>
-    
-    <x-ui.tab.panel name="users">
+    <x-ui.tab.panel name="settings">
         <h3 class="text-lg font-semibold mb-2">Tab 3 Content</h3>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit ut labore.</p>
     </x-ui.tab.panel>
