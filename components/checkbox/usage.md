@@ -317,7 +317,7 @@ Smart vertical spacing with content-aware gaps:
 
 @blade
 <x-demo>
-    <div class="max-w-md mx-auto">
+    <div class="flex flex-col gap-y-4 mx-auto w-fit">
         <x-ui.checkbox.group>
             <x-ui.checkbox 
                 label="Email notifications"
@@ -355,7 +355,7 @@ Horizontal layout with wrapping, perfect for tags and skills:
 
 @blade
 <x-demo>
-    <div class="max-w-2xl mx-auto">
+    <div class="flex flex-col gap-y-4 mx-auto w-fit">
         <x-ui.checkbox.group variant="pills">
             <x-ui.checkbox label="Laravel" value="laravel" checked />
             <x-ui.checkbox label="PHP" value="php" />
@@ -385,7 +385,7 @@ Full card-like components with enhanced spacing and hover effects:
 
 @blade
 <x-demo>
-    <div class="max-w-lg mx-auto">
+    <div class=" max-w-md flex flex-col gap-y-4 mx-auto w-fit">
         <x-ui.checkbox.group variant="cards">
             <x-ui.checkbox 
                 label="Advanced Analytics Dashboard"
@@ -468,7 +468,7 @@ The checkbox automatically detects validation errors when used with Livewire:
             label="I agree to the terms and conditions"
             invalid
         />
-        <x-ui.error messages="['You must accept the terms and conditions to continue']" />
+        <x-ui.error :messages="['You must accept the terms and conditions to continue']" />
     </x-ui.field>
 </x-demo>
 @endblade
@@ -482,73 +482,6 @@ The checkbox automatically detects validation errors when used with Livewire:
     />
     <x-ui.error name="terms" />
 </x-ui.field>
-```
-
-## Advanced Examples
-
-### Mixed Individual and Group Usage
-
-You can combine individual checkboxes with groups in the same form:
-
-```blade
-<!-- Individual settings -->
-<x-ui.checkbox wire:model="terms" label="Accept terms and conditions" />
-<x-ui.checkbox wire:model="privacy" label="Accept privacy policy" />
-
-<!-- Grouped preferences -->
-<x-ui.checkbox.group wire:model="notifications" variant="default">
-    <x-ui.checkbox value="email" label="Email notifications" />
-    <x-ui.checkbox value="sms" label="SMS notifications" />
-    <x-ui.checkbox value="push" label="Push notifications" />
-</x-ui.checkbox.group>
-
-<!-- Grouped skills -->
-<x-ui.checkbox.group wire:model="skills" variant="pills">
-    <x-ui.checkbox value="laravel" label="Laravel" />
-    <x-ui.checkbox value="vue" label="Vue.js" />
-    <x-ui.checkbox value="react" label="React" />
-</x-ui.checkbox.group>
-```
-
-### Alpine.js Integration
-
-Complex state management with Alpine.js:
-
-```blade
-<div x-data="{
-    preferences: [],
-    settings: { terms: false, newsletter: false },
-    get selectedCount() { return this.preferences.length },
-    get canProceed() { return this.settings.terms }
-}">
-    <!-- Individual settings -->
-    <x-ui.checkbox 
-        x-model="settings.terms"
-        label="Accept terms and conditions"
-    />
-    <x-ui.checkbox 
-        x-model="settings.newsletter"
-        label="Subscribe to newsletter"
-    />
-    
-    <!-- Group preferences -->
-    <x-ui.checkbox.group x-model="preferences" variant="cards">
-        <x-ui.checkbox value="analytics" label="Analytics Dashboard" />
-        <x-ui.checkbox value="api" label="API Access" />
-        <x-ui.checkbox value="support" label="Priority Support" />
-    </x-ui.checkbox.group>
-    
-    <!-- Dynamic display -->
-    <div class="mt-4">
-        <p>Selected preferences: <span x-text="selectedCount"></span></p>
-        <button 
-            x-bind:disabled="!canProceed"
-            x-bind:class="canProceed ? 'bg-blue-500' : 'bg-gray-300'"
-        >
-            Continue
-        </button>
-    </div>
-</div>
 ```
 
 ## Component Props
@@ -567,10 +500,12 @@ Complex state management with Alpine.js:
 | `invalid` | boolean | `false` | Whether checkbox has validation errors |
 | `size` | string | `'md'` | Size variant: `xs`, `sm`, `md`, `lg` |
 | `variant` | string | `'default'` | Style variant: `default`, `pills`, `cards` |
+| `wire:model.*` `x-model.*` | mixed | `no-state-bounded` | to manage the state  |
 
 ### Checkbox Group Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `variant` | string | `'default'` | Layout variant: `default`, `pills`, `cards` |
+| `wire:model.*` `x-model.*` | mixed | `no-state-bounded` | to manage the state  |
 
