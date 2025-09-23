@@ -375,9 +375,9 @@ public $categories = [
     wire:model="selectedCategories"
 >
     @foreach($categories as $key => $category)
-        <x-ui.select-option value="{{ $key }}">
+        <x-ui.select.option value="{{ $key }}">
             {{ $category }}
-        </x-ui.select-option>
+        </x-ui.select.option>
     @endforeach
 </x-ui.select>
 ```
