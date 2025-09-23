@@ -342,7 +342,7 @@ you can also get rid of any `activeTab` prop or any *:model binding, and the fir
 
 ## Customizations
 ### Tabs Variants
-default tabs called `outlined`, but there is more variants: `non-contained`, `pills`, `soft`, `ghost`.  
+default tabs called `outlined`, but there is more variants: `non-contained`, `pills`.  
 
 #### Non Contained
 
@@ -371,18 +371,24 @@ default tabs called `outlined`, but there is more variants: `non-contained`, `pi
 @endblade
 
 ```html
-<x-ui.tabs>
+<x-ui.tabs variant="non-contained">
     <x-ui.tab.group>
-         <x-ui.tab label="user" icon="user" />
+        <x-ui.tab label="user" icon="user" />
         <x-ui.tab label="settings" icon="cog-6-tooth" />
         <x-ui.tab label="clock" icon="clock" />
     </x-ui.tab.group>
-    
-    <x-ui.tab.panel>...</x-ui.tab.panel>
-    
-    <x-ui.tab.panel>...</x-ui.tab.panel>
-    
-    <x-ui.tab.panel>...</x-ui.tab.panel>
+    <x-ui.tab.panel>
+        <h3 class="text-lg font-semibold mb-2">First Tab</h3>
+        <p>This is the first tab content.</p>
+    </x-ui.tab.panel>
+    <x-ui.tab.panel>
+        <h3 class="text-lg font-semibold mb-2">Second Tab</h3>
+        <p>This is the second tab content.</p>
+    </x-ui.tab.panel>
+    <x-ui.tab.panel>
+        <h3 class="text-lg font-semibold mb-2">Third Tab</h3>
+        <p>This is the third tab content.</p>
+    </x-ui.tab.panel>
 </x-ui.tabs>
 ```
 #### Pills
@@ -412,21 +418,27 @@ default tabs called `outlined`, but there is more variants: `non-contained`, `pi
 @endblade
 
 ```html
-<x-ui.tabs class="pills">
+<x-ui.tabs variant="pills">
     <x-ui.tab.group>
         <x-ui.tab label="user" icon="user" />
         <x-ui.tab label="settings" icon="cog-6-tooth" />
         <x-ui.tab label="clock" icon="clock" />
     </x-ui.tab.group>
-    
-    <x-ui.tab.panel>...</x-ui.tab.panel>
-    
-    <x-ui.tab.panel>...</x-ui.tab.panel>
-    
-    <x-ui.tab.panel>...</x-ui.tab.panel>
+    <x-ui.tab.panel>
+        <h3 class="text-lg font-semibold mb-2">First Tab</h3>
+        <p>This is the first tab content.</p>
+    </x-ui.tab.panel>
+    <x-ui.tab.panel>
+        <h3 class="text-lg font-semibold mb-2">Second Tab</h3>
+        <p>This is the second tab content.</p>
+    </x-ui.tab.panel>
+    <x-ui.tab.panel>
+        <h3 class="text-lg font-semibold mb-2">Third Tab</h3>
+        <p>This is the third tab content.</p>
+    </x-ui.tab.panel>
 </x-ui.tabs>
 ```
-## Advanced Features 
+<!-- ## Advanced Features 
 
 ## Persisted Tabs 
 persist active tab on the local storage
@@ -437,7 +449,7 @@ include the active tabs on the query string
 #### Soft
 comming soon 
 #### Ghost
-comming soon
+comming soon -->
 
 ### Tabs Alignment
 by default tabs group are centred, to tweack that you can use `flex` properties to align your `x-ui.tab.group`
