@@ -353,7 +353,6 @@ The select component is built with multiple sub-components:
 - **Trigger**: `<x-ui.select.trigger>` - The clickable trigger button (internal)
 
 ## Advanced Examples
-
 ### Dynamic Options with Livewire
 
 ```php
@@ -373,8 +372,13 @@ public $categories = [
     multiple
     searchable
     clearable
-    wire:model="selectedCategories">
-        @endforeach
+    wire:model="selectedCategories"
+>
+    @foreach($categories as $key => $category)
+        <x-ui.select-option value="{{ $key }}">
+            {{ $category }}
+        </x-ui.select-option>
+    @endforeach
 </x-ui.select>
 ```
 
