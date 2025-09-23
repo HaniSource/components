@@ -574,30 +574,3 @@ Complex state management with Alpine.js:
 |------|------|---------|-------------|
 | `variant` | string | `'default'` | Layout variant: `default`, `pills`, `cards` |
 
-### Model Binding
-
-The component supports all Livewire model variations:
-
-```blade
-<!-- Basic binding -->
-<x-ui.checkbox wire:model="property" />
-
-<!-- Live binding (updates immediately) -->
-<x-ui.checkbox wire:model.live="property" />
-
-<!-- Lazy binding (updates on blur) -->
-<x-ui.checkbox wire:model.lazy="property" />
-
-<!-- Debounced binding -->
-<x-ui.checkbox wire:model.live.debounce.500ms="property" />
-```
-
-### Key Patterns
-
-**Individual Checkboxes**: Use when you need separate boolean states for independent settings.
-
-**Checkbox Groups**: Use when you need to collect multiple values into a single array property.
-
-**Mixed Usage**: Combine both patterns in the same form for complex scenarios.
-
-The component automatically detects its context and adapts its behavior accordingly, providing a seamless development experience.
