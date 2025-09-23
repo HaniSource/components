@@ -1,6 +1,6 @@
 files:
-  index: resources/views/ui/tab/index.blade.php
-  group: resources/views/ui/tab/group.blade.php
-  panel: resources/views/ui/tab/panel.blade.php
-  tabs:  resources/views/ui/tabs.blade.php
+  index: resources/views/components/ui/tab/index.blade.php
+  group: resources/views/components/ui/tab/group.blade.php
+  panel: resources/views/components/ui/tab/panel.blade.php
+  tabs:  resources/views/components/ui/tabs.blade.php
 dependencies: [button]
