@@ -14,6 +14,58 @@ php artisan sheaf:install checkbox
 
 ## Basic Usage
 
+@blade
+<x-demo 
+    x-data="{ agreed: false }"
+>
+  <div class="flex flex-col gap-y-4 mx-auto w-fit">
+    <x-ui.checkbox 
+        x-model="agreed"
+        label="I agree to the terms and conditions"
+        description="By checking this box, you agree to abide by our terms and conditions."
+    />
+  </div>
+</x-demo>
+@endblade
+
+```blade
+<x-ui.checkbox 
+    wire:model="agreed"
+    label="I agree to the terms and conditions"
+    description="By checking this box, you agree to abide by our terms and conditions."
+/>
+```
+
+
+## Integration
+
+### Bind To Livewire 
+To use with Livewire you need to only use `wire:model="agreed"` to bind your `checkbox` state:
+
+```blade
+<x-ui.checkbox 
+    wire:model="agreed"
+    label="I agree to the terms and conditions"
+    description="By checking this box, you agree to abide by our terms and conditions."
+/>
+```
+
+### Using it within Blade & Alpine
+
+You can use it outside Livewire with just Alpine (with Blade):
+
+```blade
+<div x-data="{ agreed: false }">
+    <x-ui.checkbox 
+        x-model="agreed"
+        label="I agree to the terms and conditions"
+        description="By checking this box, you agree to abide by our terms and conditions."
+    />
+</div>
+```
+
+
+## Managing State
 ### Individual Checkbox (Boolean State)
 
 For single checkboxes that manage their own boolean state, bind directly to the checkbox:
@@ -31,21 +83,11 @@ For single checkboxes that manage their own boolean state, bind directly to the 
 @endblade
 
 ```blade
-<!-- Individual checkbox with Livewire -->
     <x-ui.checkbox 
         wire:model="agreed"
         label="I agree to the terms and conditions"
         description="By checking this box, you agree to abide by our terms and conditions."
     />
-
-<!-- Individual checkbox with Alpine -->
-<div x-data="{ agreed: false }">
-    <x-ui.checkbox 
-        x-model="agreed"
-        label="I agree to the terms and conditions"
-        description="By checking this box, you agree to abide by our terms and conditions."
-    />
-</div>
 ```
 
 ### Checkbox Group (Array State)
@@ -209,6 +251,37 @@ The checkbox system intelligently adapts based on context:
     wire:model="disabled"
     label="Cannot change this"
     disabled
+/>
+```
+
+### Invalid State
+
+@blade
+<x-demo>
+    <div class="flex flex-col gap-y-4 mx-auto w-fit">
+        <x-ui.checkbox 
+            label="Disabled unchecked"
+            invalid
+        />
+        <x-ui.checkbox 
+            label="Disabled checked"
+            checked
+            invalid
+        />
+        <x-ui.checkbox 
+            label="Disabled indeterminate"
+            indeterminate
+            invalid
+        />
+    </div>
+</x-demo>
+@endblade
+
+```blade
+<x-ui.checkbox 
+    wire:model="disabled"
+    label="Cannot change this"
+    invalid
 />
 ```
 
