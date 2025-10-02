@@ -23,10 +23,12 @@ The layout system follows a hierarchical structure:
 ```blade
 <x-ui.layout>
     <x-ui.sidebar>
+        <!-- all sidebar content -->
         <x-ui.sidebar.navlist>
             <x-ui.sidebar.navlist.item />
             <x-ui.sidebar.navlist.group />
         </x-ui.sidebar.navlist>
+        <!-- .... -->
     </x-ui.sidebar>
     
     <x-ui.layout.main>
