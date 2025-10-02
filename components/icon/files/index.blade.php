@@ -33,4 +33,9 @@
     }
 @endphp
 
-<x-dynamic-component :component="$componentName" {{ $attributes->class(['text-neutral-800 dark:text-neutral-200']) }}  data-slot="icon" />
+<x-dynamic-component :component="$componentName"
+    {{ $attributes->class([
+        'text-neutral-800' => !preg_match('/\b(?<!dark:)text-[\w-]+/', $attributes->get('class')),
+        'dark:text-neutral-200' => !preg_match('/\bdark:text-[\w-]+/', $attributes->get('class')),
+    ]) }}
+    data-slot="icon" />
