@@ -410,3 +410,8 @@ The navlist component uses CSS custom properties and Tailwind utilities for them
 - **Smooth Transitions**: All state changes are animated smoothly
 
 The component automatically responds to a `[data-collapsed]` attribute on a parent sidebar component for collapsed state styling.
+
+so if you want to add some tailwind based on collapsed or expanded state:
+
+- `[:not(:has([data-collapsed]_&))_&]:bg-green-500` : means if the sidebar is not collapsed add green color
+- `[:has([data-collapsed]_&)_&]:bg-red-500` means if the sidebar is collapsed adds red color
