@@ -6,13 +6,13 @@ name: navlist
 
 The `Navlist` component is a **flexible**, **collapsible** navigation list system designed for sidebar navigation. It provides a clean way to organize navigation items with support for icons, badges, tooltips, grouping, and multiple visual variants. Perfect for application sidebars with responsive collapse behavior.
 
-## Installation
+<!-- ## Installation
 
 Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `navlist` component easily:
 
 ```bash
 php artisan sheaf:install navlist
-```
+``` -->
 
 > Once installed, you can use the `<x-ui.sidebar.navlist />` component in any Blade view.
 
@@ -41,8 +41,7 @@ The simplest implementation with navigation items:
     />
 </x-ui.sidebar.navlist>
 ```
-
-[View Demo](/demo/navlist/default-variant)
+## Group Variants
 
 ### Default Variant with Groups
 
@@ -111,6 +110,7 @@ A more condensed visual style for navigation groups:
 
 [View Demo](/demo/navlist/compact-variant)
 
+## More Features
 ### Collapsable Groups
 
 Create expandable/collapsible navigation sections:
@@ -159,6 +159,9 @@ Create expandable/collapsible navigation sections:
 ### Navigation with Badges
 
 Add badges to items for notifications, counts, or status indicators:
+
+- **Note:** `badge:*`, Any attribute prefixed with `badge:` is passed to the badge component (e.g., `badge:variant="outline"`) you can pass any prop that [the badge component](/docs/components/badge#content-badge-props) can accept 
+
 
 ```blade
 <x-ui.sidebar.navlist>
@@ -213,32 +216,6 @@ Highlight the current active navigation item:
 </x-ui.sidebar.navlist>
 ```
 
-### Collapsed Sidebar Behavior
-
-When used within a collapsed sidebar, the navlist automatically adapts:
-- Icons remain visible and centered
-- Labels are hidden
-- Tooltips appear on hover showing the full label
-- Badges are hidden
-
-```blade
-<!-- Inside a collapsible sidebar component -->
-<x-ui.sidebar collapsible>
-    <x-ui.sidebar.navlist>
-        <x-ui.sidebar.navlist.item 
-            label="Dashboard"
-            icon="home"
-            href="/dashboard"
-        />
-        <x-ui.sidebar.navlist.item 
-            label="Settings"
-            icon="cog"
-            href="/settings"
-        />
-    </x-ui.sidebar.navlist>
-</x-ui.sidebar>
-```
-
 ### Custom Icon Styling
 
 Customize individual item icons with icon-prefixed attributes:
@@ -248,13 +225,13 @@ Customize individual item icons with icon-prefixed attributes:
     <x-ui.sidebar.navlist.item 
         label="Critical Alerts"
         icon="exclamation-triangle"
-        icon:class="text-red-500"
+        icon:class="!text-red-500"
         href="/alerts"
     />
     <x-ui.sidebar.navlist.item 
         label="Success Stories"
         icon="check-circle"
-        icon:class="text-green-500"
+        icon:class="!text-green-500"
         href="/stories"
     />
 </x-ui.sidebar.navlist>
@@ -302,47 +279,6 @@ The navlist system is built with multiple sub-components:
 - **Tooltip Helper**: `<x-ui.sidebar.navlist.has-tooltip>` - Internal component for tooltip behavior (internal)
 
 ## Advanced Examples
-
-### Multi-Level Navigation with Mixed Variants
-
-```blade
-<x-ui.sidebar.navlist>
-    <x-ui.sidebar.navlist.group label="Admin" variant="default">
-        <x-ui.sidebar.navlist.item 
-            label="Dashboard"
-            icon="chart-bar"
-            href="/admin/dashboard"
-            :active="request()->is('admin/dashboard')"
-        />
-        <x-ui.sidebar.navlist.item 
-            label="Users"
-            icon="users"
-            href="/admin/users"
-            badge="142"
-            badge:variant="info"
-        />
-    </x-ui.sidebar.navlist.group>
-
-    <x-ui.sidebar.navlist.group 
-        label="E-Commerce" 
-        variant="compact"
-        collapsable
-    >
-        <x-ui.sidebar.navlist.item 
-            label="Products"
-            icon="shopping-bag"
-            href="/shop/products"
-        />
-        <x-ui.sidebar.navlist.item 
-            label="Orders"
-            icon="shopping-cart"
-            href="/shop/orders"
-            badge="8"
-            badge:variant="warning"
-        />
-    </x-ui.sidebar.navlist.group>
-</x-ui.sidebar.navlist>
-```
 
 ### Dynamic Navigation with Livewire
 
