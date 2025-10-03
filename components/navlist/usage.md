@@ -189,7 +189,29 @@ Add badges to items for notifications, counts, or status indicators:
 </x-ui.sidebar.navlist>
 ```
 
-### Active State
+### Custom Icon Styling
+
+Customize individual item icons with icon-prefixed attributes:
+
+```blade
+<x-ui.sidebar.navlist>
+    <x-ui.sidebar.navlist.item 
+        label="Critical Alerts"
+        icon="exclamation-triangle"
+        icon:class="!text-red-500"
+        href="/alerts"
+    />
+    <x-ui.sidebar.navlist.item 
+        label="Success Stories"
+        icon="check-circle"
+        icon:class="!text-green-500"
+        href="/stories"
+    />
+</x-ui.sidebar.navlist>
+```
+
+
+## Active State
 
 By default, the `navlist.item` component automatically detects the active link using an **exact match** on the `href`.
 If you need more control, you can manually pass an `:active` boolean prop. This is useful when you want to:
@@ -227,27 +249,6 @@ If you need more control, you can manually pass an `:active` boolean prop. This 
 </x-ui.sidebar.navlist>
 ```
 
-
-### Custom Icon Styling
-
-Customize individual item icons with icon-prefixed attributes:
-
-```blade
-<x-ui.sidebar.navlist>
-    <x-ui.sidebar.navlist.item 
-        label="Critical Alerts"
-        icon="exclamation-triangle"
-        icon:class="!text-red-500"
-        href="/alerts"
-    />
-    <x-ui.sidebar.navlist.item 
-        label="Success Stories"
-        icon="check-circle"
-        icon:class="!text-green-500"
-        href="/stories"
-    />
-</x-ui.sidebar.navlist>
-```
 
 ## Component Props
 
