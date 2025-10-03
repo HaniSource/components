@@ -191,30 +191,42 @@ Add badges to items for notifications, counts, or status indicators:
 
 ### Active State
 
-Highlight the current active navigation item:
+By default, the `navlist.item` component automatically detects the active link using an **exact match** on the `href`.
+If you need more control, you can manually pass an `:active` boolean prop. This is useful when you want to:
+
+* Support **wildcard patterns** (`request()->is('posts*')`)
+* Match by **route names** (`request()->routeIs('posts.*')`)
+* Highlight parent sections for nested routes
+
+#### Examples
 
 ```blade
 <x-ui.sidebar.navlist>
+    {{-- Exact match: active when URL is exactly /dashboard --}}
     <x-ui.sidebar.navlist.item 
         label="Dashboard"
         icon="home"
         href="/dashboard"
-        :active="request()->is('dashboard')"
     />
+
+    {{-- Wildcard match: active for /posts, /posts/create, /posts/123, etc. --}}
     <x-ui.sidebar.navlist.item 
         label="Posts"
         icon="document-text"
         href="/posts"
         :active="request()->is('posts*')"
     />
+
+    {{-- Route name match: active for any route inside posts.* --}}
     <x-ui.sidebar.navlist.item 
-        label="Settings"
-        icon="cog"
-        href="/settings"
-        :active="request()->is('settings*')"
+        label="Posts (via route name)"
+        icon="document-text"
+        href="/posts"
+        :active="request()->routeIs('posts.*')"
     />
 </x-ui.sidebar.navlist>
 ```
+
 
 ### Custom Icon Styling
 
