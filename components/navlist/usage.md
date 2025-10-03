@@ -210,7 +210,6 @@ Customize individual item icons with icon-prefixed attributes:
 </x-ui.sidebar.navlist>
 ```
 
-
 ## Active State
 
 By default, the `navlist.item` component automatically detects the active link using an **exact match** on the `href`.
