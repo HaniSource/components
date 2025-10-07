@@ -263,6 +263,32 @@ Or use them directly in CSS for more control:
 This hybrid approach gives you full flexibility:
 Tailwind for composable variants, and raw CSS for fine-grained or global rules.
 
+## Main Component
+
+The `<x-ui.layout.main>` component wraps your page content and assigns it to the grid area:
+
+### Usage
+
+```blade
+<x-ui.layout.main>
+    <!-- With header: no padding on wrapper -->
+    <x-ui.layout.header>
+        <!-- Header content -->
+    </x-ui.layout.header>
+    
+    <!-- Your content with manual padding -->
+    <div class="p-6">
+        {{ $slot }}
+    </div>
+</x-ui.layout.main>
+```
+
+```blade
+<x-ui.layout.main>
+    <!-- Without header: automatic padding -->
+    {{ $slot }}
+</x-ui.layout.main>
+```
 
 ## Responsive Behavior
 
@@ -305,33 +331,15 @@ The Layout component automatically adapts across three breakpoints:
 - Uses `collapsedSidebar` (boolean)
 - Persisted in localStorage as `_x_collapsedSidebar`
 
+## Touch-Friendly Interaction
 
-## Main Component
+On touch devices (tablets and phones), the sidebar includes enhanced touch targets:
 
-The `<x-ui.layout.main>` component wraps your page content and assigns it to the grid area:
+- The entire sidebar area acts as a toggle on touch devices (desktop only)
+- Brand area and toggle button are excluded from this behavior
+- 48px minimum touch targets on all interactive elements
+- Optimized for thumb-friendly interaction
 
-### Usage
-
-```blade
-<x-ui.layout.main>
-    <!-- With header: no padding on wrapper -->
-    <x-ui.layout.header>
-        <!-- Header content -->
-    </x-ui.layout.header>
-    
-    <!-- Your content with manual padding -->
-    <div class="p-6">
-        {{ $slot }}
-    </div>
-</x-ui.layout.main>
-```
-
-```blade
-<x-ui.layout.main>
-    <!-- Without header: automatic padding -->
-    {{ $slot }}
-</x-ui.layout.main>
-```
 
 ### Keyboard Shortcuts
 
