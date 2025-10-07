@@ -132,27 +132,44 @@ If you need different logos for expanded and collapsed states (e.g., a full logo
 Use the `push` component to position content at the bottom:
 
 ```blade
-<x-ui.sidebar brand="My App">
+<x-ui.sidebar>
+    <!-- brand contents -->
     <x-ui.navlist>
-        <x-ui.navlist.item 
-            label="Dashboard"
-            icon="home"
-            href="/dashboard"
-        />
-        <x-ui.navlist.item 
-            label="Projects"
-            icon="folder"
-            href="/projects"
-        />
+        <!-- top navlist -->
     </x-ui.navlist>
 
-    <!-- this is what pushes that content below  -->
+    <!-- essentiels element to push the content to
+         bottom as far as possible -->
     <x-ui.sidebar.push />
-
-    <!-- Footer content pushed to bottom -->
-    <div>
-        <!--  -->
-    </div>
+    
+    <!-- footer -->
+    <x-ui.dropdown portal>
+        <x-slot:button>
+            <x-ui.navlist.item 
+                label="Profile Settings"
+                icon="user"
+                class="w-full"
+            />
+        </x-slot:button>
+        
+        <x-slot:menu class="!w-[14rem]">
+            <x-ui.dropdown.item href="#" icon="adjustments-horizontal">
+                Preference
+            </x-ui.dropdown.item>
+            
+            <x-ui.dropdown.item href="#" icon="user-circle">
+                Profile
+            </x-ui.dropdown.item>
+            
+            <x-ui.dropdown.item href="#" icon="lock-closed">
+                Security
+            </x-ui.dropdown.item>
+            
+            <x-ui.dropdown.item href="#" icon="bell" variant="danger">
+                Notifications
+            </x-ui.dropdown.item>
+        </x-slot:menu>
+    </x-ui.dropdown>
 </x-ui.sidebar>
 ```
 
