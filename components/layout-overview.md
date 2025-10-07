@@ -30,10 +30,10 @@ the `sidebar-main` layout variant
 <x-ui.layout>
     <x-ui.sidebar>
         <!-- all sidebar content -->
-        <x-ui.sidebar.navlist>
-            <x-ui.sidebar.navlist.item />
-            <x-ui.sidebar.navlist.group />
-        </x-ui.sidebar.navlist>
+        <x-ui.navlist>
+            <x-ui.navlist.item />
+            <x-ui.navlist.group />
+        </x-ui.navlist>
         <!-- .... -->
     </x-ui.sidebar>
     
@@ -81,10 +81,12 @@ the `header-sidebar` layout variant
     
     <x-ui.sidebar>
         <!-- all sidebar content -->
-        <x-ui.sidebar.navlist>
-            <x-ui.sidebar.navlist.item />
-            <x-ui.sidebar.navlist.group />
-        </x-ui.sidebar.navlist>
+        <x-ui.navlist>
+            <x-ui.navlist.item .../>
+            <x-ui.navlist.group ...>
+                <!-- group content -->
+            </x-ui.navlist.group>
+        </x-ui.navlist>
         <!-- .... -->
     </x-ui.sidebar>
 
@@ -205,10 +207,10 @@ Proper ARIA attributes, keyboard navigation, and screen reader support built-in.
             <x-ui.brand name="App Name" />
         </x-slot:brand>
         
-        <x-ui.sidebar.navlist>
-            <x-ui.sidebar.navlist.item label="Dashboard" icon="home" href="/" />
-            <x-ui.sidebar.navlist.item label="Settings" icon="cog-6-tooth" href="/settings" />
-        </x-ui.sidebar.navlist>
+        <x-ui.navlist>
+            <x-ui.navlist.item label="Dashboard" icon="home" href="/" />
+            <x-ui.navlist.item label="Settings" icon="cog-6-tooth" href="/settings" />
+        </x-ui.navlist>
     </x-ui.sidebar>
     
     <x-ui.layout.main>
@@ -226,30 +228,30 @@ Proper ARIA attributes, keyboard navigation, and screen reader support built-in.
 ### Grouped Navigation
 
 ```blade
-<x-ui.sidebar.navlist>
-    <x-ui.sidebar.navlist.item label="Dashboard" icon="home" />
+<x-ui.navlist>
+    <x-ui.navlist.item label="Dashboard" icon="home" />
     
-    <x-ui.sidebar.navlist.group label="Content" collapsable>
-        <x-ui.sidebar.navlist.item label="Posts" icon="document-text" />
-        <x-ui.sidebar.navlist.item label="Pages" icon="folder" />
-    </x-ui.sidebar.navlist.group>
-</x-ui.sidebar.navlist>
+    <x-ui.navlist.group label="Content" collapsable>
+        <x-ui.navlist.item label="Posts" icon="document-text" />
+        <x-ui.navlist.item label="Pages" icon="folder" />
+    </x-ui.navlist.group>
+</x-ui.navlist>
 ```
 
 ### Bottom-Aligned Items
 
 ```blade
-<x-ui.sidebar.navlist>
+<x-ui.navlist>
     <!-- Top items -->
-    <x-ui.sidebar.navlist.item label="Dashboard" icon="home" />
+    <x-ui.navlist.item label="Dashboard" icon="home" />
     
     <!-- Spacer pushes remaining items to bottom -->
     <x-ui.sidebar.push />
     
     <!-- Bottom items -->
-    <x-ui.sidebar.navlist.item label="Settings" icon="cog-6-tooth" />
-    <x-ui.sidebar.navlist.item label="Logout" icon="arrow-right-on-rectangle" />
-</x-ui.sidebar.navlist>
+    <x-ui.navlist.item label="Settings" icon="cog-6-tooth" />
+    <x-ui.navlist.item label="Logout" icon="arrow-right-on-rectangle" />
+</x-ui.navlist>
 ```
 
 ## Next Steps
