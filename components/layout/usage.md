@@ -35,7 +35,7 @@ The Layout component wraps your entire application structure:
         
         <!-- Page content -->
         <div class="p-6">
-            @yield('content')
+            {{ $slot }}
         </div>
     </x-ui.layout.main>
 </x-ui.layout>
@@ -373,7 +373,7 @@ The `<x-ui.layout.main>` component wraps your page content and assigns it to the
     
     <x-ui.layout.main>
         <div class="p-6">
-            @yield('content')
+            {{ $layout }}
         </div>
     </x-ui.layout.main>
 </x-ui.layout>
@@ -399,6 +399,7 @@ The `<x-ui.layout.main>` component wraps your page content and assigns it to the
 ## Customization
 
 ### Override Default Widths
+go to each variant file and customize as you need the vars (you can find them on top of the file (`sidebar-main.blade.php`,`header-sidebar.blade.php`))
 
 ```css
 /* In your CSS file */
@@ -410,38 +411,6 @@ The `<x-ui.layout.main>` component wraps your page content and assigns it to the
     --sidebar-width: 3.5rem;     /* Custom collapsed width */
 }
 ```
-
-### Custom Breakpoints
-
-While the component uses fixed breakpoints (768px, 1024px), you can override behaviors with CSS:
-
-```css
-/* Make tablet behavior start earlier */
-@media (max-width: 900px) {
-    [data-slot="layout"] {
-        /* Your custom styles */
-    }
-}
-```
-
-### Disable Transitions
-
-```css
-[data-slot="layout"] * {
-    transition: none !important;
-}
-```
-
----
-
-## Accessibility
-
-The Layout component includes several accessibility features:
-
-- **Keyboard Navigation:** ESC key closes mobile sidebar
-- **Focus Management:** Focus trap when mobile sidebar is open
-- **ARIA Labels:** Proper labeling on toggle buttons
-- **Screen Reader Support:** Announcements for state changes
 
 ### Keyboard Shortcuts
 

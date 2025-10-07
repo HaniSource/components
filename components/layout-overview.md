@@ -291,7 +291,7 @@ Complete layout with all components working together:
         </x-ui.layout.header>
         
         <div class="p-6">
-            @yield('content')
+            {{ $slot }}
         </div>
     </x-ui.layout.main>
 </x-ui.layout>

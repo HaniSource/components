@@ -9,13 +9,17 @@ The `Header` component is a **sticky**, **responsive** application header design
 
 ## Installation
 
-Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `header` component:
 
-```bash
-php artisan sheaf:install header
-```
+@blade
+<x-md.cta                                                            
+    href="/docs/layouts/layout"                                    
+    label="this component cames with the layout component"
+    variant="slide"                                               
+/>
+@endblade
 
-> Once installed, you can use the `<x-ui.header>` component within your layout's main area.
+
+> Once installed, you can use the `<x-ui.layout.header>` component within your layout's main area.
 
 ## Usage
 
@@ -23,7 +27,7 @@ php artisan sheaf:install header
 
 The simplest implementation with a navbar and user actions:
 
-```html
+```blade
 <x-ui.layout.main>
     <x-ui.header>
         <x-ui.navbar class="flex-1">
@@ -47,7 +51,7 @@ The simplest implementation with a navbar and user actions:
 
 A simple header focused on navigation:
 
-```html
+```blade
 <x-ui.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Dashboard" href="/dashboard" />
@@ -62,7 +66,7 @@ A simple header focused on navigation:
 
 Add search functionality and action buttons:
 
-```html
+```blade
 <x-ui.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Home" href="/" />
@@ -87,7 +91,7 @@ Add search functionality and action buttons:
 
 Combine navigation with breadcrumbs for better context:
 
-```html
+```blade
 <x-ui.header>
     <div class="flex-1 flex items-center gap-x-6">
         <x-ui.navbar>
@@ -113,7 +117,7 @@ The header automatically includes a mobile menu toggle button that:
 - Integrates with the sidebar's mobile overlay
 - Hidden on tablet and desktop viewports
 
-```html
+```blade
 <x-ui.layout>
     <x-ui.sidebar brand="My App">
         <!-- Sidebar content -->
@@ -134,7 +138,7 @@ The header automatically includes a mobile menu toggle button that:
 
 A full application shell with header, sidebar, and content:
 
-```html
+```blade
 <x-ui.layout>
     <x-ui.sidebar scrollable>
         <x-slot:brand>
@@ -207,7 +211,7 @@ The header component includes:
 
 ### Header with User Menu
 
-```html
+```blade
 <x-ui.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Dashboard" href="/dashboard" />
@@ -235,7 +239,7 @@ The header component includes:
 
 ### Header with Notifications
 
-```html
+```blade
 <x-ui.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Home" href="/" />
@@ -255,7 +259,7 @@ The header component includes:
 
 ### Conditional Header Content
 
-```html
+```blade
 <x-ui.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Home" href="/" />
