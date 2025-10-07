@@ -72,16 +72,26 @@ The simplest implementation combining layout, sidebar, and main content:
 ```
 
 ### manage brand on the sidebar
-
-Customize the brand/logo area in the sidebar header:
+the best way to manage your brand on the sidebar is to use the [brand component](/docs/components/brand) then pass your logo name to the name prop, and the logo to `<slot:logo>`, so when the sidebar is expanded the full name will be shown,
 
 ```blade
 <x-ui.sidebar>
     <x-slot:brand>
-        <div class="flex items-center gap-2">
-            <img src="/logo.svg" alt="Logo" class="size-8" />
-            <span class="font-bold text-lg">Company</span>
-        </div>
+        <x-ui.brand  
+            name="Sheaf UI"
+            href="#"
+        >
+            <x-slot:logo>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 100 100"
+                    class="size-5">
+                    <rect x="15" y="10" width="80" height="15" fill="currentColor" rx="5" ry="0" />
+                    <rect x="15" y="30" width="60" height="15" fill="currentColor" />
+                    <rect x="15" y="50" width="30" height="15" fill="currentColor" />
+                    <rect x="15" y="55" width="10" height="30" fill="currentColor" />
+                </svg>
+            </x-slot:logo>
+        </x-ui.brand>
     </x-slot:brand>
 
     <x-ui.navlist>
@@ -89,7 +99,23 @@ Customize the brand/logo area in the sidebar header:
     </x-ui.navlist>
 </x-ui.sidebar>
 ```
-the best way 
+if your logo doesn't have the pattern of logo svg and raw text name, you can have full control over the state of the sidebar, let's suppose you have big logo you want to show when the sidebar is expanded, and a logo variant collapsed state this is how you can manage this state
+```blade
+<x-ui.sidebar>
+    <x-slot:brand>
+        <x-long-logo class="[:not(:has([data-collapsed]_&))_&]:inline-flex [:has([data-collapsed]_&)_&]:hidden"/>
+        <x-short-logo  class="[:not(:has([data-collapsed]_&))_&]:hidden [:has([data-collapsed]_&)_&]:inline-flex"/>
+    </x-slot:brand>
+
+    <x-ui.navlist>
+        <!-- Navigation items -->
+    </x-ui.navlist>
+</x-ui.sidebar>
+```
+
+this means when the sidebar the sidebar is expanded show the `<x-long-logo />` logo, otherwise shows the `<x-short-logo />` logo   
+
+
 
 
 ### Sidebar with Footer Content
