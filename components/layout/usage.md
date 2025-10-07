@@ -6,7 +6,7 @@ name: Layout Component
 
 The Layout component is the foundation of Sheaf UI's layout system. It orchestrates the entire application structure by managing viewport detection, sidebar collapse state, and coordinating child components (Sidebar, Header, Main) across different screen sizes.
 
-Think of it as the conductor of an orchestra—it doesn't make much noise itself, but it ensures every component works together harmoniously.
+Think of it as the conductor of an orchestra, it doesn't make much noise itself, but it ensures every component works together harmoniously.
 
 ### Installation
 
@@ -14,15 +14,15 @@ Think of it as the conductor of an orchestra—it doesn't make much noise itself
 php artisan sheaf:install layout
 ```
 
-This installs the layout component along with its required sub-components (main, runtime).
-
----
-
 ## Basic Usage
 
 The Layout component wraps your entire application structure:
 
 ```blade
+<head>
+<!-- vite.. -->
+</head>
+<body>
 <x-ui.layout>
     <x-ui.sidebar>
         <!-- Sidebar content -->
@@ -39,42 +39,133 @@ The Layout component wraps your entire application structure:
         </div>
     </x-ui.layout.main>
 </x-ui.layout>
+</body>
 ```
+> this is layout isn't the master layout, to use it you need to wrap it with a base layout like `<x-layouts.base>...<x-layouts.base> who has the javascript and css imports `
+
+
+## Variants
+
+### Sidebar-Main Layout
+
+The classic dashboard pattern with a prominent sidebar containing primary navigation. The sidebar spans the full height and can collapse to icon-only mode.
+
+#### Usage
+
+```blade
+<x-ui.layout>
+    <x-ui.sidebar>
+        <x-slot:brand>
+            <x-ui.brand name="Your App" href="/" />
+        </x-slot:brand>
+        
+        <x-ui.navlist>
+            <x-ui.navlist.item label="Dashboard" icon="home" href="/" />
+            <x-ui.navlist.item label="Settings" icon="cog-6-tooth" href="/settings" />
+        </x-ui.navlist>
+    </x-ui.sidebar>
+    
+    <x-ui.layout.main>
+        <x-ui.layout.header>
+            <x-ui.navbar>
+                <x-ui.navbar.item label="Home" icon="home" />
+            </x-ui.navbar>
+            
+            <!-- User menu, search, etc. -->
+        </x-ui.layout.header>
+        
+        <!-- Your page content -->
+        <div class="p-6">
+            {{ $slot }}
+        </div>
+    </x-ui.layout.main>
+</x-ui.layout>
+```
+
+#### Visual Example
+
+@blade
+<x-md.image                                                            
+    src="/images/demos/light/sidebar-main.png"                                    
+    dark-src="/images/demos/dark/sidebar-main.png"                                    
+    alt="Sidebar-main layout showing prominent sidebar navigation"                                               
+    caption="Sidebar-main layout: Navigation-first dashboard pattern"                                   
+/>
+@endblade
+
+@blade
+<x-md.cta                                                            
+    href="/demos/sidebar"                                    
+    label="Try Sidebar-Main Layout in Action"
+    variant="slide"                                               
+/>
+@endblade
+
+### Header-Sidebar Layout
+
+An application-style layout with a top header containing branding and primary actions, with a secondary sidebar for navigation. The header spans the full width above both the sidebar and main content.
+
+
+#### Usage
+
+```blade
+<x-ui.layout variant="header-sidebar">
+    <x-ui.layout.header>
+        <x-slot:brand>
+            <x-ui.brand name="Your App" href="/" />
+        </x-slot:brand>
+        
+        <x-ui.navbar class="flex-1">
+            <x-ui.navbar.item label="Home" icon="home" />
+            <x-ui.navbar.item label="Products" icon="shopping-bag" />
+        </x-ui.navbar>
+        
+        <!-- User menu, notifications, etc. -->
+        <div class="ml-auto flex items-center gap-4">
+            <x-ui.avatar src="/user.png" />
+        </div>
+    </x-ui.layout.header>
+    
+    <x-ui.sidebar>
+        <x-ui.navlist>
+            <x-ui.navlist.item label="Dashboard" icon="home" href="/" />
+            <x-ui.navlist.group label="Content">
+                <x-ui.navlist.item label="Posts" icon="document" />
+                <x-ui.navlist.item label="Pages" icon="folder" />
+            </x-ui.navlist.group>
+        </x-ui.navlist>
+    </x-ui.sidebar>
+
+    <x-ui.layout.main>
+        <!-- Your page content -->
+        <div class="p-6">
+            {{ $slot }}
+        </div>
+    </x-ui.layout.main>
+</x-ui.layout>
+```
+
+#### Visual Example
+
+@blade
+<x-md.image                                                            
+    src="/images/demos/light/header-sidebar.png"                                    
+    dark-src="/images/demos/dark/header-sidebar.png"                                    
+    alt="Header-sidebar layout with top header and secondary sidebar"                                               
+    caption="Header-sidebar layout: Application-style with prominent header"                                   
+/>
+@endblade
+
+@blade
+<x-md.cta                                                            
+    href="/demos/sidebar/layout-header-sidebar"                                    
+    label="Try Header-Sidebar Layout in Action"
+    variant="slide"                                               
+/>
+@endblade
 
 ---
 
-## Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | string | `'sidebar-main'` | Layout pattern to use: `sidebar-main` or `header-sidebar` |
-| `collapsible` | boolean | `true` | Allow sidebar to collapse on desktop (typo accepted: `collapsable`) |
-
-### Variant Prop
-
-Determines the layout structure:
-
-**`sidebar-main`** (default)
-- Sidebar is the primary navigation element
-- Header is secondary, inside the main content area
-- Best for dashboards and admin panels
-
-**`header-sidebar`**
-- Header spans full width at the top
-- Sidebar is secondary below the header
-- Best for content platforms and marketplaces
-
-```blade
-<!-- Sidebar-main variant -->
-<x-ui.layout variant="sidebar-main">
-    <!-- ... -->
-</x-ui.layout>
-
-<!-- Header-sidebar variant -->
-<x-ui.layout variant="header-sidebar">
-    <!-- ... -->
-</x-ui.layout>
-```
 
 ### Collapsible Prop
 
@@ -114,14 +205,6 @@ The Layout component automatically adapts across three breakpoints:
 - Uses `sidebarOpen` (boolean)
 - Not persisted (resets on page load)
 
-**Grid:**
-```css
-grid-cols-1
-grid-template-areas: 'main'
-```
-
----
-
 ### 📱 Tablet (768px - 1024px)
 
 **Sidebar:**
@@ -134,13 +217,6 @@ grid-template-areas: 'main'
 - Forced `collapsedSidebar: true`
 - Prevents expanded state
 
-**Grid:**
-```css
-grid-cols-[var(--sidebar-width) 1fr]
-grid-template-areas: 'sidebar main'
-```
-
----
 
 ### 🖥️ Desktop (≥ 1024px)
 
@@ -154,18 +230,7 @@ grid-template-areas: 'sidebar main'
 - Uses `collapsedSidebar` (boolean)
 - Persisted in localStorage as `_x_collapsedSidebar`
 
-**Grid:**
-```css
-/* Expanded */
-grid-cols-[16rem 1fr]
-
-/* Collapsed */
-grid-cols-[4rem 1fr]
-```
-
----
-
-## CSS Custom Properties
+## Essentiels CSS Variables
 
 The Layout component exposes CSS variables that child components can use:
 
@@ -174,30 +239,24 @@ The Layout component exposes CSS variables that child components can use:
 | `--sidebar-width` | `16rem` (256px) | `4rem` (64px) | Sidebar width |
 | `--header-height` | `4rem` (64px) | Same | Header height |
 
-### Usage in Child Components
+to change the values go to desired layout variant (eg,`ui/layout/sidebar-main.blade.php`) and in the top classes you may find something like this 
+```php
+    $classes = [
+        '[--sidebar-width:16rem]',                      
+        'data-[collapsed]:[--sidebar-width:4rem]',      
+        
+        '[--header-height:4rem]',
+        
+        // 'data-[collapsed]:[--header-height:4rem]',
 
-```blade
-<!-- Sidebar uses the variable for its width -->
-<div style="width: var(--sidebar-width)">...</div>
-
-<!-- Main content accounts for header height -->
-<div style="min-height: calc(100vh - var(--header-height))">...</div>
+        'grid',                                        
+        'h-screen overflow-hidden',                     
+        'min-h-screen text-slate-950 dark:text-slate-50', 
+        // more and more classes
+    ]
 ```
-
-You can override these in your CSS:
-
-```css
-[data-slot="layout"] {
-    --sidebar-width: 20rem; /* Wider sidebar */
-    --header-height: 5rem;  /* Taller header */
-}
-
-[data-slot="layout"][data-collapsed] {
-    --sidebar-width: 3rem; /* Narrower when collapsed */
-}
-```
-
----
+here you can tweack the values as needed, `[--sidebar-width:16rem]` tells the width of the sidebar if it not collapsed, when the sidebar is collapsed the ``'data-[collapsed]:[--sidebar-width:4rem]'`` tailwind variant takes place so there one variable and can be changed selon
+according to  the sidebar state, the same can be done with the height (we keep the same height for both states but you can change it if you need)
 
 ## Data Attributes API
 
@@ -210,8 +269,18 @@ The Layout component sets data attributes that you can use for styling:
 | `data-in-mobile` | `true` / (absent) | Viewport is mobile (< 768px) |
 | `data-in-tablet` | `true` / (absent) | Viewport is tablet (768-1024px) |
 
-### Custom Styling Examples
+using data-attributes give the best and the cleaneset way to style complex element, as well as it bridge the gap between **tailwindcss**,**alpinejs** and **vanilla js**, (we need vanilla js because alpines hit's its limits in some cases) 
 
+
+### Using DATA Attributes API to style child component
+you can these data attributes as custom tailwind variants like what you do with focus and hover ...
+
+
+- `[:has([data-collapsed]_&)_&]:*`: this can be used to add style when the sidebar is collapsed,(adding more to the container: `[:has([data-collapsed]_&)_&]:p-4`).
+
+- `[:not(:has([data-collapsed]_&))_&]:*`: adding styles when the sidebar is expanded.  
+
+or in raw css like so
 ```css
 /* Style when sidebar is collapsed */
 [data-slot="layout"][data-collapsed] .some-element {
@@ -229,7 +298,6 @@ The Layout component sets data attributes that you can use for styling:
 }
 ```
 
----
 
 ## Alpine.js State
 
@@ -305,111 +373,6 @@ The `<x-ui.layout.main>` component wraps your page content and assigns it to the
     <!-- Without header: automatic padding -->
     @yield('content')
 </x-ui.layout.main>
-```
-
----
-
-## Examples
-
-### Complete Application Layout
-
-```blade
-<x-ui.layout variant="sidebar-main">
-    <x-ui.sidebar>
-        <x-slot:brand>
-            <x-ui.brand name="My App" href="/" />
-        </x-slot:brand>
-        
-        <x-ui.navlist>
-            <x-ui.navlist.item label="Dashboard" icon="home" href="/" />
-            <x-ui.navlist.item label="Settings" icon="cog" href="/settings" />
-        </x-ui.navlist>
-    </x-ui.sidebar>
-    
-    <x-ui.layout.main>
-        <x-ui.layout.header>
-            <x-ui.sidebar.toggle class="md:hidden" />
-            
-            <x-ui.navbar class="flex-1">
-                <x-ui.navbar.item label="Home" icon="home" />
-            </x-ui.navbar>
-            
-            <div class="ml-auto">
-                <x-ui.avatar src="/user.png" />
-            </div>
-        </x-ui.layout.header>
-        
-        <div class="p-6">
-            <h1>Welcome to My App</h1>
-            <p>This is your dashboard.</p>
-        </div>
-    </x-ui.layout.main>
-</x-ui.layout>
-```
-
-### Header-Sidebar Variant
-
-```blade
-<x-ui.layout variant="header-sidebar">
-    <x-ui.layout.header>
-        <x-slot:brand>
-            <x-ui.brand name="My Platform" />
-        </x-slot:brand>
-        
-        <x-ui.navbar class="flex-1">
-            <x-ui.navbar.item label="Home" />
-            <x-ui.navbar.item label="Features" />
-        </x-ui.navbar>
-        
-        <x-ui.avatar src="/user.png" />
-    </x-ui.layout.header>
-    
-    <x-ui.sidebar>
-        <x-ui.navlist>
-            <x-ui.navlist.item label="Dashboard" href="/" />
-            <x-ui.navlist.item label="Projects" href="/projects" />
-        </x-ui.navlist>
-    </x-ui.sidebar>
-    
-    <x-ui.layout.main>
-        <div class="p-6">
-            {{ $layout }}
-        </div>
-    </x-ui.layout.main>
-</x-ui.layout>
-```
-
-### Non-Collapsible Sidebar
-
-```blade
-<x-ui.layout :collapsible="false">
-    <x-ui.sidebar>
-        <!-- Sidebar content -->
-        <!-- Toggle button will be hidden automatically -->
-    </x-ui.sidebar>
-    
-    <x-ui.layout.main>
-        <!-- Main content -->
-    </x-ui.layout.main>
-</x-ui.layout>
-```
-
----
-
-## Customization
-
-### Override Default Widths
-go to each variant file and customize as you need the vars (you can find them on top of the file (`sidebar-main.blade.php`,`header-sidebar.blade.php`))
-
-```css
-/* In your CSS file */
-[data-slot="layout"] {
-    --sidebar-width: 18rem;      /* Wider default */
-}
-
-[data-slot="layout"][data-collapsed] {
-    --sidebar-width: 3.5rem;     /* Custom collapsed width */
-}
 ```
 
 ### Keyboard Shortcuts
