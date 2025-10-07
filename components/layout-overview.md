@@ -4,7 +4,7 @@ name: Layout Components Overview
 
 ## Introduction
 
-The layout components in Sheaf UI are designed to work together as a cohesive system for building application layouts. These components—Sidebar, Navlist, Header, and Navbar—are interdependent and handle common layout patterns like collapsible navigation, responsive headers, and structured content areas.
+The layout components in Sheaf UI are designed to work together as a cohesive system for building application layouts. These components—Sidebar, Navlist, Header, and Navbar are interdependent and handle common layout patterns like collapsible navigation, responsive headers, and structured content areas.
 
 While you can technically use these components in isolation with additional configuration, they're optimized to work as a connected system. This approach reduces boilerplate and ensures consistent behavior across your application.
 
@@ -16,9 +16,15 @@ php artisan sheaf:install sidebar header navlist navbar
 ```
 
 
-## Architecture
+## Layouts Variants
 
-The layout system follows a hierarchical structure:
+The layout system follows a hierarchical structure, at this point sheaf offer two variants :
+
+### Sidebar Main 
+
+#### Usage
+
+the `sidebar-main` layout variant 
 
 ```blade
 <x-ui.layout>
@@ -41,7 +47,70 @@ The layout system follows a hierarchical structure:
         <!-- Your page content -->
     </x-ui.layout.main>
 </x-ui.layout>
+
 ```
+#### Screenshots
+@blade
+<x-md.image                                                            
+    src="/images/demos/light/sidebar-main.png"                                    
+    dark-src="/images/demos/dark/sidebar-main.png"                                    
+    alt="sidebar main"                                               
+    caption="sidebar-main layout overview"                                   
+/>
+@endblade
+
+
+@blade
+<x-md.cta                                                            
+    href="/demos/sidebar"                                    
+    label="Try this Layout Variant in Action"                                               
+/>
+@endblade
+
+### Header Sidebar 
+
+#### Usage
+
+the `header-sidebar` layout variant 
+
+```blade
+<x-ui.layout variant="header-sidebar">
+    <x-ui.layout.header>
+        <!--header contents  -->
+    </x-ui.layout.header>
+    
+    <x-ui.sidebar>
+        <!-- all sidebar content -->
+        <x-ui.sidebar.navlist>
+            <x-ui.sidebar.navlist.item />
+            <x-ui.sidebar.navlist.group />
+        </x-ui.sidebar.navlist>
+        <!-- .... -->
+    </x-ui.sidebar>
+
+    <x-ui.layout.main>
+        <!-- main contents -->
+    </x-ui.layout.main>
+</x-ui.layout>
+```
+#### Screenshots
+@blade
+<x-md.image                                                            
+    dark-src="/images/demos/dark/header-sidebar.png"                                    
+    src="/images/demos/light/header-sidebar.png"                                    
+    alt="sidebar main"                                               
+    caption="sidebar-main layout overview"                                   
+/>
+@endblade
+
+
+@blade
+<x-md.cta                                                            
+    href="/demos/sidebar/layout-header-sidebar"                                    
+    label="Try this Layout Variant in Action"                                               
+/>
+@endblade
+
 
 ## Core Components
 
@@ -60,6 +129,22 @@ Key features:
 - Persistent collapse state
 - Tooltip support when collapsed
 - Custom scrolling behavior
+
+@blade
+<x-md.image                                                            
+    dark-src="/images/demos/dark/sidebar.png"                                    
+    src="/images/demos/light/sidebar.png"                                    
+    alt="sidebar main"                         
+    class="md-component"                      
+/>
+@endblade
+
+@blade
+<x-md.cta                                                            
+    href="/docs/layouts/sidebar"                                    
+    label="Read more About sidebar at it's own docs"                                               
+/>
+@endblade
 
 ### Navlist
 
