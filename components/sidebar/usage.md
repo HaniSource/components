@@ -71,8 +71,9 @@ The simplest implementation combining layout, sidebar, and main content:
 
 ```
 
-### manage brand on the sidebar
-the best way to manage your brand on the sidebar is to use the [brand component](/docs/components/brand) then pass your logo name to the name prop, and the logo to `<slot:logo>`, so when the sidebar is expanded the full name will be shown,
+### Managing Brand in the Sidebar
+
+The recommended approach is to use the [brand component](/docs/components/brand) with your logo and brand name. When the sidebar expands, the full brand name will be displayed alongside the logo.
 
 ```blade
 <x-ui.sidebar>
@@ -82,9 +83,9 @@ the best way to manage your brand on the sidebar is to use the [brand component]
             href="#"
         >
             <x-slot:logo>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 100 100"
-                    class="size-5">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 100 100"
+                     class="size-5">
                     <rect x="15" y="10" width="80" height="15" fill="currentColor" rx="5" ry="0" />
                     <rect x="15" y="30" width="60" height="15" fill="currentColor" />
                     <rect x="15" y="50" width="30" height="15" fill="currentColor" />
@@ -99,12 +100,16 @@ the best way to manage your brand on the sidebar is to use the [brand component]
     </x-ui.navlist>
 </x-ui.sidebar>
 ```
-if your logo doesn't have the pattern of logo svg and raw text name, you can have full control over the state of the sidebar, let's suppose you have big logo you want to show when the sidebar is expanded, and a logo variant collapsed state this is how you can manage this state
+
+#### Custom Logo Variants
+
+If you need different logos for expanded and collapsed states (e.g., a full logo vs. an icon-only variant), you can control this using CSS classes that respond to the sidebar's state:
+
 ```blade
 <x-ui.sidebar>
     <x-slot:brand>
-        <x-long-logo class="[:not(:has([data-collapsed]_&))_&]:inline-flex [:has([data-collapsed]_&)_&]:hidden"/>
-        <x-short-logo  class="[:not(:has([data-collapsed]_&))_&]:hidden [:has([data-collapsed]_&)_&]:inline-flex"/>
+        <x-long-logo class="[:not(:has([data-collapsed]_&))_&]:inline-flex [:has([data-collapsed]_&)_&]:hidden" />
+        <x-short-logo class="[:not(:has([data-collapsed]_&))_&]:hidden [:has([data-collapsed]_&)_&]:inline-flex" />
     </x-slot:brand>
 
     <x-ui.navlist>
@@ -113,9 +118,13 @@ if your logo doesn't have the pattern of logo svg and raw text name, you can hav
 </x-ui.sidebar>
 ```
 
-this means when the sidebar the sidebar is expanded show the `<x-long-logo />` logo, otherwise shows the `<x-short-logo />` logo   
+**How it works:**
+- `<x-long-logo />` displays when the sidebar is **expanded**
+- `<x-short-logo />` displays when the sidebar is **collapsed**
 
-
+**State-aware classes:**
+- `[:has([data-collapsed]_&)_&]`: Applies when the sidebar is collapsed
+- `[:not(:has([data-collapsed]_&))_&]`: Applies when the sidebar is expanded
 
 
 ### Sidebar with Footer Content
