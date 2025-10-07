@@ -179,6 +179,91 @@ Controls whether users can collapse the sidebar to icon-only mode on desktop, by
 ```
 **Note:** This only affects desktop (≥1024px). Mobile and tablet behaviors are fixed.
 
+
+## Essential CSS Variables
+
+The **Layout** component exposes several CSS variables that can be used by its child components:
+
+| Variable          | Default         | Collapsed     | Description   |
+| ----------------- | --------------- | ------------- | ------------- |
+| `--sidebar-width` | `16rem` (256px) | `4rem` (64px) | Sidebar width |
+| `--header-height` | `4rem` (64px)   | Same          | Header height |
+
+To change these values, open the desired layout variant (for example, `ui/layout/sidebar-main.blade.php`).
+At the top, you’ll find a `$classes` array similar to this:
+
+```php
+$classes = [
+    '[--sidebar-width:16rem]',                      
+    'data-[collapsed]:[--sidebar-width:4rem]',      
+    
+    '[--header-height:4rem]',
+    // 'data-[collapsed]:[--header-height:4rem]',
+
+    'grid',                                        
+    'h-screen overflow-hidden',                     
+    'min-h-screen text-slate-950 dark:text-slate-50', 
+    // more classes...
+];
+```
+
+Here you can tweak the variable values as needed:
+
+* `[--sidebar-width:16rem]` defines the sidebar width when **not collapsed**.
+* `'data-[collapsed]:[--sidebar-width:4rem]'` overrides it when the sidebar **is collapsed** using a Tailwind data variant.
+
+The same approach applies to the header height. By default, both collapsed and expanded states share the same height, but you can modify it if your design requires it.
+
+---
+
+## Data Attributes API
+
+The **Layout** component also sets several data attributes that can be used for styling or behavioral logic:
+
+| Attribute           | Values            | When Present                          |
+| ------------------- | ----------------- | ------------------------------------- |
+| `data-collapsed`    | `true` / (absent) | Sidebar is collapsed (desktop only)   |
+| `data-sidebar-open` | `true` / (absent) | Sidebar overlay is open (mobile only) |
+| `data-in-mobile`    | `true` / (absent) | Viewport is mobile (< 768px)          |
+| `data-in-tablet`    | `true` / (absent) | Viewport is tablet (768–1024px)       |
+
+Using **data attributes** provides a clean, semantic, and scalable way to style complex UI states.
+They also act as a bridge between **TailwindCSS**, **Alpine.js**, and **Vanilla JS**—especially when Alpine’s capabilities reach their limits.
+
+---
+
+### Using Data Attributes in Styling
+
+You can use these data attributes as **custom Tailwind variants**, similar to `hover:` or `focus:`:
+
+* `[:has([data-collapsed]_&)_&]:*` – applies styles when the sidebar **is collapsed**
+  Example: `[:has([data-collapsed]_&)_&]:p-4`
+
+* `[:not(:has([data-collapsed]_&))_&]:*` – applies styles when the sidebar **is expanded**
+
+Or use them directly in CSS for more control:
+
+```css
+/* Sidebar collapsed */
+[data-slot="layout"][data-collapsed] .some-element {
+    margin-left: 4rem;
+}
+
+/* Mobile view */
+[data-slot="layout"][data-in-mobile] .desktop-only {
+    display: none;
+}
+
+/* Sidebar open on mobile */
+[data-slot="layout"][data-sidebar-open] {
+    overflow: hidden; /* Prevent body scroll */
+}
+```
+
+This hybrid approach gives you full flexibility:
+Tailwind for composable variants, and raw CSS for fine-grained or global rules.
+
+
 ## Responsive Behavior
 
 The Layout component automatically adapts across three breakpoints:
@@ -236,7 +321,7 @@ The `<x-ui.layout.main>` component wraps your page content and assigns it to the
     
     <!-- Your content with manual padding -->
     <div class="p-6">
-        @yield('content')
+        {{ $slot }}
     </div>
 </x-ui.layout.main>
 ```
