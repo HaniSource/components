@@ -4,8 +4,7 @@ name: sidebar component
 
 ## Introduction
 
-The `Sidebar` component is a **responsive**, **collapsible** navigation sidebar designed for modern web applications. It features smooth transitions, touch-friendly interactions, and intelligent behavior across mobile, tablet, and desktop viewports. When combined with the layout system, it provides a complete application shell with seamless responsive behavior.
-
+The `Sidebar` component is a **responsive**, **collapsible** navigation sidebar designed for modern web applications. It features smooth transitions, touch-friendly interactions, and intelligent behavior across mobile, tablet, and desktop viewports.
 ## Installation
 
 Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `sidebar` component easily:
@@ -31,7 +30,25 @@ The simplest implementation combining layout, sidebar, and main content:
 
 ```blade
 <x-ui.layout>
-    <x-ui.sidebar brand="My App">
+    <x-ui.sidebar>
+        <x-slot:brand>
+            <x-ui.brand  
+                name="Sheaf UI"
+                href="/test"
+            >
+                <x-slot:logo>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 100 100"
+                        class="size-5">
+                        <rect x="15" y="10" width="80" height="15" fill="currentColor" rx="5" ry="0" />
+                        <rect x="15" y="30" width="60" height="15" fill="currentColor" />
+                        <rect x="15" y="50" width="30" height="15" fill="currentColor" />
+                        <rect x="15" y="55" width="10" height="30" fill="currentColor" />
+                    </svg>
+                </x-slot:logo>
+            </x-ui.brand>
+        </x-slot:brand>
+
         <x-ui.navlist>
             <x-ui.navlist.item 
                 label="Dashboard"
@@ -51,9 +68,10 @@ The simplest implementation combining layout, sidebar, and main content:
         <h1>Welcome to Dashboard</h1>
     </x-ui.layout.main>
 </x-ui.layout>
+
 ```
 
-### Custom Brand Area
+### manage brand on the sidebar
 
 Customize the brand/logo area in the sidebar header:
 
@@ -71,6 +89,7 @@ Customize the brand/logo area in the sidebar header:
     </x-ui.navlist>
 </x-ui.sidebar>
 ```
+the best way 
 
 
 ### Sidebar with Footer Content
@@ -197,6 +216,18 @@ On touch devices (tablets and phones), the sidebar includes enhanced touch targe
 - 48px minimum touch targets on all interactive elements
 - Optimized for thumb-friendly interaction
 
+
+## Component Structure
+
+The sidebar system is built with multiple components working together:
+
+- **Layout Container**: `<x-ui.layout>` - The root grid container managing responsive behavior
+- **Sidebar**: `<x-ui.sidebar>` - The sidebar navigation area
+- **Sidebar Brand**: Uses `brand` prop or `brand` slot for header content
+- **Sidebar Toggle**: `<x-ui.sidebar.toggle>` - Collapse/expand button (internal, auto-included)
+- **Sidebar Push**: `<x-ui.sidebar.push>` - Spacer to push content to bottom
+- **Main Content**: `<x-ui.layout.main>` - The primary content area
+
 ## Component Props
 
 ### Layout Component
@@ -214,8 +245,6 @@ On touch devices (tablets and phones), the sidebar includes enhanced touch targe
 | `scrollable`  | boolean | `false`        | No       | Whether sidebar content should be scrollable         |
 | `collapsable` | boolean | `true`         | No       | Whether sidebar can be collapsed (inherits from layout) |
 | `slot`        | mixed   | `''`           | Yes      | Navigation and content within sidebar                |
-
-**Note:** When using the `brand` slot, it overrides the `brand` prop.
 
 ### Sidebar Push Component
 
@@ -236,119 +265,3 @@ On touch devices (tablets and phones), the sidebar includes enhanced touch targe
 | Prop Name | Type  | Default | Required | Description            |
 | --------- | ----- | ------- | -------- | ---------------------- |
 | `slot`    | mixed | `''`    | Yes      | Main application content |
-
-## Component Structure
-
-The sidebar system is built with multiple components working together:
-
-- **Layout Container**: `<x-ui.layout>` - The root grid container managing responsive behavior
-- **Sidebar**: `<x-ui.sidebar>` - The sidebar navigation area
-- **Sidebar Brand**: Uses `brand` prop or `brand` slot for header content
-- **Sidebar Toggle**: `<x-ui.sidebar.toggle>` - Collapse/expand button (internal, auto-included)
-- **Sidebar Push**: `<x-ui.sidebar.push>` - Spacer to push content to bottom
-- **Main Content**: `<x-ui.layout.main>` - The primary content area
-
-## Advanced Examples
-
-### Multi-Section Sidebar with User Profile
-
-```blade
-<x-ui.sidebar>
-    <x-slot:brand>
-        <img src="/logo.svg" alt="Logo" class="size-8" />
-        <span class="[:has([data-collapsed]_&)_&]:hidden font-bold">AppName</span>
-    </x-slot:brand>
-
-    <!-- Navigation -->
-    <x-ui.navlist>
-        <x-ui.navlist.group label="Dashboard">
-            <x-ui.navlist.item label="Overview" icon="home" href="/" />
-            <x-ui.navlist.item label="Analytics" icon="chart-bar" href="/analytics" />
-        </x-ui.navlist.group>
-
-        <x-ui.navlist.group label="Content" collapsable>
-            <x-ui.navlist.item label="Posts" icon="document-text" href="/posts" />
-            <x-ui.navlist.item label="Media" icon="photo" href="/media" />
-        </x-ui.navlist.group>
-    </x-ui.navlist>
-
-    <x-ui.sidebar.push />
-
-    <!-- User Profile Footer -->
-    <div class="p-4 border-t dark:border-white/5">
-        <div class="flex items-center gap-3">
-            <img src="{{ auth()->user()->avatar }}" class="size-10 rounded-full" />
-            <div class="[:has([data-collapsed]_&)_&]:hidden flex-1 min-w-0">
-                <p class="font-medium truncate">{{ auth()->user()->name }}</p>
-                <p class="text-sm text-neutral-500 truncate">{{ auth()->user()->email }}</p>
-            </div>
-        </div>
-    </div>
-</x-ui.sidebar>
-```
-
-### Sidebar with Quick Actions
-
-```blade
-<x-ui.sidebar brand="Project Manager">
-    <!-- Quick Actions -->
-    <div class="p-4 border-b dark:border-white/5">
-        <x-ui.button variant="primary" class="w-full">
-            <x-ui.icon name="plus" />
-            <span class="[:has([data-collapsed]_&)_&]:hidden">New Project</span>
-        </x-ui.button>
-    </div>
-
-    <!-- Navigation -->
-    <x-ui.navlist>
-        <x-ui.navlist.item label="Projects" icon="folder" href="/projects" />
-        <x-ui.navlist.item label="Team" icon="users" href="/team" />
-        <x-ui.navlist.item label="Calendar" icon="calendar" href="/calendar" />
-    </x-ui.navlist>
-
-    <x-ui.sidebar.push />
-
-    <!-- Help Section -->
-    <div class="p-4 border-t dark:border-white/5">
-        <x-ui.navlist>
-            <x-ui.navlist.item label="Help & Support" icon="question-mark-circle" href="/help" />
-            <x-ui.navlist.item label="Settings" icon="cog" href="/settings" />
-        </x-ui.navlist>
-    </div>
-</x-ui.sidebar>
-```
-
-### Conditional Sidebar Content
-
-```blade
-<x-ui.sidebar scrollable>
-    <x-slot:brand>
-        <div class="flex items-center gap-2">
-            <x-ui.icon name="cube" class="size-6 text-primary" />
-            <span class="[:has([data-collapsed]_&)_&]:hidden font-bold">Admin</span>
-        </div>
-    </x-slot:brand>
-
-    <x-ui.navlist>
-        <!-- Always visible -->
-        <x-ui.navlist.item label="Dashboard" icon="home" href="/dashboard" />
-        
-        <!-- Admin only -->
-        @can('admin')
-            <x-ui.navlist.group label="Administration">
-                <x-ui.navlist.item label="Users" icon="users" href="/admin/users" />
-                <x-ui.navlist.item label="Roles" icon="shield-check" href="/admin/roles" />
-                <x-ui.navlist.item label="Logs" icon="document-text" href="/admin/logs" />
-            </x-ui.navlist.group>
-        @endcan
-
-        <!-- Manager and above -->
-        @can('manage')
-            <x-ui.navlist.group label="Management">
-                <x-ui.navlist.item label="Reports" icon="chart-bar" href="/reports" />
-                <x-ui.navlist.item label="Analytics" icon="chart-pie" href="/analytics" />
-            </x-ui.navlist.group>
-        @endcan
-    </x-ui.navlist>
-</x-ui.sidebar>
-```
