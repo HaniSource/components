@@ -16,7 +16,7 @@ php artisan sheaf:install layout
 
 ## Basic Usage
 
-The Layout component wraps your entire application structure:
+The Layout component wraps your entire main application contents (not the master layout):
 
 ```blade
 <head>
@@ -169,31 +169,21 @@ An application-style layout with a top header containing branding and primary ac
 
 ### Collapsible Prop
 
-Controls whether users can collapse the sidebar to icon-only mode on desktop:
+Controls whether users can collapse the sidebar to icon-only mode on desktop, by default are collaps&ble:
 
 ```blade
-<!-- Collapsible sidebar (default) -->
-<x-ui.layout :collapsible="true">
-    <!-- ... -->
-</x-ui.layout>
-
 <!-- Fixed-width sidebar -->
 <x-ui.layout :collapsible="false">
     <!-- ... -->
 </x-ui.layout>
 ```
-
 **Note:** This only affects desktop (≥1024px). Mobile and tablet behaviors are fixed.
-
-
-
----
 
 ## Responsive Behavior
 
 The Layout component automatically adapts across three breakpoints:
 
-### 📱 Mobile (< 768px)
+### Mobile (< 768px)
 
 **Sidebar:**
 - Overlay mode (slides in from left)
@@ -205,7 +195,7 @@ The Layout component automatically adapts across three breakpoints:
 - Uses `sidebarOpen` (boolean)
 - Not persisted (resets on page load)
 
-### 📱 Tablet (768px - 1024px)
+### Tablet (768px - 1024px)
 
 **Sidebar:**
 - Always collapsed (icon-only)
@@ -218,7 +208,7 @@ The Layout component automatically adapts across three breakpoints:
 - Prevents expanded state
 
 
-### 🖥️ Desktop (≥ 1024px)
+### Desktop (≥ 1024px)
 
 **Sidebar:**
 - Fully collapsible/expandable
@@ -230,127 +220,10 @@ The Layout component automatically adapts across three breakpoints:
 - Uses `collapsedSidebar` (boolean)
 - Persisted in localStorage as `_x_collapsedSidebar`
 
-## Essentiels CSS Variables
-
-The Layout component exposes CSS variables that child components can use:
-
-| Variable | Default | Collapsed | Description |
-|----------|---------|-----------|-------------|
-| `--sidebar-width` | `16rem` (256px) | `4rem` (64px) | Sidebar width |
-| `--header-height` | `4rem` (64px) | Same | Header height |
-
-to change the values go to desired layout variant (eg,`ui/layout/sidebar-main.blade.php`) and in the top classes you may find something like this 
-```php
-    $classes = [
-        '[--sidebar-width:16rem]',                      
-        'data-[collapsed]:[--sidebar-width:4rem]',      
-        
-        '[--header-height:4rem]',
-        
-        // 'data-[collapsed]:[--header-height:4rem]',
-
-        'grid',                                        
-        'h-screen overflow-hidden',                     
-        'min-h-screen text-slate-950 dark:text-slate-50', 
-        // more and more classes
-    ]
-```
-here you can tweack the values as needed, `[--sidebar-width:16rem]` tells the width of the sidebar if it not collapsed, when the sidebar is collapsed the ``'data-[collapsed]:[--sidebar-width:4rem]'`` tailwind variant takes place so there one variable and can be changed selon
-according to  the sidebar state, the same can be done with the height (we keep the same height for both states but you can change it if you need)
-
-## Data Attributes API
-
-The Layout component sets data attributes that you can use for styling:
-
-| Attribute | Values | When Present |
-|-----------|--------|--------------|
-| `data-collapsed` | `true` / (absent) | Sidebar is collapsed (desktop only) |
-| `data-sidebar-open` | `true` / (absent) | Sidebar overlay is open (mobile only) |
-| `data-in-mobile` | `true` / (absent) | Viewport is mobile (< 768px) |
-| `data-in-tablet` | `true` / (absent) | Viewport is tablet (768-1024px) |
-
-using data-attributes give the best and the cleaneset way to style complex element, as well as it bridge the gap between **tailwindcss**,**alpinejs** and **vanilla js**, (we need vanilla js because alpines hit's its limits in some cases) 
-
-
-### Using DATA Attributes API to style child component
-you can these data attributes as custom tailwind variants like what you do with focus and hover ...
-
-
-- `[:has([data-collapsed]_&)_&]:*`: this can be used to add style when the sidebar is collapsed,(adding more to the container: `[:has([data-collapsed]_&)_&]:p-4`).
-
-- `[:not(:has([data-collapsed]_&))_&]:*`: adding styles when the sidebar is expanded.  
-
-or in raw css like so
-```css
-/* Style when sidebar is collapsed */
-[data-slot="layout"][data-collapsed] .some-element {
-    margin-left: 4rem;
-}
-
-/* Style when on mobile */
-[data-slot="layout"][data-in-mobile] .desktop-only {
-    display: none;
-}
-
-/* Style when sidebar is open on mobile */
-[data-slot="layout"][data-sidebar-open] {
-    overflow: hidden; /* Prevent body scroll */
-}
-```
-
-
-## Alpine.js State
-
-The Layout component manages several Alpine.js reactive properties:
-
-```javascript
-{
-    // Sidebar collapse state (desktop)
-    collapsedSidebar: false,  // Persisted via $persist
-    
-    // Sidebar open state (mobile)
-    sidebarOpen: false,       // Not persisted
-    
-    // Viewport detection
-    isMobile: false,          // < 768px
-    isTablet: false,          // 768-1024px
-    
-    // Methods
-    toggle(),                 // Toggle sidebar (context-aware)
-    closeSidebar(),          // Close mobile sidebar
-    updateBreakpoints()      // Detect viewport changes
-}
-```
-
-### Accessing State from Child Components
-
-Child components can access parent state via Alpine's magic properties:
-
-```blade
-<!-- In a child component -->
-<div x-show="!$data.collapsedSidebar">
-    This shows when sidebar is expanded
-</div>
-```
-
----
 
 ## Main Component
 
 The `<x-ui.layout.main>` component wraps your page content and assigns it to the grid area:
-
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| (none) | - | - | Accepts all standard HTML attributes |
-
-### Features
-
-- Assigned to `grid-area: main`
-- Vertically scrollable (`overflow-y-auto`)
-- Flexbox column layout for children
-- Smart padding: No padding if contains a header
 
 ### Usage
 
@@ -415,3 +288,10 @@ The layout includes a clever pre-hydration script that solves a common Alpine.js
 - Alpine then hydrates with the correct state already applied
 
 Result: **Zero flicker, perfect initial render** ✨
+
+### Props
+
+#### Main component
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| (none) | - | - | Accepts all standard HTML attributes |
