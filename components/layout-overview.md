@@ -101,7 +101,7 @@ the `header-sidebar` layout variant
     dark-src="/images/demos/dark/header-sidebar.png"                                    
     src="/images/demos/light/header-sidebar.png"                                    
     alt="sidebar main"                                               
-    caption="sidebar-main layout overview"                                   
+    caption="header-sidebar layout overview"                                   
 />
 @endblade
 
@@ -158,7 +158,14 @@ The navlist component structures navigation items within the sidebar. It provide
 - Active state management
 - Consistent spacing and alignment
 
-Works in conjunction with the sidebar's collapsed state to show/hide labels and manage tooltips.
+Works in conjunction with the sidebar's collapsed state to show/hide labels, keep only icons shown and manage tooltips.
+
+@blade
+<x-md.cta                                                            
+    href="/docs/layouts/navlist"                                    
+    label="Read more About sidebar at it's own docs"                                               
+/>
+@endblade
 
 ### Header
 
@@ -170,6 +177,12 @@ The header component sits at the top of the main content area and provides:
 - Responsive behavior
 
 Typically contains a navbar but can hold any header content like search bars, user menus, or breadcrumbs.
+@blade
+<x-md.cta                                                            
+    href="/docs/layouts/header"                                    
+    label="Read more About sidebar at it's own docs"                                               
+/>
+@endblade
 
 ### Navbar
 
@@ -177,10 +190,17 @@ The navbar component provides horizontal navigation within the header:
 
 - Horizontal nav items
 - Icon + label combinations
-- Active state indicators
+- Active state indicators (primary color)
 - Flexible positioning
 
 Complements the sidebar's vertical navigation with top-level or contextual navigation options.
+
+@blade
+<x-md.cta                                                            
+    href="/docs/layouts/navbar"                                    
+    label="Read more About sidebar at it's own docs"                                               
+/>
+@endblade
 
 ## Design Principles
 
