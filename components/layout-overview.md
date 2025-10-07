@@ -32,18 +32,6 @@ Sheaf UI offers two primary layout variants, each optimized for different use ca
 
 The classic dashboard pattern with a prominent sidebar containing primary navigation. The sidebar spans the full height and can collapse to icon-only mode.
 
-**Best for:**
-- Admin panels and dashboards
-- Applications where navigation is the primary interaction
-- Content management systems
-- SaaS applications
-
-**Key characteristics:**
-- Sidebar is the dominant visual element
-- Navigation takes priority in the hierarchy
-- Ideal for applications with many navigation sections
-- Natural focus on sidebar menu structure
-
 #### Usage
 
 ```blade
@@ -70,7 +58,7 @@ The classic dashboard pattern with a prominent sidebar containing primary naviga
         
         <!-- Your page content -->
         <div class="p-6">
-            @yield('content')
+            {{ $slot }}
         </div>
     </x-ui.layout.main>
 </x-ui.layout>
@@ -95,23 +83,10 @@ The classic dashboard pattern with a prominent sidebar containing primary naviga
 />
 @endblade
 
----
-
 ### Header-Sidebar Layout
 
 An application-style layout with a top header containing branding and primary actions, with a secondary sidebar for navigation. The header spans the full width above both the sidebar and main content.
 
-**Best for:**
-- Content platforms and marketplaces
-- Applications emphasizing branding and user actions
-- Multi-tenant applications
-- Portals and member areas
-
-**Key characteristics:**
-- Header takes visual priority
-- Branding and user actions are immediately visible
-- Sidebar serves as secondary navigation
-- Better for applications with fewer navigation sections
 
 #### Usage
 
@@ -146,7 +121,7 @@ An application-style layout with a top header containing branding and primary ac
     <x-ui.layout.main>
         <!-- Your page content -->
         <div class="p-6">
-            @yield('content')
+            {{ $slot }}
         </div>
     </x-ui.layout.main>
 </x-ui.layout>
@@ -173,6 +148,8 @@ An application-style layout with a top header containing branding and primary ac
 
 ---
 
+## Core Components Overview
+
 ## Layout Component
 
 The root `<x-ui.layout>` component orchestrates the entire layout system. It handles:
@@ -183,30 +160,13 @@ The root `<x-ui.layout>` component orchestrates the entire layout system. It han
 - CSS custom properties for sizing
 - Alpine.js state coordination
 
-### Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | string | `'sidebar-main'` | Layout pattern: `sidebar-main` or `header-sidebar` |
-| `collapsible` | boolean | `true` | Allow sidebar collapse on desktop |
-
-### Example
-
-```blade
-<!-- Default sidebar-main variant -->
-<x-ui.layout>
-    <!-- Components -->
-</x-ui.layout>
-
-<!-- Header-sidebar variant with fixed sidebar -->
-<x-ui.layout variant="header-sidebar" :collapsible="false">
-    <!-- Components -->
-</x-ui.layout>
-```
-
----
-
-## Core Components Overview
+@blade
+<x-md.cta                                                            
+    href="/docs/layouts/layout"                                    
+    label="View Layout Documentation"
+    variant="expand"                                               
+/>
+@endblade
 
 ### Sidebar
 
@@ -270,12 +230,6 @@ Structures navigation items and groups within the sidebar. Handles active states
 ### Navbar
 
 Horizontal navigation component for the header. Provides top-level or contextual navigation.
-
-**Features:**
-- Icon + label items
-- Dropdown support
-- Active state styling
-- Responsive visibility
 
 @blade
 <x-md.cta                                                            
@@ -354,11 +308,13 @@ Use `<x-ui.sidebar.push />` to push subsequent items to the bottom of the sideba
     <!-- Top navigation -->
     <x-ui.navlist.item label="Dashboard" icon="home" />
     <x-ui.navlist.item label="Analytics" icon="chart-bar" />
+</x-ui.navlist>
     
-    <!-- Spacer pushes everything below to bottom -->
-    <x-ui.sidebar.push />
+<!-- Spacer pushes everything below to bottom -->
+<x-ui.sidebar.push />
     
     <!-- Bottom navigation -->
+<x-ui.navlist>
     <x-ui.navlist.item label="Settings" icon="cog-6-tooth" />
     <x-ui.navlist.item label="Logout" icon="arrow-right-on-rectangle" />
 </x-ui.navlist>
@@ -401,15 +357,14 @@ The layout system automatically adapts across breakpoints:
 - Sidebar always in collapsed (icon-only) mode
 - Visible alongside main content
 - Tap sidebar to toggle on touch devices
-- Hover shows tooltips
 
 ### Desktop (>= 1024px)
 - Full collapsible/expandable sidebar
 - State persists in localStorage
 - Smooth width transitions
 - Keyboard shortcuts supported
+- Hover shows tooltips
 
----
 
 ## Design Principles
 
@@ -424,45 +379,3 @@ Works without JavaScript for basic functionality, enhanced with Alpine.js for in
 
 ### Accessibility First
 Built-in ARIA attributes, keyboard navigation, and screen reader support throughout.
-
----
-
-## Next Steps
-
-Dive deeper into each component's documentation for detailed API references, advanced patterns, and customization options:
-
-@blade
-<div class="grid md:grid-cols-2 gap-4 my-8">
-    <x-ui.card>
-        <x-ui.heading level="h4" size="xs" class="mb-2">Sidebar Component</x-ui.heading>
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-            Collapsible navigation with responsive behavior and state persistence.
-        </p>
-        <x-md.cta href="/docs/layouts/sidebar" label="View Documentation" variant="lift" />
-    </x-ui.card>
-    
-    <x-ui.card>
-        <x-ui.heading level="h4" size="xs" class="mb-2">Header Component</x-ui.heading>
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-            Top bar for branding, navigation, and user actions.
-        </p>
-        <x-md.cta href="/docs/layouts/header" label="View Documentation" variant="lift" />
-    </x-ui.card>
-    
-    <x-ui.card>
-        <x-ui.heading level="h4" size="xs" class="mb-2">Navlist Component</x-ui.heading>
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-            Structured navigation items and collapsible groups.
-        </p>
-        <x-md.cta href="/docs/layouts/navlist" label="View Documentation" variant="lift" />
-    </x-ui.card>
-    
-    <x-ui.card>
-        <x-ui.heading level="h4" size="xs" class="mb-2">Navbar Component</x-ui.heading>
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-            Horizontal navigation for header sections.
-        </p>
-        <x-md.cta href="/docs/layouts/navbar" label="View Documentation" variant="lift" />
-    </x-ui.card>
-</div>
-@endblade
