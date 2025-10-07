@@ -94,41 +94,7 @@ Controls whether users can collapse the sidebar to icon-only mode on desktop:
 
 **Note:** This only affects desktop (≥1024px). Mobile and tablet behaviors are fixed.
 
----
 
-## How It Works
-
-The Layout component is actually a **component dispatcher** that:
-
-1. **Selects the variant** based on the `variant` prop
-2. **Renders the appropriate layout** (`sidebar-main` or `header-sidebar`)
-3. **Includes the runtime script** to prevent Alpine.js flicker
-
-### Component Structure
-
-```
-ui/layout/
-├── index.blade.php          # Main dispatcher
-├── main.blade.php           # Main content area wrapper
-├── runtime.blade.php        # Pre-hydration script
-└── variant/
-    ├── sidebar-main.blade.php
-    └── header-sidebar.blade.php
-```
-
-### The Runtime Script
-
-The layout includes a clever pre-hydration script that solves a common Alpine.js problem:
-
-**The Problem:** When Alpine.js initializes, there's a brief moment where the component renders in the wrong state (expanded sidebar when it should be collapsed), causing a visible "flash" or "jump".
-
-**The Solution:** The runtime script runs **before** Alpine initializes and:
-- Reads the sidebar collapse state from localStorage (`_x_collapsedSidebar`)
-- Detects the current viewport (mobile, tablet, desktop)
-- Sets data attributes on the layout immediately
-- Alpine then hydrates with the correct state already applied
-
-Result: **Zero flicker, perfect initial render** ✨
 
 ---
 
@@ -483,81 +449,37 @@ The Layout component includes several accessibility features:
 |-----|--------|
 | `ESC` | Close mobile sidebar overlay |
 
----
 
-## Performance
+## How It Works
 
-### Pre-hydration Script
+The Layout component is actually a **component dispatcher** that:
 
-The runtime script is tiny (~200 bytes minified) and runs synchronously before Alpine loads. This ensures:
-- Zero layout shift (CLS score = 0)
-- No flicker or flash
-- Instant correct state
+1. **Selects the variant** based on the `variant` prop
+2. **Renders the appropriate layout** (`sidebar-main` or `header-sidebar`)
+3. **Includes the runtime script** to prevent Alpine.js flicker
 
-### State Persistence
+### Component Structure
 
-The layout uses Alpine's `$persist` magic for efficient localStorage management:
-- Automatic serialization/deserialization
-- Only writes when state actually changes
-- Minimal overhead
-
----
-
-## Troubleshooting
-
-### Sidebar Flickers on Load
-
-**Problem:** Sidebar briefly shows expanded then collapses  
-**Solution:** Ensure the runtime component is included (it's automatic in the layout component)
-
-### State Not Persisting
-
-**Problem:** Sidebar collapse state resets on page reload  
-**Solution:** Check that Alpine.js `persist` plugin is loaded:
-
-```html
-<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+```
+ui/layout/
+├── index.blade.php          # Main dispatcher
+├── main.blade.php           # Main content area wrapper
+├── runtime.blade.php        # Pre-hydration script
+└── variant/
+    ├── sidebar-main.blade.php
+    └── header-sidebar.blade.php
 ```
 
-### Mobile Sidebar Won't Close
+### The Runtime Script
 
-**Problem:** Tapping backdrop doesn't close sidebar  
-**Solution:** Ensure no other elements are blocking clicks (check z-index stacking)
+The layout includes a clever pre-hydration script that solves a common Alpine.js problem:
 
-### Wrong Layout on Tablet
+**The Problem:** When Alpine.js initializes, there's a brief moment where the component renders in the wrong state (expanded sidebar when it should be collapsed), causing a visible "flash" or "jump".
 
-**Problem:** Sidebar isn't collapsed on tablet  
-**Solution:** Check that the runtime script is running. Open console and look for "Init layout failed" warnings.
+**The Solution:** The runtime script runs **before** Alpine initializes and:
+- Reads the sidebar collapse state from localStorage (`_x_collapsedSidebar`)
+- Detects the current viewport (mobile, tablet, desktop)
+- Sets data attributes on the layout immediately
+- Alpine then hydrates with the correct state already applied
 
----
-
-## Related Components
-
-@blade
-<div class="grid md:grid-cols-2 gap-4 my-8">
-    <x-ui.card>
-        <x-ui.heading level="h4" size="xs" class="mb-2">Sidebar Component</x-ui.heading>
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-            Navigation sidebar that adapts to layout state
-        </p>
-        <x-md.cta href="/docs/layouts/sidebar" label="View Sidebar Docs" variant="expand" />
-    </x-ui.card>
-    
-    <x-ui.card>
-        <x-ui.heading level="h4" size="xs" class="mb-2">Header Component</x-ui.heading>
-        <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-            Top bar for branding and actions
-        </p>
-        <x-md.cta href="/docs/layouts/header" label="View Header Docs" variant="expand" />
-    </x-ui.card>
-</div>
-@endblade
-
----
-
-## Next Steps
-
-- Learn about [Layout Variants](/docs/layouts/overview#layout-variants) in detail
-- Explore [Sidebar Component](/docs/layouts/sidebar) features
-- Check out [Common Patterns](/docs/layouts/overview#common-patterns)
+Result: **Zero flicker, perfect initial render** ✨
