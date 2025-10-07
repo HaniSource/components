@@ -127,22 +127,26 @@ If you need different logos for expanded and collapsed states (e.g., a full logo
 - `[:not(:has([data-collapsed]_&))_&]`: Applies when the sidebar is expanded
 
 
+
 ### Sidebar with Footer Content
 
-Use the `push` component to position content at the bottom:
+When your sidebar includes both main navigation and footer actions (like user settings or status indicators), use the `x-ui.sidebar.push` component to **push** the footer section to the bottom of the sidebar.
+It creates flexible spacing that ensures the footer always stays fixed at the bottom, regardless of how much content the upper section has.
+
+#### Example
 
 ```blade
 <x-ui.sidebar>
-    <!-- brand contents -->
+    <!-- Brand or header content -->
     <x-ui.navlist>
-        <!-- top navlist -->
+        <!-- Top navigation items -->
     </x-ui.navlist>
 
-    <!-- essentiels element to push the content to
-         bottom as far as possible -->
+    <!-- Push element (flex spacer)
+         keeps following content pinned at the bottom -->
     <x-ui.sidebar.push />
-    
-    <!-- footer -->
+
+    <!-- Footer section -->
     <x-ui.dropdown portal>
         <x-slot:button>
             <x-ui.navlist.item 
@@ -154,17 +158,14 @@ Use the `push` component to position content at the bottom:
         
         <x-slot:menu class="!w-[14rem]">
             <x-ui.dropdown.item href="#" icon="adjustments-horizontal">
-                Preference
+                Preferences
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item href="#" icon="user-circle">
                 Profile
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item href="#" icon="lock-closed">
                 Security
             </x-ui.dropdown.item>
-            
             <x-ui.dropdown.item href="#" icon="bell" variant="danger">
                 Notifications
             </x-ui.dropdown.item>
@@ -172,6 +173,13 @@ Use the `push` component to position content at the bottom:
     </x-ui.dropdown>
 </x-ui.sidebar>
 ```
+
+#### Notes
+
+* `x-ui.sidebar.push` **does not render visible content**; it’s a layout utility.
+* It relies on the sidebar’s internal flexbox structure, so it must be placed **between** the main and footer sections.
+* Perfect for user menus, status indicators, or workspace selectors that should remain at the bottom.
+
 
 ### Complete Application Layout
 
@@ -317,3 +325,4 @@ The sidebar system is built with multiple components working together:
 | Prop Name | Type  | Default | Required | Description            |
 | --------- | ----- | ------- | -------- | ---------------------- |
 | `slot`    | mixed | `''`    | Yes      | Main application content |
+
