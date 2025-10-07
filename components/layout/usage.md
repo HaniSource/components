@@ -244,7 +244,7 @@ The `<x-ui.layout.main>` component wraps your page content and assigns it to the
 ```blade
 <x-ui.layout.main>
     <!-- Without header: automatic padding -->
-    @yield('content')
+    {{ $slot }}
 </x-ui.layout.main>
 ```
 
@@ -289,9 +289,9 @@ The layout includes a clever pre-hydration script that solves a common Alpine.js
 
 Result: **Zero flicker, perfect initial render** ✨
 
-### Props
+## Props
 
-#### Main component
+### Main component
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | (none) | - | - | Accepts all standard HTML attributes |
