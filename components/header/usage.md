@@ -29,7 +29,7 @@ The simplest implementation with a navbar and user actions:
 
 ```blade
 <x-ui.layout.main>
-    <x-ui.header>
+    <x-ui.layout.header>
         <x-ui.navbar class="flex-1">
             <x-ui.navbar.item icon="home" label="Home" href="/" />
             <x-ui.navbar.item icon="cog-6-tooth" label="Settings" href="/settings" />
@@ -39,7 +39,7 @@ The simplest implementation with a navbar and user actions:
             <x-ui.avatar size="sm" src="/avatar.png" circle />
             <x-ui.theme-switcher variant="inline" />
         </div>
-    </x-ui.header>
+    </x-ui.layout.header>
 
     <div class="p-6">
         <!-- Your page content -->
@@ -52,14 +52,14 @@ The simplest implementation with a navbar and user actions:
 A simple header focused on navigation:
 
 ```blade
-<x-ui.header>
+<x-ui.layout.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Dashboard" href="/dashboard" />
         <x-ui.navbar.item icon="chart-bar" label="Analytics" href="/analytics" />
         <x-ui.navbar.item icon="users" label="Team" href="/team" />
         <x-ui.navbar.item icon="folder" label="Projects" href="/projects" />
     </x-ui.navbar>
-</x-ui.header>
+</x-ui.layout.header>
 ```
 
 ### Header with Search and Actions
@@ -67,7 +67,7 @@ A simple header focused on navigation:
 Add search functionality and action buttons:
 
 ```blade
-<x-ui.header>
+<x-ui.layout.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Home" href="/" />
         <x-ui.navbar.item icon="document-text" label="Docs" href="/docs" />
@@ -79,60 +79,27 @@ Add search functionality and action buttons:
             icon="magnifying-glass"
             class="w-64"
         />
-        <x-ui.button variant="primary" icon="plus">
+        <x-ui.button variant="solid" size="sm" icon="plus">
             New Project
         </x-ui.button>
-        <x-ui.avatar src="/user.jpg" circle size="sm" />
+        <x-ui.avatar src="/mohamed.png" circle size="sm" />
     </div>
-</x-ui.header>
-```
-
-### Header with Breadcrumbs
-
-Combine navigation with breadcrumbs for better context:
-
-```blade
-<x-ui.header>
-    <div class="flex-1 flex items-center gap-x-6">
-        <x-ui.navbar>
-            <x-ui.navbar.item icon="home" label="Home" href="/" />
-            <x-ui.navbar.item icon="folder" label="Projects" href="/projects" />
-        </x-ui.navbar>
-
-        <div class="flex items-center gap-x-2 text-sm text-neutral-500">
-            <span>Projects</span>
-            <x-ui.icon name="chevron-right" class="size-4" />
-            <span>Website Redesign</span>
-        </div>
-    </div>
-
-    <x-ui.theme-switcher variant="inline" />
-</x-ui.header>
+</x-ui.layout.header>
 ```
 
 ### Mobile Menu Toggle
 
-The header automatically includes a mobile menu toggle button that:
-- Only appears on mobile devices (< 768px)
-- Integrates with the sidebar's mobile overlay
-- Hidden on tablet and desktop viewports
+the toggler appears automatically next to the brand on larger screens. On mobile, add it manually inside your header.
 
 ```blade
-<x-ui.layout>
-    <x-ui.sidebar brand="My App">
-        <!-- Sidebar content -->
-    </x-ui.sidebar>
-
-    <x-ui.layout.main>
-        <x-ui.header>
-            <!-- Mobile toggle is automatically included -->
-            <x-ui.navbar class="flex-1">
-                <x-ui.navbar.item icon="home" label="Home" href="/" />
-            </x-ui.navbar>
-        </x-ui.header>
-    </x-ui.layout.main>
-</x-ui.layout>
+<x-ui.layout.header>
+    <x-ui.sidebar.toggle class="md:hidden" />
+    <!-- navbar -->
+</x-ui.layout.header>
 ```
+
+Use `md:hidden` to show it only on mobile. The variant handles everything else automatically on larger screens.
+
 
 ### Complete Layout Example
 
@@ -161,7 +128,7 @@ A full application shell with header, sidebar, and content:
     </x-ui.sidebar>
 
     <x-ui.layout.main>
-        <x-ui.header>
+        <x-ui.layout.header>
             <x-ui.navbar class="flex-1">
                 <x-ui.navbar.item icon="home" label="Home" href="/" />
                 <x-ui.navbar.item icon="bell" label="Notifications" href="/notifications" badge="3" />
@@ -171,7 +138,7 @@ A full application shell with header, sidebar, and content:
                 <x-ui.avatar src="/user.jpg" circle size="sm" />
                 <x-ui.theme-switcher variant="inline" />
             </div>
-        </x-ui.header>
+        </x-ui.layout.header>
 
         <div class="p-6">
             <h1 class="text-3xl font-bold mb-4">Dashboard</h1>
@@ -193,7 +160,7 @@ A full application shell with header, sidebar, and content:
 
 The header component consists of:
 
-- **Main Container**: `<x-ui.header>` - The header wrapper with border and padding
+- **Main Container**: `<x-ui.layout.header>` - The header wrapper with border and padding
 - **Mobile Toggle**: Auto-included button for mobile sidebar control (internal)
 - **Content Area**: Flexible space for navigation and actions
 
@@ -212,7 +179,7 @@ The header component includes:
 ### Header with User Menu
 
 ```blade
-<x-ui.header>
+<x-ui.layout.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Dashboard" href="/dashboard" />
         <x-ui.navbar.item icon="chart-bar" label="Reports" href="/reports" />
@@ -234,13 +201,13 @@ The header component includes:
             <x-ui.dropdown.item icon="arrow-right-on-rectangle" label="Logout" href="/logout" />
         </x-ui.dropdown>
     </div>
-</x-ui.header>
+</x-ui.layout.header>
 ```
 
 ### Header with Notifications
 
 ```blade
-<x-ui.header>
+<x-ui.layout.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Home" href="/" />
     </x-ui.navbar>
@@ -254,13 +221,13 @@ The header component includes:
         
         <x-ui.avatar src="/user.jpg" circle size="sm" />
     </div>
-</x-ui.header>
+</x-ui.layout.header>
 ```
 
 ### Conditional Header Content
 
 ```blade
-<x-ui.header>
+<x-ui.layout.header>
     <x-ui.navbar class="flex-1">
         <x-ui.navbar.item icon="home" label="Home" href="/" />
         
@@ -277,5 +244,5 @@ The header component includes:
             <x-ui.button variant="primary" href="/login">Sign In</x-ui.button>
         @endauth
     </div>
-</x-ui.header>
+</x-ui.layout.header>
 ```

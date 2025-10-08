@@ -189,12 +189,7 @@ Typical usage within a header component:
 - `icon:*` - Any attribute prefixed with `icon:` is passed to the icon component (e.g., `icon:class="text-red-500"`)
 - `badge:*` - Any attribute prefixed with `badge:` is passed to the badge component (e.g., `badge:variant="danger"`)
 
-## Component Structure
 
-The navbar system consists of:
-
-- **Main Component**: `<x-ui.navbar>` - The horizontal container for navigation items
-- **Item Component**: `<x-ui.navbar.item>` - Individual navigation link
 
 ## Advanced Examples
 
@@ -238,60 +233,5 @@ public $navItems = [
     @endauth
     
     <x-ui.navbar.item icon="question-mark-circle" label="Help" href="/help" />
-</x-ui.navbar>
-```
-
-### Navbar with Section Grouping
-
-```html
-<x-ui.header>
-    <x-ui.navbar class="flex-1">
-        <!-- Primary navigation -->
-        <x-ui.navbar.item icon="home" label="Home" href="/" />
-        <x-ui.navbar.item icon="chart-bar" label="Analytics" href="/analytics" />
-        
-        <span class="h-6 w-px bg-neutral-200 dark:bg-neutral-700 mx-2"></span>
-        
-        <!-- Secondary navigation -->
-        <x-ui.navbar.item icon="document-text" label="Docs" href="/docs" />
-        <x-ui.navbar.item icon="question-mark-circle" label="Support" href="/support" />
-    </x-ui.navbar>
-
-    <x-ui.avatar src="/user.jpg" circle size="sm" />
-</x-ui.header>
-```
-
-### Navbar with Custom Badge Variants
-
-```html
-<x-ui.navbar>
-    <x-ui.navbar.item 
-        icon="inbox" 
-        label="Inbox" 
-        href="/inbox"
-        badge="42"
-        badge:variant="info"
-    />
-    <x-ui.navbar.item 
-        icon="exclamation-triangle" 
-        label="Urgent" 
-        href="/urgent"
-        badge="3"
-        badge:variant="danger"
-    />
-    <x-ui.navbar.item 
-        icon="clock" 
-        label="Pending" 
-        href="/pending"
-        badge="8"
-        badge:variant="warning"
-    />
-    <x-ui.navbar.item 
-        icon="check-circle" 
-        label="Completed" 
-        href="/completed"
-        badge="156"
-        badge:variant="success"
-    />
 </x-ui.navbar>
 ```

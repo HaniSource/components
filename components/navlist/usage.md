@@ -316,15 +316,7 @@ public $menuItems = [
 </x-ui.sidebar.navlist>
 ```
 
-## Styling & Theming
-
-The navlist component uses CSS custom properties and Tailwind utilities for theming. Key styling features include:
-
-- **Hover States**: Subtle background color changes on hover
-- **Active States**: Primary color highlighting for active items
-- **Dark Mode**: Full dark mode support with appropriate color adjustments
-- **Collapsed State**: Automatic layout adjustments when sidebar is collapsed
-- **Smooth Transitions**: All state changes are animated smoothly
+## Bonus
 
 The component automatically responds to a `[data-collapsed]` attribute on a parent sidebar component for collapsed state styling.
 
