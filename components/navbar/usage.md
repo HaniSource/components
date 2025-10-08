@@ -295,22 +295,3 @@ public $navItems = [
     />
 </x-ui.navbar>
 ```
-
-## Styling & Theming
-
-The navbar component includes:
-
-- **Hover States**: Subtle background color changes on hover
-- **Active States**: Primary color highlighting for active items
-- **Dark Mode**: Full dark mode support with appropriate colors
-- **Smooth Transitions**: All state changes are animated smoothly
-- **Flexible Layout**: Horizontal flexbox with gap spacing
-
-## Accessibility Features
-
-The navbar component includes several accessibility enhancements:
-
-- **Semantic HTML**: Uses proper anchor tags for navigation
-- **Keyboard Navigation**: Full keyboard support
-- **Active State**: Clear visual indication of current page
-- **Icon Labels**: All icons paired with text labels for clarity
