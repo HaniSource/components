@@ -7,7 +7,7 @@ $classes = [
 
 <div
     {{ $attributes->class($classes) }}
-    data-slot="navlist"
+    data-slot="navbar"
 >
     {{ $slot }}
 </div>
