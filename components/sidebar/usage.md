@@ -171,6 +171,8 @@ Use `md:hidden` to show it only on mobile. The variant handles everything else a
 When your sidebar includes both main navigation and footer actions (like user settings or status indicators), use the `x-ui.sidebar.push` component to **push** the footer section to the bottom of the sidebar.
 It creates flexible spacing that ensures the footer always stays fixed at the bottom, regardless of how much content the upper section has.
 
+> When using the dropdown for navlist, You need to pass `portal` prop to the dropdown wrapper, it solves the stacking context issue  
+
 #### Example
 
 ```blade
