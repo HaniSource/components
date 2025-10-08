@@ -101,53 +101,6 @@ the toggler appears automatically next to the brand on larger screens. On mobile
 Use `md:hidden` to show it only on mobile. The variant handles everything else automatically on larger screens.
 
 
-### Complete Layout Example
-
-A full application shell with header, sidebar, and content:
-
-```blade
-<x-ui.layout>
-    <x-ui.sidebar scrollable>
-        <x-slot:brand>
-            <img src="/logo.svg" class="size-8" />
-            <span class="[:has([data-collapsed]_&)_&]:hidden font-bold">AppName</span>
-        </x-slot:brand>
-
-        <x-ui.sidebar.navlist>
-            <x-ui.sidebar.navlist.item 
-                label="Dashboard" 
-                icon="home" 
-                href="/dashboard" 
-            />
-            <x-ui.sidebar.navlist.item 
-                label="Projects" 
-                icon="folder" 
-                href="/projects" 
-            />
-        </x-ui.sidebar.navlist>
-    </x-ui.sidebar>
-
-    <x-ui.layout.main>
-        <x-ui.layout.header>
-            <x-ui.navbar class="flex-1">
-                <x-ui.navbar.item icon="home" label="Home" href="/" />
-                <x-ui.navbar.item icon="bell" label="Notifications" href="/notifications" badge="3" />
-            </x-ui.navbar>
-
-            <div class="flex gap-x-3 items-center">
-                <x-ui.avatar src="/user.jpg" circle size="sm" />
-                <x-ui.theme-switcher variant="inline" />
-            </div>
-        </x-ui.layout.header>
-
-        <div class="p-6">
-            <h1 class="text-3xl font-bold mb-4">Dashboard</h1>
-            <!-- Page content -->
-        </div>
-    </x-ui.layout.main>
-</x-ui.layout>
-```
-
 ## Component Props
 
 ### Header Component
