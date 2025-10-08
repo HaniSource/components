@@ -6,4 +6,4 @@ files:
   group/variant/default: resources/views/components/ui/navlist/group/variant/default.blade.php 
   group/variant/compact: resources/views/components/ui/navlist/group/variant/compact.blade.php
 dependencies:
-  internal: [icon,badge]
+  internal: [icon, badge, button]
