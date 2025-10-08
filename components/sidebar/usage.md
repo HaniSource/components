@@ -212,11 +212,8 @@ It creates flexible spacing that ensures the footer always stays fixed at the bo
 </x-ui.sidebar>
 ```
 
-#### Notes
 
 * `x-ui.sidebar.push` **does not render visible content**; it’s a layout utility.
-* It relies on the sidebar’s internal flexbox structure, so it must be placed **between** the main and footer sections.
-* Perfect for user menus, status indicators, or workspace selectors that should remain at the bottom.
 
 
 ### Complete Application Layout
