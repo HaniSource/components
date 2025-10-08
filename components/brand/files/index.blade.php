@@ -1,4 +1,13 @@
 {{-- resources/views/components/brand.blade.php --}}
+@aware([
+    'href' => '#',
+    'logo' => null,
+    'name' => '',
+    'alt' => '',
+    'target' => '_self',
+    'logoClass' => '',
+])
+
 @props([
     'href' => '#',
     'logo' => null,
@@ -11,7 +20,7 @@
 
 
 <a href="{{ $href }}" target="{{ $target }}"
-    {{ $attributes->merge(['class' => 'flex items-center gap-x-3 text-decoration-none hover:opacity-80 transition-opacity text-black dark:text-white']) }}>
+    {{ $attributes->merge(['class' => 'flex items-center justify-center gap-x-3 text-decoration-none hover:opacity-80 transition-opacity text-black dark:text-white']) }}>
     {{-- Logo Section --}}
     @if ($logo || isset($logo))
         <div class="flex-shrink-0">
@@ -25,6 +34,9 @@
 
     {{-- Brand Name --}}
     @if ($name)
-        <span class="font-semibold text-lg">{{ $name }}</span>
+        <div
+            data-slot="brand-name" 
+            class="font-semibold text-lg w-full"
+        >{{ $name }}</div>
     @endif
 </a>
