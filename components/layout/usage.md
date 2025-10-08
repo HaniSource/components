@@ -165,13 +165,13 @@ An application-style layout with a top header containing branding and primary ac
 @endblade
 
 
-### Collapsible Prop
+### Collapsable Prop
 
 Controls whether users can collapse the sidebar to icon-only mode on desktop, by default are collaps&ble:
 
 ```blade
 <!-- Fixed-width sidebar -->
-<x-ui.layout :collapsible="false">
+<x-ui.layout :collapsable="false">
     <!-- ... -->
 </x-ui.layout>
 ```
@@ -320,7 +320,7 @@ The Layout component automatically adapts across three breakpoints:
 ### Desktop (≥ 1024px)
 
 **Sidebar:**
-- Fully collapsible/expandable
+- Fully collapsable/expandable
 - State persists via localStorage
 - Smooth width transitions
 - Keyboard shortcuts supported

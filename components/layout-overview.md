@@ -8,7 +8,7 @@ The layout system in Sheaf UI provides a flexible foundation for building applic
 
 The system includes four core components:
 - **Layout** - The container that orchestrates layout behavior
-- **Sidebar** - Collapsible navigation with responsive behavior
+- **Sidebar** - Collapsable navigation with responsive behavior
 - **Navlist** - Structured navigation items and groups
 - **Header** - Top bar for branding and actions
 - **Navbar** - Structured navigation items for header
@@ -170,7 +170,7 @@ The root `<x-ui.layout>` component orchestrates the entire layout system. It han
 
 ### Sidebar
 
-Provides collapsible navigation with responsive behavior across all screen sizes. Adapts automatically based on parent layout variant.
+Provides collapsable navigation with responsive behavior across all screen sizes. Adapts automatically based on parent layout variant.
 
 **Key features:**
 - Mobile overlay with backdrop
@@ -212,7 +212,7 @@ Structures navigation items and groups within the sidebar. Handles active states
 
 **Features:**
 - Individual navigation items
-- Collapsible groups
+- Collapsable groups
 - Active state indicators
 - Tooltip support when sidebar collapsed
 - Flexible variants (default, compact)
@@ -249,7 +249,7 @@ Complete layout with all components working together:
 
 ```blade
 <x-ui.layout>
-    <x-ui.sidebar :collapsible="true">
+    <x-ui.sidebar :collapsable="true">
         <x-slot:brand>
             <x-ui.brand name="My App" href="/" />
         </x-slot:brand>
@@ -257,7 +257,7 @@ Complete layout with all components working together:
         <x-ui.navlist>
             <x-ui.navlist.item label="Dashboard" icon="home" href="/" />
             
-            <x-ui.navlist.group label="Content" :collapsible="true">
+            <x-ui.navlist.group label="Content" :collapsable="true">
                 <x-ui.navlist.item label="Posts" icon="document-text" href="/posts" />
                 <x-ui.navlist.item label="Pages" icon="folder" href="/pages" />
             </x-ui.navlist.group>
@@ -359,7 +359,7 @@ The layout system automatically adapts across breakpoints:
 - Tap sidebar to toggle on touch devices
 
 ### Desktop (>= 1024px)
-- Full collapsible/expandable sidebar
+- Full collapsable/expandable sidebar
 - State persists in localStorage
 - Smooth width transitions
 - Keyboard shortcuts supported

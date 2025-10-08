@@ -4,15 +4,15 @@ name: navlist
 
 ## Introduction
 
-The `Navlist` component is a **flexible**, **collapsible** navigation list system designed for sidebar navigation. It provides a clean way to organize navigation items with support for icons, badges, tooltips, grouping, and multiple visual variants. Perfect for application sidebars with responsive collapse behavior.
+The `Navlist` component is a **flexible**, **collapsable** navigation list system designed for sidebar navigation. It provides a clean way to organize navigation items with support for icons, badges, tooltips, grouping, and multiple visual variants.
 
-<!-- ## Installation
+## Installation
 
 Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `navlist` component easily:
 
 ```bash
 php artisan sheaf:install navlist
-``` -->
+```
 
 > Once installed, you can use the `<x-ui.sidebar.navlist />` component in any Blade view.
 
@@ -45,43 +45,20 @@ The simplest implementation with navigation items:
 
 ### Default Variant with Groups
 
-Organize navigation items into logical groups with labels:
+it can be used like what you saw [above](/docs/layouts/navlist#content-basic-navigation-list)
 
-```blade
-<x-ui.sidebar.navlist>
-    <x-ui.sidebar.navlist.group label="Main">
-        <x-ui.sidebar.navlist.item 
-            label="Dashboard"
-            icon="home"
-            href="/dashboard"
-        />
-        <x-ui.sidebar.navlist.item 
-            label="Analytics"
-            icon="chart-bar"
-            href="/analytics"
-        />
-    </x-ui.sidebar.navlist.group>
+@blade
+<x-md.cta                                                            
+    href="/demos/sidebar"                                    
+    label="Try Default Groups Variant in Action"
+    variant="slide"                                               
+/>
+@endblade
 
-    <x-ui.sidebar.navlist.group label="Content">
-        <x-ui.sidebar.navlist.item 
-            label="Posts"
-            icon="document-text"
-            href="/posts"
-        />
-        <x-ui.sidebar.navlist.item 
-            label="Media"
-            icon="photo"
-            href="/media"
-        />
-    </x-ui.sidebar.navlist.group>
-</x-ui.sidebar.navlist>
-```
-
-[View Demo](/demo/navlist/default-variant)
 
 ### Compact Variant
 
-A more condensed visual style for navigation groups:
+A more condensed visual style for navigation groups by adding `variant=compact` to the group wrapper:
 
 ```blade
 <x-ui.sidebar.navlist>
@@ -89,31 +66,23 @@ A more condensed visual style for navigation groups:
         label="Shop"
         variant="compact"
     >
-        <x-ui.sidebar.navlist.item 
-            label="Products"
-            icon="shopping-bag"
-            href="/shop/products"
-        />
-        <x-ui.sidebar.navlist.item 
-            label="Orders"
-            icon="shopping-cart"
-            href="/shop/orders"
-        />
-        <x-ui.sidebar.navlist.item 
-            label="Customers"
-            icon="users"
-            href="/shop/customers"
-        />
+        <!--  -->
     </x-ui.sidebar.navlist.group>
 </x-ui.sidebar.navlist>
 ```
 
-[View Demo](/demo/navlist/compact-variant)
+@blade
+<x-md.cta                                                            
+    href="/demos/sidebar?group_variant=compact"                                    
+    label="See the Compact Variant in Action"
+    variant="slide"                                               
+/>
+@endblade
 
 ## More Features
 ### Collapsable Groups
 
-Create expandable/collapsible navigation sections:
+Create expandable/collapsable navigation sections:
 
 ```blade
 <x-ui.sidebar.navlist>
@@ -275,7 +244,7 @@ If you need more control, you can manually pass an `:active` boolean prop. This 
 | `href`           | string  | `'#'`   | No       | URL the item links to                                 |
 | `active`         | boolean | `null`  | No       | Whether this item is currently active                 |
 | `badge`          | mixed   | `null`  | No       | Badge content (number or text)                        |
-| `collapsible`    | boolean | `true`  | No       | Inherited from parent, controls tooltip behavior      |
+| `collapsable`    | boolean | `true`  | No       | Inherited from parent, controls tooltip behavior      |
 
 **Note:** The `navlist.item` component also accepts prefixed attributes:
 - `icon:*` - Any attribute prefixed with `icon:` is passed to the icon component (e.g., `icon:class="text-red-500"`)

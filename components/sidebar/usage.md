@@ -4,7 +4,7 @@ name: sidebar component
 
 ## Introduction
 
-The `Sidebar` component is a **responsive**, **collapsible** navigation sidebar designed for modern web applications. It features smooth transitions, touch-friendly interactions, and intelligent behavior across mobile, tablet, and desktop viewports.
+The `Sidebar` component is a **responsive**, **collapsable** navigation sidebar designed for modern web applications. It features smooth transitions, touch-friendly interactions, and intelligent behavior across mobile, tablet, and desktop viewports.
 ## Installation
 
 Use the [sheaf artisan command](/docs/guides/cli-installation#content-component-management) to install the `sidebar` component easily:
@@ -129,7 +129,7 @@ Got it. Here’s the **clean, concise, and professional** version — short para
 
 ---
 
-### Brand on Mobile
+#### Brand on Mobile
 
 When using the `sidebar-main` variant, the brand section isn’t displayed on mobile by default. If you want it visible, render it manually inside the header or any visible container. (keep it only under `md:` breack point on other it will be on the sidebar)
 
@@ -416,7 +416,7 @@ The sidebar system is built with multiple components working together:
 
 | Prop Name     | Type    | Default | Required | Description                                    |
 | ------------- | ------- | ------- | -------- | ---------------------------------------------- |
-| `collapsible` | boolean | `true`  | No       | Whether the layout supports sidebar collapse   |
+| `collapsable` | boolean | `true`  | No       | Whether the layout supports sidebar collapse   |
 | `slot`        | mixed   | `''`    | Yes      | Contains sidebar and main content              |
 
 ### Sidebar Component
