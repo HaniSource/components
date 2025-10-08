@@ -765,6 +765,64 @@ Combine all features for sophisticated dropdown menus.
     </x-slot:menu>
 </x-ui.dropdown>
 ```
+
+Here's the section to add to your dropdown documentation:
+
+## Portal Mode
+
+The `portal` prop controls where the dropdown menu is rendered in the DOM. By default (`portal="false"`), the menu renders as a child of the dropdown component. When enabled (`portal="true"`), the menu is teleported to the end of the `<body>` element.
+
+### When to Use Portal
+
+Enable portal mode when using dropdowns inside containers with overflow constraints:
+
+```blade
+<!-- Sidebar with overflow-y-auto -->
+<x-ui.sidebar>
+    <x-ui.dropdown portal>
+        <x-slot:button>Profile Settings</x-slot:button>
+        <x-slot:menu class="w-56">
+            <!-- Menu renders at body level, no clipping -->
+        </x-slot:menu>
+    </x-ui.dropdown>
+</x-ui.sidebar>
+```
+
+**Common scenarios:**
+- Dropdowns in collapsible sidebars
+- Dropdowns in modals or dialogs
+- Dropdowns in scrollable panels
+- Any container with `overflow: hidden` or `overflow: auto`
+
+### Trade-offs
+
+**Without Portal (default):**
+- ✅ Simpler DOM structure
+- ✅ CSS variables from parent are accessible
+- ❌ Can be clipped by parent's overflow
+
+**With Portal:**
+- ✅ Never clipped by overflow contexts
+- ✅ Always appears on top (proper z-index stacking)
+- ❌ Loses access to parent CSS custom properties
+- ❌ Slightly more complex DOM (teleported element)
+
+### CSS Variable Limitation
+
+When `portal="true"`, the dropdown menu loses access to parent CSS custom properties because it's rendered outside the original DOM hierarchy. Use fixed widths instead:
+
+```blade
+<!-- ❌ Won't work with portal -->
+<x-ui.dropdown portal>
+    <x-slot:menu class="w-[calc(var(--sidebar-width)-1rem)]">
+
+<!-- ✅ Use fixed width -->
+<x-ui.dropdown portal>
+    <x-slot:menu class="w-56">
+```
+
+**Note:** The menu remains properly positioned via `x-anchor` regardless of portal usage.
+
 ## Component Props
 
 ### Dropdown (Main Component)
@@ -772,6 +830,7 @@ Combine all features for sophisticated dropdown menus.
 | Prop Name | Type | Default | Required | Description |
 |-----------|------|---------|----------|-------------|
 | `position` | string | `'bottom-center'` | No | Dropdown positioning: `bottom-center`, `bottom-start`, `bottom-end`, `top-center`, `top-start`, `top-end` |
+| `portal` | string | `null` | No | teleported dropdown: `portal` prop |
 | `class` | string | `''` | No | Additional CSS classes |
 
 ### Dropdown Item
