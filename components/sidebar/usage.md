@@ -100,7 +100,6 @@ The recommended approach is to use the [brand component](/docs/components/brand)
     </x-ui.navlist>
 </x-ui.sidebar>
 ```
-
 #### Custom Logo Variants
 
 If you need different logos for expanded and collapsed states (e.g., a full logo vs. an icon-only variant), you can control this using CSS classes that respond to the sidebar's state:
@@ -126,7 +125,46 @@ If you need different logos for expanded and collapsed states (e.g., a full logo
 - `[:has([data-collapsed]_&)_&]`: Applies when the sidebar is collapsed
 - `[:not(:has([data-collapsed]_&))_&]`: Applies when the sidebar is expanded
 
+Got it. Here’s the **clean, concise, and professional** version — short paragraphs, no fluff, clear language:
 
+---
+
+### Brand on Mobile
+
+When using the `sidebar-main` variant, the brand section isn’t displayed on mobile by default. If you want it visible, render it manually inside the header or any visible container. (keep it only under `md:` breack point on other it will be on the sidebar)
+
+```blade
+<x-ui.layout.header>
+    <x-ui.brand name="Sheaf UI" href="/" class="md:hidden">
+        <x-slot:logo>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 100 100"
+                class="size-5">
+                <rect x="15" y="10" width="80" height="15" fill="currentColor" rx="5" />
+                <rect x="15" y="30" width="60" height="15" fill="currentColor" />
+                <rect x="15" y="50" width="30" height="15" fill="currentColor" />
+                <rect x="15" y="55" width="10" height="30" fill="currentColor" />
+            </svg>
+        </x-slot:logo>
+    </x-ui.brand>
+</x-ui.layout.header>
+```
+
+This gives you full control over brand placement on mobile screens while keeping the sidebar minimal.
+
+
+### Sidebar Toggler
+
+In the `sidebar-main` variant, the toggler appears automatically next to the brand on larger screens. On mobile, add it manually inside your header.
+
+```blade
+<x-ui.layout.header>
+    <x-ui.sidebar.toggle class="md:hidden" />
+    <!-- navbar -->
+</x-ui.layout.header>
+```
+
+Use `md:hidden` to show it only on mobile. The variant handles everything else automatically on larger screens.
 
 ### Sidebar with Footer Content
 

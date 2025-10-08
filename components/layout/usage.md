@@ -164,8 +164,6 @@ An application-style layout with a top header containing branding and primary ac
 />
 @endblade
 
----
-
 
 ### Collapsible Prop
 
