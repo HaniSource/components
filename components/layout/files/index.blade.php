@@ -11,7 +11,7 @@
     };
 @endphp
 
-{{-- use the propraite layout based on the variant --}}
+{{-- use the propriate layout based on the variant --}}
 <x-dynamic-component 
     :component="$variantPath" 
     :collapsable="$collapsable" 
