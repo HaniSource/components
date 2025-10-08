@@ -18,7 +18,7 @@ The system includes four core components:
 Use the Sheaf artisan command to install all layout components:
 
 ```bash
-php artisan sheaf:install layout sidebar header navlist navbar
+php artisan sheaf:install layout sidebar navlist navbar
 ```
 
 
