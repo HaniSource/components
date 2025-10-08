@@ -1,0 +1,9 @@
+files:
+  index: resources/views/components/ui/navlist/index.blade.php
+  item: resources/views/components/ui/navlist/item.blade.php
+  group: resources/views/components/ui/navlist/group.blade.php
+  has-tooltip: resources/views/components/ui/navlist/has-tooltip.blade.php
+  group/variant/default: resources/views/components/ui/navlist/group/variant/default.blade.php 
+  group/variant/compact: resources/views/components/ui/navlist/group/variant/compact.blade.php
+dependencies:
+  internal: [icon, badge, button]

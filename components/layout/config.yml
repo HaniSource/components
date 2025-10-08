@@ -1,0 +1,7 @@
+files:
+  index: resources/views/components/ui/layout/index.blade.php
+  header: resources/views/components/ui/layout/header.blade.php
+  main: resources/views/components/ui/layout/main.blade.php
+  runtime: resources/views/components/ui/layout/runtime.blade.php
+  variant/header-sidebar: resources/views/components/ui/layout/variant/header-sidebar.blade.php 
+  variant/sidebar-main: resources/views/components/ui/layout/variant/sidebar-main.blade.php

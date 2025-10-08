@@ -1,0 +1,5 @@
+files:
+  index: resources/views/components/ui/navbar/index.blade.php
+  item: resources/views/components/ui/navbar/item.blade.php
+dependencies:
+  internal: [icon, badge, button]

@@ -200,6 +200,7 @@
             this.close();
             document.body.style.overflow = '';
         },
+        
         handleMovingStart(event) {
             this.moving = true;
             this.startY = this.currentY = event.touches[0].clientY;
@@ -218,18 +219,18 @@
     }"
     x-id="['modal']"
     x-bind:data-modal-open="isOpen"
+    x-bind:data-modal-id="modalId"
     @if($ariaLabelledby)
         aria-labelledby="{{ $ariaLabelledby }}"
     @elseif($hasHeading)
         x-bind:aria-labelledby="$id('modal') + '-heading'"
     @endif
 
-    @class([
+    {{ $attributes->class([
         'modal-component',
         $displayClasses,
         'hidden' => !$visible
-    ])
-
+    ]) }}
     x-on:keydown.window="handleEscapeKey($event)"
 >
     {{-- Trigger Element --}}
