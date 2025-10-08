@@ -1,5 +1,5 @@
 ---
-name: Layout Component
+name: 'layout'
 ---
 
 ## Introduction

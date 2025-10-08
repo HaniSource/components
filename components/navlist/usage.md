@@ -1,5 +1,5 @@
 ---
-name: navlist
+name: 'navlist'
 ---
 
 ## Introduction

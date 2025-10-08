@@ -2,6 +2,5 @@ files:
   index: resources/views/components/ui/sidebar/index.blade.php
   push: resources/views/components/ui/sidebar/push.blade.php
   toggle: resources/views/components/ui/sidebar/toggle.blade.php
-
 dependencies:
   internal: [icon, button, navlist]

@@ -1,5 +1,5 @@
 ---
-name: navbar
+name: 'navbar'
 ---
 
 ## Introduction

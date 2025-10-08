@@ -1,5 +1,5 @@
 ---
-name: sidebar component 
+name: 'sidebar' 
 ---
 
 ## Introduction
