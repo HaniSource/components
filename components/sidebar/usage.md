@@ -397,7 +397,14 @@ A full example with header, navigation, and content:
 </x-ui.layout>
 ```
 
-
+## Sidebar Width
+@blade
+<x-md.cta                                                            
+    href="/docs/layouts/layout#content-essential-css-variables"                                    
+    label="need to change the sidebar width ?"
+    ctaLabel="Visit Docs"
+/>
+@endblade
 
 ## Component Structure
 

@@ -117,62 +117,97 @@ The header component consists of:
 - **Mobile Toggle**: Auto-included button for mobile sidebar control (internal)
 - **Content Area**: Flexible space for navigation and actions
 
-## Styling & Layout
-
-The header component includes:
-
-- Fixed minimum height matching sidebar brand area (`--header-height: 4rem`)
-- Bottom border for visual separation
-- Automatic flexbox layout for content alignment
-- Responsive padding that adapts to viewport size
-- Dark mode support with appropriate border colors
-
+## Header Height
+@blade
+<x-md.cta                                                            
+    href="/docs/layouts/layout#content-essential-css-variables"                                    
+    label="needs to change the header height ?"
+    ctaLabel="Visit Docs"
+/>
+@endblade
 ## Advanced Examples
 
-### Header with User Menu
+### Using Dropdown Menus
 
 ```blade
 <x-ui.layout.header>
-    <x-ui.navbar class="flex-1">
-        <x-ui.navbar.item icon="home" label="Dashboard" href="/dashboard" />
-        <x-ui.navbar.item icon="chart-bar" label="Reports" href="/reports" />
-    </x-ui.navbar>
-
-    <div class="flex items-center gap-x-4">
+    <x-ui.sidebar.toggle class="md:hidden"/>
+    <x-ui.navbar class="flex-1 hidden lg:flex">
+        <x-ui.navbar.item
+            icon="home"
+            label="Home" 
+            href="#"
+        />
+        <x-ui.navbar.item 
+            icon="cog-6-tooth" 
+            label="Settings" 
+            badge="3"
+            badge:color="orange"
+            badge:variant="outline"
+            href="#"                    
+        />
         <x-ui.dropdown>
-            <x-slot:trigger>
-                <x-ui.button variant="ghost">
-                    <x-ui.avatar src="/user.jpg" size="sm" circle />
-                    <span>John Doe</span>
-                    <x-ui.icon name="chevron-down" class="size-4" />
-                </x-ui.button>
-            </x-slot:trigger>
-
-            <x-ui.dropdown.item icon="user" label="Profile" href="/profile" />
-            <x-ui.dropdown.item icon="cog" label="Settings" href="/settings" />
-            <x-ui.dropdown.divider />
-            <x-ui.dropdown.item icon="arrow-right-on-rectangle" label="Logout" href="/logout" />
+            <x-slot:button>
+                <x-ui.navbar.item 
+                    icon="shopping-bag"
+                    icon:variant="min" 
+                    label="Store" 
+                />
+            </x-slot:button>
+            
+            <x-slot:menu>
+                <x-ui.dropdown.item icon="shopping-bag" href="#">
+                    Products
+                </x-ui.dropdown.item>
+                <x-ui.dropdown.item icon="receipt-percent" href="#">
+                    Orders
+                </x-ui.dropdown.item>
+                <x-ui.dropdown.item icon="users" href="#">
+                    Customers
+                </x-ui.dropdown.item>
+                <x-ui.dropdown.item icon="ticket" href="#">
+                    Discounts
+                </x-ui.dropdown.item>
+            </x-slot:menu>
         </x-ui.dropdown>
-    </div>
-</x-ui.layout.header>
-```
-
-### Header with Notifications
-
-```blade
-<x-ui.layout.header>
-    <x-ui.navbar class="flex-1">
-        <x-ui.navbar.item icon="home" label="Home" href="/" />
     </x-ui.navbar>
 
-    <div class="flex items-center gap-x-3">
-        <x-ui.button variant="ghost" icon="bell" class="relative">
-            <span class="absolute top-1 right-1 size-2 bg-red-500 rounded-full"></span>
-        </x-ui.button>
-        
-        <x-ui.button variant="ghost" icon="envelope" />
-        
-        <x-ui.avatar src="/user.jpg" circle size="sm" />
+    <div class="flex ml-auto gap-x-3 items-center">
+            <x-ui.dropdown position="bottom-end">
+            <x-slot:button class="justify-center">
+                <x-ui.avatar size="sm" src="/iman.png" circle alt="Profile Picture" />
+            </x-slot:button>
+
+            <x-slot:menu class="w-56">
+                <x-ui.dropdown.group label="signed in as">
+                    <x-ui.dropdown.item>
+                        iman@gmail.com
+                    </x-ui.dropdown.item>
+                </x-ui.dropdown.group>
+
+                <x-ui.dropdown.separator />
+
+                <x-ui.dropdown.item href="#" wire:navigate.live>
+                    Account
+                </x-ui.dropdown.item>
+
+                <x-ui.dropdown.separator />
+
+                <form
+                    action="#"
+                    method="post"
+                    class="contents"
+                >
+                    @csrf
+                    <x-ui.dropdown.item as="button" type="submit">
+                        Sign Out
+                    </x-ui.dropdown.item>
+                </form>
+
+            </x-slot:menu>
+        </x-ui.dropdown>
+
+        <x-ui.theme-switcher variant="inline" />
     </div>
 </x-ui.layout.header>
 ```
