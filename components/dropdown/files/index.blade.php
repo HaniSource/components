@@ -1,4 +1,7 @@
-@props(['position' => 'bottom-center'])
+@props([
+    'position' => 'bottom-center',
+    'portal' => false 
+])
 
 @php
     $classes = [
@@ -6,7 +9,7 @@
         'grid grid-cols-[auto_1fr_auto]',
         'z-10 [:where(&)]:max-w-96 [:where(&)]:min-w-40 text-start',
         'bg-white dark:bg-neutral-900 border border-black/10 dark:border-white/10 space-y-0.5',
-        'rounded-(--dropdown-radius) p-(--dropdown-padding) [--dropdown-radius:var(--radius-box)] [--dropdown-padding:--spacing(.75)]', // adjut padding safely as you need, will still looks perfect
+        'rounded-(--dropdown-radius) p-(--dropdown-padding) [--dropdown-radius:var(--radius-box)] [--dropdown-padding:--spacing(.75)]',
     ];  
 @endphp
 
@@ -56,6 +59,7 @@
         x-id="['dropdown-button']"
         class="relative"
     >
+        <!-- Button -->
         <div 
             x-ref="button"
             {{ $button->attributes->class('flex items-center px-2 py-1 rounded-field') }}
@@ -70,7 +74,10 @@
             {{ $button }}
         </div>
         
-        <!-- Main dropdown panel -->
+        @if($portal)
+            <template x-teleport="body">
+        @endif
+        
         <div 
             x-show="open"
             x-ref="panel"
@@ -89,10 +96,14 @@
             x-transition:leave-end="opacity-0 scale-95"
             x-on:click.away="close($refs.button)"
             x-bind:id="$id('dropdown-button')"
-            style="display: none; backdrop-filter: blur(64px); -webkit-backdrop-filter: blur(64px);"
+            style="display: none; backdrop-filter: blur(64px); -webkit-backdrop-filter: blur(64px);z-index:9999"
             {{ $menu->attributes->class(Arr::toCssClasses($classes)) }}
         >
             {{ $menu }}
         </div>
+        
+        @if($portal)
+            </template>
+        @endif
     </div>
 </div>
